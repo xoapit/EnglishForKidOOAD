@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishForKid", "EnglishForKid\EnglishForKid.csproj", "{C2F9023F-9523-4548-9373-CE97FC179E78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishForKid.Tests", "EnglishForKid.Tests\EnglishForKid.Tests.csproj", "{2F757B56-A19E-4D97-95F3-69306157F5E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIEnglishForKid", "APIEnglishForKid\APIEnglishForKid.csproj", "{2A0B084C-DC6D-4D9D-8CAC-B8FAFBDDA9CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2F9023F-9523-4548-9373-CE97FC179E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F9023F-9523-4548-9373-CE97FC179E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F9023F-9523-4548-9373-CE97FC179E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F9023F-9523-4548-9373-CE97FC179E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F757B56-A19E-4D97-95F3-69306157F5E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F757B56-A19E-4D97-95F3-69306157F5E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F757B56-A19E-4D97-95F3-69306157F5E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F757B56-A19E-4D97-95F3-69306157F5E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0B084C-DC6D-4D9D-8CAC-B8FAFBDDA9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0B084C-DC6D-4D9D-8CAC-B8FAFBDDA9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0B084C-DC6D-4D9D-8CAC-B8FAFBDDA9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0B084C-DC6D-4D9D-8CAC-B8FAFBDDA9CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,238 @@
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\ApplicationInsights.config
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\csc.exe
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\csc.exe.config
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\csc.rsp
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\csi.exe
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\csi.rsp
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\System.AppContext.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\vbc.exe
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\vbc.exe.config
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\vbc.rsp
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\VBCSCompiler.exe
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\APIEnglishForKid.dll.config
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\APIEnglishForKid.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\APIEnglishForKid.pdb
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Antlr3.Runtime.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\EntityFramework.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\EntityFramework.SqlServer.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.Web.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Newtonsoft.Json.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Net.Http.Formatting.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Helpers.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.WebHost.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Mvc.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Optimization.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Razor.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Razor.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\WebGrease.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\EntityFramework.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\EntityFramework.SqlServer.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Newtonsoft.Json.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Net.Http.Formatting.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Helpers.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.WebHost.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Mvc.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Optimization.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.Razor.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Razor.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Antlr3.Runtime.pdb
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.Web.xml
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.dll
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.pdb
+C:\Users\Xoapit\documents\visual studio 2017\Projects\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csprojResolveAssemblyReference.cache
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\ApplicationInsights.config
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\csc.exe
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\csc.exe.config
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\csc.rsp
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\csi.exe
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\csi.rsp
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\System.AppContext.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\vbc.exe
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\vbc.exe.config
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\vbc.rsp
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\VBCSCompiler.exe
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\APIEnglishForKid.dll.config
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\APIEnglishForKid.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\APIEnglishForKid.pdb
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Antlr3.Runtime.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\EntityFramework.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\EntityFramework.SqlServer.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.Web.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Newtonsoft.Json.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Net.Http.Formatting.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Helpers.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.WebHost.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Mvc.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Optimization.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Razor.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Razor.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\WebGrease.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\EntityFramework.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\EntityFramework.SqlServer.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Newtonsoft.Json.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Net.Http.Formatting.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Helpers.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.WebHost.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Mvc.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Optimization.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.Razor.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Razor.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Antlr3.Runtime.pdb
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.Web.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csprojResolveAssemblyReference.cache
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.pdb
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.Migrations.ChangePropertiesOfSomeModel.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csproj.GenerateResource.Cache
+C:\Users\Xoapit\Documents\GitHub\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.Migrations.ChangeUniqueUserNameProperty.resources
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\ApplicationInsights.config
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\csc.exe
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\csc.exe.config
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\csc.rsp
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\csi.exe
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\csi.rsp
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\System.AppContext.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\System.Collections.Immutable.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\System.IO.FileSystem.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\System.Reflection.Metadata.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\vbc.exe
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\vbc.exe.config
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\vbc.rsp
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\VBCSCompiler.exe
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\roslyn\VBCSCompiler.exe.config
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\APIEnglishForKid.dll.config
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\APIEnglishForKid.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\APIEnglishForKid.pdb
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Antlr3.Runtime.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\EntityFramework.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\EntityFramework.SqlServer.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.Agent.Intercept.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.DependencyCollector.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.Web.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.WindowsServer.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.ApplicationInsights.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.Web.Infrastructure.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Newtonsoft.Json.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Net.Http.Formatting.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Helpers.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Http.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Http.WebHost.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Mvc.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Optimization.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Razor.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.WebPages.Deployment.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.WebPages.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.WebPages.Razor.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\WebGrease.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\EntityFramework.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\EntityFramework.SqlServer.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Newtonsoft.Json.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Net.Http.Formatting.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Helpers.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Http.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Http.WebHost.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Mvc.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Optimization.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.Razor.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.WebPages.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.WebPages.Deployment.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\System.Web.WebPages.Razor.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Antlr3.Runtime.pdb
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.ApplicationInsights.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.DependencyCollector.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.WindowsServer.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\bin\Microsoft.AI.Web.xml
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\obj\Debug\APIEnglishForKid.csprojResolveAssemblyReference.cache
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\obj\Debug\APIEnglishForKid.Migrations.ChangePropertiesOfSomeModel.resources
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\obj\Debug\APIEnglishForKid.Migrations.ChangeUniqueUserNameProperty.resources
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\obj\Debug\APIEnglishForKid.csproj.GenerateResource.Cache
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\obj\Debug\APIEnglishForKid.csproj.CoreCompileInputs.cache
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\obj\Debug\APIEnglishForKid.dll
+D:\GITHUP\EnglishForKid1\APIEnglishForKid\obj\Debug\APIEnglishForKid.pdb
