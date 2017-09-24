@@ -26,6 +26,13 @@ namespace EnglishForKid
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Areas/Admin/Views/Theme/vendors/bootstrap/dist/css").Include(
+                      "~/Areas/Admin/Views/Theme/vendors/bootstrap/dist/css/bootstrap.min.css"
+                      ));
+
+            bundles.Add(new ScriptBundle("~/bundles/jsadmin").Include(
+                "~/Areas/Admin/Views/Theme/vendors/bootstrap/dist/js/bootstrap.min.js"));
         }
     }
 }
