@@ -1,4 +1,3 @@
-﻿document(function () {
-    alert("xin chao");
-    $('#menu_home').focus();
-})
+﻿$(document).ready(function () {
+    $('#menu_home').click();
+});

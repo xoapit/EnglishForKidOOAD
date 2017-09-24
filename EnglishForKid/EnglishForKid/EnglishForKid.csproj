@@ -189,6 +189,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LessonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StudentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
@@ -283,6 +285,8 @@
     <Content Include="Areas\Admin\Views\Theme\production\images\visa.png" />
     <Content Include="Areas\Admin\Views\Theme\production\inbox.html" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Student\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Lesson\Index.cshtml" />
     <None Include="Areas\Admin\Views\Theme\production\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Theme\production\index4.html" />
     <Content Include="Areas\Admin\Views\Theme\production\index2.html" />

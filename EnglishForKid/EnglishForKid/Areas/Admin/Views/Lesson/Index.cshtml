@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Theme/production/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box-container">
+            <div class="title">
+                <label class="text-bold red">DANH SÁCH BÀI HỌC</label>
+                <i class="fa fa-book pull-right gray-light"></i>
+            </div>
+            <hr />
+            <div>
+                <button type="submit" class="btn btn-primary pull-right">thêm mới</button>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th>id bài học</th>
+                            <th>tên bài học</th>
+                            <th>hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>bh0001</td>
+                            <td>unit 1:</td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">xem</button>
+                                <button type="submit" class="btn btn-success">sửa</button>
+                                <button type="submit" class="btn btn-danger">xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>bh0002</td>
+                            <td>unit 2</td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">xem</button>
+                                <button type="submit" class="btn btn-success">sửa</button>
+                                <button type="submit" class="btn btn-danger">xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>bh0002</td>
+                            <td>unit 3</td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">xem</button>
+                                <button type="submit" class="btn btn-success">sửa</button>
+                                <button type="submit" class="btn btn-danger">xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
