@@ -1,0 +1,162 @@
+﻿body {
+}
+
+.nav_menu {
+    padding-top: 10px;
+    padding-bottom:10px;
+    padding-left:12px;
+}
+
+.gray {
+    color: #999999;
+}
+
+.red {
+    color: #e74c3c;
+}
+
+.green {
+    color: #2ecc71;
+}
+
+.blue {
+    color: #3498db;
+}
+
+.gray-light {
+    color: #dae1eb;
+}
+
+.box-container {
+    background: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.03);
+    padding: 20px;
+    margin: 5px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.title {
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.margin-small {
+    margin: 5px;
+}
+
+.padding-small {
+    padding: 5px;
+}
+
+.white {
+    background: #ffffff;
+    color: #111111;
+}
+
+.menu_section ul li a {
+    color: #000000;
+}
+
+.profile_infomation {
+    color: #111111;
+    padding: 25px 10px 5px 5px;
+}
+
+.site_title i, .site_title span {
+    color: #e74c3c;
+}
+
+.site_title i {
+    border: #e74c3c;
+}
+
+.shadow {
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.03);
+}
+
+.background {
+    background: #f3f5f9;
+}
+
+.border-radius {
+    border-radius: 3px;
+}
+
+.black {
+    color: #333333;
+}
+
+.gray {
+    color: #666666;
+}
+
+.portlet.light {
+    padding: 12px 20px 15px 20px;
+    background-color: #fff;
+}
+
+.portlet {
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.03);
+}
+
+.portlet {
+    margin-top: 0px;
+    margin-bottom: 25px;
+    padding: 0px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+
+div {
+    display: block;
+}
+
+body {
+    color: #333333;
+    font-family: "Open Sans", sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    direction: "ltr";
+    font-size: 14px;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #333333;
+    background-color: #f3f5f9;
+}
+
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
