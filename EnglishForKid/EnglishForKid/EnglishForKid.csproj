@@ -191,8 +191,10 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LessonController.cs" />
     <Compile Include="Areas\Admin\Controllers\StudentController.cs" />
+    <Compile Include="Controllers\GiaoVienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\KhaoSatVuiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3743,6 +3745,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\style-custom.css" />
     <Content Include="Content\files\image\avatar.png" />
+    <Content Include="Content\table.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -4628,6 +4631,7 @@
     <Content Include="Areas\Admin\Views\Theme\vendors\validator\README.md" />
     <Content Include="Areas\Admin\Views\Theme\vendors\validator\validator.jquery.json" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.11.2.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
@@ -4659,6 +4663,12 @@
     <Content Include="Views\Register\Create.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\index.cshtml" />
+    <Content Include="Views\GiaoVien\AddGV.cshtml" />
+    <Content Include="Views\GiaoVien\Index.cshtml" />
+    <Content Include="Views\GiaoVien\ThongTinGV.cshtml" />
+    <Content Include="Views\KhaoSatVui\Add.cshtml" />
+    <Content Include="Views\KhaoSatVui\Index.cshtml" />
+    <Content Include="Views\KhaoSatVui\Xem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4696,7 +4706,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59211</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59211/</IISUrl>
+          <IISUrl>http://localhost:61400/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:61400/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
