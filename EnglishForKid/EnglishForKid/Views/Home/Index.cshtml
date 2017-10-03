@@ -13,21 +13,7 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Upload file</h2>
-        @{ 
-            foreach(Account account in ViewBag.Accounts)
-            {
-                <a>@account.UserName</a>
-                <br/>
-            }
-        }
-        @using (Html.BeginForm("file", "Home", FormMethod.Post,
-                             new { enctype = "multipart/form-data" }))
-        {
-            <input type="file" name="file" id="file" /><br><br>
-            <input type="submit" value="Upload file" />
-            <br><br>
-            @ViewBag.Message
-        }
+  
         
 
         <h2>Getting started</h2>
@@ -36,7 +22,6 @@
             enables a clean separation of concerns and gives you full control over markup
             for enjoyable, agile development.
         </p>
-        @Html.ActionLink("Export Excel","ExportExcelAccount")
         <a href="/Home/Export/" >Export</a>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
