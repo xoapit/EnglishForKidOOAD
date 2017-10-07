@@ -11,7 +11,7 @@ namespace APIEnglishForKid.Models
         public string RoleName { get; set; }
 
         public string Description { get; set; }
-        [NotMapped]
+
         public virtual ICollection<Authority> Authorities { get; set; }
 
         public Role()
