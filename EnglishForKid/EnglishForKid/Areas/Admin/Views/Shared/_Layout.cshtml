@@ -357,12 +357,20 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
+<<<<<<< HEAD
                             <li><a href="../../Admin/HocSinh"><i class="fa fa-circle-o"></i> Student</a></li>
                             <li><a href="../../Admin/GiaoVien"><i class="fa fa-circle-o"></i> Teacher</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="../../Admin/Home/Index">
+                            <li><a href="" id="linkStudent"><i class="fa fa-circle-o"></i> Student</a></li>
+                            <li><a href="" id="linkTeacher"><i class="fa fa-circle-o"></i> Teacher</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" id="linkLesson">
+>>>>>>> 20e3ad709f104ce2ef884138b95913214d79b0ad
                             <i class="fa fa-th"></i> <span>Lesson</span>
                             <span class="pull-right-container">
                                 <small class="label pull-right bg-red">hot</small>
@@ -370,10 +378,23 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages/widgets.html">
+                        <a href="" id="linkSurvey">
                             <i class="fa fa-pie-chart"></i> <span>Survey</span>
-                            <span class="pull-right-container">
                                 <small class="label pull-right bg-green">new</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" id="linkFeedback">
+                            <i class="fa fa-pie-chart"></i> <span>Feedback</span>
+                            <small class="label pull-right bg-green">new</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" id="linkPhanQuyen">
+                            <i class="fa fa-pie-chart"></i> <span>Phân quyền</span>
+                            <small class="label pull-right bg-green">new</small>
                             </span>
                         </a>
                     </li>
@@ -381,7 +402,13 @@
             </section>
             <!-- /.sidebar -->
         </aside>
-
+        <script>
+            document.getElementById('linkFeedback').href = window.location.origin + "/Admin/Feedback/Index";
+            document.getElementById('linkStudent').href = window.location.origin + "/Admin/Student/Index";
+            document.getElementById('linkTeacher').href = window.location.origin + "/Admin/GiaoVien/Index";
+            document.getElementById('linkLesson').href = window.location.origin + "/Admin/Lesson/Index";
+            document.getElementById('linkSurvey').href = window.location.origin + "/Admin/Survey/Index";
+            </script>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->

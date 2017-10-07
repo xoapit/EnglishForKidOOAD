@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/table.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Index</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h3 style="color: #5a738e" align="center">DANH SÁCH ĐÓNG GÓP</h3>
+
+        <table class="table-responsive table-hover responstable">
+
+            <thead>
+                <tr align="center" style="">
+                    <th style="color: #fff; text-align: center">ID</th>
+                    <th style="color: #fff; text-align: center">Tiêu đề</th>
+                    <th style="color: #fff; text-align: center">Nội dung</th>
+                    <th style="color: #fff; text-align: center;">Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Góp ý</td>
+                    <td>Góp ý</td>
+                    <td>
+                        <button type="Submit" class="btn btn-success">Chi tiết</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Góp ý</td>
+                    <td>Góp ý</td>
+                    <td>
+                        <button type="Submit" class="btn btn-success">Chi tiết</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Góp ý</td>
+                    <td>Góp ý</td>
+                    <td>
+                        <button type="Submit" class="btn btn-success">Chi tiết</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="box box-danger">
+        <div class="box-header with-border">
+            <h3 class="box-title"> CHI TIẾT GÓP Ý</h3>
+                <form>
+                    <div class="form-group row">
+                        <div class="col-sm-2"></div>
+                        <label for="" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="" value="">
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2"></div>
+                        <label for="" class="col-sm-2 col-form-label">Content</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="5" id=""></textarea>
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <div class="col-sm-5"></div>
+                        <div class="col-sm-2">
+                           
+                        </div>
+                        <div class="col-sm-5"></div>
+                    </div>
+                </form>
+            </div></div>
+</body>
+</html>
+
+
+
+
