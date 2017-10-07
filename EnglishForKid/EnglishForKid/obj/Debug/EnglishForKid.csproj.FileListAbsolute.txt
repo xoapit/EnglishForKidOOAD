@@ -503,3 +503,4 @@ C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Mi
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.Web.xml
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.dll
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.pdb
+C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.csprojResolveAssemblyReference.cache
