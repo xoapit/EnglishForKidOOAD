@@ -3,34 +3,25 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-
-    <link href="~/Content/table.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <title>Index</title>
-
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery-1.11.2.min.js"></script>
-</head>
-<body>
-    <div id="container">
-        <h3 style="color: #5a738e" align="center">DANH SÁCH ĐÓNG GÓP</h3>
-
-        <table class="table-responsive table-hover responstable">
-
+<div class="box box-success" id="container">
+    <div class="box-header with-border">
+        <h3 class="box-title">DANH SÁCH ĐÓNG GÓP</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body padding-large">
+        <table class="table table-bordered table-striped text-center">
             <thead>
                 <tr align="center" style="">
-                    <th style="color: #fff; text-align: center">ID</th>
-                    <th style="color: #fff; text-align: center">Tiêu đề</th>
-                    <th style="color: #fff; text-align: center">Nội dung</th>
-                    <th style="color: #fff; text-align: center;">Hành Động</th>
+                    <th>ID</th>
+                    <th>Tiêu đề</th>
+                    <th>Nội dung</th>
+                    <th>Hành Động</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,44 +52,51 @@
                         <button type="Submit" class="btn btn-danger">Xóa</button>
                     </td>
                 </tr>
-
             </tbody>
         </table>
     </div>
-    <div class="box box-danger">
-        <div class="box-header with-border">
-            <h3 class="box-title"> CHI TIẾT GÓP Ý</h3>
-                <form>
-                    <div class="form-group row">
-                        <div class="col-sm-2"></div>
-                        <label for="" class="col-sm-2 col-form-label">Title</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="" value="">
-                        </div>
-                        <div class="col-sm-2"></div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-2"></div>
-                        <label for="" class="col-sm-2 col-form-label">Content</label>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" rows="5" id=""></textarea>
-                        </div>
-                        <div class="col-sm-2">
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="form-group">
-                        <div class="col-sm-5"></div>
-                        <div class="col-sm-2">
-                           
-                        </div>
-                        <div class="col-sm-5"></div>
-                    </div>
-                </form>
-            </div></div>
-</body>
-</html>
+</div>
 
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title"> CHI TIẾT GÓP Ý</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body padding-large">
+        <form>
+            <div class="form-group">
+                <label for="">Title</label>
+                <div >
+                    <input type="text" class="form-control disabled" readonly id="" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-1 col-xs-12 text-left">From</label>
+                <div class="col-md-5 col-xs-12">
+                    <input type="text" class="form-control disabled" readonly id="" value="">
+                </div>
+                <label class="col-md-1 col-xs-12 text-left">Time</label>
+                <div class="col-md-5 col-xs-12">
+                    <input type="text" class="form-control disabled" readonly id="" value="">
+                </div>
+            </div>
+            <div class="form-group">
 
+                <label for="">Content</label>
+                <div >
+                    <textarea class="form-control" rows="5" id=""></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>
 
 
