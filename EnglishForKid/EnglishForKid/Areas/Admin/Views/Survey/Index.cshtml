@@ -4,34 +4,25 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-
-    <link href="~/Content/table.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <title>Index</title>
-
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery-1.11.2.min.js"></script>
-</head>
-<body>
-    <div id="container">
-        <h3 style="color: #5a738e" align="center">DANH SÁCH CÂU HỎI KHẢO SÁT VUI</h3>
-        <button type="Submit" class="btn btn-primary">Thêm mới</button>
-
-        <table class="table-responsive table-hover responstable">
-
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">DANH SÁCH CÂU HỎI KHẢO SÁT VUI</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body padding-large">
+        <button type="Submit" class="btn btn-primary pull-right margin-bottom">Thêm mới</button>
+        <table class="table table-bordered table-responsive table-hover text-center">
             <thead>
                 <tr align="center" style="">
-                    <th style="color: #fff; text-align: center">ID</th>
-                    <th style="color: #fff; text-align: center">Nội dung</th>
-                    <th style="color: #fff; text-align: center">Trạng thái</th>
-                    <th style="color: #fff; text-align: center;">Hành Động</th>
+                    <th>ID</th>
+                    <th>Nội dung</th>
+                    <th>Trạng thái</th>
+                    <th>Hành Động</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,69 +59,53 @@
             </tbody>
         </table>
     </div>
-    <div class="box box-danger">
-        <div class="box-header with-border">
-            <h3 class="box-title" style="color: #5a738e" align="center">THÊM MỚI CÂU HỎI KHẢO SÁT</h3>
+</div>
 
-            <form>
-                <div class="form-group row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-10">
-                        <label for="">Nội dung</label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8">
-                        <textarea class="form-control" rows="5" id=""></textarea>
-                    </div>
-                    <div class="col-sm-2"></div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-10">
-                        <label for="">Đáp án trả lời</label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-2"></div>
-                    <label class="col-sm-1 control-label">A</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                    <label class="col-sm-1 control-label">B</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                    <div class="col-sm-2"></div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-2"></div>
-                    <label class="col-sm-1 control-label">C</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                    <label class="col-sm-1 control-label">D</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                    <div class="col-sm-2"></div>
-                </div>
-                <div class="clearfix"></div>
-                <div class="form-group row">
-                    <div class="col-sm-5"></div>
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-primary btn-label-left">
-                            <span><i class="fa fa-clock-o txt-danger"></i></span>
-                            Thêm
-                        </button>
-                    </div>
-                    <div class="col-sm-5"></div>
-                </div>
-            </form>
-            </div></div>
-</body>
-</html>
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title">THÊM MỚI CÂU HỎI KHẢO SÁT</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+
+    <div class="box-body padding-larger">
+        <form>
+            <div class="form-group">
+                <label for="">Nội dung</label>
+                <textarea class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Số Đáp Án">Số Đáp Án</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Đáp án 1</label>
+                <input type="text" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>Đáp án 2</label>
+                <input type="text" class="form-control" placeholder="">
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-label-left">
+                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                    Thêm
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
 

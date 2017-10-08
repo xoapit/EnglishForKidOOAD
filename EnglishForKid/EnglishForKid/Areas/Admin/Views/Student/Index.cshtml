@@ -4,11 +4,9 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 <!-- /.box -->
-
 <div class="box box-success">
     <div class="box-header with-border">
         <h3 class="box-title">DANH SÁCH HỌC SINH</h3>
-
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                 <i class="fa fa-minus"></i>
@@ -46,7 +44,6 @@
                     <td>Win 98+ / OSX.2+</td>
                     <td>1.8</td>
                     <td>
-
                         <button type="Submit" class="btn btn-primary">Xem</button>
                         <button type="Submit" class="btn btn-success">Sửa</button>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default">
@@ -54,15 +51,13 @@
                         </button>
                     </td>
                 </tr>
-
             </tbody>
-           
+
         </table>
     </div>
     <!-- /.box-body -->
 </div>
 <!-- /.box -->
-
 <div class="modal fade" id="modal-default" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -87,95 +82,88 @@
 <div class="box box-danger">
     <div class="box-header with-border">
         <h3 class="box-title">THÔNG TIN HỌC SINH</h3>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                    <div class="box">
-                        <div class="box-content">
-                            <h4 class="page-header"></h4>
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group row">
-                                    <label class="col-sm-2 control-label">Ảnh hồ sơ</label>
-                                    <div class="col-sm-3">
-                                        <img src="../img/admin.png" alt="..." width="30%" class="img-circle profile_img">
-                                    </div>
-                                    <label class="col-sm-2 control-label">Giới tính</label>
-                                    <div class="col-sm-3">
-                                        <div class="radio">
-                                            <label><input type="radio" name="optradio">Nam</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="optradio">Nữ</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 control-label">Username</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" placeholder="Username">
-                                    </div>
-                                    <label class="col-sm-2 control-label">Địa chỉ</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" placeholder="Địa chỉ">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 control-label">Tên học sinh</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" placeholder="Tên giáo viên">
-                                    </div>
-                                    <label class="col-sm-2 control-label">Số điện thoại</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" placeholder="Số điện thoại">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 control-label">Ngày sinh</label>
-                                    <div class="col-sm-3">
-                                        <div class='input-group date' id='birthdate'>
-                                            <input type='text' class="form-control" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <label class="col-sm-2 control-label">Email</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 control-label">Mật khẩu</label>
-                                    <div class="col-sm-3">
-                                        <div class='' id=''>
-                                            <input type='text' class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2 control-label"></div>
-                                    <div class="col-sm-3">
-                                    </div>
-                                </div>
-
-                        <div class="clearfix"></div>
-
-
-                        
-                        </form>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body padding-large">
+        <form class="form-horizontal" role="form">
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Ảnh hồ sơ</label>
+                <div class="col-sm-3">
+                    <img src="../img/admin.png" alt="..." width="30%" class="img-circle profile_img">
+                </div>
+                <label class="col-sm-2 control-label">Giới tính</label>
+                <div class="col-sm-3">
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Nam</label>
                     </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Nữ</label>
                     </div>
                 </div>
             </div>
-        </div></div>
-                      
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <label class="col-sm-2 control-label">Địa chỉ</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Địa chỉ">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Tên học sinh</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Tên giáo viên">
+                </div>
+                <label class="col-sm-2 control-label">Số điện thoại</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Số điện thoại">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Ngày sinh</label>
+                <div class="col-sm-3">
+                    <div class='input-group date' id='birthdate'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Mật khẩu</label>
+                <div class="col-sm-3">
+                    <div class='' id=''>
+                        <input type='text' class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-2 control-label"></div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
 
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $("#birthdate").datepicker({
-                        autoclose: true,
-                        format: 'yyyy-mm-dd',
-                        todayHighlight: true,
-                        clearBtn: true,
-                        orientation: 'bottom'
-                    });
-                });
-            </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#birthdate").datepicker({
+                autoclose: true,
+                format: 'yyyy-mm-dd',
+                todayHighlight: true,
+                clearBtn: true,
+                orientation: 'bottom'
+            });
+        });
+    </script>

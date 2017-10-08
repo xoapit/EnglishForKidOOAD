@@ -408,7 +408,6 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bi
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\System.Web.WebPages.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\System.Web.WebPages.Razor.xml
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Antlr3.Runtime.pdb
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Newtonsoft.Json.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\System.Net.Http.Formatting.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\System.Web.Http.xml
@@ -503,3 +502,4 @@ C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Mi
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.Web.xml
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.dll
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.pdb
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.csprojResolveAssemblyReference.cache
