@@ -383,7 +383,6 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\System.Web.WebPages.Razor.xml
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Antlr3.Runtime.pdb
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.ApplicationInsights.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.xml
