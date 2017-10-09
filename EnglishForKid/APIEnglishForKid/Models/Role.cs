@@ -12,11 +12,8 @@ namespace APIEnglishForKid.Models
 
         public string Description { get; set; }
 
-        public virtual ICollection<Authority> Authorities { get; set; }
-
         public Role()
         {
-            Authorities = new List<Authority>();
         }
     }
 }

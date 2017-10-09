@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class GrantPermissionsController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/GrantPermissions
+        public IQueryable<GrantPermission> GetGrantPermissions()
         {
-            return db.Profiles;
+            return db.GrantPermissions;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/GrantPermissions/5
+        [ResponseType(typeof(GrantPermission))]
+        public IHttpActionResult GetGrantPermission(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            GrantPermission grantPermission = db.GrantPermissions.Find(id);
+            if (grantPermission == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(grantPermission);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/GrantPermissions/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutGrantPermission(Guid id, GrantPermission grantPermission)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != grantPermission.FunctionID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(grantPermission).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!GrantPermissionExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/GrantPermissions
+        [ResponseType(typeof(GrantPermission))]
+        public IHttpActionResult PostGrantPermission(GrantPermission grantPermission)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.GrantPermissions.Add(grantPermission);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (GrantPermissionExists(grantPermission.FunctionID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = grantPermission.FunctionID }, grantPermission);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/GrantPermissions/5
+        [ResponseType(typeof(GrantPermission))]
+        public IHttpActionResult DeleteGrantPermission(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            GrantPermission grantPermission = db.GrantPermissions.Find(id);
+            if (grantPermission == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.GrantPermissions.Remove(grantPermission);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(grantPermission);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool GrantPermissionExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.GrantPermissions.Count(e => e.FunctionID == id) > 0;
         }
     }
 }

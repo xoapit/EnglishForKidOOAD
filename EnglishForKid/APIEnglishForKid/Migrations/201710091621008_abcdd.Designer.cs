@@ -7,13 +7,13 @@ namespace APIEnglishForKid.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangePropertiesOfSomeModel : IMigrationMetadata
+    public sealed partial class abcdd : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangePropertiesOfSomeModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(abcdd));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709200022405_ChangePropertiesOfSomeModel"; }
+            get { return "201710091621008_abcdd"; }
         }
         
         string IMigrationMetadata.Source

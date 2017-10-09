@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class BusinessesController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/Businesses
+        public IQueryable<Business> GetBusinesses()
         {
-            return db.Profiles;
+            return db.Businesses;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/Businesses/5
+        [ResponseType(typeof(Business))]
+        public IHttpActionResult GetBusiness(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Business business = db.Businesses.Find(id);
+            if (business == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(business);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/Businesses/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutBusiness(Guid id, Business business)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != business.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(business).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!BusinessExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/Businesses
+        [ResponseType(typeof(Business))]
+        public IHttpActionResult PostBusiness(Business business)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.Businesses.Add(business);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (BusinessExists(business.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = business.ID }, business);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/Businesses/5
+        [ResponseType(typeof(Business))]
+        public IHttpActionResult DeleteBusiness(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Business business = db.Businesses.Find(id);
+            if (business == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.Businesses.Remove(business);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(business);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool BusinessExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.Businesses.Count(e => e.ID == id) > 0;
         }
     }
 }

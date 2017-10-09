@@ -186,25 +186,36 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\AnswerSurveysController.cs" />
+    <Compile Include="Controllers\AuthenticationTokensController.cs" />
+    <Compile Include="Controllers\AuthoritiesController.cs" />
+    <Compile Include="Controllers\BusinessesController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\FeedbacksController.cs" />
+    <Compile Include="Controllers\FunctionsController.cs" />
+    <Compile Include="Controllers\GrantPermissionsController.cs" />
+    <Compile Include="Controllers\LessonsController.cs" />
+    <Compile Include="Controllers\LevelsController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
-    <Compile Include="Controllers\Accounts1Controller.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuestionSurveysController.cs" />
+    <Compile Include="Controllers\RatesController.cs" />
+    <Compile Include="Controllers\ResultsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709200022405_ChangePropertiesOfSomeModel.cs" />
-    <Compile Include="Migrations\201709200022405_ChangePropertiesOfSomeModel.Designer.cs">
-      <DependentUpon>201709200022405_ChangePropertiesOfSomeModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709200035148_ChangeUniqueUserNameProperty.cs" />
-    <Compile Include="Migrations\201709200035148_ChangeUniqueUserNameProperty.Designer.cs">
-      <DependentUpon>201709200035148_ChangeUniqueUserNameProperty.cs</DependentUpon>
+    <Compile Include="Migrations\201710091621008_abcdd.cs" />
+    <Compile Include="Migrations\201710091621008_abcdd.Designer.cs">
+      <DependentUpon>201710091621008_abcdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AuthenticationToken.cs" />
+    <Compile Include="Models\Level.cs" />
+    <Compile Include="Models\GrantPermission.cs" />
+    <Compile Include="Models\Function.cs" />
+    <Compile Include="Models\Business.cs" />
     <Compile Include="Models\Authority.cs" />
     <Compile Include="Models\BaseDataObject.cs" />
     <Compile Include="Models\Category.cs" />
@@ -215,6 +226,7 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\QuestionSurvey.cs" />
     <Compile Include="Models\Rate.cs" />
+    <Compile Include="Models\AnswerSurvey.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoleName.cs" />
@@ -650,11 +662,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709200022405_ChangePropertiesOfSomeModel.resx">
-      <DependentUpon>201709200022405_ChangePropertiesOfSomeModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709200035148_ChangeUniqueUserNameProperty.resx">
-      <DependentUpon>201709200035148_ChangeUniqueUserNameProperty.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710091621008_abcdd.resx">
+      <DependentUpon>201710091621008_abcdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

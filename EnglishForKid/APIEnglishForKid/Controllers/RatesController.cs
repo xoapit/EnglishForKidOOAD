@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class RatesController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/Rates
+        public IQueryable<Rate> GetRates()
         {
-            return db.Profiles;
+            return db.Rates;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/Rates/5
+        [ResponseType(typeof(Rate))]
+        public IHttpActionResult GetRate(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Rate rate = db.Rates.Find(id);
+            if (rate == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(rate);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/Rates/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutRate(Guid id, Rate rate)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != rate.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(rate).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!RateExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/Rates
+        [ResponseType(typeof(Rate))]
+        public IHttpActionResult PostRate(Rate rate)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.Rates.Add(rate);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (RateExists(rate.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = rate.ID }, rate);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/Rates/5
+        [ResponseType(typeof(Rate))]
+        public IHttpActionResult DeleteRate(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Rate rate = db.Rates.Find(id);
+            if (rate == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.Rates.Remove(rate);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(rate);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool RateExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.Rates.Count(e => e.ID == id) > 0;
         }
     }
 }

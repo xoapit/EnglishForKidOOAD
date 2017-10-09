@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class AuthenticationTokensController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/AuthenticationTokens
+        public IQueryable<AuthenticationToken> GetAuthenticationTokens()
         {
-            return db.Profiles;
+            return db.AuthenticationTokens;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/AuthenticationTokens/5
+        [ResponseType(typeof(AuthenticationToken))]
+        public IHttpActionResult GetAuthenticationToken(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            AuthenticationToken authenticationToken = db.AuthenticationTokens.Find(id);
+            if (authenticationToken == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(authenticationToken);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/AuthenticationTokens/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutAuthenticationToken(Guid id, AuthenticationToken authenticationToken)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != authenticationToken.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(authenticationToken).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!AuthenticationTokenExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/AuthenticationTokens
+        [ResponseType(typeof(AuthenticationToken))]
+        public IHttpActionResult PostAuthenticationToken(AuthenticationToken authenticationToken)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.AuthenticationTokens.Add(authenticationToken);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (AuthenticationTokenExists(authenticationToken.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = authenticationToken.ID }, authenticationToken);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/AuthenticationTokens/5
+        [ResponseType(typeof(AuthenticationToken))]
+        public IHttpActionResult DeleteAuthenticationToken(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            AuthenticationToken authenticationToken = db.AuthenticationTokens.Find(id);
+            if (authenticationToken == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.AuthenticationTokens.Remove(authenticationToken);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(authenticationToken);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool AuthenticationTokenExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.AuthenticationTokens.Count(e => e.ID == id) > 0;
         }
     }
 }

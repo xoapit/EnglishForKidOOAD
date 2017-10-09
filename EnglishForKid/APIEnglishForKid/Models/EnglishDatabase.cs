@@ -115,6 +115,12 @@ namespace APIEnglishForKid.Models
         public DbSet<Result> Results { get; set; }
         public DbSet<Role> Roles { get; set; }
 
+        public DbSet<Business> Businesses { get; set; }
+        public DbSet<Level> Levels { get; set; }
+        public DbSet<Function> Functions { get; set; }
+        public DbSet<GrantPermission> GrantPermissions { get; set; }
+        public DbSet<AnswerSurvey> AnswerSurveys { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>().HasKey(e => e.ID);
@@ -124,10 +130,12 @@ namespace APIEnglishForKid.Models
             //one-to-many 
             modelBuilder.Entity<Lesson>()
                         .HasRequired<Account>(s => s.Account) // Lesson entity requires Account 
-                        .WithMany(s => s.Lessons) // Account entity includes many Lesson entities
+                        .WithMany() // Account entity includes many Lesson entities
                         .HasForeignKey(s => s.AccountID)
                         .WillCascadeOnDelete(false); //disable scade 
 
         }
+
+        public System.Data.Entity.DbSet<APIEnglishForKid.Models.AuthenticationToken> AuthenticationTokens { get; set; }
     }
 }

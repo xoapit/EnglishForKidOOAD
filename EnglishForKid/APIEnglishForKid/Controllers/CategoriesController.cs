@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class CategoriesController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/Categories
+        public IQueryable<Category> GetCategories()
         {
-            return db.Profiles;
+            return db.Categories;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/Categories/5
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult GetCategory(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(category);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/Categories/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutCategory(Guid id, Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != category.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(category).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!CategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/Categories
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult PostCategory(Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.Categories.Add(category);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (CategoryExists(category.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = category.ID }, category);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/Categories/5
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult DeleteCategory(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.Categories.Remove(category);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(category);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool CategoryExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.Categories.Count(e => e.ID == id) > 0;
         }
     }
 }

@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class AuthoritiesController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/Authorities
+        public IQueryable<Authority> GetAuthorities()
         {
-            return db.Profiles;
+            return db.Authorities;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/Authorities/5
+        [ResponseType(typeof(Authority))]
+        public IHttpActionResult GetAuthority(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Authority authority = db.Authorities.Find(id);
+            if (authority == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(authority);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/Authorities/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutAuthority(Guid id, Authority authority)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != authority.RoleID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(authority).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!AuthorityExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/Authorities
+        [ResponseType(typeof(Authority))]
+        public IHttpActionResult PostAuthority(Authority authority)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.Authorities.Add(authority);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (AuthorityExists(authority.RoleID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = authority.RoleID }, authority);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/Authorities/5
+        [ResponseType(typeof(Authority))]
+        public IHttpActionResult DeleteAuthority(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Authority authority = db.Authorities.Find(id);
+            if (authority == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.Authorities.Remove(authority);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(authority);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool AuthorityExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.Authorities.Count(e => e.RoleID == id) > 0;
         }
     }
 }

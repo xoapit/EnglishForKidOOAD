@@ -7,7 +7,7 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Repository
 {
-    public class AuthorityRepository : GenericRepository<Authority>
+    public class AuthorityRepository : GenericRepository<Business>
     {
         public AuthorityRepository(EnglishDatabase englishDatabse) : base(englishDatabse)
         {

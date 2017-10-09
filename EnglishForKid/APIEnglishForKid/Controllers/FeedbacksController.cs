@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class FeedbacksController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/Feedbacks
+        public IQueryable<Feedback> GetFeedbacks()
         {
-            return db.Profiles;
+            return db.Feedbacks;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/Feedbacks/5
+        [ResponseType(typeof(Feedback))]
+        public IHttpActionResult GetFeedback(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Feedback feedback = db.Feedbacks.Find(id);
+            if (feedback == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(feedback);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/Feedbacks/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutFeedback(Guid id, Feedback feedback)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != feedback.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(feedback).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!FeedbackExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/Feedbacks
+        [ResponseType(typeof(Feedback))]
+        public IHttpActionResult PostFeedback(Feedback feedback)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.Feedbacks.Add(feedback);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (FeedbackExists(feedback.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = feedback.ID }, feedback);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/Feedbacks/5
+        [ResponseType(typeof(Feedback))]
+        public IHttpActionResult DeleteFeedback(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Feedback feedback = db.Feedbacks.Find(id);
+            if (feedback == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.Feedbacks.Remove(feedback);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(feedback);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool FeedbackExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.Feedbacks.Count(e => e.ID == id) > 0;
         }
     }
 }

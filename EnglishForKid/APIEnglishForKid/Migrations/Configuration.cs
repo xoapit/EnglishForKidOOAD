@@ -9,7 +9,7 @@ namespace APIEnglishForKid.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(APIEnglishForKid.Models.EnglishDatabase context)

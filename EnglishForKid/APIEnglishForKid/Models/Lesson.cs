@@ -19,6 +19,7 @@ namespace APIEnglishForKid.Models
 
         public Guid AccountID { get; set; }
 
+        public virtual Level Levels { get; set; }
         public virtual Account Account { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

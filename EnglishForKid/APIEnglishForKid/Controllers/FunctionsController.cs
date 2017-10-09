@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class FunctionsController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/Functions
+        public IQueryable<Function> GetFunctions()
         {
-            return db.Profiles;
+            return db.Functions;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/Functions/5
+        [ResponseType(typeof(Function))]
+        public IHttpActionResult GetFunction(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Function function = db.Functions.Find(id);
+            if (function == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(function);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/Functions/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutFunction(Guid id, Function function)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != function.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(function).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!FunctionExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/Functions
+        [ResponseType(typeof(Function))]
+        public IHttpActionResult PostFunction(Function function)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.Functions.Add(function);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (FunctionExists(function.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = function.ID }, function);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/Functions/5
+        [ResponseType(typeof(Function))]
+        public IHttpActionResult DeleteFunction(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Function function = db.Functions.Find(id);
+            if (function == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.Functions.Remove(function);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(function);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool FunctionExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.Functions.Count(e => e.ID == id) > 0;
         }
     }
 }

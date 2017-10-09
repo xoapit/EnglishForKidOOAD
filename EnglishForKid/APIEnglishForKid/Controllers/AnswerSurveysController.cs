@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class AnswerSurveysController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/AnswerSurveys
+        public IQueryable<AnswerSurvey> GetAnswerSurveys()
         {
-            return db.Profiles;
+            return db.AnswerSurveys;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/AnswerSurveys/5
+        [ResponseType(typeof(AnswerSurvey))]
+        public IHttpActionResult GetAnswerSurvey(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            AnswerSurvey answerSurvey = db.AnswerSurveys.Find(id);
+            if (answerSurvey == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(answerSurvey);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/AnswerSurveys/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutAnswerSurvey(Guid id, AnswerSurvey answerSurvey)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != answerSurvey.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(answerSurvey).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!AnswerSurveyExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/AnswerSurveys
+        [ResponseType(typeof(AnswerSurvey))]
+        public IHttpActionResult PostAnswerSurvey(AnswerSurvey answerSurvey)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.AnswerSurveys.Add(answerSurvey);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (AnswerSurveyExists(answerSurvey.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = answerSurvey.ID }, answerSurvey);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/AnswerSurveys/5
+        [ResponseType(typeof(AnswerSurvey))]
+        public IHttpActionResult DeleteAnswerSurvey(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            AnswerSurvey answerSurvey = db.AnswerSurveys.Find(id);
+            if (answerSurvey == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.AnswerSurveys.Remove(answerSurvey);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(answerSurvey);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool AnswerSurveyExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.AnswerSurveys.Count(e => e.ID == id) > 0;
         }
     }
 }

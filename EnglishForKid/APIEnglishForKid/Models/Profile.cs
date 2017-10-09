@@ -23,6 +23,9 @@ namespace APIEnglishForKid.Models
         public Profile()
         {
             CreateAt = DateTime.Now;
+            Birthday = DateTime.Now;
+            UpdateAt = DateTime.Now;
+            Gender = false;
         }
     }
 }

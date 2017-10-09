@@ -12,44 +12,44 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Controllers
 {
-    public class ProfilesController : ApiController
+    public class LessonsController : ApiController
     {
         private EnglishDatabase db = new EnglishDatabase();
 
-        // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        // GET: api/Lessons
+        public IQueryable<Lesson> GetLessons()
         {
-            return db.Profiles;
+            return db.Lessons;
         }
 
-        // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult GetProfile(Guid id)
+        // GET: api/Lessons/5
+        [ResponseType(typeof(Lesson))]
+        public IHttpActionResult GetLesson(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Lesson lesson = db.Lessons.Find(id);
+            if (lesson == null)
             {
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(lesson);
         }
 
-        // PUT: api/Profiles/5
+        // PUT: api/Lessons/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProfile(Guid id, Profile profile)
+        public IHttpActionResult PutLesson(Guid id, Lesson lesson)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != profile.ID)
+            if (id != lesson.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(profile).State = EntityState.Modified;
+            db.Entry(lesson).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(id))
+                if (!LessonExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace APIEnglishForKid.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult PostProfile(Profile profile)
+        // POST: api/Lessons
+        [ResponseType(typeof(Lesson))]
+        public IHttpActionResult PostLesson(Lesson lesson)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Profiles.Add(profile);
+            db.Lessons.Add(lesson);
 
             try
             {
@@ -87,7 +87,7 @@ namespace APIEnglishForKid.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProfileExists(profile.ID))
+                if (LessonExists(lesson.ID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace APIEnglishForKid.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.ID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = lesson.ID }, lesson);
         }
 
-        // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
-        public IHttpActionResult DeleteProfile(Guid id)
+        // DELETE: api/Lessons/5
+        [ResponseType(typeof(Lesson))]
+        public IHttpActionResult DeleteLesson(Guid id)
         {
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
+            Lesson lesson = db.Lessons.Find(id);
+            if (lesson == null)
             {
                 return NotFound();
             }
 
-            db.Profiles.Remove(profile);
+            db.Lessons.Remove(lesson);
             db.SaveChanges();
 
-            return Ok(profile);
+            return Ok(lesson);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace APIEnglishForKid.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProfileExists(Guid id)
+        private bool LessonExists(Guid id)
         {
-            return db.Profiles.Count(e => e.ID == id) > 0;
+            return db.Lessons.Count(e => e.ID == id) > 0;
         }
     }
 }
