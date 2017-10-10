@@ -1,0 +1,2 @@
+C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI.Tests\obj\Debug\EnglishForKidAPI.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI.Tests\obj\Debug\EnglishForKidAPI.Tests.csproj.CoreCompileInputs.cache
