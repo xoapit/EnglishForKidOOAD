@@ -47,7 +47,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="index2.html" class="logo">
+            <a href="../Home/Index" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>EFK</b></span>
                 <!-- logo for regular state and mobile devices -->
@@ -343,27 +343,27 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="active treeview">
-                        <a href="../Admin/Home/Index">
+                    <li class="active">
+                        <a href="" id="linkHome">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-files-o"></i>
+                            <i class="fa fa-user"></i>
                             <span>Account</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../../Admin/HocSinh" id="linkStudent"><i class="fa fa-circle-o"></i> Student</a></li>
-                            <li><a href="../../Admin/GiaoVien" id="linkTeacher"><i class="fa fa-circle-o"></i> Teacher</a></li>
+                            <li><a href="" id="linkStudent"><i class="fa fa-circle-o"></i> Student</a></li>
+                            <li><a href="" id="linkTeacher"><i class="fa fa-circle-o"></i> Teacher</a></li>
                         </ul>
                     </li>              
-                    <li class="treeview">
-                        <a href="" id="linkLesson">
-                            <i class="fa fa-th"></i> <span>Lesson</span>
+                    <li class="">
+                        <a href="../Lesson/Index" id="linkLesson">
+                            <i class="fa fa-book"></i> <span>Lesson</span>
                             <span class="pull-right-container">
                                 <small class="label pull-right bg-red">hot</small>
                             </span>
@@ -378,13 +378,12 @@
                     <li>
                         <a href="" id="linkFeedback">
                             <i class="fa fa-support"></i> <span>Feedback</span>
-                            <small class="label pull-right bg-green">new</small>
+                            <small class="label pull-right bg-red-active">10</small>
                         </a>
                     </li>
                     <li>
                         <a href="" id="linkPhanQuyen">
                             <i class="fa fa-deafness"></i> <span>Phân quyền</span>
-                            <small class="label pull-right bg-green">new</small>
                         </a>
                     </li>
                 </ul>
@@ -393,6 +392,7 @@
         </aside>
         <script>
             document.getElementById('linkFeedback').href = window.location.origin + "/Admin/Feedback/Index";
+            document.getElementById('linkHome').href = window.location.origin + "/Admin/Home/Index";
             document.getElementById('linkStudent').href = window.location.origin + "/Admin/Student/Index";
             document.getElementById('linkTeacher').href = window.location.origin + "/Admin/GiaoVien/Index";
             document.getElementById('linkLesson').href = window.location.origin + "/Admin/Lesson/Index";
