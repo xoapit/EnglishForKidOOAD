@@ -469,5 +469,6 @@ C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csproj.GenerateResource.Cache
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.dll
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.pdb
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csprojResolveAssemblyReference.cache
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.Migrations.abcdd.resources
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csproj.GenerateResource.Cache
