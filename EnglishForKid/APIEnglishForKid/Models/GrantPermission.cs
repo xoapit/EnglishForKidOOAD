@@ -11,10 +11,10 @@ namespace APIEnglishForKid.Models
     {
         [Column(Order = 0), Key, ForeignKey("Function")]
         public Guid FunctionID { get; set; }
-        [Column(Order = 1), Key, ForeignKey("Account")]
-        public Guid AccountID { get; set; }
+        [Column(Order = 1), Key, ForeignKey("ApplicationUser")]
+        public string ApplicationUserID { get; set; }
 
         public virtual Function Function { get; set; }
-        public virtual Account Account { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

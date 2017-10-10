@@ -17,10 +17,10 @@ namespace APIEnglishForKid.Models
         public DateTime CreateAt { get; set; }
         public string Tag { get; set; }
 
-        public Guid AccountID { get; set; }
+        public string ApplicationUserID { get; set; }
 
         public virtual Level Levels { get; set; }
-        public virtual Account Account { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Rate> Rates { get; set; }

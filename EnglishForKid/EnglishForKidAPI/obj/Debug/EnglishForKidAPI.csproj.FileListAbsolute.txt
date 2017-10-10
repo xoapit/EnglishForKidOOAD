@@ -203,8 +203,14 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Microsoft.AI.Web.xml
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csprojResolveAssemblyReference.cache
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitialCreate.resources
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csproj.GenerateResource.Cache
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.pdb
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitDatabase1.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csproj.GenerateResource.Cache
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csprojResolveAssemblyReference.cache
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitDatabase2.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitDatabase3.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitDatabase4.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitDatabase5.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitDatabase6.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.InitDatabase7.resources

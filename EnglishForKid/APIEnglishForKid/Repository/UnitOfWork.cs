@@ -13,9 +13,7 @@ namespace APIEnglishForKid.Repository
         private EnglishDatabase _englishDatabase = null;
 
         private AccountRepository _accountRepository = null;
-        private ProfileRepository _profileRepository = null;
-        private AuthorityRepository _authorityRepository = null;
-
+        
         private UnitOfWork()
         {
             _englishDatabase = new EnglishDatabase();
@@ -43,30 +41,6 @@ namespace APIEnglishForKid.Repository
                 }
                 return _accountRepository;
             }
-        }
-
-        public ProfileRepository ProfileRepository
-        {
-            get
-            {
-                if (_profileRepository == null)
-                {
-                    _profileRepository = new ProfileRepository(_englishDatabase);
-                }
-                return _profileRepository;
-            }
-        }
-
-        public AuthorityRepository AuthorityRepository
-        {
-            get
-            {
-                if (_authorityRepository == null)
-                {
-                    _authorityRepository = new AuthorityRepository(_englishDatabase);
-                }
-                return _authorityRepository;
-            }
-        }
+        }   
     }
 }

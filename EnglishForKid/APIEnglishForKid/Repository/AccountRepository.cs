@@ -7,15 +7,15 @@ using APIEnglishForKid.Models;
 
 namespace APIEnglishForKid.Repository
 {
-    public class AccountRepository : GenericRepository<Account>, IAccountRepository
+    public class AccountRepository : GenericRepository<ApplicationUser>, IAccountRepository
     {
         public AccountRepository(EnglishDatabase englishDatabse) : base(englishDatabse)
         {
         }
 
-        public Account GetAccountByUserName(string username)
+        public ApplicationUser GetAccountByUserName(string username)
         {
-            return _database.Accounts.Where(x => x.UserName == username).First();
+            return _database.Users.Where(x => x.UserName == username).First();
         }
     }
 }

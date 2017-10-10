@@ -9,6 +9,6 @@ namespace APIEnglishForKid.Repository
 {
     interface IAccountRepository
     {
-        Account GetAccountByUserName(string username);
+        ApplicationUser GetAccountByUserName(string username);
     }
 }

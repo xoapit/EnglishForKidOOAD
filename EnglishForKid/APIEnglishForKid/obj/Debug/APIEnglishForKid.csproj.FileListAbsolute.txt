@@ -71,9 +71,6 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.AI.Web.xml
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csprojResolveAssemblyReference.cache
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.Migrations.abcdd.resources
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csproj.GenerateResource.Cache
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.pdb
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.AspNet.Identity.Core.dll
@@ -95,3 +92,6 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\bin\System.Web.Http.Owin.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csprojResolveAssemblyReference.cache
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.Migrations.InitDatabase9.resources
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\APIEnglishForKid\obj\Debug\APIEnglishForKid.csproj.GenerateResource.Cache

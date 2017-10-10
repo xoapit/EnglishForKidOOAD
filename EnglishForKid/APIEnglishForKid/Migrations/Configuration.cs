@@ -1,5 +1,8 @@
 namespace APIEnglishForKid.Migrations
 {
+    using APIEnglishForKid.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,18 +17,17 @@ namespace APIEnglishForKid.Migrations
 
         protected override void Seed(APIEnglishForKid.Models.EnglishDatabase context)
         {
-            //  This method will be called after migrating to the latest version.
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EnglishDatabase()));
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var user = new ApplicationUser()
+            {
+                UserName = "xoapit",
+                Email = "taquyit@gmail.com",
+                EmailConfirmed = true,
+                FullName = "Quy Ho"
+            };
+
+            manager.Create(user, "123456");
         }
     }
 }

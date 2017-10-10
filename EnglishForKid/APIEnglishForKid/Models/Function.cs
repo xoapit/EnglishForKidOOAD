@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,10 +12,10 @@ namespace APIEnglishForKid.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Guid RoleID { get; set; }
+        public string IdentityRoleID { get; set; }
         public Guid BusinessID { get; set; }
         
-        public virtual Role Role { get; set; }
         public virtual Business Business { get; set; }
+        public virtual IdentityRole IdentityRole { get; set; }
     }
 }

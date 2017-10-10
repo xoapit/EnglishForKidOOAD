@@ -226,20 +226,72 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Constants\ApplicationConfig.cs" />
+    <Compile Include="Controllers\AnswerSurveysController.cs" />
+    <Compile Include="Controllers\AuthenticationTokensController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\BusinessesController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\FeedbacksController.cs" />
+    <Compile Include="Controllers\FunctionsController.cs" />
+    <Compile Include="Controllers\GrantPermissionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\LessonsController.cs" />
+    <Compile Include="Controllers\LevelsController.cs" />
+    <Compile Include="Controllers\QuestionSurveysController.cs" />
+    <Compile Include="Controllers\RatesController.cs" />
+    <Compile Include="Controllers\ResultsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710081426099_InitialCreate.cs" />
-    <Compile Include="Migrations\201710081426099_InitialCreate.Designer.cs">
-      <DependentUpon>201710081426099_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201710101443572_InitDatabase1.cs" />
+    <Compile Include="Migrations\201710101443572_InitDatabase1.Designer.cs">
+      <DependentUpon>201710101443572_InitDatabase1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101509253_InitDatabase2.cs" />
+    <Compile Include="Migrations\201710101509253_InitDatabase2.Designer.cs">
+      <DependentUpon>201710101509253_InitDatabase2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101532063_InitDatabase3.cs" />
+    <Compile Include="Migrations\201710101532063_InitDatabase3.Designer.cs">
+      <DependentUpon>201710101532063_InitDatabase3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101611031_InitDatabase4.cs" />
+    <Compile Include="Migrations\201710101611031_InitDatabase4.Designer.cs">
+      <DependentUpon>201710101611031_InitDatabase4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101640123_InitDatabase5.cs" />
+    <Compile Include="Migrations\201710101640123_InitDatabase5.Designer.cs">
+      <DependentUpon>201710101640123_InitDatabase5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101700018_InitDatabase6.cs" />
+    <Compile Include="Migrations\201710101700018_InitDatabase6.Designer.cs">
+      <DependentUpon>201710101700018_InitDatabase6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710101702281_InitDatabase7.cs" />
+    <Compile Include="Migrations\201710101702281_InitDatabase7.Designer.cs">
+      <DependentUpon>201710101702281_InitDatabase7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AnswerSurvey.cs" />
+    <Compile Include="Models\AuthenticationToken.cs" />
+    <Compile Include="Models\BaseDataObject.cs" />
+    <Compile Include="Models\Business.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\Function.cs" />
+    <Compile Include="Models\GrantPermission.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Lesson.cs" />
+    <Compile Include="Models\Level.cs" />
+    <Compile Include="Models\QuestionSurvey.cs" />
+    <Compile Include="Models\Rate.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -304,6 +356,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BaseApi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -321,8 +374,26 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710081426099_InitialCreate.resx">
-      <DependentUpon>201710081426099_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710101443572_InitDatabase1.resx">
+      <DependentUpon>201710101443572_InitDatabase1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101509253_InitDatabase2.resx">
+      <DependentUpon>201710101509253_InitDatabase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101532063_InitDatabase3.resx">
+      <DependentUpon>201710101532063_InitDatabase3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101611031_InitDatabase4.resx">
+      <DependentUpon>201710101611031_InitDatabase4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101640123_InitDatabase5.resx">
+      <DependentUpon>201710101640123_InitDatabase5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101700018_InitDatabase6.resx">
+      <DependentUpon>201710101700018_InitDatabase6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710101702281_InitDatabase7.resx">
+      <DependentUpon>201710101702281_InitDatabase7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

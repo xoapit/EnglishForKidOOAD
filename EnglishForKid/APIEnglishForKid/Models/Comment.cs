@@ -10,9 +10,9 @@ namespace APIEnglishForKid.Models
         public string Content { get; set; }
         public DateTime CreateAt { get; set; }
         public Guid LessonID { get; set; }
-        public Guid AccountID { get; set; }
+        public string ApplicationUserID { get; set; }
 
-        public virtual Account Account { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual Lesson Lesson { get; set; }
 
         public Comment()
