@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EnglishForKid.App_Start
+namespace EnglishForKid.Constants
 {
     public class ApplicationConfig
     {

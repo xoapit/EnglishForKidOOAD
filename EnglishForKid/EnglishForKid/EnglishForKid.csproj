@@ -182,7 +182,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ApplicationConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -197,6 +196,7 @@
     <Compile Include="Areas\Teacher\Controllers\HomeController.cs" />
     <Compile Include="Areas\Teacher\Controllers\LessonController.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
+    <Compile Include="Constants\ApplicationConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\KhaoSatVuiController.cs" />
@@ -220,7 +220,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AccountDataStore.cs" />
     <Compile Include="Service\BaseDataStore.cs" />
+    <Compile Include="Service\CommentDataStore.cs" />
+    <Compile Include="Service\FeedbackDataStore.cs" />
     <Compile Include="Service\IDataStore.cs" />
+    <Compile Include="Service\LessonDataStore.cs" />
+    <Compile Include="Service\QuestionSurveyDataStore.cs" />
+    <Compile Include="Service\RateDataStore.cs" />
+    <Compile Include="Service\ResultDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />

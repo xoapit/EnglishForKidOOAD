@@ -79,7 +79,5 @@ C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\M
 C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.Web.xml
-C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.csproj.CoreCompileInputs.cache
 C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.dll
 C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.pdb
-C:\Users\Hoq\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.csprojResolveAssemblyReference.cache
