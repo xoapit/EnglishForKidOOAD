@@ -5,10 +5,11 @@ using System.Web;
 
 namespace EnglishForKid.Models
 {
-    public class Category : BaseDataObject
+    public class Level : BaseDataObject
     {
-        public string Name { get; set; }
+        public int Value { get; set; }
         
         public string Description { get; set; }
+
     }
 }

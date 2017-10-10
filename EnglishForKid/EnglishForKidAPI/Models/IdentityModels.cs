@@ -81,5 +81,7 @@ namespace EnglishForKidAPI.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<EnglishForKidAPI.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

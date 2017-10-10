@@ -8,9 +8,9 @@ namespace EnglishForKid.Models
     public class AuthenticationToken : BaseDataObject
     {
         public string Token { get; set; }
-        public Guid AccountID { get; set; }
+        public string ApplicationUserID { get; set; }
         public DateTime CreateAt { get; set; }
-        public virtual Account Account { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public AuthenticationToken()
         {

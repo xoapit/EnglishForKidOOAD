@@ -10,5 +10,6 @@ namespace EnglishForKid.Models
         public static readonly string Admin="Admin";
         public static readonly string Student="Student";
         public static readonly string Teacher="Teacher";
+
     }
 }

@@ -10,9 +10,9 @@ namespace EnglishForKid.Models
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime CreateAt { get; set; }
-        public Guid AccountID { get; set; }
+        public string ApplicationUserID { get; set; }
 
-        public virtual Account Account { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public Feedback()
         {
             CreateAt = DateTime.Now;
