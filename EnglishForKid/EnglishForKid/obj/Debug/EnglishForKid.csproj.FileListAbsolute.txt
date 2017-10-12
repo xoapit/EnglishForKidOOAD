@@ -123,6 +123,8 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bi
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.Web.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.WindowsServer.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Newtonsoft.Json.dll
@@ -144,6 +146,8 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bi
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\EntityFramework.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\EntityFramework.SqlServer.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\EPPlus.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\NPOI.xml
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\System.Web.Helpers.xml

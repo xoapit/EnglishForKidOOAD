@@ -59,6 +59,12 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -203,22 +209,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AnswerSurvey.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\AuthenticationToken.cs" />
+    <Compile Include="Models\Business.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Function.cs" />
+    <Compile Include="Models\GrantPermission.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Level.cs" />
     <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\QuestionSurvey.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\Authority.cs" />
     <Compile Include="Models\BaseDataObject.cs" />
     <Compile Include="Models\Lesson.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\AccountDataStore.cs" />
     <Compile Include="Service\BaseDataStore.cs" />
     <Compile Include="Service\CommentDataStore.cs" />
     <Compile Include="Service\FeedbackDataStore.cs" />
@@ -13698,10 +13708,88 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\icon.css" />
+    <Content Include="Content\css\image.css" />
+    <Content Include="Content\css\lightbox.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\owl.transitions.css" />
+    <Content Include="Content\css\preloader.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\tab.css" />
     <Content Include="Content\css\style-custom.css" />
     <Content Include="Content\files\image\avatar.png" />
+    <Content Include="Content\files\image\avtar6.jpg" />
+    <Content Include="Content\files\image\banner.jpg" />
+    <Content Include="Content\files\image\blog-details-img2.jpg" />
+    <Content Include="Content\files\image\blog-details-img3.jpg" />
+    <Content Include="Content\files\image\blog-details-img4.jpg" />
+    <Content Include="Content\files\image\blog-details-img5.jpg" />
+    <Content Include="Content\files\image\blog-details-img6.jpg" />
+    <Content Include="Content\files\image\blog-img7.jpg" />
+    <Content Include="Content\files\image\blog-img8.jpg" />
+    <Content Include="Content\files\image\blog\blog-1.jpg" />
+    <Content Include="Content\files\image\blog\blog-2.jpg" />
+    <Content Include="Content\files\image\blog\blog-3.jpg" />
+    <Content Include="Content\files\image\blog\blog-4.jpg" />
+    <Content Include="Content\files\image\clientLogo\client-logo1.jpg" />
+    <Content Include="Content\files\image\clientLogo\client-logo2.jpg" />
+    <Content Include="Content\files\image\clientLogo\client-logo3.jpg" />
+    <Content Include="Content\files\image\clientLogo\client-logo4.jpg" />
+    <Content Include="Content\files\image\clientLogo\client-logo5.jpg" />
+    <Content Include="Content\files\image\clientLogo\client-logo6.jpg" />
+    <Content Include="Content\files\image\contact-slider-img.jpg" />
+    <Content Include="Content\files\image\counter-bg.jpg" />
+    <Content Include="Content\files\image\default\html5boxplayer_fullscreen.png" />
+    <Content Include="Content\files\image\default\html5boxplayer_hd.png" />
+    <Content Include="Content\files\image\default\html5boxplayer_playpause.png" />
+    <Content Include="Content\files\image\default\html5boxplayer_playvideo.png" />
+    <Content Include="Content\files\image\default\html5boxplayer_volume.png" />
+    <Content Include="Content\files\image\default\lightbox-close-fullscreen.png" />
+    <Content Include="Content\files\image\default\lightbox-close.png" />
+    <Content Include="Content\files\image\default\lightbox-fullscreen-close.png" />
+    <Content Include="Content\files\image\default\lightbox-loading.gif" />
+    <Content Include="Content\files\image\default\lightbox-navnext.png" />
+    <Content Include="Content\files\image\default\lightbox-navprev.png" />
+    <Content Include="Content\files\image\default\lightbox-next-2.png" />
+    <Content Include="Content\files\image\default\lightbox-next-fullscreen.png" />
+    <Content Include="Content\files\image\default\lightbox-next.png" />
+    <Content Include="Content\files\image\default\lightbox-pause.png" />
+    <Content Include="Content\files\image\default\lightbox-play.png" />
+    <Content Include="Content\files\image\default\lightbox-playvideo.png" />
+    <Content Include="Content\files\image\default\lightbox-prev-2.png" />
+    <Content Include="Content\files\image\default\lightbox-prev-fullscreen.png" />
+    <Content Include="Content\files\image\default\lightbox-prev.png" />
+    <Content Include="Content\files\image\default\nav-arrows-next.png" />
+    <Content Include="Content\files\image\default\nav-arrows-prev.png" />
+    <Content Include="Content\files\image\images\close.png" />
+    <Content Include="Content\files\image\images\loading.gif" />
+    <Content Include="Content\files\image\images\next.png" />
+    <Content Include="Content\files\image\images\prev.png" />
+    <Content Include="Content\files\image\lightbox-close.png" />
+    <Content Include="Content\files\image\logo.png" />
+    <Content Include="Content\files\image\map.jpg" />
+    <Content Include="Content\files\image\new-latter.jpg" />
+    <Content Include="Content\files\image\service-img.png" />
+    <Content Include="Content\files\image\subscribe-bg.jpg" />
+    <Content Include="Content\files\image\team-img1.jpg" />
+    <Content Include="Content\files\image\team-img2.jpg" />
+    <Content Include="Content\files\image\team-img3.jpg" />
+    <Content Include="Content\files\image\testimonial.jpg" />
+    <Content Include="Content\files\image\top.png" />
+    <Content Include="Content\files\image\work1.jpg" />
+    <Content Include="Content\files\image\work2.jpg" />
+    <Content Include="Content\files\image\work3.jpg" />
+    <Content Include="Content\files\image\work4.jpg" />
+    <Content Include="Content\files\image\work5.jpg" />
+    <Content Include="Content\files\image\work6.jpg" />
     <Content Include="Content\table.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\et-line.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -15104,6 +15192,16 @@
     <Content Include="Areas\Teacher\Views\Shared\Error.cshtml" />
     <Content Include="Areas\Teacher\Views\Lesson\Index.cshtml" />
     <Content Include="Areas\Teacher\Views\Home\Index.cshtml" />
+    <Content Include="fonts\et-line.eot" />
+    <Content Include="fonts\et-line.ttf" />
+    <Content Include="fonts\et-line.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\weblysleekuil.ttf" />
+    <Content Include="fonts\weblysleekuisb.ttf" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\config.js" />
     <Content Include="Scripts\ckeditor\contents.css" />
@@ -15243,7 +15341,9 @@
     <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc.css" />
     <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\html5lightbox.js" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\jquery-1.11.3.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
@@ -15251,13 +15351,23 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.counterup.min.js" />
+    <Content Include="Scripts\jquery.mixitup.js" />
+    <Content Include="Scripts\jquery.nav.js" />
+    <Content Include="Scripts\jquery.scrollUp.js" />
+    <Content Include="Scripts\jquery.sticky.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lightbox.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\waypoints.min.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
