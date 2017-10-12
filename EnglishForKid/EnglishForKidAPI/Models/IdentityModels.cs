@@ -60,7 +60,7 @@ namespace EnglishForKidAPI.Models
                         .HasRequired<ApplicationUser>(s => s.ApplicationUser) // Lesson entity requires Account 
                         .WithMany() // Account entity includes many Lesson entities
                         .HasForeignKey(s => s.ApplicationUserID)
-                        .WillCascadeOnDelete(false); //disable scade   
+                        .WillCascadeOnDelete(true); //disable scade   
 
             //modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
             modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
@@ -84,5 +84,9 @@ namespace EnglishForKidAPI.Models
             return new ApplicationDbContext();
         }
 
+<<<<<<< HEAD
+        //  public System.Data.Entity.DbSet<EnglishForKidAPI.Models.ApplicationUser> ApplicationUsers { get; set; }
+=======
+>>>>>>> 5e7cd390d1e3daa8fe0ae958f3d90094bef52119
     }
 }

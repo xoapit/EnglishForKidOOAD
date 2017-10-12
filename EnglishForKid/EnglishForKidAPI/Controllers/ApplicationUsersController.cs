@@ -9,48 +9,46 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EnglishForKidAPI.Models;
-using System.Runtime.Serialization;
 
 namespace EnglishForKidAPI.Controllers
 {
-
-    public class CategoriesController : BaseApiController
+    public class UsersController : BaseApiController
     {
 
-        // GET: api/Categories
-        public IQueryable<Category> GetCategories()
+        // GET: api/Users
+        public IQueryable<ApplicationUser> GetUsers()
         {
-            return db.Categories;
+            return db.Users;
         }
 
-        // GET: api/Categories/5
-        [ResponseType(typeof(Category))]
-        public IHttpActionResult GetCategory(Guid id)
+        // GET: api/Users/5
+        [ResponseType(typeof(ApplicationUser))]
+        public IHttpActionResult GetApplicationUser(string id)
         {
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            ApplicationUser applicationUser = db.Users.Find(id);
+            if (applicationUser == null)
             {
                 return NotFound();
             }
 
-            return Ok(category);
+            return Ok(applicationUser);
         }
 
-        // PUT: api/Categories/5
+        // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCategory(Guid id, Category category)
+        public IHttpActionResult PutApplicationUser(string id, ApplicationUser applicationUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != category.ID)
+            if (id != applicationUser.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(category).State = EntityState.Modified;
+            db.Entry(applicationUser).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +56,7 @@ namespace EnglishForKidAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(id))
+                if (!ApplicationUserExists(id))
                 {
                     return NotFound();
                 }
@@ -71,16 +69,16 @@ namespace EnglishForKidAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Categories
-        [ResponseType(typeof(Category))]
-        public IHttpActionResult PostCategory(Category category)
+        // POST: api/Users
+        [ResponseType(typeof(ApplicationUser))]
+        public IHttpActionResult PostApplicationUser(ApplicationUser applicationUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Categories.Add(category);
+            db.Users.Add(applicationUser);
 
             try
             {
@@ -88,7 +86,7 @@ namespace EnglishForKidAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (CategoryExists(category.ID))
+                if (ApplicationUserExists(applicationUser.Id))
                 {
                     return Conflict();
                 }
@@ -98,23 +96,23 @@ namespace EnglishForKidAPI.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = category.ID }, category);
+            return CreatedAtRoute("DefaultApi", new { id = applicationUser.Id }, applicationUser);
         }
 
-        // DELETE: api/Categories/5
-        [ResponseType(typeof(Category))]
-        public IHttpActionResult DeleteCategory(Guid id)
+        // DELETE: api/Users/5
+        [ResponseType(typeof(ApplicationUser))]
+        public IHttpActionResult DeleteApplicationUser(string id)
         {
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            ApplicationUser applicationUser = db.Users.Find(id);
+            if (applicationUser == null)
             {
                 return NotFound();
             }
 
-            db.Categories.Remove(category);
+            db.Users.Remove(applicationUser);
             db.SaveChanges();
 
-            return Ok(category);
+            return Ok(applicationUser);
         }
 
         protected override void Dispose(bool disposing)
@@ -126,9 +124,9 @@ namespace EnglishForKidAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool CategoryExists(Guid id)
+        private bool ApplicationUserExists(string id)
         {
-            return db.Categories.Count(e => e.ID == id) > 0;
+            return db.Users.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -3,7 +3,7 @@ namespace EnglishForKidAPI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitDatabase1 : DbMigration
+    public partial class First : DbMigration
     {
         public override void Up()
         {
@@ -103,22 +103,6 @@ namespace EnglishForKidAPI.Migrations
                 .Index(t => t.IdentityRole_Id);
             
             CreateTable(
-                "dbo.Results",
-                c => new
-                    {
-                        ID = c.Guid(nullable: false),
-                        QuestionSurveyID = c.Guid(nullable: false),
-                        Answer = c.String(),
-                        ApplicationUserID = c.String(maxLength: 128),
-                        CreateAt = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.ApplicationUsers", t => t.ApplicationUserID)
-                .ForeignKey("dbo.QuestionSurveys", t => t.QuestionSurveyID, cascadeDelete: true)
-                .Index(t => t.QuestionSurveyID)
-                .Index(t => t.ApplicationUserID);
-            
-            CreateTable(
                 "dbo.AuthenticationTokens",
                 c => new
                     {
@@ -176,30 +160,6 @@ namespace EnglishForKidAPI.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
-                "dbo.Lessons",
-                c => new
-                    {
-                        ID = c.Guid(nullable: false),
-                        Title = c.String(),
-                        CategoryID = c.Guid(nullable: false),
-                        Image = c.String(),
-                        Content = c.String(),
-                        Exercise = c.String(),
-                        Answer = c.String(),
-                        CreateAt = c.DateTime(nullable: false),
-                        Tag = c.String(),
-                        ApplicationUserID = c.String(nullable: false, maxLength: 128),
-                        Levels_ID = c.Guid(),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.ApplicationUsers", t => t.ApplicationUserID)
-                .ForeignKey("dbo.Categories", t => t.CategoryID, cascadeDelete: true)
-                .ForeignKey("dbo.Levels", t => t.Levels_ID)
-                .Index(t => t.CategoryID)
-                .Index(t => t.ApplicationUserID)
-                .Index(t => t.Levels_ID);
-            
-            CreateTable(
                 "dbo.Comments",
                 c => new
                     {
@@ -216,6 +176,31 @@ namespace EnglishForKidAPI.Migrations
                 .Index(t => t.ApplicationUserID);
             
             CreateTable(
+                "dbo.Lessons",
+                c => new
+                    {
+                        ID = c.Guid(nullable: false),
+                        Title = c.String(),
+                        CategoryID = c.Guid(nullable: false),
+                        Image = c.String(),
+                        Content = c.String(),
+                        Discussion = c.String(),
+                        Exercise = c.String(),
+                        Answer = c.String(),
+                        CreateAt = c.DateTime(nullable: false),
+                        Tag = c.String(),
+                        LevelID = c.Guid(nullable: false),
+                        ApplicationUserID = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.ApplicationUsers", t => t.ApplicationUserID, cascadeDelete: true)
+                .ForeignKey("dbo.Categories", t => t.CategoryID, cascadeDelete: true)
+                .ForeignKey("dbo.Levels", t => t.LevelID, cascadeDelete: true)
+                .Index(t => t.CategoryID)
+                .Index(t => t.LevelID)
+                .Index(t => t.ApplicationUserID);
+            
+            CreateTable(
                 "dbo.Levels",
                 c => new
                     {
@@ -224,22 +209,6 @@ namespace EnglishForKidAPI.Migrations
                         Description = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "dbo.Rates",
-                c => new
-                    {
-                        ID = c.Guid(nullable: false),
-                        Level = c.Int(nullable: false),
-                        ApplicationUserID = c.String(maxLength: 128),
-                        LessonID = c.Guid(nullable: false),
-                        CreateAt = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.ApplicationUsers", t => t.ApplicationUserID)
-                .ForeignKey("dbo.Lessons", t => t.LessonID, cascadeDelete: true)
-                .Index(t => t.ApplicationUserID)
-                .Index(t => t.LessonID);
             
             CreateTable(
                 "dbo.Feedbacks",
@@ -268,64 +237,92 @@ namespace EnglishForKidAPI.Migrations
                 .Index(t => t.FunctionID)
                 .Index(t => t.ApplicationUserID);
             
+            CreateTable(
+                "dbo.Rates",
+                c => new
+                    {
+                        ID = c.Guid(nullable: false),
+                        Level = c.Int(nullable: false),
+                        ApplicationUserID = c.String(maxLength: 128),
+                        LessonID = c.Guid(nullable: false),
+                        CreateAt = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.ApplicationUsers", t => t.ApplicationUserID)
+                .Index(t => t.ApplicationUserID);
+            
+            CreateTable(
+                "dbo.Results",
+                c => new
+                    {
+                        ID = c.Guid(nullable: false),
+                        QuestionSurveyID = c.Guid(nullable: false),
+                        Answer = c.String(),
+                        ApplicationUserID = c.String(maxLength: 128),
+                        CreateAt = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.ApplicationUsers", t => t.ApplicationUserID)
+                .ForeignKey("dbo.QuestionSurveys", t => t.QuestionSurveyID, cascadeDelete: true)
+                .Index(t => t.QuestionSurveyID)
+                .Index(t => t.ApplicationUserID);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Results", "QuestionSurveyID", "dbo.QuestionSurveys");
+            DropForeignKey("dbo.Results", "ApplicationUserID", "dbo.ApplicationUsers");
+            DropForeignKey("dbo.Rates", "ApplicationUserID", "dbo.ApplicationUsers");
             DropForeignKey("dbo.GrantPermissions", "FunctionID", "dbo.Functions");
             DropForeignKey("dbo.GrantPermissions", "ApplicationUserID", "dbo.ApplicationUsers");
             DropForeignKey("dbo.Feedbacks", "ApplicationUserID", "dbo.ApplicationUsers");
-            DropForeignKey("dbo.Rates", "LessonID", "dbo.Lessons");
-            DropForeignKey("dbo.Rates", "ApplicationUserID", "dbo.ApplicationUsers");
-            DropForeignKey("dbo.Lessons", "Levels_ID", "dbo.Levels");
             DropForeignKey("dbo.Comments", "LessonID", "dbo.Lessons");
-            DropForeignKey("dbo.Comments", "ApplicationUserID", "dbo.ApplicationUsers");
+            DropForeignKey("dbo.Lessons", "LevelID", "dbo.Levels");
             DropForeignKey("dbo.Lessons", "CategoryID", "dbo.Categories");
             DropForeignKey("dbo.Lessons", "ApplicationUserID", "dbo.ApplicationUsers");
+            DropForeignKey("dbo.Comments", "ApplicationUserID", "dbo.ApplicationUsers");
             DropForeignKey("dbo.Functions", "IdentityRoleID", "dbo.IdentityRoles");
             DropForeignKey("dbo.IdentityUserRoles", "IdentityRole_Id", "dbo.IdentityRoles");
             DropForeignKey("dbo.Functions", "BusinessID", "dbo.Businesses");
             DropForeignKey("dbo.AuthenticationTokens", "ApplicationUserID", "dbo.ApplicationUsers");
             DropForeignKey("dbo.AnswerSurveys", "QuestionSurveyID", "dbo.QuestionSurveys");
-            DropForeignKey("dbo.Results", "QuestionSurveyID", "dbo.QuestionSurveys");
-            DropForeignKey("dbo.Results", "ApplicationUserID", "dbo.ApplicationUsers");
             DropForeignKey("dbo.QuestionSurveys", "ApplicationUserID", "dbo.ApplicationUsers");
             DropForeignKey("dbo.IdentityUserRoles", "ApplicationUser_Id", "dbo.ApplicationUsers");
             DropForeignKey("dbo.IdentityUserLogins", "ApplicationUser_Id", "dbo.ApplicationUsers");
             DropForeignKey("dbo.IdentityUserClaims", "ApplicationUser_Id", "dbo.ApplicationUsers");
+            DropIndex("dbo.Results", new[] { "ApplicationUserID" });
+            DropIndex("dbo.Results", new[] { "QuestionSurveyID" });
+            DropIndex("dbo.Rates", new[] { "ApplicationUserID" });
             DropIndex("dbo.GrantPermissions", new[] { "ApplicationUserID" });
             DropIndex("dbo.GrantPermissions", new[] { "FunctionID" });
             DropIndex("dbo.Feedbacks", new[] { "ApplicationUserID" });
-            DropIndex("dbo.Rates", new[] { "LessonID" });
-            DropIndex("dbo.Rates", new[] { "ApplicationUserID" });
+            DropIndex("dbo.Lessons", new[] { "ApplicationUserID" });
+            DropIndex("dbo.Lessons", new[] { "LevelID" });
+            DropIndex("dbo.Lessons", new[] { "CategoryID" });
             DropIndex("dbo.Comments", new[] { "ApplicationUserID" });
             DropIndex("dbo.Comments", new[] { "LessonID" });
-            DropIndex("dbo.Lessons", new[] { "Levels_ID" });
-            DropIndex("dbo.Lessons", new[] { "ApplicationUserID" });
-            DropIndex("dbo.Lessons", new[] { "CategoryID" });
             DropIndex("dbo.Functions", new[] { "BusinessID" });
             DropIndex("dbo.Functions", new[] { "IdentityRoleID" });
             DropIndex("dbo.AuthenticationTokens", new[] { "ApplicationUserID" });
-            DropIndex("dbo.Results", new[] { "ApplicationUserID" });
-            DropIndex("dbo.Results", new[] { "QuestionSurveyID" });
             DropIndex("dbo.IdentityUserRoles", new[] { "IdentityRole_Id" });
             DropIndex("dbo.IdentityUserRoles", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserLogins", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaims", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.QuestionSurveys", new[] { "ApplicationUserID" });
             DropIndex("dbo.AnswerSurveys", new[] { "QuestionSurveyID" });
+            DropTable("dbo.Results");
+            DropTable("dbo.Rates");
             DropTable("dbo.GrantPermissions");
             DropTable("dbo.Feedbacks");
-            DropTable("dbo.Rates");
             DropTable("dbo.Levels");
-            DropTable("dbo.Comments");
             DropTable("dbo.Lessons");
+            DropTable("dbo.Comments");
             DropTable("dbo.Categories");
             DropTable("dbo.IdentityRoles");
             DropTable("dbo.Functions");
             DropTable("dbo.Businesses");
             DropTable("dbo.AuthenticationTokens");
-            DropTable("dbo.Results");
             DropTable("dbo.IdentityUserRoles");
             DropTable("dbo.IdentityUserLogins");
             DropTable("dbo.IdentityUserClaims");

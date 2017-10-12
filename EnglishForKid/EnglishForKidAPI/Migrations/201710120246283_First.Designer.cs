@@ -7,13 +7,13 @@ namespace EnglishForKidAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitDatabase2 : IMigrationMetadata
+    public sealed partial class First : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDatabase2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(First));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710101509253_InitDatabase2"; }
+            get { return "201710120246283_First"; }
         }
         
         string IMigrationMetadata.Source
