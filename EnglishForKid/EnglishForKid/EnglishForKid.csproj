@@ -14393,9 +14393,7 @@
     <Content Include="Areas\Admin\Content\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Areas\Admin\Content\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Areas\Admin\Views\GiaoVien\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Survey\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Survey\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Survey\Xem.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -15395,6 +15393,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Teacher\Models\" />
+    <Folder Include="Scripts\QuestionSurvey\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
