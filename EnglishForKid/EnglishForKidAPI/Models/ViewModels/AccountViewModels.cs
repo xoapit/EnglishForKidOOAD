@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EnglishForKidAPI.Models
+namespace EnglishForKidAPI.Models.ViewModels
 {
     // Models returned by AccountController actions.
 

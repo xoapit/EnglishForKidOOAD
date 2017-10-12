@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace EnglishForKidAPI.Models
+namespace EnglishForKidAPI.Models.ViewModels
 {
     // Models used as parameters to AccountController actions.
 
