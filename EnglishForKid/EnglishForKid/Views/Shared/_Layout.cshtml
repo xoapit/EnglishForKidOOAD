@@ -1,639 +1,622 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Themelight</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- google fonts -->
-    <!-- Css link -->
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
-    <link rel="stylesheet" href="~/Content/css/owl.transitions.css">
-    <link rel="stylesheet" href="~/Content/css/animate.min.css">
-    <link rel="stylesheet" href="~/Content/css/lightbox.css">
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/css/preloader.css">
-    <link rel="stylesheet" href="~/Content/css/image.css">
-    <link rel="stylesheet" href="~/Content/css/icon.css">
-    <link rel="stylesheet" href="~/Content/css/style.css">
-    <link rel="stylesheet" href="~/Content/css/responsive.css">
-    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+    <title>English for kids</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!-- Bootstrap Core CSS -->
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Fonts -->
+
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/animate _home.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    
+    <link href="~/Content/css/home.css" rel="stylesheet" />
+
+    <!-- =======================================================
+        Theme Name: Squadfree
+        Theme URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
+        Author: BootstrapMade
+        Author URL: https://bootstrapmade.com
+    ======================================================= -->
+
 </head>
-<body id="top" style="font-family: 'Caveat Brush', cursive;">
 
-
-    <header id="navigation" class="navbar-fixed-top animated-header">
-        <div class="container">
-            <div class="navbar-header">
-                <!-- responsive nav button -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- /responsive nav button -->
-                <!-- logo -->
-                <h1 class="navbar-brand">
-                    <a href="#body"><img src="~/Content/files/image/logo.png" height="40" width="164" alt=""></a>
-                </h1>
-                <!-- /logo -->
-            </div>
-
-            <!-- main nav -->
-            <nav class="collapse navbar-collapse navbar-right" role="navigation">
-                <ul id="nav" class="nav navbar-nav menu">
-                    <li><a href="#top" class="text-red" style="color:red;">Home</a></li>
-                    <li><a href="#features" class="text-green">Listen</a></li>
-                    <li><a href="#portfolio" class="text-blue">Speaking</a></li>
-                    <li><a href="#team" class="text-primary">Reading</a></li>
-                    <li><a href="#pricing-table" class="text-danger">Writing</a></li>
-                    <li><a href="#blog" class="text-orange">Feedback</a></li>
-                    <li><a href="#contact-form" class="text-red">Contact</a></li>
-                </ul>
-            </nav>
-            <!-- /main nav -->
-
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    <header>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="load"></div>
         </div>
+        <!-- TOP INFO BAR -->
+        <div id="intro" class="top-info-bar bg-color-7 hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="list-inline topList">
+                            <li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i> <a href="mailto:info@yourdomain.com">Engkishforkid@gmail.com</a></li>
+                            <li><i class="fa fa-phone bg-color-2" aria-hidden="true"></i> +84 1 234 567 </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class="pull-right">
+                            <ul class="list-inline functionList">
+                                <li><i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <a href='#loginModal' data-toggle="modal">Login</a><span> or</span><a href='#createAccount' data-toggle="modal">Create an account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--END TOP INFOR BAR-->
+        <!--LOGIN AND CREAT MODAL-->
+        <!-- LOGIN MODAL -->
+        <div class="modal fade customModal" id="loginModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="panel panel-default formPanel">
+                        <div class="panel-heading bg-color-1 border-color-1">
+                            <h3 class="panel-title">Login</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="#" method="POST" role="form">
+                                <div class="form-group formField">
+                                    <input type="text" class="form-control" placeholder="User name">
+                                </div>
+                                <div class="form-group formField">
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group formField">
+                                    <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Log in">
+                                </div>
+                                <div class="form-group formField">
+                                    <p class="help-block"><a href="#">Forgot password?</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CREATE ACCOUNT MODAL -->
+        <div class="modal fade customModal" id="createAccount" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="panel panel-default formPanel">
+                        <div class="panel-heading bg-color-1 border-color-1">
+                            <h3 class="panel-title">Create  an account</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="#" method="POST" role="form">
+                                <div class="form-group formField">
+                                    <input type="text" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="form-group formField">
+                                    <input type="text" class="form-control" placeholder="User name">
+                                </div>
+                                <div class="form-group formField">
+                                    <input type="text" class="form-control" placeholder="Phone">
+                                </div>
+                                <div class="form-group formField">
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group formField">
+                                    <input type="password" class="form-control" placeholder="Re-Password">
+                                </div>
+                                <div class="form-group formField">
+                                    <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Register">
+                                </div>
+                                <div class="form-group formField">
+                                    <p class="help-block">Allready have an account? <a href="#">Log in</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END MODAL-->
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header pull-left">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="http://localhost:59211/Trangchu/Home/Index">
+                        <img src="~/Content/files/image/img/logoo.png" alt="Kidz School">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="active"><a href="#intro"><i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span class="active">Home</span></a></li>
+                        <li><a href="#about"><i class="fa fa-list-ul bg-color-5" aria-hidden="true"></i> <span>Pages</span></a></li>
+
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
     </header>
 
+    <!-- Sslide -->
 
-    <div class="wrapper">
-        <section id="banner">
+    <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
+            <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+            <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper For Slides -->
+        <div class="carousel-inner" role="listbox">
+            <!-- Third Slide -->
+            <div class="item active">
+                <!-- Slide Background -->
+                <img src="~/Content/files/image/img/img3.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                <div class="bs-slider-overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_left">
+                            <h1 data-animation="animated zoomInRight">ENGLISH FOR KIDS</h1>
+                            <p data-animation="animated fadeInLeft">Welcome to learn english website</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Slide -->
+            <!-- Second Slide -->
+            <div class="item">
+                <!-- Slide Background -->
+                <img src="~/Content/files/image/img/img1.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                <div class="bs-slider-overlay"></div>
+                <!-- Slide Text Layer -->
+                <div class="slide-text slide_style_center">
+                    <h1 data-animation="animated flipInX">ENGLISH FOR KIDS</h1>
+                    <p data-animation="animated lightSpeedIn">English is easy</p>
+                </div>
+            </div>
+            <!-- End of Slide -->
+            <!-- Third Slide -->
+            <div class="item">
+                <!-- Slide Background -->
+                <img src="~/Content/files/image/img/img2.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                <div class="bs-slider-overlay"></div>
+                <!-- Slide Text Layer -->
+                <div class="slide-text slide_style_right">
+                    <h1 data-animation="animated zoomInLeft">ENGLISH FOR KIDS</h1>
+                    <p data-animation="animated fadeInRight">Lear and pratice english here</p>
+                </div>
+            </div>
+
+        </div><!-- End of Wrapper For Slides -->
+        <!-- Left Control -->
+        <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+            <span class="fa fa-angle-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <!-- Right Control -->
+        <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+            <span class="fa fa-angle-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div> <!-- End  bootstrap-touch-slider Slider -->
+    <!--end slide-->
+    <!--MAIN-->
+    <section class="clearfix linkSection hidden-xs">
+        <div class="sectionLinkArea hidden-xs scrolling">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <h1>Clean and Flexible Business Template</h1>
-                            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</h2>
-                            <div class="buttons">
-                                <a href="#" class="btn btn-learn">Purchase Now</a>
-                                <a href="#" class="btn btn-learn">View Featurese</a>
+                    <div class="col-sm-3">
+                        <a href="#ourCourses" class="sectionLink bg-color-1" id="coursesLink">
+                            <i class="fa fa-file-text-o linkIcon border-color-1" aria-hidden="true"></i>
+                            <span class="linkText">Courses</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="#teacher" class="sectionLink bg-color-2" id="teamLink">
+                            <i class="fa fa-calendar-o linkIcon border-color-2" aria-hidden="true"></i>
+                            <span class="linkText">Teachers</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="#gallery" class="sectionLink bg-color-3" id="galleryLink">
+                            <i class="fa fa-picture-o linkIcon border-color-3" aria-hidden="true"></i>
+                            <span class="linkText">Gallery</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="#latestNews" class="sectionLink bg-color-4" id="newsLink">
+                            <i class="fa fa-files-o linkIcon border-color-4" aria-hidden="true"></i>
+                            <span class="linkText">News</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /Section: intro -->
+    <!-- Section: about -->
+    <section id="teacher" class="home-section text-center ">
+        <div class="heading-about">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-8 col-lg-offset-2 ">
+                        <div class="wow bounceInDown" data-wow-delay="0.4s">
+                            <div class="section-heading">
+                                <h2>TEACHER</h2>
+                                <i class="fa fa-2x fa-angle-down"></i>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="scrolldown">
-                <a id="scroll" href="#features" class="scroll"></a>
+        </div>
+        <div class="container bg-color-5">
+
+            <div class="row">
+                <div class="col-lg-2 col-lg-offset-5">
+                    <hr class="marginbot-50">
+                </div>
             </div>
-        </section>
-        <section id="features">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="title">
-                            <h2>OUR BEST SERVICES</h2>
-                            <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="wow bounceInUp" data-wow-delay="0.2s">
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                <h5>Anna Hanaceck</h5>
+
+                                <div class="avatar">
+                                    <img src="~/Content/files/image/img/team/1.jpg" alt="" class="img-responsive img-circle" />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="maskingContent">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6 col-sm-6">
-                        <div class="feature-block text-center">
-                            <div class="icon-box">
-                                <i class="ion-easel"></i>
+                <div class="col-md-3">
+                    <div class="wow bounceInUp" data-wow-delay="0.5s">
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                <h5>Maura Daniels</h5>
+                                <div class="avatar"><img src="~/Content/files/image/img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
+
                             </div>
-                            <h4 class="wow fadeInUp" data-wow-delay=".3s">Responsive Design</h4>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Lorem ipsum dolor sit amet, consectetur adipisic-<br>ing elit, sed do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua. Ut enim ad minim</p>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-xs-6 col-sm-6">
-                        <div class="feature-block text-center">
-                            <div class="icon-box">
-                                <i class="ion-paintbucket"></i>
-                            </div>
-                            <h4 class="wow fadeInUp" data-wow-delay=".3s">Outstanding Animation</h4>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Lorem ipsum dolor sit amet, consectetur adipisic-<br>ing elit, sed do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua. Ut enim ad minim</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-6 col-sm-6">
-                        <div class="feature-block text-center">
-                            <div class="icon-box">
-                                <i class="ion-paintbrush"></i>
-                            </div>
-                            <h4 class="wow fadeInUp" data-wow-delay=".3s">Unlimited Colors</h4>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Lorem ipsum dolor sit amet, consectetur adipisic-<br>ing elit, sed do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua. Ut enim ad minim</p>
+                        <div class="maskingContent">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="counter">
-            <div class="container">
-                <div class="row">
-                    <div class="title">
-                        <h2>FUN FACTS</h2>
-                        <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <div class="block wow fadeInRight" data-wow-delay=".3s">
-                            <i class="ion-code"></i>
-                            <p class="count-text">
-                                <span class="counter-digit">136800 </span> k
-                            </p>
-                            <p>Lines Coded</p>
+                <div class="col-md-3">
+                    <div class="wow bounceInUp" data-wow-delay="0.8s">
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                <h5>Jack Briane</h5>
+                                <div class="avatar"><img src="~/Content/files/image/img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
+
+                            </div>
+                        </div>
+                        <div class="maskingContent">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <div class="block wow fadeInRight" data-wow-delay=".5s">
-                            <i class="ion-compass"></i>
-                            <p class="count-text">
-                                <span class="counter-digit">7800 </span> +
-                            </p>
-                            <p>Lines Coded</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="wow bounceInUp" data-wow-delay="1s">
+                        <div class="team boxed-grey">
+                            <div class="inner">
+                                <h5>Tom Petterson</h5>
+                                <div class="avatar"><img src="~/Content/files/image/img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <div class="block wow fadeInRight" data-wow-delay=".7s">
-                            <i class="ion-compose"></i>
-                            <p class="count-text">
-                                <span class="counter-digit">399</span>
-                            </p>
-                            <p>Lines Coded</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <div class="block wow fadeInRight" data-wow-delay=".9s">
-                            <i class="ion-image"></i>
-                            <p class="count-text">
-                                <span class="counter-digit">9995</span>
-                            </p>
-                            <p>Lines Coded</p>
+                        <div class="maskingContent">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="portfolio">
+        </div>
+    </section>
+    <!-- /Section: about -->
+    <!--GALERRY-->
+    <section id="gallery" class="home-section text-center">
+        <div class="heading-contact">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="title">
-                            <h2>LATEST WORKS</h2>
-                            <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
-                        </div>
-                        <div class="block">
-                            <div class="recent-work-mixMenu">
-                                <ul>
-                                    <li><button class="filter" data-filter="all">All</button></li>
-                                    <li><button class="filter" data-filter=".category-2">Printing</button></li>
-                                    <li><button class="filter" data-filter=".category-1">Web</button></li>
-                                    <li><button class="filter" data-filter=".category-2">Illustration</button></li>
-                                    <li><button class="filter" data-filter=".category-1">Media</button></li>
-                                </ul>
-                            </div>
-                            <div class="recent-work-pic">
-                                <ul id="mixed-items">
-                                    <li class="mix category-1 col-md-4 col-xs-6" data-my-order="1">
-                                        <a class="example-image-link" href="img/work1.jpg" data-lightbox="example-set">
-                                            <img class="img-responsive" src="img/work1.jpg" alt="">
-                                            <div class="overlay">
-                                                <h3>Web design</h3>
-                                                <i class="ion-ios-plus-empty"></i>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="mix category-2 col-md-4 col-xs-6" data-my-order="2">
-                                        <a class="example-image-link" href="img/work2.jpg" data-lightbox="example-set">
-                                            <img class="img-responsive" src="img/work2.jpg" alt="">
-                                            <div class="overlay">
-                                                <h3>Web design</h3>
-                                                <i class="ion-ios-plus-empty"></i>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="mix category-1 col-md-4 col-xs-6" data-my-order="3">
-                                        <a class="example-image-link" href="img/work3.jpg" data-lightbox="example-set">
-                                            <img class="img-responsive" src="img/work3.jpg" alt="">
-                                            <div class="overlay">
-                                                <h3>Web design</h3>
-                                                <i class="ion-ios-plus-empty"></i>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="mix category-2 col-md-4 col-xs-6" data-my-order="4">
-                                        <a class="example-image-link" href="img/work4.jpg" data-lightbox="example-set">
-                                            <img class="img-responsive" src="img/work4.jpg" alt="">
-                                            <div class="overlay">
-                                                <h3>Web design</h3>
-                                                <i class="ion-ios-plus-empty"></i>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="mix category-1 col-md-4 col-xs-6" data-my-order="5">
-                                        <a class="example-image-link" href="img/work5.jpg" data-lightbox="example-set">
-                                            <img class="img-responsive" src="img/work5.jpg" alt="">
-                                            <div class="overlay">
-                                                <h3>Web design</h3>
-                                                <i class="ion-ios-plus-empty"></i>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="mix category-2 col-md-4 col-xs-6" data-my-order="6">
-                                        <a class="example-image-link" href="img/work6.jpg" data-lightbox="example-set">
-                                            <img class="img-responsive" src="img/work6.jpg" alt="">
-                                            <div class="overlay">
-                                                <h3>Web design</h3>
-                                                <i class="ion-ios-plus-empty"></i>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown" data-wow-delay="0.4s">
+                            <div class="section-heading">
+                                <h2>GALLERY</h2>
+                                <i class="fa fa-2x fa-angle-down"></i>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="play-video">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <h2 class="wow fadeInUp" data-wow-delay=".3s">GET THE TEMPLATE</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Dantes remained confused and silent by this explanation of the </p>
-                            <a href="https://vimeo.com/channels/staffpicks/145743834" class="html5lightbox" data-width=800 data-height=400>
-                                <div class="button ion-ios-play-outline wow zoomIn" data-wow-delay=".3s"></div>
+        </div>
+        <div class="container mt40">
+            <section class="row">
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g1.jpg" title="Nature Portfolio" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g1.jpg" alt="Nature Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="team">
-            <div class="container">
-                <div class="row">
-                    <div class="title">
-                        <h2>CREATIVE TEAM</h2>
-                        <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="block wow fadeInLeft" data-wow-delay=".3s">
-                            <img src="img/team-img1.jpg" alt="">
-                            <div class="team-overlay">
-                                <h3>ROBERT SMITH <span>Product Designer</span></h3>
-                                <span class="icon"><i class="ion-quote"></i></span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4  col-sm-4 col-xs-6">
-                        <div class="block wow fadeInLeft" data-wow-delay=".6s">
-                            <img src="img/team-img2.jpg" alt="">
-                            <div class="team-overlay">
-                                <h3>ROBERT SMITH <span>Product Designer</span></h3>
-                                <span class="icon"><i class="ion-quote"></i></span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4  col-sm-4 col-xs-6">
-                        <div class="block wow fadeInLeft" data-wow-delay=".9s">
-                            <img src="img/team-img3.jpg" alt="">
-                            <div class="team-overlay">
-                                <h3>ROBERT SMITH <span>Product Designer</span></h3>
-                                <span class="icon"><i class="ion-quote"></i></span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="pricing-table">
-            <div class="container">
-                <div class="row">
-                    <div class="title">
-                        <h2>PRICING TABLE</h2>
-                        <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
-                    </div>
-                    <div class="col-md-4 col">
-                        <div class="block text-center wow fadeInLeft" data-wow-delay=".3s">
-                            <ul>
-                                <li>
-                                    <h4>STARTER PACK</h4>
-                                    <p>&#36; 40 <span>/Month</span></p>
-                                </li>
-                                <li><p>Unlimited Downloads</p></li>
-                                <li><p>Unlimited Uploads</p></li>
-                                <li><p>Unlimited Email Accounts</p></li>
-                                <li><p> Email Forwards </p></li>
-                                <li><p>Cloud Storage</p></li>
-                                <li><p>Screen Share</p></li>
-                                <li>
-                                    <a href="#" class="btn btn-buy">BUY NOW</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col">
-                        <div class="block text-center wow zoomIn" data-wow-delay=".3s">
-                            <ul>
-                                <li>
-                                    <h4>STARTER PACK</h4>
-                                    <p>&#36; 40 <span>/Month</span></p>
-                                </li>
-                                <li><p>Unlimited Downloads</p></li>
-                                <li><p>Unlimited Uploads</p></li>
-                                <li><p>Unlimited Email Accounts</p></li>
-                                <li><p> Email Forwards </p></li>
-                                <li><p>Cloud Storage</p></li>
-                                <li><p>Screen Share</p></li>
-                                <li>
-                                    <a href="#" class="btn btn-buy">BUY NOW</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col">
-                        <div class="block text-center wow fadeInRight" data-wow-delay=".3s">
-                            <ul>
-                                <li>
-                                    <h4>STARTER PACK</h4>
-                                    <p>&#36; 40 <span>/Month</span></p>
-                                </li>
-                                <li><p>Unlimited Downloads</p></li>
-                                <li><p>Unlimited Uploads</p></li>
-                                <li><p>Unlimited Email Accounts</p></li>
-                                <li><p> Email Forwards </p></li>
-                                <li><p>Cloud Storage</p></li>
-                                <li><p>Screen Share</p></li>
-                                <li>
-                                    <a href="#" class="btn btn-buy">BUY NOW</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="blog">
+                    </div>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g2.jpg" title="Food Portfolio" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g2.jpg" alt="Food Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g3.jpg" title="Sports Portfolio" class="zoom" data-title="Radical Sports" data-footer="This are the best moments" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g3.jpg" alt="Sports Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/logoo.png" title="People Portfolio" class="zoom" data-title="Beautiful People" data-footer="We create relationships" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g4.jpg" alt="People Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+            </section>
+            <section class="row">
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g1.jpg" title="Nature Portfolio" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g1.jpg" alt="Nature Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g2.jpg" title="Food Portfolio" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g2.jpg" alt="Food Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g3.jpg" title="Sports Portfolio" class="zoom" data-title="Radical Sports" data-footer="This are the best moments" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g3.jpg" alt="Sports Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g4.jpg" title="People Portfolio" class="zoom" data-title="Beautiful People" data-footer="We create relationships" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g4.jpg" alt="People Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+            </section>
+        </div>
+    </section>
+
+    <!-- Section: contact -->
+    <section id="contact" class="home-section text-center">
+        <div class="heading-contact">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="title">
-                            <h2>Blog</h2>
-                            <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
-                        </div>
-                        <div id="blog-post" class="owl-carousel">
-                            <div>
-                                <div class="block">
-                                    <img src="img/blog/blog-1.jpg" alt="" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="blog.html">Hey,This is a blog title</a></h4>
-                                        <small>By admin / Sept 18, 2014</small>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
-                                        </p>
-                                        <a href="blog.html" class="btn btn-read">Read More</a>
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown" data-wow-delay="0.4s">
+                            <div class="section-heading">
+                                <h2>Get in touch</h2>
+                                <i class="fa fa-2x fa-angle-down"></i>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-2 col-lg-offset-5">
+                    <hr class="marginbot-50">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="boxed-grey">
+
+                        <div id="sendmessage">Your message has been sent. Thank you!</div>
+                        <div id="errormessage"></div>
+                        <form id="contact-form" action="" method="post" role="form" class="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Name
+                                        </label>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div class="validation"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">
+                                            Email Address
+                                        </label>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                            <div class="validation"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subject">
+                                            Subject
+                                        </label>
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                        <div class="validation"></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div class="block">
-                                    <img src="img/blog/blog-2.jpg" alt="" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="blog.html">Hey,This is a blog title</a></h4>
-                                        <small>By admin / Sept 18, 2014</small>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
-                                        </p>
-                                        <a href="blog.html" class="btn btn-read">Read More</a>
-
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Message
+                                        </label>
+                                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                        <div class="validation"></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div class="block">
-                                    <img src="img/blog/blog-3.jpg" alt="" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="blog.html">Hey,This is a blog title</a></h4>
-                                        <small>By admin / Sept 18, 2014</small>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
-                                        </p>
-                                        <a href="blog.html" class="btn btn-read">Read More</a>
-
-                                    </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                                        Send Message
+                                    </button>
                                 </div>
                             </div>
-                            <div>
-                                <div class="block">
-                                    <img src="img/blog/blog-4.jpg" alt="" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="blog.html">Hey,This is a blog title</a></h4>
-                                        <small>By admin / Sept 18, 2014</small>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
-                                        </p>
-                                        <a href="blog.html" class="btn btn-read">Read More</a>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="block">
-                                    <img src="img/blog/blog-1.jpg" alt="" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="blog.html">Hey,This is a blog title</a></h4>
-                                        <small>By admin / Sept 18, 2014</small>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
-                                        </p>
-                                        <a href="blog.html" class="btn btn-read">Read More</a>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-        <section id="testimonial">
-            <div class="container">
-                <div class="row">
-                    <div class="title">
-                        <h2>TESTIMONIAL</h2>
-                        <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
-                    </div>
-                    <div class="col col-md-6">
-                        <div class="media wow fadeInLeft" data-wow-delay=".3s">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img src="img/service-img.png" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="#"><h4 class="media-heading">Jonathon Andrew</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-md-6">
-                        <div class="media wow fadeInRight" data-wow-delay=".3s">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img src="img/service-img.png" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="#"><h4 class="media-heading">Jonathon Andrew</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-md-6">
-                        <div class="media wow fadeInLeft" data-wow-delay=".3s">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img src="img/service-img.png" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="#"><h4 class="media-heading">Jonathon Andrew</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-md-6">
-                        <div class="media wow fadeInRight" data-wow-delay=".3s">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img src="img/service-img.png" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="#"><h4 class="media-heading">Jonathon Andrew</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="client-logo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <div id="Client_Logo" class="owl-carousel">
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo1.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo2.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo3.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo4.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo5.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo6.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo1.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo2.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo3.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo4.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo5.jpg" alt=""></a>
-                                </div>
-                                <div>
-                                    <a href="#"><img class="img-responsive" src="img/clientLogo/client-logo6.jpg" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="contact-form">
-            <div class="container">
-                <div class="row">
-                    <div class="title">
-                        <h2>CONTACT US</h2>
-                        <p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
-                    </div>
-                    <div class="col-md-6 col">
-                        <!-- map -->
-                        <div class="map">
-                            <div id="googleMap"></div>
-                        </div><!--/map-->
-
-                    </div>
-                    <div class="col-md-6">
-                        <form>
-                            <input type="text" class="form-control" placeholder="Name">
-                            <input type="text" class="form-control" placeholder="Email">
-                            <textarea class="form-control" rows="3" placeholder="Message"></textarea>
-                            <button class="btn btn-default" type="submit">SEND</button>
                         </form>
                     </div>
                 </div>
-            </div>
-        </section>
-        <div class="container">
-            @RenderBody()
-        </div>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <a href="#"><img src="img/logo.png" alt=""></a>
-                            <p>All rights reserved © 2017</p>
-                        </div>
+
+                <div class="col-lg-4">
+                    <div class="widget-contact">
+                        <h5>Main Office</h5>
+
+                        <address>
+                            <strong>Squas Design, Inc.</strong><br>
+                            Tower 795 Folsom Ave, Beautiful Suite 600<br>
+                            San Francisco, CA 94107<br>
+                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                        </address>
+
+                        <address>
+                            <strong>Email</strong><br>
+                            <a href="mailto:#">email.name@example.com</a>
+                        </address>
+                        <address>
+                            <strong>We're on social networks</strong><br>
+                            <ul class="company-social">
+                                <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                                <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </address>
+
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
 
-    <!-- load Js -->
-    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
-    <script src="~/Scripts/waypoints.min.js"></script>
-    <script src="~/Scripts/lightbox.js"></script>
-    <script src="~/Scripts/jquery.counterup.min.js"></script>
-    <script src="~/Scripts/owl.carousel.min.js"></script>
-    <script src="~/Scripts/html5lightbox.js"></script>
-    <script src="~/Scripts/jquery.mixitup.js"></script>
-    <script src="~/Scripts/wow.min.js"></script>
-    <script src="~/Scripts/jquery.scrollUp.js"></script>
-    <script src="~/Scripts/jquery.sticky.js"></script>
-    <script src="~/Scripts/jquery.nav.js"></script>
-    <script src="~/Scripts/main.js"></script>
+        </div>
+    </section>
+    <!-- /Section: contact -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="wow shake" data-wow-delay="0.4s">
+                        <div class="page-scroll marginbot-30">
+                            <a href="#intro" id="totop" class="btn btn-circle">
+                                <i class="fa fa-angle-double-up animated "></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p>&copy;English for kids.</p>
+                    <p>Where learn english for children</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @RenderBody()
+
+    <!-- Core JavaScript Files -->
+
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.easing.min.js"></script>
+    <script src="~/Content/js/wow.min.js"></script>
+    <script src="~/Content/js/jquery.scrollTo.js"></script>
+    
+    <!-- Custom Theme JavaScript -->
+
+    <script src="~/Content/js/custom.js"></script>
+
 </body>
+
 </html>
-
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
 

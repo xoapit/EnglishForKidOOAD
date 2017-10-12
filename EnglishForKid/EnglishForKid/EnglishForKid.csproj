@@ -13709,9 +13709,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate _home.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\home.css" />
     <Content Include="Content\css\icon.css" />
     <Content Include="Content\css\image.css" />
     <Content Include="Content\css\lightbox.css" />
@@ -15395,6 +15397,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Teacher\Models\" />
+    <Folder Include="Content\files\image\img\" />
+    <Folder Include="Content\font-awesome\" />
+    <Folder Include="Content\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
