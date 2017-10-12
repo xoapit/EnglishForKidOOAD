@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="box box-danger">
+        <div class="box-header with-border">
+                   
+            <h3 class="box-title">PERMISSION</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body padding-large">
+           
+            <label for="">BUSSINESS</label>
+            <div>
+                <select class="form-control" id="">
+                    <option>B1</option>
+                    <option>B2</option>
+                    <option>B4</option>
+                    <option>B5</option>
+                    <option>B5</option>
+                    <option>B7</option>
+                </select>
+            </div>
+            <hr>
+
+            <label>FUNCTION </label>
+            
+            <div class="col-md-12">
+                <button type="Submit" class="btn btn-primary pull-right margin-bottom">Add New</button>
+            </div>
+
+            <table class="table table-bordered table-responsive table-hover text-center">
+
+                <thead>
+                    <tr align="center" style="">
+                        <th>ID </th>
+                        <th>FUNCTION</th>
+                        <th>ACTION</th>
+
+
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    <tr>
+                        <td>F0001</td>
+                        <td>A</td>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>F0002</td>
+                        <td>A</td>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>F0003</td>
+                        <td>A</td>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box-body padding-large">
+            <form>
+                <div class="form-group">
+                    <div class="col-md-2 pull-left">
+                        <button type="submit" class="btn btn-primary btn-label-left pull-right btn-group">   
+                            SAVE
+                        </button>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <button class="btn btn-warning btn-label-left pull-right">
+                            CANCEL
+                        </button>
+                    </div>                    
+                </div>
+                
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+
+

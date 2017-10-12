@@ -1,18 +1,15 @@
 
-*.dll
-*.dll
+*.Cache
 EnglishForKid/APIEnglishForKid/bin/APIEnglishForKid.dll
-EnglishForKid/APIEnglishForKid/bin/APIEnglishForKid.dll
+
 *.dll
-*.cache
-*.cache
-*.dll
-*.dll
-*.dll
-*.dll
-*.dll
+
 EnglishForKid/EnglishForKidAPI/bin/Newtonsoft.Json.dll
 EnglishForKid/.vs/EnglishForKid/v14/.suo
 EnglishForKid/.vs/config/applicationhost.config
 EnglishForKid/APIEnglishForKid/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 EnglishForKid/EnglishForKidAPI/bin/EnglishForKidAPI.dll.config
+bin
+obj
+vs
+.vs

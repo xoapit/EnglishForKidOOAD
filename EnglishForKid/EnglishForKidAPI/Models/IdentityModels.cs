@@ -75,6 +75,8 @@ namespace EnglishForKidAPI.Models
         public ApplicationDbContext()
             : base("EnglishForKids", throwIfV1Schema: false)
         {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         public static ApplicationDbContext Create()
@@ -82,6 +84,9 @@ namespace EnglishForKidAPI.Models
             return new ApplicationDbContext();
         }
 
+<<<<<<< HEAD
         //  public System.Data.Entity.DbSet<EnglishForKidAPI.Models.ApplicationUser> ApplicationUsers { get; set; }
+=======
+>>>>>>> 5e7cd390d1e3daa8fe0ae958f3d90094bef52119
     }
 }

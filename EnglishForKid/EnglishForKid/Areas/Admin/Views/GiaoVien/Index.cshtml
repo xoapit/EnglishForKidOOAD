@@ -6,7 +6,7 @@
 <!-- /.box -->
 <div class="box box-success">
     <div class="box-header with-border">
-        <h3 class="box-title">DANH SÁCH GIÁO VIÊN</h3>
+        <h3 class="box-title">LIST OF TEACHERS</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                 <i class="fa fa-minus"></i>
@@ -21,9 +21,9 @@
                 <tr>
                     <th>Index</th>
                     <th>Username</th>
-                    <th>Họ Tên</th>
-                    <th>Trạng thái</th>
-                    <th>Hành Động</th>
+                    <th>Full Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,9 +33,9 @@
                     <td>Win 98+ / OSX.2+</td>
                     <td>1.8</td>
                     <td>
-                        <button type="Submit" class="btn btn-primary">Xem</button>
-                        <button type="Submit" class="btn btn-success">Sửa</button>
-                        <button type="Submit" class="btn btn-danger">Khóa</button>
+                        <button type="Submit" class="btn btn-primary">Detail</button>
+                        <button type="Submit" class="btn btn-success">Update</button>
+                        <button type="Submit" class="btn btn-danger">Block</button>
                     </td>
                 </tr>
                 <tr>
@@ -44,10 +44,10 @@
                     <td>Win 98+ / OSX.2+</td>
                     <td>1.8</td>
                     <td>
-                        <button type="Submit" class="btn btn-primary">Xem</button>
-                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-primary">Detail</button>
+                        <button type="Submit" class="btn btn-success">Update</button>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default">
-                            Khóa
+                            Block
                         </button>
                     </td>
                 </tr>
@@ -82,7 +82,7 @@
 
 <div class="box box-info">
     <div class="box-header with-border">
-        <h3 class="box-title">THÔNG TIN GIÁO VIÊN</h3>
+        <h3 class="box-title">TEACHER INFORMATION</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                 <i class="fa fa-minus"></i>
@@ -95,17 +95,17 @@
         <div class="box-content">
             <form class="form form-horizontal pull-left" role="form">
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Ảnh hồ sơ</label>
+                    <label class="col-sm-2 ">Profile photo</label>
                     <div class="col-sm-4">
                         <img src="../img/admin.png" alt="..." width="30%" class="img-circle profile_img">
                     </div>
-                    <label class="col-sm-2 ">Giới tính</label>
+                    <label class="col-sm-2 ">Gender</label>
                     <div class="col-sm-4">
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Nam</label>
+                            <label><input type="radio" name="optradio">Man</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Nữ</label>
+                            <label><input type="radio" name="optradio">Woman</label>
                         </div>
                     </div>
                 </div>
@@ -114,26 +114,26 @@
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="Username">
                     </div>
-                    <label class="col-sm-2 ">Địa chỉ</label>
+                    <label class="col-sm-2 ">Address</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Địa chỉ">
+                        <input type="text" class="form-control" placeholder="Address">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Tên giáo viên</label>
+                    <label class="col-sm-2 ">Teacher Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Tên giáo viên">
+                        <input type="text" class="form-control" placeholder="Teacher Name">
                     </div>
-                    <label class="col-sm-2 ">Số điện thoại</label>
+                    <label class="col-sm-2 ">Phone Number</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Số điện thoại">
+                        <input type="text" class="form-control" placeholder="Phone Number">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Ngày sinh</label>
+                    <label class="col-sm-2 ">Date of Birth</label>
                     <div class="col-sm-4">
                         <div class='input-group date' id='birthdate'>
-                            <input type='text' class="form-control" />
+                            <input type='text' class="form-control" placeholder="Date of Birth"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -145,10 +145,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Mật khẩu ban đầu</label>
+                    <label class="col-sm-2 ">Password</label>
                     <div class="col-sm-4">
                         <div class='' id=''>
-                            <input type='text' class="form-control" />
+                            <input type='text' class="form-control" placeholder="Password" />
                         </div>
                     </div>
                     <div class="col-sm-2 "></div>
@@ -160,7 +160,7 @@
                     <div class="col-sm-2">
                         <button type="submit" class="btn btn-primary btn-label-left">
                             <span><i class="fa fa-clock-o txt-danger"></i></span>
-                            Thêm
+                            Add
                         </button>
                     </div>
                     <div class="col-sm-5"></div>
@@ -173,7 +173,7 @@
 
 <div class="box box-danger">
     <div class="box-header with-border">
-        <h3 class="box-title">THÊM MỚI GIÁO VIÊN</h3>
+        <h3 class="box-title">Add new Teacher</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                 <i class="fa fa-minus"></i>
@@ -186,17 +186,17 @@
         <div class="box-content">
             <form class="form form-horizontal pull-left" role="form">
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Ảnh hồ sơ</label>
+                    <label class="col-sm-2 ">Profile photo</label>
                     <div class="col-sm-4">
                         <img src="../img/admin.png" alt="..." width="30%" class="img-circle profile_img">
                     </div>
-                    <label class="col-sm-2 ">Giới tính</label>
+                    <label class="col-sm-2 ">Gender</label>
                     <div class="col-sm-4">
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Nam</label>
+                            <label><input type="radio" name="optradio">Man</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Nữ</label>
+                            <label><input type="radio" name="optradio">Woman</label>
                         </div>
                     </div>
                 </div>
@@ -205,26 +205,26 @@
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="Username">
                     </div>
-                    <label class="col-sm-2 ">Địa chỉ</label>
+                    <label class="col-sm-2 ">Address</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Địa chỉ">
+                        <input type="text" class="form-control" placeholder="Address">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Tên giáo viên</label>
+                    <label class="col-sm-2 ">Teacher Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Tên giáo viên">
+                        <input type="text" class="form-control" placeholder="Teacher Name">
                     </div>
-                    <label class="col-sm-2 ">Số điện thoại</label>
+                    <label class="col-sm-2 ">Phone Number</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Số điện thoại">
+                        <input type="text" class="form-control" placeholder="Phone Number">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Ngày sinh</label>
+                    <label class="col-sm-2 ">Date of Birth</label>
                     <div class="col-sm-4">
                         <div class='input-group date' id='birthdate'>
-                            <input type='text' class="form-control" />
+                            <input type='text' class="form-control" placeholder="Date of Birth" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -236,10 +236,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 ">Mật khẩu ban đầu</label>
+                    <label class="col-sm-2 ">Password</label>
                     <div class="col-sm-4">
                         <div class='' id=''>
-                            <input type='text' class="form-control" />
+                            <input type='text' class="form-control" placeholder="Password" />
                         </div>
                     </div>
                     <div class="col-sm-2 "></div>
@@ -251,7 +251,7 @@
                     <div class="col-sm-2">
                         <button type="submit" class="btn btn-primary btn-label-left">
                             <span><i class="fa fa-clock-o txt-danger"></i></span>
-                            Thêm
+                            Add
                         </button>
                     </div>
                     <div class="col-sm-5"></div>
