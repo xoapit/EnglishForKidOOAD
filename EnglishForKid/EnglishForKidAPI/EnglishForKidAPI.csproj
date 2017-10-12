@@ -49,6 +49,10 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -67,9 +71,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -246,33 +247,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710101443572_InitDatabase1.cs" />
-    <Compile Include="Migrations\201710101443572_InitDatabase1.Designer.cs">
-      <DependentUpon>201710101443572_InitDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710101509253_InitDatabase2.cs" />
-    <Compile Include="Migrations\201710101509253_InitDatabase2.Designer.cs">
-      <DependentUpon>201710101509253_InitDatabase2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710101532063_InitDatabase3.cs" />
-    <Compile Include="Migrations\201710101532063_InitDatabase3.Designer.cs">
-      <DependentUpon>201710101532063_InitDatabase3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710101611031_InitDatabase4.cs" />
-    <Compile Include="Migrations\201710101611031_InitDatabase4.Designer.cs">
-      <DependentUpon>201710101611031_InitDatabase4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710101640123_InitDatabase5.cs" />
-    <Compile Include="Migrations\201710101640123_InitDatabase5.Designer.cs">
-      <DependentUpon>201710101640123_InitDatabase5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710101700018_InitDatabase6.cs" />
-    <Compile Include="Migrations\201710101700018_InitDatabase6.Designer.cs">
-      <DependentUpon>201710101700018_InitDatabase6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710101702281_InitDatabase7.cs" />
-    <Compile Include="Migrations\201710101702281_InitDatabase7.Designer.cs">
-      <DependentUpon>201710101702281_InitDatabase7.cs</DependentUpon>
+    <Compile Include="Migrations\201710120246283_First.cs" />
+    <Compile Include="Migrations\201710120246283_First.Designer.cs">
+      <DependentUpon>201710120246283_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -340,7 +317,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -375,26 +354,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710101443572_InitDatabase1.resx">
-      <DependentUpon>201710101443572_InitDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710101509253_InitDatabase2.resx">
-      <DependentUpon>201710101509253_InitDatabase2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710101532063_InitDatabase3.resx">
-      <DependentUpon>201710101532063_InitDatabase3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710101611031_InitDatabase4.resx">
-      <DependentUpon>201710101611031_InitDatabase4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710101640123_InitDatabase5.resx">
-      <DependentUpon>201710101640123_InitDatabase5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710101700018_InitDatabase6.resx">
-      <DependentUpon>201710101700018_InitDatabase6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710101702281_InitDatabase7.resx">
-      <DependentUpon>201710101702281_InitDatabase7.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710120246283_First.resx">
+      <DependentUpon>201710120246283_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
