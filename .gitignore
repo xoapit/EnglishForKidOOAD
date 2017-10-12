@@ -10,3 +10,7 @@ EnglishForKid/APIEnglishForKid/bin/APIEnglishForKid.dll
 *.dll
 *.dll
 *.dll
+bin
+obj
+vs
+.vs
