@@ -13716,6 +13716,7 @@
     <Content Include="Content\css\home.css" />
     <Content Include="Content\css\icon.css" />
     <Content Include="Content\css\image.css" />
+    <Content Include="Content\css\layout1.css" />
     <Content Include="Content\css\lightbox.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.transitions.css" />
@@ -15392,6 +15393,7 @@
     <Content Include="Views\KhaoSatVui\Add.cshtml" />
     <Content Include="Views\KhaoSatVui\Index.cshtml" />
     <Content Include="Views\KhaoSatVui\Xem.cshtml" />
+    <Content Include="Views\Shared\_Layout_ST.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
