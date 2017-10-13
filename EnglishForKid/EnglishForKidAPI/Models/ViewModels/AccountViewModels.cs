@@ -40,4 +40,12 @@ namespace EnglishForKidAPI.Models.ViewModels
 
         public string ProviderKey { get; set; }
     }
+
+    public class LoginViewModel
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public bool RememberMe { get; set; }
+        public bool ShouldLockOut { get; set; }
+    }
 }
