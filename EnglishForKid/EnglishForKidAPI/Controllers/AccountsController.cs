@@ -174,6 +174,7 @@ namespace identity.Controllers
         [Route("Logout")]
         public IHttpActionResult Logout()
         {
+            Authentication.SignOut();
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
             return Ok();
         }

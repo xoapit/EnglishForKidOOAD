@@ -15,9 +15,6 @@ namespace EnglishForKidAPI.Controllers
     public class BaseApiController : ApiController
     {
         protected ApplicationDbContext db = ApplicationDbContext.Create();
-        private ModelFactory _modelFactory;
-        private ApplicationUserManager _AppUserManager = null;
-
       
     }
 }

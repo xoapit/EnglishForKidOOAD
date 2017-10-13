@@ -47,7 +47,7 @@ namespace EnglishForKidAPI
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(30),
                 // In production mode set AllowInsecureHttp = false
                 AllowInsecureHttp = true
             };
@@ -60,7 +60,7 @@ namespace EnglishForKidAPI
                 //For Dev enviroment only (on production should be AllowInsecureHttp = false)
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/oauth/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(10),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(7),
                 Provider = new CustomOAuthProvider(),
                 AccessTokenFormat = new CustomJwtFormat(ApplicationConfig.ServerName)
             };
