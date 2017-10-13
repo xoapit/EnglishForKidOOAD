@@ -313,3 +313,9 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.pdb
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csprojResolveAssemblyReference.cache
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Thinktecture.IdentityModel.Core.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Thinktecture.IdentityModel.Core.pdb
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Microsoft.Owin.Security.Jwt.dll
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Microsoft.Owin.Security.Jwt.xml

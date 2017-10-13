@@ -99,7 +99,8 @@ namespace identity.Controllers
 
         // POST: /Account/Login
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize]
         //[System.Web.Mvc.ValidateAntiForgeryToken]
         [Route("Login")]
         public async Task<IHttpActionResult> Login(LoginViewModel model, string returnUrl)

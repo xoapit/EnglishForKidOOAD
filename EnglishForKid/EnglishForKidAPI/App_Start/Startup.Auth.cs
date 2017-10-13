@@ -11,6 +11,11 @@ using Owin;
 using EnglishForKidAPI.Providers;
 using EnglishForKidAPI.Models;
 using Microsoft.AspNet.Identity.Owin;
+using EnglishForKidAPI.Constants;
+using System.Configuration;
+using Microsoft.Owin.Security.Jwt;
+using Microsoft.Owin.Security.DataHandler.Encoder;
+using Microsoft.Owin.Security;
 
 namespace EnglishForKidAPI
 {
@@ -50,6 +55,18 @@ namespace EnglishForKidAPI
             // Enable the application to use bearer tokens to authenticate users
             app.UseOAuthBearerTokens(OAuthOptions);
 
+            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
+            {
+                //For Dev enviroment only (on production should be AllowInsecureHttp = false)
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/oauth/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(10),
+                Provider = new CustomOAuthProvider(),
+                AccessTokenFormat = new CustomJwtFormat(ApplicationConfig.ServerName)
+            };
+
+            // OAuth 2.0 Bearer Access Token Generation
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
@@ -61,7 +78,7 @@ namespace EnglishForKidAPI
                     // This is a security feature which is used when you change a password or add an external login to your account.  
                     OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
                        validateInterval: TimeSpan.FromMinutes(30),
-                       regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager,DefaultAuthenticationTypes.ApplicationCookie))
+                       regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager, DefaultAuthenticationTypes.ApplicationCookie))
                 }
             });
 
@@ -84,6 +101,25 @@ namespace EnglishForKidAPI
             //    ClientSecret = ""
             //});
 
+        }
+
+        public void ConfigureOAuthTokenConsumption(IAppBuilder app)
+        {
+            var issuer = ApplicationConfig.ServerName;
+            string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
+            byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
+
+            // Api controllers with an [Authorize] attribute will be validated with JWT
+            app.UseJwtBearerAuthentication(
+                new JwtBearerAuthenticationOptions
+                {
+                    AuthenticationMode = AuthenticationMode.Active,
+                    AllowedAudiences = new[] { audienceId },
+                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+                    {
+                        new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
+                    }
+                });
         }
     }
 }
