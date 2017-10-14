@@ -34,19 +34,22 @@
                         <td>Đội bóng bạn yêu thích là gì?</td>
                         <td>Được kích hoạt</td>
                         <td>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
                             <button type="Submit" class="btn btn-success" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                            <button type="Submit" class="btn btn-danger">Delete</button>
+                            <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                            <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
                         </td>
+                        
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Đội bóng bạn yêu thích là gì?</td>
                         <td>Chưa kích hoạt</td>
                         <td>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
                             <button type="Submit" class="btn btn-success"  data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                            <button type="Submit" class="btn btn-danger">Delete</button>
+                            <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                            <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
                         </td>
                     </tr>
                     <tr>
@@ -54,9 +57,10 @@
                         <td>Đội bóng bạn yêu thích là gì?</td>
                         <td>Chưa kích hoạt</td>
                         <td>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
                             <button type="Submit" class="btn btn-success"  data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                            <button type="Submit" class="btn btn-danger">Delete</button>
+                            <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                            <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -71,7 +75,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="myModalAddSurvey" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
 
             <!-- Modal content-->
             <div class="modal-content" style="margin:2%;">
@@ -154,7 +158,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModalUpdateSurvey" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <div class="modal-content" style="margin:2%;">
@@ -236,7 +240,7 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModalDetailSurvey" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <div class="modal-content" style="margin:2%;">
@@ -251,7 +255,82 @@
                             <label for="">Content</label>
                         </div>
                         <div class="form-group row">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="comment" readonly="true" style="background-color:white"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Aswer option</label>
+                            <select class="form-control" id="quantity">
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-1 col-xs-12 text-left">A</label>
+                            <div class="col-md-5 col-xs-12">
+                                <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
+                            </div>
+                            <label class="col-md-1 col-xs-12 text-left">B</label>
+                            <div class="col-md-5 col-xs-12">
+                                <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-1 col-xs-12 text-left">C</label>
+                            <div class="col-md-5 col-xs-12">
+                                <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
+                            </div>
+                            <div id="value4">
+                                <label class="col-md-1 col-xs-12 text-left">D</label>
+                                <div class="col-md-5 col-xs-12">
+                                    <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div id="value5">
+                                <label class="col-md-1 col-xs-12 text-left">E</label>
+                                <div class="col-md-5 col-xs-12">
+                                    <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
+                                </div>
+                            </div>
+                            <div id="value6">
+                                <label class="col-md-1 col-xs-12 text-left">F</label>
+                                <div class="col-md-5 col-xs-12">
+                                    <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
+                                </div>
+                            </div>
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>   
+
+
+<div class="modal fade" id="myModalDetailSurvey" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">DETAIL SURVEY QUESTION</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group row">
+                            <label for="">Content</label>
+                        </div>
+                        <div class="form-group row">
+                            <textarea class="form-control" rows="5" id="comment" ></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Aswer option</label>
@@ -269,18 +348,18 @@
                             </div>
                             <label class="col-md-1 col-xs-12 text-left">B</label>
                             <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="">
+                                <input type="text" class="form-control" id="" value="" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-md-1 col-xs-12 text-left">C</label>
                             <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="">
+                                <input type="text" class="form-control" id="" value="" >
                             </div>
                             <div id="value4">
                                 <label class="col-md-1 col-xs-12 text-left">D</label>
                                 <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                    <input type="text" class="form-control" id="" value="" >
                                 </div>
                             </div>
                         </div>
@@ -288,16 +367,16 @@
                             <div id="value5">
                                 <label class="col-md-1 col-xs-12 text-left">E</label>
                                 <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                    <input type="text" class="form-control" id="" value="" >
                                 </div>
                             </div>
                             <div id="value6">
                                 <label class="col-md-1 col-xs-12 text-left">F</label>
                                 <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                    <input type="text" class="form-control" id="" value="" readonly>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </form>
                 </div>
             </div>
@@ -307,7 +386,81 @@
         </div>
 
     </div>
-</div>   
+</div>
+
+
+<div class="modal fade" id="myModalDeleteSurvey" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">DELETE SURVEY QUESTION</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group row">
+                            <label  style="align:center;">Are you sure?</label>
+                        </div>
+                         
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group row">
+                    <div class="col-md-9 col-xs-12"></div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-success">Yes</button>
+                    </div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-danger">No</button>
+                    </div>
+
+                    <div class="col-md-1 col-xs-12"></div>
+                </div> 
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="myModalActiveSurvey" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ACTIVE SURVEY QUESTION</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group row">
+                            <label style="align:center;">Are you sure?</label>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group row">
+                    <div class="col-md-9 col-xs-12"></div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-success">Yes</button>
+                    </div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-danger">No</button>
+                    </div>
+
+                    <div class="col-md-1 col-xs-12"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -363,7 +516,6 @@
     });
     CKEditor.replace('editor1');
 </script>
-
 
 
 
