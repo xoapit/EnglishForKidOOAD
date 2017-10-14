@@ -319,7 +319,6 @@ D:\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\En
 D:\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.First.resources
 D:\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csproj.GenerateResource.Cache
 D:\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csprojResolveAssemblyReference.cache
-C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.First.resources
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.csproj.GenerateResource.Cache
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\ApplicationInsights.config
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\roslyn\csc.exe
@@ -430,3 +429,4 @@ C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Thinktecture.IdentityModel.Core.pdb
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Microsoft.Owin.Security.Jwt.dll
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\bin\Microsoft.Owin.Security.Jwt.xml
+C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKidAPI\obj\Debug\EnglishForKidAPI.Migrations.ChangeDbToHost.resources

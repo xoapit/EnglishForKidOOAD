@@ -6973,6 +6973,8 @@
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Areas\Admin\Scripts\Feedback\index.js" />
+    <Content Include="Areas\Admin\Scripts\Survey\index.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Student\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Lesson\Index.cshtml" />

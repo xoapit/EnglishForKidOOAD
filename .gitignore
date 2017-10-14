@@ -303,3 +303,9 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
+EnglishForKid/EnglishForKid/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.cache
+*.resources
+*.Cache
+*.cache
+*.txt
