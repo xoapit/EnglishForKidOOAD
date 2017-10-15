@@ -21,6 +21,13 @@ namespace EnglishForKidAPI.Controllers
             return db.Comments;
         }
 
+        // Get: api/Comments/Lesson/5
+        [Route("api/comments/Lesson/{id}")]
+        public IQueryable<Comment> GetCommentsByLessonID(Guid id)
+        {
+            return db.Comments.Where(x => x.LessonID == id);
+        }
+
         // GET: api/Comments/5
         [ResponseType(typeof(Comment))]
         public IHttpActionResult GetComment(Guid id)
@@ -114,6 +121,7 @@ namespace EnglishForKidAPI.Controllers
 
             return Ok(comment);
         }
+
 
         protected override void Dispose(bool disposing)
         {

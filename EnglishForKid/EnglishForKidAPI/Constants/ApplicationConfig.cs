@@ -7,6 +7,9 @@ namespace EnglishForKidAPI.Constants
 {
     public class ApplicationConfig
     {
+        public static int ServerPort = 50828;
+        public static readonly string ServerName = "localhost"+":"+ServerPort.ToString();
+
         public const string API_KEY = "d2874bf65143333fa6155a417209bec39f73f2b1a0a9d6d1db2e4eedd5087114";
         public const string API_KEY_NAME = "APIKey";
 

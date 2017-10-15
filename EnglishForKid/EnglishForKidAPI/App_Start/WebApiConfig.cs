@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using System.Data.Entity;
 
 namespace EnglishForKidAPI
 {
@@ -32,9 +33,11 @@ namespace EnglishForKidAPI
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
 
             json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            
 
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter
+                .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+           
         }
     }
 }
