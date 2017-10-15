@@ -207,6 +207,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\KhaoSatVuiController.cs" />
+    <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -13718,6 +13719,8 @@
     <Content Include="Content\css\image.css" />
     <Content Include="Content\css\layout1.css" />
     <Content Include="Content\css\lightbox.css" />
+    <Content Include="Content\css\nhat_custom.css" />
+    <Content Include="Content\css\nhat_styles.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.transitions.css" />
     <Content Include="Content\css\preloader.css" />
@@ -13773,6 +13776,12 @@
     <Content Include="Content\files\image\images\loading.gif" />
     <Content Include="Content\files\image\images\next.png" />
     <Content Include="Content\files\image\images\prev.png" />
+    <Content Include="Content\files\image\LessonImage\1.jpg" />
+    <Content Include="Content\files\image\LessonImage\2.jpg" />
+    <Content Include="Content\files\image\LessonImage\3.jpg" />
+    <Content Include="Content\files\image\LessonImage\4.jpg" />
+    <Content Include="Content\files\image\LessonImage\5.jpg" />
+    <Content Include="Content\files\image\LessonImage\6.jpg" />
     <Content Include="Content\files\image\lightbox-close.png" />
     <Content Include="Content\files\image\logo.png" />
     <Content Include="Content\files\image\map.jpg" />
@@ -15395,6 +15404,8 @@
     <Content Include="Views\KhaoSatVui\Index.cshtml" />
     <Content Include="Views\KhaoSatVui\Xem.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
+    <Content Include="Views\Lesson\ListOfLesson.cshtml" />
+    <Content Include="Views\Lesson\DetailOfLesson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
