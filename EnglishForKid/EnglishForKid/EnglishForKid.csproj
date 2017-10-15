@@ -13709,11 +13709,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate _home.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\home.css" />
     <Content Include="Content\css\icon.css" />
     <Content Include="Content\css\image.css" />
+    <Content Include="Content\css\layout1.css" />
     <Content Include="Content\css\lightbox.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.transitions.css" />
@@ -13787,6 +13790,7 @@
     <Content Include="Content\files\image\work4.jpg" />
     <Content Include="Content\files\image\work5.jpg" />
     <Content Include="Content\files\image\work6.jpg" />
+    <Content Include="Content\js\aaa.js" />
     <Content Include="Content\table.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\et-line.svg" />
@@ -15390,11 +15394,14 @@
     <Content Include="Views\KhaoSatVui\Add.cshtml" />
     <Content Include="Views\KhaoSatVui\Index.cshtml" />
     <Content Include="Views\KhaoSatVui\Xem.cshtml" />
+    <Content Include="Views\Shared\_Layout_ST.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Teacher\Models\" />
+    <Folder Include="Content\files\image\img\" />
+    <Folder Include="Content\font-awesome\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

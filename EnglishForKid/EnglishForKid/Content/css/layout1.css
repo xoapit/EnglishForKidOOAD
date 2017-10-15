@@ -1,0 +1,303 @@
+﻿body {
+}
+body {
+    color: #d0c0c0;
+}
+
+.maincontain {
+margin-top:160px;
+}
+/*
+* Style tweaks
+* --------------------------------------------------
+*/
+
+/*
+ * Custom styles
+ */
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-container {
+    padding: 20px 0 20px 0;
+}
+
+.navbar.navbar-fixed-top.fixed-theme {
+    background-color: #222;
+    border-color: #080808;
+    box-shadow: 0 0 5px rgba(0,0,0,.8);
+}
+
+.navbar-brand.fixed-theme {
+    font-size: 18px;
+}
+
+.navbar-container.fixed-theme {
+    padding: 0;
+}
+
+.navbar-brand.fixed-theme,
+.navbar-container.fixed-theme,
+.navbar.navbar-fixed-top.fixed-theme,
+.navbar-brand,
+.navbar-container{
+    transition: 0.8s;
+    -webkit-transition:  0.8s;
+}
+
+/*INFOR BAR*/
+
+.color-bar {
+    width: 100%;
+}
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+div {
+    display: block;
+}
+
+.top-info-bar {
+    font-family: cursive;
+    font-weight: 600;
+    padding: 15px 0 12px 0;
+    display: block;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    top: 3px;
+    transition: height 0.15s ease;
+    height: 53px;
+}
+.bg-color-8 {
+    background-color: #000;
+}
+.bg-color-7 {
+    background-color: #2f3c43;
+}
+.bg-color-2 {
+    background-color: #76a34a;
+}
+.border-color-2 {
+    border-color: #76a34a;
+}
+.bg-color-3 {
+    background-color: #ea7066!important;
+}
+.border-color-3 {
+    border-color: #d36446;
+}
+.bg-color-1 {
+    background-color: #dda41b;
+}
+.bg-color-4 {
+    background-color: #ef9ee6;
+}
+.border-color-4 {
+    border-color: #ef9ee6;
+}
+.border-color-1 {
+    border-color: #dda41b;
+}
+.bg-color-5 {
+    background-color: #a597e7;
+}
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+.topList li {
+    margin-right: 10px;
+    font-size: 14px;
+     color: rgba(212, 205, 205, 0.8);
+}
+.topList li a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+}
+.topList li i {
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    color: #ffffff;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 21px;
+}
+.functionList li i {
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    color: #ffffff;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 21px;
+}
+.functionList>li a {
+  
+    font-weight: 600;
+}
+/*Navbar*/
+/*
+Code snippet by maridlcrmn for Bootsnipp.com
+Follow me on Twitter @maridlcrmn
+*/
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
+
+.navbar .navbar-collapse { position: relative; overflow: hidden !important; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+.navbar-nav.navbar-right .btn:not(.collapsed) {
+    background-color: rgb(111, 84, 153);
+    border-color: rgb(111, 84, 153);
+    color: rgb(255, 255, 255);
+}
+
+.navbar.navbar-default .nav-collapse,
+.navbar.navbar-inverse .nav-collapse {
+    height: auto !important;
+    transition: transform 0.3s;
+    transform: translate(0px,-50px);
+}
+.navbar.navbar-default .nav-collapse.in,
+.navbar.navbar-inverse .nav-collapse.in {
+    transform: translate(0px,0px);
+}
+
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; } 
+    
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
+    
+    .navbar.navbar-default .nav-collapse,
+    .navbar.navbar-inverse .nav-collapse {
+        transform: translate(-100%,0px);
+    }
+    .navbar.navbar-default .nav-collapse.in,
+    .navbar.navbar-inverse .nav-collapse.in {
+        transform: translate(0px,0px);
+    }
+    
+    .navbar.navbar-default .nav-collapse.slide-down,
+    .navbar.navbar-inverse .nav-collapse.slide-down {
+        transform: translate(0px,-100%);
+    }
+    .navbar.navbar-default .nav-collapse.in.slide-down,
+    .navbar.navbar-inverse .nav-collapse.in.slide-down {
+        transform: translate(0px,0px);
+    }
+}
+.navbar-inverse {
+
+    background-color: #ecf0f1;
+    border-color: #080808;
+}
+.navbar-brand> img {
+height:400%;
+}
+.navbar {
+    font-family: cursive;
+    position: fixed;
+    margin-top: 57px;
+    min-height: 100px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.navbar-nav>li>a {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    text-align:center;
+}
+.navbar .navbar-nav>li>a>i {
+    width: 55px;
+    height: 55px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 100%;
+    display: block;
+    color: #ffffff;
+    font-size: 26px;
+    padding-top: 10px;
+     margin: 0 auto 12px auto;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-left: auto;
+}
+.navbar .navbar-nav>li>a>i.fixed-theme {
+    width: 55px;
+    height: 55px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 100%;
+    display: block;
+    color: #ffffff;
+    font-size: 26px;
+    padding-top: 10px;
+     margin: 0 auto 12px auto;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-left: auto;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #000;
+    background-color: #ecf0f1;
+}
+
+
+
+/*FOOTER*/
+
+/* ===========================
+--- Footer
+============================ */
+
+footer {
+	text-align: center;
+	padding: 50px 0 ;
+    background-color:#000;
+	
+}
+
+footer p {
+	color: #f8f8f8;
+}
+
+.credits, .credits a {
+    color: #fff;
+}
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
