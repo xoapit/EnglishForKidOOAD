@@ -196,6 +196,7 @@
     <Compile Include="Areas\Admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LessonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PermissionController.cs" />
     <Compile Include="Areas\Admin\Controllers\StudentController.cs" />
     <Compile Include="Areas\Admin\Controllers\GiaoVienController.cs" />
@@ -15200,7 +15201,9 @@
     <Content Include="fonts\weblysleekuil.ttf" />
     <Content Include="fonts\weblysleekuisb.ttf" />
     <Content Include="Areas\Admin\Views\Permission\Edit.cshtml" />
-    <Content Include="Areas\Student\Views\web.config" />
+
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\config.js" />
     <Content Include="Scripts\ckeditor\contents.css" />
