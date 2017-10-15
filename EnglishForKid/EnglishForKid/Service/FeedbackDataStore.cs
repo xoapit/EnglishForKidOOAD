@@ -14,7 +14,7 @@ namespace EnglishForKid.Service
         public async Task<bool> AddItemAsync(Feedback item)
         {
             string path = "/api/feedbacks";
-            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
@@ -56,9 +56,12 @@ namespace EnglishForKid.Service
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateItemAsync(Feedback item)
+        public async Task<bool> UpdateItemAsync(Feedback item)
         {
-            throw new NotImplementedException();
+            string path = "/api/feedbacks/" + item.ID;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
     }
 }
