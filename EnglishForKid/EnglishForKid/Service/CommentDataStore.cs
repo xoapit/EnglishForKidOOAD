@@ -4,29 +4,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace EnglishForKid.Service
 {
     public class CommentDataStore : BaseDataStore, IDataStore<Comment>
     {
-        public Task<bool> AddItemAsync(Comment item)
+        public async Task<bool> AddItemAsync(Comment item)
         {
-            throw new NotImplementedException();
+            String path = "/api/Comments";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<bool> DeleteItemAsync(Guid id)
+        public async  Task<bool> DeleteItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            String path = "/api/Comments" + id.ToString();
+            HttpResponseMessage response = await client.DeleteAsync(path);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<Comment> GetItemAsync(Guid id)
+        public async Task<Comment> GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            Comment comment = null;
+            String path = "/api/Comments" + id.ToString();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+             if (response.IsSuccessStatusCode)
+            {
+                comment = await response.Content.ReadAsAsync<Comment>();
+            }
+
+            return comment;
         }
 
-        public Task<List<Comment>> GetItemsAsync()
+        public async Task<List<Comment>> GetItemsAsync()
         {
-            throw new NotImplementedException();
+            List<Comment> listComment = null;
+            String path = "/api/Comments";
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                listComment = await response.Content.ReadAsAsync<List<Comment>>();
+            }
+
+
+            return listComment;
         }
 
         public Task InitializeAsync()
@@ -37,6 +61,20 @@ namespace EnglishForKid.Service
         public Task<bool> UpdateItemAsync(Comment item)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<Comment>> GetCommentsAcyncByLessonIdAsync(Guid id)
+        {
+            List<Comment> ListCommentOfLesson = null;
+            String path = "/api/comments/Lesson" + id.ToString();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                ListCommentOfLesson = await response.Content.ReadAsAsync<List<Comment>>();
+            }
+
+            return ListCommentOfLesson;
         }
     }
 }
