@@ -4,29 +4,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace EnglishForKid.Service
 {
     public class LessonDataStore : BaseDataStore, IDataStore<Lesson>
     {
-        public Task<bool> AddItemAsync(Lesson item)
+        public async Task<bool> AddItemAsync(Lesson item)
         {
-            throw new NotImplementedException();
+            String path = "/api/Lessons";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
+
         }
 
-        public Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            String path = "/api/Lessons" + id.ToString();
+            HttpResponseMessage response = await client.DeleteAsync(path);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<Lesson> GetItemAsync(Guid id)
+        public async Task<Lesson> GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            Lesson lesson = null;
+
+            String path = "/api/Lessons" +id.ToString();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                lesson = await response.Content.ReadAsAsync<Lesson>();
+            }
+            return lesson;
         }
 
-        public Task<List<Lesson>> GetItemsAsync()
+        public async Task<List<Lesson>> GetItemsAsync()
         {
-            throw new NotImplementedException();
+            List<Lesson> listLesson = null;
+            String path = "/api/Lessons";
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                listLesson = await response.Content.ReadAsAsync<List<Lesson>>();
+            }
+
+            return listLesson;
         }
 
         public Task InitializeAsync()
@@ -38,5 +62,6 @@ namespace EnglishForKid.Service
         {
             throw new NotImplementedException();
         }
+
     }
 }

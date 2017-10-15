@@ -4,29 +4,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace EnglishForKid.Service
 {
     public class ResultDataStore : BaseDataStore, IDataStore<Result>
     {
-        public Task<bool> AddItemAsync(Result item)
+        public async Task<bool> AddItemAsync(Result item)
         {
-            throw new NotImplementedException();
+            String path = "/api/AnswerSurveys";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+            return await Task.FromResult(response.IsSuccessStatusCode);
+
         }
 
-        public Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            String path = "/api/AnswerSurveys" +id.ToString();
+            HttpResponseMessage response = await client.DeleteAsync(path);
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<Result> GetItemAsync(Guid id)
+        public async Task<Result> GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            Result result = null;
+            String path = "/api/AnswerSurveys" + id.ToString();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            
+            if (response.IsSuccessStatusCode)
+            {
+                result = await response.Content.ReadAsAsync<Result>();
+            }
+            return result;
         }
 
-        public Task<List<Result>> GetItemsAsync()
+        public async Task<List<Result>> GetItemsAsync()
         {
-            throw new NotImplementedException();
+            List<Result> ListResult = null;
+            String path = "/api/AnswerSurveys";
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                ListResult = await response.Content.ReadAsAsync<List<Result>>();
+            }
+            return ListResult;
         }
 
         public Task InitializeAsync()
