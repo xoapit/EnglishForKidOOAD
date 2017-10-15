@@ -15389,7 +15389,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Register\Create.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\index.cshtml" />
@@ -15397,8 +15397,7 @@
     <Content Include="Views\KhaoSatVui\Index.cshtml" />
     <Content Include="Views\KhaoSatVui\Xem.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
-=======
->>>>>>> master
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -15408,13 +15407,12 @@
     <Folder Include="Areas\Student\Models\" />
     <Folder Include="Areas\Student\Views\Shared\" />
     <Folder Include="Areas\Teacher\Models\" />
-<<<<<<< HEAD
+
     <Folder Include="Content\files\image\img\" />
     <Folder Include="Content\font-awesome\" />
     <Folder Include="Content\js\" />
-=======
     <Folder Include="Scripts\QuestionSurvey\" />
->>>>>>> master
+
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
