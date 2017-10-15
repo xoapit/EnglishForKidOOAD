@@ -12,19 +12,20 @@ using EnglishForKidAPI.Models;
 
 namespace EnglishForKidAPI.Controllers
 {
-    public class ApplicationUsersController : BaseApiController
+    public class UsersController : BaseApiController
     {
-        // GET: api/ApplicationUsers
-        public IQueryable<ApplicationUser> GetApplicationUsers()
+
+        // GET: api/Users
+        public IQueryable<ApplicationUser> GetUsers()
         {
-            return db.ApplicationUsers;
+            return db.Users;
         }
 
-        // GET: api/ApplicationUsers/5
+        // GET: api/Users/5
         [ResponseType(typeof(ApplicationUser))]
         public IHttpActionResult GetApplicationUser(string id)
         {
-            ApplicationUser applicationUser = db.ApplicationUsers.Find(id);
+            ApplicationUser applicationUser = db.Users.Find(id);
             if (applicationUser == null)
             {
                 return NotFound();
@@ -33,7 +34,7 @@ namespace EnglishForKidAPI.Controllers
             return Ok(applicationUser);
         }
 
-        // PUT: api/ApplicationUsers/5
+        // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutApplicationUser(string id, ApplicationUser applicationUser)
         {
@@ -68,7 +69,7 @@ namespace EnglishForKidAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ApplicationUsers
+        // POST: api/Users
         [ResponseType(typeof(ApplicationUser))]
         public IHttpActionResult PostApplicationUser(ApplicationUser applicationUser)
         {
@@ -77,7 +78,7 @@ namespace EnglishForKidAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.ApplicationUsers.Add(applicationUser);
+            db.Users.Add(applicationUser);
 
             try
             {
@@ -98,17 +99,17 @@ namespace EnglishForKidAPI.Controllers
             return CreatedAtRoute("DefaultApi", new { id = applicationUser.Id }, applicationUser);
         }
 
-        // DELETE: api/ApplicationUsers/5
+        // DELETE: api/Users/5
         [ResponseType(typeof(ApplicationUser))]
         public IHttpActionResult DeleteApplicationUser(string id)
         {
-            ApplicationUser applicationUser = db.ApplicationUsers.Find(id);
+            ApplicationUser applicationUser = db.Users.Find(id);
             if (applicationUser == null)
             {
                 return NotFound();
             }
 
-            db.ApplicationUsers.Remove(applicationUser);
+            db.Users.Remove(applicationUser);
             db.SaveChanges();
 
             return Ok(applicationUser);
@@ -125,7 +126,7 @@ namespace EnglishForKidAPI.Controllers
 
         private bool ApplicationUserExists(string id)
         {
-            return db.ApplicationUsers.Count(e => e.Id == id) > 0;
+            return db.Users.Count(e => e.Id == id) > 0;
         }
     }
 }
