@@ -13711,11 +13711,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate _home.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\home.css" />
     <Content Include="Content\css\icon.css" />
     <Content Include="Content\css\image.css" />
+    <Content Include="Content\css\layout1.css" />
     <Content Include="Content\css\lightbox.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.transitions.css" />
@@ -15386,6 +15389,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Register\Create.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\index.cshtml" />
+    <Content Include="Views\KhaoSatVui\Add.cshtml" />
+    <Content Include="Views\KhaoSatVui\Index.cshtml" />
+    <Content Include="Views\KhaoSatVui\Xem.cshtml" />
+    <Content Include="Views\Shared\_Layout_ST.cshtml" />
+=======
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -15395,7 +15408,13 @@
     <Folder Include="Areas\Student\Models\" />
     <Folder Include="Areas\Student\Views\Shared\" />
     <Folder Include="Areas\Teacher\Models\" />
+<<<<<<< HEAD
+    <Folder Include="Content\files\image\img\" />
+    <Folder Include="Content\font-awesome\" />
+    <Folder Include="Content\js\" />
+=======
     <Folder Include="Scripts\QuestionSurvey\" />
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

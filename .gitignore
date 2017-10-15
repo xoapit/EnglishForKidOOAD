@@ -307,5 +307,15 @@ EnglishForKid/EnglishForKid/obj/Debug/DesignTimeResolveAssemblyReferencesInput.c
 *.cache
 *.resources
 *.Cache
+
+EnglishForKid/APIEnglishForKid/bin/APIEnglishForKid.dll
+*.dll
+*.dll
+*.dll
+*.dll
+EnglishForKid/.vs/EnglishForKid/v14/.suo
+EnglishForKid/.vs/EnglishForKid/v14/.suo
+
 *.cache
 *.txt
+

@@ -83,6 +83,11 @@ C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Mi
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\Microsoft.AI.Web.xml
+<<<<<<< HEAD
+C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.csprojResolveAssemblyReference.cache
+C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.dll
+C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.pdb
+=======
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.dll
 C:\Users\PC\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.pdb
 C:\Users\Xoapit\Documents\GitHub\EnglishForKidSTP\EnglishForKid\EnglishForKid\bin\ApplicationInsights.config
@@ -262,3 +267,4 @@ D:\GITHUP\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.c
 D:\GITHUP\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.csproj.CoreCompileInputs.cache
 D:\GITHUP\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.dll
 D:\GITHUP\EnglishForKidSTP\EnglishForKid\EnglishForKid\obj\Debug\EnglishForKid.pdb
+>>>>>>> master
