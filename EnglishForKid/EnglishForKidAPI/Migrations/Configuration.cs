@@ -5,6 +5,7 @@ namespace EnglishForKidAPI.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -18,9 +19,41 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            //    InitUsers(context);
-            //    InitCategories(context);
+           // InitUsers(context);
+           // InitCategories(context);
+            InitBusinessesAndFunctions(context);
         }
+
+        private void InitBusinessesAndFunctions(ApplicationDbContext context)
+        {
+            context.Functions.RemoveRange(context.Functions.ToList());
+            context.Businesses.RemoveRange(context.Businesses.ToList());
+
+            ReflectionController reflection = new ReflectionController();
+            foreach (var controller in reflection.GetControllers())
+            {
+                Business bussiness = new Business
+                {
+                    ID = Guid.NewGuid(),
+                    Name = controller.Name
+                };
+
+                context.Businesses.Add(bussiness);
+
+                foreach (var action in reflection.GetActions(controller))
+                {
+                    context.Functions.Add(new Function
+                    {
+                        ID = Guid.NewGuid(),
+                        Name = action,
+                        BusinessID = bussiness.ID,
+                        IdentityRoleID = context.Roles.Where(r => r.Name == "Admin").First().Id
+                    });
+                }
+            }
+            context.SaveChanges();
+        }
+
 
         private void InitUsers(ApplicationDbContext context)
         {
@@ -82,6 +115,8 @@ namespace EnglishForKidAPI.Migrations
         }
         private void InitCategories(ApplicationDbContext context)
         {
+            context.Categories.RemoveRange(context.Categories.ToList());
+
             context.Categories.Add(new Category()
             {
                 ID = Guid.NewGuid(),

@@ -53,7 +53,8 @@
       <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.0.0\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -253,12 +254,15 @@
     <Compile Include="Controllers\QuestionSurveysController.cs" />
     <Compile Include="Controllers\RatesController.cs" />
     <Compile Include="Controllers\ResultsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710131556215_ChangeDbToHost.cs" />
-    <Compile Include="Migrations\201710131556215_ChangeDbToHost.Designer.cs">
-      <DependentUpon>201710131556215_ChangeDbToHost.cs</DependentUpon>
+    <Compile Include="Helper\AuthorizeController.cs" />
+    <Compile Include="Helper\ReflectionController.cs" />
+    <Compile Include="Migrations\201710161518219_First.cs" />
+    <Compile Include="Migrations\201710161518219_First.Designer.cs">
+      <DependentUpon>201710161518219_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\AccountBindingModels.cs" />
@@ -348,6 +352,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Warning.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -369,8 +374,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710131556215_ChangeDbToHost.resx">
-      <DependentUpon>201710131556215_ChangeDbToHost.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710161518219_First.resx">
+      <DependentUpon>201710161518219_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

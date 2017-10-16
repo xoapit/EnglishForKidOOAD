@@ -5,10 +5,12 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EnglishForKidAPI.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    [Table("User")]
     public class ApplicationUser : IdentityUser
     {
         public bool Status { get; set; }

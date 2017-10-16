@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace EnglishForKidAPI.Models
 {
+    [Table("Feedback")]
     public class Feedback : BaseDataObject
     {
         public string Title { get; set; }
