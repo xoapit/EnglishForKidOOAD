@@ -19,8 +19,8 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-           // InitUsers(context);
-           // InitCategories(context);
+            // InitUsers(context);
+            // InitCategories(context);
             InitBusinessesAndFunctions(context);
         }
 

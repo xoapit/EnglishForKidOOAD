@@ -33,14 +33,22 @@ namespace EnglishForKidAPI.Models
             return listAction;
         }
 
-        public string GetActionsForUser(string userID = "431b7969-6ab1-461f-ab96-233d00dbe5c3")
+        protected ApplicationDbContext db = ApplicationDbContext.Create();
+
+        public List<string> GetActionsForUser(string username = "admin")
         {
-            // RequestContext.Priciple.Identity.Name();
+            List<string> result = new List<string>();
+            var user = db.Users.FirstOrDefault(u => u.UserName == username);
+            var roles = db.UserRoles.Where(ur => ur.UserId == user.Id);
 
-            ApplicationDbContext context = new ApplicationDbContext();
-            var user = context.Users.FirstOrDefault(u => u.Id == userID);
-
-            string result = user.UserName + user.Roles;
+            foreach (var role in roles)
+            {
+                var functions = db.Functions.Where(f => f.IdentityRoleID == role.RoleId);
+                foreach (var function in functions)
+                {
+                    result.Add(function.Name);
+                }
+            }
 
             return result;
         }

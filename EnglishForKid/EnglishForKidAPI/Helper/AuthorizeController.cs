@@ -10,7 +10,8 @@ namespace EnglishForKidAPI.Helper
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            //string username = HttpContext.Current.Session["username"].ToString();
+            string username = HttpContext.Current.User.Identity.Name;
+
             // Gia su cac action ma user duoc truy cap
             string[] listPermission = { "GetUser", "GetBusiness" };
             string actionName = filterContext.ActionDescriptor.ActionName;

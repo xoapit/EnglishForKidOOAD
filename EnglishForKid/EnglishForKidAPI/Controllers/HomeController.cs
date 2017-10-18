@@ -15,11 +15,20 @@ namespace EnglishForKidAPI.Controllers
 
             ReflectionController reflection = new ReflectionController();
 
-            string result = "<ul>";
+            string result = "";
+
+            List<string> listAction = reflection.GetActionsForUser();
+
+            foreach (var action in listAction)
+            {
+                result += "<ul>" + action + "</ul>";
+            }
+
+            result += "<ul>";
 
             foreach (var controller in reflection.GetControllers())
             {
-                result += "<li>" + controller.Name+ "<ul>";
+                result += "<li>" + controller.Name + "<ul>";
                 foreach (var action in reflection.GetActions(controller))
                 {
                     result += "<li>" + action + "</li>";
