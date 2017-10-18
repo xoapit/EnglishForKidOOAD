@@ -21,7 +21,35 @@ namespace EnglishForKidAPI.Migrations
         {
             // InitUsers(context);
             // InitCategories(context);
-            InitBusinessesAndFunctions(context);
+         //   InitBusinessesAndFunctions(context);
+            InitFeedback(context);
+        }
+
+        private void InitFeedback(ApplicationDbContext context)
+        {
+            context.Feedbacks.Add(new Feedback
+            {
+                ID = Guid.NewGuid(),
+                Title = "Tin was blocked!",
+                Content = "Hello, what's up?",
+                CreateAt = DateTime.Now,
+                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+            });
+            context.Feedbacks.Add(new Feedback
+            {
+                ID = Guid.NewGuid(),
+                Title = "Tin was blocked!",
+                Content = "Hello, what's up?",
+                CreateAt = DateTime.Now,
+                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+            }); context.Feedbacks.Add(new Feedback
+            {
+                ID = Guid.NewGuid(),
+                Title = "Tin was blocked!",
+                Content = "Hello, what's up?",
+                CreateAt = DateTime.Now,
+                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+            });
         }
 
         private void InitBusinessesAndFunctions(ApplicationDbContext context)

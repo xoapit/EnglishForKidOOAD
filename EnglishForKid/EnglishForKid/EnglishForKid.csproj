@@ -15204,9 +15204,8 @@
     <Content Include="fonts\weblysleekuil.ttf" />
     <Content Include="fonts\weblysleekuisb.ttf" />
     <Content Include="Areas\Admin\Views\Permission\Edit.cshtml" />
-
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
-
+    <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\config.js" />
     <Content Include="Scripts\ckeditor\contents.css" />
@@ -15389,7 +15388,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-
     <Content Include="Views\Register\Create.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\index.cshtml" />
@@ -15397,22 +15395,18 @@
     <Content Include="Views\KhaoSatVui\Index.cshtml" />
     <Content Include="Views\KhaoSatVui\Xem.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Feedback\" />
     <Folder Include="Areas\Student\Controllers\" />
     <Folder Include="Areas\Student\Models\" />
     <Folder Include="Areas\Student\Views\Shared\" />
     <Folder Include="Areas\Teacher\Models\" />
-
     <Folder Include="Content\files\image\img\" />
     <Folder Include="Content\font-awesome\" />
     <Folder Include="Content\js\" />
     <Folder Include="Scripts\QuestionSurvey\" />
-
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

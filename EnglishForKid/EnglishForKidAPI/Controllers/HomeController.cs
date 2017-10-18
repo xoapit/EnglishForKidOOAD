@@ -17,6 +17,7 @@ namespace EnglishForKidAPI.Controllers
 
             string result = "";
 
+            // Get user for user, default by admin
             List<string> listAction = reflection.GetActionsForUser();
 
             foreach (var action in listAction)
@@ -26,6 +27,7 @@ namespace EnglishForKidAPI.Controllers
 
             result += "<ul>";
 
+            // get all controllers and actions for each controller
             foreach (var controller in reflection.GetControllers())
             {
                 result += "<li>" + controller.Name + "<ul>";
