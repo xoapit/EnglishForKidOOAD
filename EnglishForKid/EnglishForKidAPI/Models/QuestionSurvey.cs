@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace EnglishForKidAPI.Models
 {
+    [Table("QuestionSurvey")]
     public class QuestionSurvey : BaseDataObject
     {
         public string Content { get; set; }

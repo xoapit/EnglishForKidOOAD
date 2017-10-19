@@ -6,6 +6,7 @@ using System.Web;
 
 namespace EnglishForKidAPI.Models
 {
+    [Table("Lesson")]
     public class Lesson : BaseDataObject
     {
         public string Title { get; set; }
