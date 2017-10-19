@@ -25,7 +25,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -259,22 +258,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Migrations\201710180340405_First.cs" />
-    <Compile Include="Migrations\201710180340405_First.Designer.cs">
-      <DependentUpon>201710180340405_First.cs</DependentUpon>
-=======
     <Compile Include="Helper\AuthorizeController.cs" />
     <Compile Include="Helper\ReflectionController.cs" />
-    <Compile Include="Migrations\201710161518219_First.cs" />
-    <Compile Include="Migrations\201710161518219_First.Designer.cs">
-      <DependentUpon>201710161518219_First.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710170749105_Second.cs" />
-    <Compile Include="Migrations\201710170749105_Second.Designer.cs">
-      <DependentUpon>201710170749105_Second.cs</DependentUpon>
->>>>>>> master
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\AccountBindingModels.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
@@ -383,19 +368,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Migrations\201710180340405_First.resx">
-      <DependentUpon>201710180340405_First.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="Migrations\201710161518219_First.resx">
-      <DependentUpon>201710161518219_First.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710170749105_Second.resx">
-      <DependentUpon>201710170749105_Second.cs</DependentUpon>
->>>>>>> master
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
