@@ -9,12 +9,13 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EnglishForKidAPI.Models;
+using EnglishForKidAPI.Helper;
 
 namespace EnglishForKidAPI.Controllers
 {
+    //[AuthorizeController]
     public class BusinessesController : BaseApiController
     {
-
         // GET: api/Businesses
         public IQueryable<Business> GetBusinesses()
         {

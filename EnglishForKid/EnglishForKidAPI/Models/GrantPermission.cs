@@ -7,6 +7,7 @@ using System.Web;
 
 namespace EnglishForKidAPI.Models
 {
+    [Table("GrantPermission")]
     public class GrantPermission
     {
         [Column(Order = 0), Key, ForeignKey("Function")]
