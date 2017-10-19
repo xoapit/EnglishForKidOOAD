@@ -67,6 +67,7 @@ $(document).ready(function () {
         $(this).ekkoLightbox();
     });
 });
+
 $(document).ready(function () {
 
     /**
