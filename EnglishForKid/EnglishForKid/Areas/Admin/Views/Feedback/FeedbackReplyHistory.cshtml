@@ -1,21 +1,31 @@
-﻿<div>
-    <label>Feedback Reply History</label>
-    <table id="feedbackReplyHistoryTable" class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Subject</th>
-                <th>Content</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>No.</th>
-                <th>Subject</th>
-                <th>Content</th>
-                <th>Date</th>
-            </tr>
-        </tfoot>
-    </table>
+﻿<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title">Feedback Reply History</h3>
+        <div class="box-tools pull-right">
+            <button type="button" id="btnMinusFeedbackReplyHistory" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body padding-large">
+        <table id="feedbackReplyHistoryTable" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Subject</th>
+                    <th>Content</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="bodyFeedbackReplyHistoryTable"></tbody>
+            <tfoot>
+                <tr>
+                    <th>No.</th>
+                    <th>Subject</th>
+                    <th>Content</th>
+                    <th>Date</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 </div>

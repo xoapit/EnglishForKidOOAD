@@ -51,14 +51,14 @@ namespace EnglishForKid.Service
             return feedbackHistories;
         }
 
-        public async Task<List<FeedbackReplyHistory>> GetFeedbackReplyHistoriesByFeedbackIDAsync(Guid id)
+        public async Task<string> GetFeedbackReplyHistoriesByFeedbackIDAsync(Guid id)
         {
-            string path = "/api/FeedbackReplyHistories/"+id.ToString();
-            List<FeedbackReplyHistory> feedbackHistories = new List<FeedbackReplyHistory>();
+            string path = "/api/FeedbackReplyHistories/feedbacks/"+id.ToString();
+            string feedbackHistories = string.Empty;
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                feedbackHistories = await response.Content.ReadAsAsync<List<FeedbackReplyHistory>>();
+                feedbackHistories = await response.Content.ReadAsStringAsync();
             }
             return feedbackHistories;
         }

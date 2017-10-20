@@ -27,8 +27,16 @@ namespace EnglishForKid.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddFeedbackReplyHistory(FeedbackReplyHistory feedbackReplyHistory)
+        public ActionResult AddFeedbackReplyHistory(string FeedbackID, string Subject, string Content)
         {
+            FeedbackReplyHistory feedbackReplyHistory = new FeedbackReplyHistory()
+            {
+                ID = Guid.NewGuid(),
+                Subject = Subject,
+                Content = Content,
+                CreateAt = DateTime.Now,
+                FeedbackID = new Guid(FeedbackID)
+            };
             FeedbackReplyHistoryDataStore feedbackReplyHistoryDataStore = new FeedbackReplyHistoryDataStore();
             bool result = feedbackReplyHistoryDataStore.AddItemAsync(feedbackReplyHistory).Result;
             return Json(new { status = result }, JsonRequestBehavior.AllowGet);
