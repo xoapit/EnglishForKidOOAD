@@ -6,18 +6,12 @@ using System.Web;
 
 namespace EnglishForKidAPI.Models
 {
-    [Table("Feedback")]
-    public class Feedback : BaseDataObject
+    [Table("FeedbackReplyHistory")]
+    public class FeedbackReplyHistory:BaseDataObject
     {
-        public string Title { get; set; }
+        public string Subject { get; set; }
         public string Content { get; set; }
         public DateTime CreateAt { get; set; }
-        public string Email { get; set; }
-        public string FullName { get; set; }
-
-        public Feedback()
-        {
-            CreateAt = DateTime.Now;
-        }
+        public Guid FeedbackID { get; set; }
     }
 }

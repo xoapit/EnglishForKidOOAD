@@ -20,9 +20,25 @@ namespace EnglishForKid.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public void Delete()
+        public ActionResult Delete(Guid id)
         {
+            bool result = feedbackDataStore.DeleteItemAsync(id).Result;
+            return Json(new { status = result }, JsonRequestBehavior.AllowGet);
+        }
 
+        [HttpPost]
+        public ActionResult AddFeedbackReplyHistory(FeedbackReplyHistory feedbackReplyHistory)
+        {
+            FeedbackReplyHistoryDataStore feedbackReplyHistoryDataStore = new FeedbackReplyHistoryDataStore();
+            bool result = feedbackReplyHistoryDataStore.AddItemAsync(feedbackReplyHistory).Result;
+            return Json(new { status = result }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult FeedbackReplyHistorysByFeedbackID(Guid id)
+        {
+            FeedbackReplyHistoryDataStore feedbackReplyHistoryDataStore = new FeedbackReplyHistoryDataStore();
+            var result = feedbackReplyHistoryDataStore.GetFeedbackReplyHistorysByFeedbackIDAsync(id).Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

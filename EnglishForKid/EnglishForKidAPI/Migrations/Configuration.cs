@@ -19,28 +19,16 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-
-             //InitUsers(context);
-             //InitCategories(context);
-            //InitBusinessesAndFunctions(context);
-            //InitFeedbacks(context);
+            // InitUsers(context);
+            // InitCategories(context);
+            //   InitBusinessesAndFunctions(context);
+            InitFeedbacks(context);
             //  InitLevels(context);
-            //  InitLessons(context);
+            //   InitLessons(context);
             //InitCommets(context);
             //InitQuestionSurveys(context);
             //InitRates(context);
             //InitResults(context);
-
-            // InitUsers(context);
-            // InitCategories(context);
-            //   InitBusinessesAndFunctions(context);
-            //InitFeedbacks(context);
-            //  InitLevels(context);
-            //   InitLessons(context);
-            InitCommets(context);
-            InitQuestionSurveys(context);
-            InitRates(context);
-            InitResults(context);
         }
 
         private void InitCommets(ApplicationDbContext context)
@@ -210,7 +198,7 @@ namespace EnglishForKidAPI.Migrations
                 Title = "Tin was blocked!",
                 Content = "Hello, what's up?",
                 CreateAt = DateTime.Now,
-                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+                Email = "taquyit@gmail.com"
             });
 
             context.Feedbacks.Add(new Feedback
@@ -219,7 +207,7 @@ namespace EnglishForKidAPI.Migrations
                 Title = "Tin was blocked!",
                 Content = "Hello, what's up?",
                 CreateAt = DateTime.Now,
-                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+                Email = "huuquan95@gmail.com"
             });
 
             context.Feedbacks.Add(new Feedback
@@ -228,7 +216,7 @@ namespace EnglishForKidAPI.Migrations
                 Title = "Tin was blocked!",
                 Content = "Hello, what's up?",
                 CreateAt = DateTime.Now,
-                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+                Email = "quoctin95@gmail.com"
             });
         }
 
