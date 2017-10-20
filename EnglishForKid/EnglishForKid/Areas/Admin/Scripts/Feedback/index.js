@@ -1,8 +1,11 @@
 ﻿$(document).on("click", ".view-Feedback", function () {
+    var feedbackId = $(this).data('feedback-id');
+    $(".modal-body #viewFeedbackId").val(feedbackId);
     $('#myModalDetailFeedback input[name="detailFeedbackTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
     $('#myModalDetailFeedback input[name="detailFeedbackSender"]').val($(this).closest("tr").find("td:nth-child(3)").text());
     $('#myModalDetailFeedback input[name="detailFeedbackTime"]').val($(this).closest("tr").find("td:nth-child(4)").text());
     $('#myModalDetailFeedback textarea[name="detailFeedbackContent"]').val($(this).closest("tr").find("td:nth-child(5)").text());
+    loadFeedbackHistories();
 });
 
 $(document).on("click", ".delete-Feedback", function () {

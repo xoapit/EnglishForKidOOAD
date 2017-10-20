@@ -34,10 +34,11 @@ namespace EnglishForKid.Areas.Admin.Controllers
             return Json(new { status = result }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult FeedbackReplyHistorysByFeedbackID(Guid id)
+        [HttpPost]
+        public ActionResult FeedbackReplyHistoriesByFeedbackID(Guid id)
         {
             FeedbackReplyHistoryDataStore feedbackReplyHistoryDataStore = new FeedbackReplyHistoryDataStore();
-            var result = feedbackReplyHistoryDataStore.GetFeedbackReplyHistorysByFeedbackIDAsync(id).Result;
+            var result = feedbackReplyHistoryDataStore.GetFeedbackReplyHistoriesByFeedbackIDAsync(id).Result;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

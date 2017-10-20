@@ -13,7 +13,7 @@ namespace EnglishForKid.Service
     {
         public async Task<bool> AddItemAsync(FeedbackReplyHistory item)
         {
-            string path = "/api/FeedbackReplyHistorys";
+            string path = "/api/FeedbackReplyHistories";
             HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
@@ -21,7 +21,7 @@ namespace EnglishForKid.Service
 
         public async Task<bool> DeleteItemAsync(Guid id)
         {
-            string path = "/api/FeedbackReplyHistorys/" + id.ToString();
+            string path = "/api/FeedbackReplyHistories/" + id.ToString();
             HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
@@ -29,7 +29,7 @@ namespace EnglishForKid.Service
 
         public async Task<FeedbackReplyHistory> GetItemAsync(Guid id)
         {
-            string path = "/api/FeedbackReplyHistorys/" + id.ToString();
+            string path = "/api/FeedbackReplyHistories/" + id.ToString();
             FeedbackReplyHistory feedbackReplyHistory = null;
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
@@ -41,26 +41,26 @@ namespace EnglishForKid.Service
 
         public async Task<List<FeedbackReplyHistory>> GetItemsAsync()
         {
-            string path = "/api/FeedbackReplyHistorys";
-            List<FeedbackReplyHistory> feedbacks = new List<FeedbackReplyHistory>();
+            string path = "/api/FeedbackReplyHistories";
+            List<FeedbackReplyHistory> feedbackHistories = new List<FeedbackReplyHistory>();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                feedbacks = await response.Content.ReadAsAsync<List<FeedbackReplyHistory>>();
+                feedbackHistories = await response.Content.ReadAsAsync<List<FeedbackReplyHistory>>();
             }
-            return feedbacks;
+            return feedbackHistories;
         }
 
-        public async Task<List<FeedbackReplyHistory>> GetFeedbackReplyHistorysByFeedbackIDAsync(Guid id)
+        public async Task<List<FeedbackReplyHistory>> GetFeedbackReplyHistoriesByFeedbackIDAsync(Guid id)
         {
-            string path = "/api/FeedbackReplyHistorys/"+id.ToString();
-            List<FeedbackReplyHistory> feedbacks = new List<FeedbackReplyHistory>();
+            string path = "/api/FeedbackReplyHistories/"+id.ToString();
+            List<FeedbackReplyHistory> feedbackHistories = new List<FeedbackReplyHistory>();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                feedbacks = await response.Content.ReadAsAsync<List<FeedbackReplyHistory>>();
+                feedbackHistories = await response.Content.ReadAsAsync<List<FeedbackReplyHistory>>();
             }
-            return feedbacks;
+            return feedbackHistories;
         }
 
         public Task InitializeAsync()
@@ -70,7 +70,7 @@ namespace EnglishForKid.Service
 
         public async Task<bool> UpdateItemAsync(FeedbackReplyHistory item)
         {
-            string path = "/api/FeedbackReplyHistorys/" + item.ID;
+            string path = "/api/FeedbackReplyHistories/" + item.ID;
             HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
