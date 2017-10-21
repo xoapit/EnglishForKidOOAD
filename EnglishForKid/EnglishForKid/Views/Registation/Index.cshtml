@@ -9,31 +9,43 @@
         <h3 class="panel-title">Registration Form</h3>
     </div>
     <div class="panel-body">
-        <form id="formValidate" >
+        <form id="formValidate" style="font-family:'Times New Roman'" >
             <div class="col-md-12 col-sm-12">
                 <div class="form-group col-md-6 col-sm-6">
-                    <label for="name">Name*	</label>
-                    <input type="text"  class="form-control input-sm" id="name"  name="uname" placeholder="" >
+                    <label for="name"><span style="color:red">Username*</span></label>
+                    <input type="text" class="form-control input-sm" id="name" name="uname" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
-                    <label for="email">Email*</label>
-                    <input type="email" class="form-control input-sm" id="email" placeholder="">
+                    <label for="email"><span style="color:red">Full Name*</span></label>
+                    <input type="email" class="form-control input-sm" id="email" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
-                    <label for="mobile">Mobile*</label>
-                    <input type="text" class="form-control input-sm" id="mobile" placeholder="">
+                    <label for="password"><span style="color:red">Password*</span>	</label>
+                    <input type="password" class="form-control input-sm" id="password" n placeholder="" required>
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
-                    <label for="address">Address*</label>
+                    <label for="confirm"><span style="color:red">Confirm Password*</span></label>
+                    <input type="password" class="form-control input-sm" id="confirm" placeholder=""  required>
+                </div>
+            <div class="form-group col-md-12 col-sm-12">
+                <label for="email"><span style="color:red">Email*</span></label>
+                <input type="text" class="form-control input-sm" id="email" placeholder="" required>
+            </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="mobile"><span style="color:red">Mobile</span></label>
+                    <input type="text" class="form-control input-sm" id="mobile" placeholder="" required>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="address"><span style="color:red">Address</span></label>
                     <input type="text" class="form-control input-sm" id="mobile" placeholder="">
                 </div>
      
                 <div class="form-group col-md-6 col-sm-6">
-                    <label for="DOB">Birth Day</label>
+                    <label for="DOB"><span style="color:red">Birth Day*</span></label>
                     <input type="date" id="birthDate" class="form-control">
                 </div>  
                 <div class="form-group col-md-6 col-sm-6">
-                    <label for="DOB">Gender</label><br />
+                    <label for="DOB"><span style="color:red">Gender*</span></label><br />
                     <label class="radio-inline">
                         <input type="radio" name="optradio">Male
                     </label>
@@ -52,4 +64,12 @@
             </div>
         </form>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $("form").submit(function (event) {
+               
+            });
+        });
+    </script>
 
