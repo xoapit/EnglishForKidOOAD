@@ -30,3 +30,39 @@ function showAnswerTo(index) {
         }
     }
 }
+
+$(document).on("click", ".view-Question", function () {
+    var feedbackId = $(this).data('feedback-id');
+    $(".modal-body #viewFeedbackId").val(feedbackId);
+    $('#myModalDetailFeedback input[name="detailFeedbackTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
+});
+
+function loadDetailSurveyQuestion(id) {
+    $('#bodyDetailSurveyQuestion').html("");
+
+    var urlDetailSurveyQuestion = "/Feedback/DetailSurveyQuestionByID";
+    var idDetailSurveyQuestion = id;
+    $.ajax({
+        type: 'post',
+        url: urlDetailSurveyQuestion,
+        data: {
+            id: idDetailSurveyQuestion,
+        },
+        success: function (data) {
+            var json = $.parseJSON(data);
+            var tr;
+            for (var i = 0; i < json.length; i++) {
+                tr = $('<div/>');
+                tr.append("<textarea class='form-control' readonly style='background-color:white'>" + json.Content + "</textarea>");
+                $('#detailQuestionContent').append(tr);
+            }
+        },
+        fail: function (data) {
+            
+        }
+    });
+}
+
+
+
+
