@@ -31,7 +31,7 @@ namespace EnglishForKid.Service
         {
             Lesson lesson = null;
 
-            String path = "/api/Lessons" +id.ToString();
+            String path = "/api/Lessons/" +id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
