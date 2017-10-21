@@ -13,7 +13,7 @@ namespace EnglishForKid.Service
         public async Task<bool> AddItemAsync(Lesson item)
         {
             String path = "/api/Lessons";
-            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
 
@@ -22,7 +22,7 @@ namespace EnglishForKid.Service
         public async Task<bool> DeleteItemAsync(Guid id)
         {
             String path = "/api/Lessons/" + id.ToString();
-            HttpResponseMessage response = await client.DeleteAsync(path);
+            HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
         }

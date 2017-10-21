@@ -160,9 +160,9 @@
 
                         <div class="form-group ">
 
-                            <label for="">Pictute</label>
+                            <label for="">Picture</label>
                             <div>
-                                <input type="text" class="form-control" name="detailLessonPictute" id="detailLessonPictute" value="">
+                                <input type="text" class="form-control" name="detailLessonPicture" id="detailLessonPicture" value="">
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -241,7 +241,7 @@
 
                             <label for="">Title</label>
                             <div>
-                                <input type="text" class="form-control" id="" value="">
+                                <input type="text" class="form-control" name="addLessonTitle" id="addLessonTitle" value="">
                             </div>
 
                         </div>
@@ -250,7 +250,7 @@
 
                             <label for="">Level</label>
                             <div>
-                                <select class="form-control" id="">
+                                <select class="form-control" name="addLessonLevel" id="addLessonLevel">
                                     <option>1</option>
                                     <option> 2</option>
                                     <option> 3</option>
@@ -263,9 +263,9 @@
 
                         <div class="form-group">
 
-                            <label for="">Pictute</label>
+                            <label for="">Picture</label>
                             <div>
-                                <input type="text" class="form-control" id="" value="">
+                                <input type="text" class="form-control" name="addLessonPicture" id="addLessonPicture" value="">
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -274,7 +274,7 @@
 
                             <label for="">Category</label>
                             <div>
-                                <select class="form-control" id="">
+                                <select class="form-control" iname="addLessonCategory" id="addLessonCategory">
                                     <option>Vocabulary</option>
                                     <option>Reading</option>
                                     <option>Listening</option>
@@ -286,7 +286,7 @@
 
                             <label for="">Content</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor1"></textarea>
+                                <textarea  class="ckeditor" name="addLessonContent" id="addLessonContent"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -295,7 +295,7 @@
 
                             <label for="">Exercise</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor2"></textarea>
+                                <textarea  class="ckeditor" name="addLessonExercise" id="addLessonExercise"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -304,7 +304,7 @@
 
                             <label for="">Answer</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor3"></textarea>
+                                <textarea  class="ckeditor" name="addLessonAnswer" id="addLessonAnswer"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -313,7 +313,7 @@
 
                             <label for="">Discussion</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor4"></textarea>
+                                <textarea  class="ckeditor" name="addLessonDiscussion" id="addLessonDiscussion"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -322,26 +322,26 @@
                         <div class="form-group">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-label-left">
+                                <label class="alert-info" id="sendEmailMessage"></label>
+                                <button type="submit" class="btn btn-primary btn-label-left" name="btnAddLesson" id="btnaddLesson">
                                     <span><i class="fa fa-clock-o txt-danger"></i></span>
                                     Add
                                 </button>
                             </div>
                             <div class="col-sm-1"></div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-label-left">
-                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
-                                    Cancel
-                                </button>
-                            </div>
+                                
+                                    <button type="button" class="btn btn-danger btn-label-left" data-dismiss="modal">
+                                        <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                        Cancel
+                                    </button>
+</div>
                             <div class="col-sm-3"></div>
                         </div>
                     </form>
                 </div>
             </div>
-            @*<div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                </div>*@
+      
         </div>
     </div>
 </div>
@@ -368,7 +368,7 @@
                         </div>
                         <div class="form-group">
 
-                            <label for="">Pictute</label>
+                            <label for="">Picture</label>
                             <div>
                                 <input type="text" class="form-control" id="" value="">
                             </div>

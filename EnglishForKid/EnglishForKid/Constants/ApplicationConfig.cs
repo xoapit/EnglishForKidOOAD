@@ -7,6 +7,6 @@ namespace EnglishForKid.Constants
 {
     public class ApplicationConfig
     {
-        public static readonly string BaseApiUrl = "http://192.168.1.15:8088";
+        public static readonly string BaseApiUrl = "http://192.168.1.14:8088";
     }
 }

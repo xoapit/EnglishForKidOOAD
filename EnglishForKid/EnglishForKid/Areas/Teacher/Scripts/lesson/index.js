@@ -3,7 +3,7 @@
     $(".modal-body #viewLessonId").val(lessonID);
     $('#myModalDetailLesson input[name="detailLessonTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
     $('#myModalDetailLesson select[name="detailLessonLevel"]').val($(this).closest("tr").find("td:nth-child(3)").text());
-    $('#myModalDetailLesson input[name="detailLessonPictute"]').val($(this).closest("tr").find("td:nth-child(4)").text());
+    $('#myModalDetailLesson input[name="detailLessonPicture"]').val($(this).closest("tr").find("td:nth-child(4)").text());
     $('#myModalDetailLesson select[name="detailLessonCategory"]').val($(this).closest("tr").find("td:nth-child(5)").text());
     $('#myModalDetailLesson textarea[name="detailLessonContent"]').val($(this).closest("tr").find("td:nth-child(6)").text());
     $('#myModalDetailLesson textarea[name="detailLessonExercise"]').val($(this).closest("tr").find("td:nth-child(7)").text());
@@ -19,20 +19,22 @@ $(document).on("click", ".delete-lesson", function () {
     $(".modal-body #deleteLessonId").val(lessonID);
 });
 
+
+
 $(document).ready(function () {
     $('#btnDeleteLesson').click(function () {
-        var urlDelete = "/Lesson/DeleteLesson";
-        var idFeedback = $('#deleteLessonId').val();
+        var urlDelete = "/Teacher/Lesson/DeleteLesson";
+        var idLesson = $('#deleteLessonId').val();
 
         $.ajax({
             type: 'post',
             url: urlDelete,
             data: {
-                id: idFeedback
+                id: idLesson
             },
-            success: function (response) {
+            Picture: function (response) {
                 if (response != false) {
-                    $('#deleteMessage').text("You deleted the lesson successfully!");
+                    $('#deleteMessage').text("You deleted the lesson Picturefully!");
                 }
                 else {
                     $('#deleteMessage').text("Can not delete the lesson!");
@@ -47,9 +49,51 @@ $(document).ready(function () {
             }
         });
     });
-
-    //sendEmailToReplyFeedback();
 });
+
+function sendEmailToReplyFeedback() {
+    $('#btnAddLesson').click(function () {
+        var urlAdd = "/Teacher/Lesson/AddLesson";
+        var Title = $(".modal-body #addLessonTitle").val();
+        var Level = $(".modal-body #addLessonLevel").val();
+        var Picture = $(".modal-body #addLessonPicture").val();
+        var Category = $(".modal-body #addLessonCategory").val();
+        var Content = $(".modal-body #addLessonContent").val();
+        var Exercise = $(".modal-body #addLessonExercisse").val();
+        var Answer = $(".modal-body #addLessonAnswer").val();
+        var Discussion = $(".modal-body #addLessonDiscussion").val();
+        
+
+        $.ajax({
+            type: 'post',
+            url: urlAdd,
+            data: {
+                Tiitle = title;
+                Level = level;
+                Picture = picture;
+                Category = category;
+                Content = content;
+                Exercise= exercise;
+                Answer = answer;
+                Discussion = discussion;
+            },
+            success: function (response) {
+                if (response != false) {
+                    $('#sendEmailMessage').text("You send the email successfully!");
+                }
+                else {
+                    $('#sendEmailMessage').text("Can not send the email!");
+                }
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+            },
+            fail: function (response) {
+                $('#sendEmailMessage').text("Can not send the email!");
+            }
+        });
+    });
+}
 
 function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +

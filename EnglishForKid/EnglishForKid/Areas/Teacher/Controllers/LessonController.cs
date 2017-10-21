@@ -22,7 +22,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
 
         //delete lesson
         [HttpPost]
-        public ActionResult Deletelesson(Guid id)
+        public ActionResult DeleteLesson(Guid id)
         {
             bool result = lessonDataStore.DeleteItemAsync(id).Result;
             return Json(new { status = result }, JsonRequestBehavior.AllowGet);
@@ -30,13 +30,30 @@ namespace EnglishForKid.Areas.Teacher.Controllers
 
         //Add lesson
         [HttpPost]
-        public ActionResult AddLesson (String lessonID, String title, String catery, String content, String image, String discusson, String Exercise, String anwser, String tab, String levelId, String applicationID)
+        public ActionResult AddLesson (String Title, String CategoryID, String Content, String Image, String Discusson, String Exercise, String Anwser, String Tag, String LevelID, String ApplicationID)
         {
+            Lesson lesson = new Lesson()
+            {
 
-           return null;
+                ID = Guid.NewGuid(),
+                Title = Title,
+                CategoryID = new Guid(CategoryID),
+                Image = Image,
+                Content = Content,
+                Discussion = Discusson,
+                Exercise = Exercise,
+                Answer = Anwser,
+                CreateAt = DateTime.Now,
+                Tag = Tag,
+                LevelID = new Guid(LevelID),
+                ApplicationUserID = ApplicationID,
+            };
+            LessonDataStore lessonDataStore = new LessonDataStore();
+            bool result = lessonDataStore.AddItemAsync(lesson).Result;
+            return Json(new { status = result}, JsonRequestBehavior.AllowGet );  
         }
-
        
+
         // GET: Teacher/Lesson/Details/5
         public ActionResult Details(int id)
         {
