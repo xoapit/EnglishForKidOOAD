@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_ST.cshtml";
+}
+
+
+<div class="panel panel-primary" style="margin:20px;">
+    <div class="panel-heading">
+        <h3 class="panel-title">Registration Form</h3>
+    </div>
+    <div class="panel-body">
+        <form id="formValidate" >
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="name">Name*	</label>
+                    <input type="text"  class="form-control input-sm" id="name"  name="uname" placeholder="" >
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="email">Email*</label>
+                    <input type="email" class="form-control input-sm" id="email" placeholder="">
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="mobile">Mobile*</label>
+                    <input type="text" class="form-control input-sm" id="mobile" placeholder="">
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="address">Address*</label>
+                    <input type="text" class="form-control input-sm" id="mobile" placeholder="">
+                </div>
+     
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="DOB">Birth Day</label>
+                    <input type="date" id="birthDate" class="form-control">
+                </div>  
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="DOB">Gender</label><br />
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio">Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio">FeMale
+                    </label>
+
+            </div>
+               </div>
+
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group col-md-3 col-sm-3 pull-right">
+                    <input type="submit" name="action" class="btn btn-primary" value="Submit" />
+                    <input type="button" class="btn btn-primary" value="Reset" />
+                </div>
+            </div>
+        </form>
+    </div>
+
