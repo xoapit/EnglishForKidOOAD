@@ -1,111 +1,96 @@
-﻿
+﻿@using EnglishForKid.Models.ViewModels
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<div class="container">
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <h3 class="box-title">SURVEY QUESTION LIST</h3>
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-        <div class="box-body padding-large">
-            <button type="Submit" class="btn btn-primary  margin-bottom"  data-toggle="modal" data-target="#myModalAddSurvey" >Add new survey question</button>
-
-            <table class="table table-bordered text-center table-responsive table-hover">
-
-
-                <thead>
-                    <tr align="center" style="">
-                        <th>ID</th>
-                        <th>Content</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Đội bóng bạn yêu thích là gì?</td>
-                        <td>Được kích hoạt</td>
-                        <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
-                            <button type="Submit" class="btn btn-success" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                            <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
-                            <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Đội bóng bạn yêu thích là gì?</td>
-                        <td>Chưa kích hoạt</td>
-                        <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
-                            <button type="Submit" class="btn btn-success"  data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                            <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
-                            <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Đội bóng bạn yêu thích là gì?</td>
-                        <td>Chưa kích hoạt</td>
-                        <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
-                            <button type="Submit" class="btn btn-success"  data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                            <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
-                            <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">SURVEY QUESTION LIST</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
         </div>
     </div>
+    <div class="box-body padding-large">
+        <button type="Submit" class="btn btn-primary  margin-bottom" data-toggle="modal" data-target="#myModalAddSurvey">Add new survey question</button>
 
+        <table class="table table-bordered text-center table-responsive table-hover">
+
+
+            <thead>
+                <tr align="center" style="">
+                    <th>No.</th>
+                    <th>Content</th>
+                    <th>Create At</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 1;
+                    foreach (BaseQuestionSurveyViewModel baseQuestion in ViewBag.BaseQuestions)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@baseQuestion.Content</td>
+                            <td>@baseQuestion.CreateAt.ToString("dd/MMM/yyy hh:mm:ss")</td>
+                            <td>@baseQuestion.GetStatus</td>
+                            <td>
+                                <button type="button" class="btn btn-info" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
+                                <button type="Submit" class="btn btn-success" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
+                                <button type="Submit" class="btn btn-primary" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                                <button type="Submit" class="btn btn-danger" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
+                            </td>
+
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModalAddSurvey" role="dialog">
+    <div class="modal-dialog modal-lg">
 
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModalAddSurvey" role="dialog">
-        <div class="modal-dialog modal-lg">
-
-            <!-- Modal content-->
-            <div class="modal-content" style="margin:2%;">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">ADD NEW SURVEY QUESTION</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="box-body padding-large">
-                        <form>
-                            <div class="form-group row">
-                                <label for="">Content</label>
-                             </div>
-                            <div class="form-group row">
-                                <textarea  class="form-control" rows="5" id="comment"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Aswer option</label>
-                                <select class="form-control" id="quantity">
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
-                            </div>
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ADD NEW SURVEY QUESTION</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group row">
+                            <label for="">Content</label>
+                        </div>
+                        <div class="form-group row">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Aswer option</label>
+                            <select class="form-control" id="quantity">
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="answerContent">
                             <div class="form-group row">
                                 <label class="col-md-1 col-xs-12 text-left">A</label>
                                 <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control"  id="" value="">
+                                    <input type="text" class="form-control" id="" value="">
                                 </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-md-1 col-xs-12 text-left">B</label>
                                 <div class="col-md-5 col-xs-12">
                                     <input type="text" class="form-control" id="" value="">
@@ -116,7 +101,9 @@
                                 <div class="col-md-5 col-xs-12">
                                     <input type="text" class="form-control" id="" value="">
                                 </div>
-                                <div id="value4">
+                            </div>
+                            <div class="form-group row">
+                                <div>
                                     <label class="col-md-1 col-xs-12 text-left">D</label>
                                     <div class="col-md-5 col-xs-12">
                                         <input type="text" class="form-control" id="" value="">
@@ -124,37 +111,36 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div id="value5">
+                                <div>
                                     <label class="col-md-1 col-xs-12 text-left">E</label>
                                     <div class="col-md-5 col-xs-12">
                                         <input type="text" class="form-control" id="" value="">
                                     </div>
                                 </div>
-                                <div id="value6">
+                            </div>
+                            <div class="form-group row">
+                                <div>
                                     <label class="col-md-1 col-xs-12 text-left">F</label>
                                     <div class="col-md-5 col-xs-12">
                                         <input type="text" class="form-control" id="" value="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
-                            <div class="form-group row">
-                                    <button type="submit" class="btn btn-primary pull-right">
-                                        <span><i class="fa fa-clock-o txt-danger"></i></span>
-                                        Add
-                                    </button>
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
                 </div>
             </div>
-
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary pull-right margin">
+                    <span><i class="fa fa-clock-o txt-danger"></i></span> Add
+                </button>
+                <button type="button" class="btn btn-default margin" data-dismiss="modal"> Close </button>
+            </div>
         </div>
+
     </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModalUpdateSurvey" role="dialog">
@@ -184,39 +170,47 @@
                                 <option value="6">6</option>
                             </select>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-1 col-xs-12 text-left">A</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="">
-                            </div>
-                            <label class="col-md-1 col-xs-12 text-left">B</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-1 col-xs-12 text-left">C</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="">
-                            </div>
-                            <div id="value41">
-                                <label class="col-md-1 col-xs-12 text-left">D</label>
+                        <div class="answerContent">
+                            <div class="form-group row">
+                                <label class="col-md-1 col-xs-12 text-left">A</label>
                                 <div class="col-md-5 col-xs-12">
                                     <input type="text" class="form-control" id="" value="">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div id="value51">
-                                <label class="col-md-1 col-xs-12 text-left">E</label>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-xs-12 text-left">B</label>
                                 <div class="col-md-5 col-xs-12">
                                     <input type="text" class="form-control" id="" value="">
                                 </div>
                             </div>
-                            <div id="value61">
-                                <label class="col-md-1 col-xs-12 text-left">F</label>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-xs-12 text-left">C</label>
                                 <div class="col-md-5 col-xs-12">
                                     <input type="text" class="form-control" id="" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div>
+                                    <label class="col-md-1 col-xs-12 text-left">D</label>
+                                    <div class="col-md-5 col-xs-12">
+                                        <input type="text" class="form-control" id="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div>
+                                    <label class="col-md-1 col-xs-12 text-left">E</label>
+                                    <div class="col-md-5 col-xs-12">
+                                        <input type="text" class="form-control" id="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div>
+                                    <label class="col-md-1 col-xs-12 text-left">F</label>
+                                    <div class="col-md-5 col-xs-12">
+                                        <input type="text" class="form-control" id="" value="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -301,7 +295,7 @@
                                     <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </form>
                 </div>
             </div>
@@ -311,12 +305,11 @@
         </div>
 
     </div>
-</div>   
+</div>
 
 
 <div class="modal fade" id="myModalDetailSurvey" role="dialog">
     <div class="modal-dialog modal-lg">
-
         <!-- Modal content-->
         <div class="modal-content" style="margin:2%;">
             <div class="modal-header">
@@ -330,7 +323,7 @@
                             <label for="">Content</label>
                         </div>
                         <div class="form-group row">
-                            <textarea class="form-control" rows="5" id="comment" ></textarea>
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Aswer option</label>
@@ -348,18 +341,18 @@
                             </div>
                             <label class="col-md-1 col-xs-12 text-left">B</label>
                             <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="" >
+                                <input type="text" class="form-control" id="" value="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-md-1 col-xs-12 text-left">C</label>
                             <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="" >
+                                <input type="text" class="form-control" id="" value="">
                             </div>
                             <div id="value4">
                                 <label class="col-md-1 col-xs-12 text-left">D</label>
                                 <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="" >
+                                    <input type="text" class="form-control" id="" value="">
                                 </div>
                             </div>
                         </div>
@@ -367,7 +360,7 @@
                             <div id="value5">
                                 <label class="col-md-1 col-xs-12 text-left">E</label>
                                 <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="" >
+                                    <input type="text" class="form-control" id="" value="">
                                 </div>
                             </div>
                             <div id="value6">
@@ -384,7 +377,6 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -397,42 +389,6 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">DELETE SURVEY QUESTION</h4>
-            </div>
-            <div class="modal-body">
-                <div class="box-body padding-large">
-                    <form>
-                        <div class="form-group row">
-                            <label  style="align:center;">Are you sure?</label>
-                        </div>
-                         
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="form-group row">
-                    <div class="col-md-9 col-xs-12"></div>
-                    <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-success">Yes</button>
-                    </div>
-                    <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-danger">No</button>
-                    </div>
-
-                    <div class="col-md-1 col-xs-12"></div>
-                </div> 
-            </div>
-        </div>
-
-    </div>
-</div>
-<div class="modal fade" id="myModalActiveSurvey" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content" style="margin:2%;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">ACTIVE SURVEY QUESTION</h4>
             </div>
             <div class="modal-body">
                 <div class="box-body padding-large">
@@ -461,61 +417,42 @@
 
     </div>
 </div>
+<div class="modal fade" id="myModalActiveSurvey" role="dialog">
+    <div class="modal-dialog">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#value4').hide();
-        $('#value5').hide();
-        $('#value6').hide();
-        $('#value41').hide();
-        $('#value51').hide();
-        $('#value61').hide();
-    });
-    $('#quantity').change(function () {
-        var a = $(this).val();
-        if (a == 3) {
-            $('#value4').hide();
-            $('#value5').hide();
-            $('#value6').hide();
-        } if (a == 4) {
-            $('#value4').show();
-            $('#value5').hide();
-            $('#value6').hide();
-        } if (a == 5) {
-            $('#value4').show();
-            $('#value5').show();
-            $('#value6').hide();
-        }
-        if (a == 6) {
-            $('#value4').show();
-            $('#value5').show();
-            $('#value6').show();
-        }
-    });
-    $('#quantity1').change(function () {
-        var a = $(this).val();
-        if (a == 3) {
-            $('#value41').hide();
-            $('#value51').hide();
-            $('#value61').hide();
-        } if (a == 4) {
-            $('#value41').show();
-            $('#value51').hide();
-            $('#value61').hide();
-        } if (a == 5) {
-            $('#value41').show();
-            $('#value51').show();
-            $('#value61').hide();
-        }
-        if (a == 6) {
-            $('#value41').show();
-            $('#value51').show();
-            $('#value61').show();
-        }
-    });
-    CKEditor.replace('editor1');
-</script>
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ACTIVE SURVEY QUESTION</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group row text-center">
+                            <label>Are you sure that you want to active this question?</label>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group row">
+                    <div class="col-md-9 col-xs-12"></div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-success">Yes</button>
+                    </div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-danger">No</button>
+                    </div>
+
+                    <div class="col-md-1 col-xs-12"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Scripts/Survey/index.js"></script>
 
 
 

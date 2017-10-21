@@ -5,10 +5,14 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Mail;
+using EnglishForKidAPI.Constants;
 
 namespace EnglishForKidAPI.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    [Table("User")]
     public class ApplicationUser : IdentityUser
     {
         public bool Status { get; set; }
@@ -34,6 +38,20 @@ namespace EnglishForKidAPI.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public class EmailService : IIdentityMessageService
+        {
+            public Task SendAsync(IdentityMessage message)
+            {
+                SmtpClient client = new SmtpClient();
+                string fromBossEmail = ApplicationConfig.BossEmail;
+                return client.SendMailAsync(fromBossEmail,
+                                            message.Destination,
+                                            message.Subject,
+                                            message.Body);
+
+            }
+        }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -45,6 +63,7 @@ namespace EnglishForKidAPI.Models
         public DbSet<QuestionSurvey> QuestionSurveys { get; set; }
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Result> Results { get; set; }
+        public DbSet<FeedbackReplyHistory> FeedbackReplyHistories { get; set; }
 
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Level> Levels { get; set; }
@@ -52,6 +71,8 @@ namespace EnglishForKidAPI.Models
         public DbSet<GrantPermission> GrantPermissions { get; set; }
         public DbSet<AnswerSurvey> AnswerSurveys { get; set; }
         public DbSet<AuthenticationToken> AuthenticationTokens { get; set; }
+        public DbSet<IdentityUserRole> UserRoles { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -63,10 +84,10 @@ namespace EnglishForKidAPI.Models
                         .WillCascadeOnDelete(false); //disable scade   
 
             //modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
-            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id).ToTable("Role");
 
             modelBuilder.Entity<IdentityUserRole>()
-            .HasKey(r => new { r.UserId, r.RoleId });
+            .HasKey(r => new { r.UserId, r.RoleId }).ToTable("UserRole");
 
             modelBuilder.Entity<IdentityUserLogin>()
                 .HasKey(l => new { l.LoginProvider, l.ProviderKey, l.UserId });

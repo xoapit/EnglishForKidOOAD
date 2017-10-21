@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -9,24 +10,46 @@ namespace EnglishForKid.Service
 {
     public class RateDataStore : BaseDataStore, IDataStore<Rate>
     {
-        public Task<bool> AddItemAsync(Rate item)
+        public async Task<bool> AddItemAsync(Rate item)
         {
-            throw new NotImplementedException();
+            String path = "/api/Rates";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            String path = "/api/Rates" + id.ToString();
+
+            HttpResponseMessage response = await client.DeleteAsync(path);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<Rate> GetItemAsync(Guid id)
+        public async Task<Rate> GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            Rate rate = null;
+
+            string path = "/api/Rates" + id.ToString();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                rate = await response.Content.ReadAsAsync<Rate>(); 
+            }
+            return rate;
         }
 
-        public Task<List<Rate>> GetItemsAsync()
+        public async Task<List<Rate>> GetItemsAsync()
         {
-            throw new NotImplementedException();
+            List<Rate> rate = null;
+            String path = "/api/Rates";
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                rate = await response.Content.ReadAsAsync<List<Rate>>();
+            }
+            return rate;
         }
 
         public Task InitializeAsync()
