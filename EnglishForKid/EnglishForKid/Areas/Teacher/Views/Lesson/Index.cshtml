@@ -1,0 +1,297 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
+}
+
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title">DANH SÁCH BÀI HỌC</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body padding-large">
+        <div class="col-md-12">
+            <button type="Submit" class="btn btn-primary pull-right margin-bottom">Thêm mới</button>
+        </div>
+        <table class="table table-bordered table-responsive table-hover text-center">
+
+            <thead>
+                <tr align="center" style="">
+                    <th>ID Bài học</th>
+                    <th>Tên bài học</th>
+                    <th>Hành Động</th>
+
+
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <tr>
+                    <td>BH0001</td>
+                    <td>Unit 1:</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Xem</button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BH0001</td>
+                    <td>Unit 1:</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Xem</button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BH0001</td>
+                    <td>Unit 1:</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Xem</button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BH0001</td>
+                    <td>Unit 1:</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Xem</button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BH0001</td>
+                    <td>Unit 1:</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Xem</button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BH0001</td>
+                    <td>Unit 1:</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Xem</button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>BH0002</td>
+                    <td>Unit 2</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Xem</button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>BH0002</td>
+                    <td>Unit 3</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">
+                            Xem
+                        </button>
+                        <button type="Submit" class="btn btn-success">Sửa</button>
+                        <button type="Submit" class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title">ADD NEW LESSON</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+
+    <div class="box-body padding-large">
+        <form>
+            <div class="form-group">
+
+                <label for="">Title</label>
+                <div>
+                    <input type="text" class="form-control" id="" value="">
+                </div>
+
+            </div>
+            <div class="form-group">
+
+                <label for="">Pictute</label>
+                <div>
+                    <input type="text" class="form-control" id="" value="">
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label for="">Category</label>
+                <div>
+                    <select class="form-control" id="">
+                        <option>Vocabulary</option>
+                        <option>Reading</option>
+                        <option>Listening</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-group">
+
+                <label for="">Content</label>
+                <div>
+                    <textarea name="editor" class="ckeditor" id="editor1"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label for="">Exercise</label>
+                <div>
+                    <textarea name="editor" class="ckeditor" id="editor2"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Answer</label>
+                <div>
+                    <textarea name="editor" class="ckeditor" id="editor3"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Discussion</label>
+                <div>
+                    <textarea name="editor" class="ckeditor" id="editor4"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary btn-label-left">
+                        <span><i class="fa fa-clock-o txt-danger"></i></span>
+                        Add
+                    </button>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary btn-label-left">
+                        <span><i class="fa fa-clock-o txt-danger"></i></span>
+                        Cancel
+                    </button>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title" style="color: #5a738e" align="center">SEE THE LESSON</h3>
+        <form>
+            <div class="form-group ">
+
+                <label for="">Title</label>
+                <div>
+                    <input type="text" class="form-control" id="" value="">
+                </div>
+
+            </div>
+            <div class="form-group ">
+
+                <label for="">Pictute</label>
+                <div>
+                    <input type="text" class="form-control" id="" value="">
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Category</label>
+                <div>
+                    <select class="form-control" id="">
+                        <option>Vocabulary</option>
+                        <option>Reading</option>
+                        <option>Listening</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-group ">
+
+                <label for="">Content</label>
+                <div>
+                    <textarea class="form-control" s="5" id=""></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Exercise</label>
+                <div>
+                    <textarea class="form-control" s="5" id=""></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Answer</label>
+                <div>
+                    <textarea class="form-control" s="5" id=""></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Discussion</label>
+                <div>
+                    <textarea class="form-control" s="5" id=""></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    CKEditor.replace('editor1');
+    CKEditor.replace('editor2');
+    CKEditor.replace('editor3');
+    CKEditor.replace('editor4');
+</script>
+
+
+

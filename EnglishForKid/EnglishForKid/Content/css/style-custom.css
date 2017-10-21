@@ -160,3 +160,11 @@ html {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.padding-large{
+    padding:20px;
+}
+
+.padding-larger {
+    padding: 30px;
+}

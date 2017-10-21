@@ -7,12 +7,12 @@ namespace EnglishForKid.Models
 {
     public class Result : BaseDataObject
     {
-        public Guid QuestionID { get; set; }
+        public Guid QuestionSurveyID { get; set; }
         public string Answer { get; set; }
-        public Guid AccountID { get; set; }
+        public string ApplicationUserID { get; set; }
         public DateTime CreateAt { get; set; }
 
-        public virtual Account Account { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual QuestionSurvey QuestionSurvey { get; set; }
 
         public Result()

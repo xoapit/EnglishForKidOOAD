@@ -1,8 +1,169 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Theme/production/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<!-- /.box -->
+<div class="box box-success">
+    <div class="box-header with-border">
+        <h3 class="box-title">LIST OF STUDENT</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body padding-large">
+        <table id="example1" class="table table-bordered table-striped text-center">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gecko</td>
+                    <td>Firefox 1.5</td>
+                    <td>Win 98+ / OSX.2+</td>
+                    <td>1.8</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Detail</button>
+                        <button type="Submit" class="btn btn-success">Update</button>
+                        <button type="Submit" class="btn btn-danger">Block</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gecko</td>
+                    <td>Firefox 2.0</td>
+                    <td>Win 98+ / OSX.2+</td>
+                    <td>1.8</td>
+                    <td>
+                        <button type="Submit" class="btn btn-primary">Detail</button>
+                        <button type="Submit" class="btn btn-success">Update</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default">
+                            Block
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
 
-<h2>Index</h2>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+<div class="modal fade" id="modal-default" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title"><b>Warning</b></h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to block this account?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger pull-right">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title">STUDENT INFORMATION</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body padding-large">
+        <form class="form-horizontal" role="form">
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Photo profile</label>
+                <div class="col-sm-3">
+                    <img src="../img/admin.png" alt="..." width="30%" class="img-circle profile_img">
+                </div>
+                <label class="col-sm-2 control-label">Gender</label>
+                <div class="col-sm-3">
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Man</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Woman</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <label class="col-sm-2 control-label">Address</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Student Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Student Name">
+                </div>
+                <label class="col-sm-2 control-label">Phone Number</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Phone Number">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Date of Birth</label>
+                <div class="col-sm-3">
+                    <div class='input-group date' id='birthdate'>
+                        <input type='text' class="form-control" placeholder="Date of Birth" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-3">
+                    <div class='' id=''>
+                        <input type='text' class="form-control" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="col-sm-2 control-label"></div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#birthdate").datepicker({
+                autoclose: true,
+                format: 'yyyy-mm-dd',
+                todayHighlight: true,
+                clearBtn: true,
+                orientation: 'bottom'
+            });
+        });
+    </script>
