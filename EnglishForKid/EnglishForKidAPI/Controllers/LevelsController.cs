@@ -16,9 +16,9 @@ namespace EnglishForKidAPI.Controllers
     {
 
         // GET: api/Levels
-        public IQueryable<Level> GetLevels()
+        public List<Level> GetLevels()
         {
-            return db.Levels;
+            return db.Levels.ToList();
         }
 
         // GET: api/Levels/5

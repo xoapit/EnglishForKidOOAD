@@ -5,10 +5,12 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EnglishForKidAPI.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    [Table("User")]
     public class ApplicationUser : IdentityUser
     {
         public bool Status { get; set; }
@@ -52,6 +54,8 @@ namespace EnglishForKidAPI.Models
         public DbSet<GrantPermission> GrantPermissions { get; set; }
         public DbSet<AnswerSurvey> AnswerSurveys { get; set; }
         public DbSet<AuthenticationToken> AuthenticationTokens { get; set; }
+        public DbSet<IdentityUserRole> UserRoles { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -63,10 +67,10 @@ namespace EnglishForKidAPI.Models
                         .WillCascadeOnDelete(false); //disable scade   
 
             //modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
-            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id).ToTable("Role");
 
             modelBuilder.Entity<IdentityUserRole>()
-            .HasKey(r => new { r.UserId, r.RoleId });
+            .HasKey(r => new { r.UserId, r.RoleId }).ToTable("UserRole");
 
             modelBuilder.Entity<IdentityUserLogin>()
                 .HasKey(l => new { l.LoginProvider, l.ProviderKey, l.UserId });
@@ -75,13 +79,13 @@ namespace EnglishForKidAPI.Models
         public ApplicationDbContext()
             : base("EnglishForKids", throwIfV1Schema: false)
         {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<EnglishForKidAPI.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

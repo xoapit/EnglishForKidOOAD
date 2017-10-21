@@ -2,31 +2,53 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+
 
 namespace EnglishForKid.Service
 {
     public class FeedbackDataStore : BaseDataStore, IDataStore<Feedback>
     {
-        public Task<bool> AddItemAsync(Feedback item)
+        public async Task<bool> AddItemAsync(Feedback item)
         {
-            throw new NotImplementedException();
+            string path = "/api/feedbacks";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            string path = "/api/feedbacks/" + id.ToString();
+            HttpResponseMessage response = await client.DeleteAsync(path);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<Feedback> GetItemAsync(Guid id)
+        public async Task<Feedback> GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            string path = "/api/feedbacks/" + id.ToString();
+            Feedback feedback = null;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                feedback = await response.Content.ReadAsAsync<Feedback>();
+            }
+            return feedback;
         }
 
-        public Task<List<Feedback>> GetItemsAsync()
+        public async Task<List<Feedback>> GetItemsAsync()
         {
-            throw new NotImplementedException();
+            string path = "/api/feedbacks";
+            List<Feedback> feedbacks = null;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                feedbacks = await response.Content.ReadAsAsync<List<Feedback>>();
+            }
+            return feedbacks;
         }
 
         public Task InitializeAsync()
@@ -34,9 +56,12 @@ namespace EnglishForKid.Service
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateItemAsync(Feedback item)
+        public async Task<bool> UpdateItemAsync(Feedback item)
         {
-            throw new NotImplementedException();
+            string path = "/api/feedbacks/" + item.ID;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
     }
 }

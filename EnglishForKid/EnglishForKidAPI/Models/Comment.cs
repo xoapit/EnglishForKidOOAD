@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace EnglishForKidAPI.Models
 {
+    [Table("Comment")]
     public class Comment : BaseDataObject
     {
         public string Content { get; set; }
@@ -13,7 +15,6 @@ namespace EnglishForKidAPI.Models
         public string ApplicationUserID { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
-        public virtual Lesson Lesson { get; set; }
 
         public Comment()
         {

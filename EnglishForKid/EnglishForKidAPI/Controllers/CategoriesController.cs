@@ -9,12 +9,15 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EnglishForKidAPI.Models;
+using EnglishForKidAPI.Helper;
+using System.Web;
 
 namespace EnglishForKidAPI.Controllers
 {
+    // [AuthorizeController]
+    [Authorize]
     public class CategoriesController : BaseApiController
     {
-
         // GET: api/Categories
         public IQueryable<Category> GetCategories()
         {
