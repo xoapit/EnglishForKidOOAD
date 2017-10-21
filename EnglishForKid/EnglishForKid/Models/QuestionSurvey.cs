@@ -11,6 +11,7 @@ namespace EnglishForKid.Models
         public DateTime CreateAt { get; set; }
         public bool Status { get; set; }
         public string ApplicationUserID { get; set; }
+        public List<AnswerSurvey> AnswerSurveys { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
@@ -18,6 +19,7 @@ namespace EnglishForKid.Models
         {
             CreateAt = DateTime.Now;
             Status = false;
+            AnswerSurveys = new List<AnswerSurvey>();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@using EnglishForKid.Models;
 @{
     ViewBag.Title = "DetailOfLesson";
     Layout = "~/Views/Shared/_Layout_ST.cshtml";
@@ -19,20 +19,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
+                @{
+                    Lesson lesson = ViewBag.Lesson;
+                }
                 <div class="row posts">
                     <br>
                     <div class="col-md-2 col-sm-3 text-center">
                         <a class="cat-img" href="#"><img src="~/Content/files/image/LessonImage/5.jpg" style="width:100px;height:100px" class="img-circle"></a>
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>Listen to a song about what these amazing superheroes can do.</h3>
+                        <h3>@lesson.Title</h3>
                         <div class="entry-meta table">
                             <span>
                                 Written by
                                 <a href="#">Mr.Nhat</a>
                             </span>
                             <span> / </span>
-                            <span> 11/7/2017 </span>
+                            <span> @lesson.CreateAt </span>
                             <span> / Lượt đọc: </span>
                             <span> 100 </span>
                             <span> / </span>
@@ -46,8 +49,7 @@
                             <div class="contents_new1 col-xs-12">
                                 <h3><span class="field-group-format-toggler"><a class="field-group-format-title" href="#">Contents</a></span></h3>
                                 <p class="">
-                                    Do you want to practise your English grammar and learn new words? In this section you can learn about grammar rules, play word games and watch fun videos. Watch the grammar videos, play the grammar games and print the grammar worksheets. You can also print activities, tests and reference cards and post comments!
-                                    Do you want to practise your English grammar and learn new words? In this section you can learn about grammar rules, play word games and watch fun videos. Watch the grammar videos, play the grammar games and print the grammar worksheets. You can also print activities, tests and reference cards and post comments!
+                                    @lesson.Content;
                                 </p>
                             </div>
                             <div class="col-xs-3"></div>
@@ -59,7 +61,7 @@
                                 <div class="field field-name-field-discussion field-type-text-long field-label-hidden">
                                     <div class="field-items">
                                         <div class="field-item even">
-                                            <p>Can you do all the actions in the song? Do you know any other actions in English? Write a comment and tell us!</p>
+                                            <p>@lesson.Content;</p>
                                         </div>
                                     </div>
                                 </div>
@@ -77,13 +79,11 @@
                                                     <h2>Comment!</h2>
                                                     <form method="post" action="javascript:void(0);">
                                                         <input type="hidden" name="_token" value="1qL8s1s3SpVOpcOsVFxF6C7ofJ5uLgOh75TY5J2j" />
-                                                        <input type="text" id="username" name="username" disabled="true" class="textbox" value="Nhat" />
-                                                        <input type="text" id="email" name="email" class="textbox" placeholder="Nhập email" />
-                                                        <input type="text" id="website" name="website" class="textbox" placeholder="Nhập website" />
+                                     
                                                         <textarea id="content" name="content" placeholder="Nội dung bình luận"></textarea>
 
                                                         <div class="thong-bao"></div>
-                                                        <div class="smt1">
+                                                        <div class="smt1" style="text-align: right; padding-right: 12px;">
                                                             <input onclick="searchCat()" type="submit" value="Gửi" />
                                                             <a id="loadingmessage" style="display:none">
                                                                 <img src="/resources/assets/templates/public/images/loading.gif" width="40px" />
@@ -126,66 +126,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- Second Comment Reply -->
+
                                                 <div class="row">
-                                                    <div class="col-md-2 col-sm-2 col-md-offset-1 col-sm-offset-0 hidden-xs">
+                                                    <div class="col-md-2 col-sm-2 hidden-xs">
                                                         <figure class="thumbnail">
                                                             <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
                                                             <figcaption class="text-center">username</figcaption>
                                                         </figure>
                                                     </div>
-                                                    <div class="col-md-9 col-sm-9">
-                                                        <div class="panel panel-default arrow left">
-                                                            <div class="panel-heading right">Reply</div>
-                                                            <div class="panel-body">
-                                                                <header class="text-left">
-                                                                    <div class="comment-user"><i class="fa fa-user"></i> username</div>
-                                                                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                                                                </header>
-                                                                <div class="comment-post">
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                                    </p>
-                                                                </div>
-                                                                <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Third Comment -->
-                                                <div class="row">
                                                     <div class="col-md-10 col-sm-10">
-                                                        <div class="panel panel-default arrow right">
-                                                            <div class="panel-body">
-                                                                <header class="text-right">
-                                                                    <div class="comment-user"><i class="fa fa-user"></i> username</div>
-                                                                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                                                                </header>
-                                                                <div class="comment-post">
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                                    </p>
-                                                                </div>
-                                                                <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2 col-sm-2 hidden-xs">
-                                                        <figure class="thumbnail">
-                                                            <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
-                                                            <figcaption class="text-center">username</figcaption>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <!-- Fourth Comment -->
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 hidden-xs">
-                                                        <figure class="thumbnail">
-                                                            <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
-                                                            <figcaption class="text-center">username</figcaption>
-                                                        </figure>
-                                                    </div>
-                                                    <div class="col-md-10 col-sm-10 col-xs-12">
                                                         <div class="panel panel-default arrow left">
                                                             <div class="panel-body">
                                                                 <header class="text-left">
@@ -202,38 +151,18 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- Fifth Comment -->
+
                                                 <div class="row">
-                                                    <div class="col-md-10 col-sm-10">
-                                                        <div class="panel panel-default arrow right">
-                                                            <div class="panel-body">
-                                                                <header class="text-right">
-                                                                    <div class="comment-user"><i class="fa fa-user"></i> username</div>
-                                                                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                                                                </header>
-                                                                <div class="comment-post">
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                                    </p>
-                                                                </div>
-                                                                <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="col-md-2 col-sm-2 hidden-xs">
                                                         <figure class="thumbnail">
                                                             <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
                                                             <figcaption class="text-center">username</figcaption>
                                                         </figure>
                                                     </div>
-                                                </div>
-                                                <!-- Sixth Comment Reply -->
-                                                <div class="row">
-                                                    <div class="col-md-9 col-sm-9 col-md-offset-1 col-md-pull-1 col-sm-offset-0">
-                                                        <div class="panel panel-default arrow right">
-                                                            <div class="panel-heading">Reply</div>
+                                                    <div class="col-md-10 col-sm-10">
+                                                        <div class="panel panel-default arrow left">
                                                             <div class="panel-body">
-                                                                <header class="text-right">
+                                                                <header class="text-left">
                                                                     <div class="comment-user"><i class="fa fa-user"></i> username</div>
                                                                     <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
                                                                 </header>
@@ -246,13 +175,58 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2 col-sm-2 col-md-pull-1 hidden-xs">
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-2 hidden-xs">
                                                         <figure class="thumbnail">
                                                             <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
                                                             <figcaption class="text-center">username</figcaption>
                                                         </figure>
                                                     </div>
+                                                    <div class="col-md-10 col-sm-10">
+                                                        <div class="panel panel-default arrow left">
+                                                            <div class="panel-body">
+                                                                <header class="text-left">
+                                                                    <div class="comment-user"><i class="fa fa-user"></i> username</div>
+                                                                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                                                                </header>
+                                                                <div class="comment-post">
+                                                                    <p>
+                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                                    </p>
+                                                                </div>
+                                                                <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-2 hidden-xs">
+                                                        <figure class="thumbnail">
+                                                            <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
+                                                            <figcaption class="text-center">username</figcaption>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col-md-10 col-sm-10">
+                                                        <div class="panel panel-default arrow left">
+                                                            <div class="panel-body">
+                                                                <header class="text-left">
+                                                                    <div class="comment-user"><i class="fa fa-user"></i> username</div>
+                                                                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                                                                </header>
+                                                                <div class="comment-post">
+                                                                    <p>
+                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                                    </p>
+                                                                </div>
+                                                                <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
                                             </section>
                                         </div>
                                     </div>

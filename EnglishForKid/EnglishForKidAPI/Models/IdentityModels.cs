@@ -6,6 +6,8 @@ using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Mail;
+using EnglishForKidAPI.Constants;
 
 namespace EnglishForKidAPI.Models
 {
@@ -36,6 +38,20 @@ namespace EnglishForKidAPI.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public class EmailService : IIdentityMessageService
+        {
+            public Task SendAsync(IdentityMessage message)
+            {
+                SmtpClient client = new SmtpClient();
+                string fromBossEmail = ApplicationConfig.BossEmail;
+                return client.SendMailAsync(fromBossEmail,
+                                            message.Destination,
+                                            message.Subject,
+                                            message.Body);
+
+            }
+        }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -47,6 +63,7 @@ namespace EnglishForKidAPI.Models
         public DbSet<QuestionSurvey> QuestionSurveys { get; set; }
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Result> Results { get; set; }
+        public DbSet<FeedbackReplyHistory> FeedbackReplyHistories { get; set; }
 
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Level> Levels { get; set; }

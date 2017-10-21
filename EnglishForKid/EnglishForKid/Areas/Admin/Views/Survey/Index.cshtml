@@ -1,4 +1,5 @@
-﻿
+﻿@using EnglishForKid.Models.ViewModels
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -21,47 +22,34 @@
 
             <thead>
                 <tr align="center" style="">
-                    <th>ID</th>
+                    <th>No.</th>
                     <th>Content</th>
+                    <th>Create At</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Đội bóng bạn yêu thích là gì?</td>
-                    <td>Được kích hoạt</td>
-                    <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
-                        <button type="Submit" class="btn btn-success" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                        <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
-                        <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
-                    </td>
+                @{
+                    int i = 1;
+                    foreach (BaseQuestionSurveyViewModel baseQuestion in ViewBag.BaseQuestions)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@baseQuestion.Content</td>
+                            <td>@baseQuestion.CreateAt.ToString("dd/MMM/yyy hh:mm:ss")</td>
+                            <td>@baseQuestion.GetStatus</td>
+                            <td>
+                                <button type="button" class="btn btn-info" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
+                                <button type="Submit" class="btn btn-success" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
+                                <button type="Submit" class="btn btn-primary" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                                <button type="Submit" class="btn btn-danger" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
+                            </td>
 
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Đội bóng bạn yêu thích là gì?</td>
-                    <td>Chưa kích hoạt</td>
-                    <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
-                        <button type="Submit" class="btn btn-success" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                        <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
-                        <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Đội bóng bạn yêu thích là gì?</td>
-                    <td>Chưa kích hoạt</td>
-                    <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
-                        <button type="Submit" class="btn btn-success" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                        <button type="Submit" class="btn btn-primary" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
-                        <button type="Submit" class="btn btn-danger" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
-                    </td>
-                </tr>
+                        </tr>
+                        i++;
+                    }
+                }
             </tbody>
         </table>
     </div>
@@ -465,10 +453,6 @@
     </div>
 </div>
 <script src="~/Areas/Admin/Scripts/Survey/index.js"></script>
-<script type="text/javascript">
-
-    CKEditor.replace('editor1');
-</script>
 
 
 

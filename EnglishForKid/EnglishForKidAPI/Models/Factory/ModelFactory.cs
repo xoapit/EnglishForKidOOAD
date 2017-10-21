@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishForKidAPI.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -34,6 +35,18 @@ namespace EnglishForKidAPI.Models.Factory
                 Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
                 Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
             };
+        }
+
+        public static BaseQuestionSurveyViewModel GetQuestionSurveyViewModel(QuestionSurvey questionSurvey)
+        {
+            BaseQuestionSurveyViewModel viewModel = new BaseQuestionSurveyViewModel
+            {
+                ID = questionSurvey.ID,
+                Content = questionSurvey.Content,
+                CreateAt = questionSurvey.CreateAt,
+                Status = questionSurvey.Status
+            };
+            return viewModel;
         }
     }
 
