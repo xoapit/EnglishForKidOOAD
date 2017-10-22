@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EnglishForKidAPI.Models
+namespace EnglishForKid.Models.ViewModel
 {
-    public class View:BaseDataObject
+    public class ViewCountViewModel
     {
-        public int PageView { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
     }
