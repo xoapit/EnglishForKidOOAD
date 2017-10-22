@@ -21,7 +21,7 @@ namespace EnglishForKid.Service
         public async Task<bool> DeleteItemAsync(Guid id)
         {
             String path = "/api/AnswerSurveys" +id.ToString();
-            HttpResponseMessage response = await client.DeleteAsync(path);
+            HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
 

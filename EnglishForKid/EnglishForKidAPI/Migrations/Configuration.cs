@@ -19,12 +19,12 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            // InitUsers(context);
-            // InitCategories(context);
-            //   InitBusinessesAndFunctions(context);
-            InitFeedbacks(context);
-            //  InitLevels(context);
-            //   InitLessons(context);
+            //InitUsers(context);
+            //InitCategories(context);
+            //InitBusinessesAndFunctions(context);
+            //InitFeedbacks(context);
+            //InitLevels(context);
+            //InitLessons(context);
             //InitCommets(context);
             //InitQuestionSurveys(context);
             //InitRates(context);

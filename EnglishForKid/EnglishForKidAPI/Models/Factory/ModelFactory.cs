@@ -58,9 +58,7 @@ namespace EnglishForKidAPI.Models.Factory
         public string FullName { get; set; }
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
-        public string Username { get; set; }
         public string Avatar { get; set; }
-        public string RoleName { get; set; }
         public string PhoneNumber { get; set; }
         public bool Gender { get; set; }
         public bool Status { get; set; }
