@@ -29,11 +29,6 @@ namespace EnglishForKid.Controllers
             return View();
         }
 
-        public ActionResult file()
-        {
-            return View("Index");
-        }     
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

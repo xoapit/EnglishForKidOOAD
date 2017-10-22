@@ -14,6 +14,6 @@ namespace EnglishForKid.Models.ViewModel
 
         public int expires_in { get; set; }
 
-        public ErrorDescription Error { get; set; }
+        public ErrorDescription ErrorDescription { get; set; }
     }
 }

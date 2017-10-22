@@ -15,7 +15,7 @@ namespace EnglishForKid.Controllers
         AccountDataStore accountDataStore = new AccountDataStore();
 
         [HttpPost]
-        public ActionResult Login(string username, string password, bool rememberMe)
+        public JsonResult Login(string username, string password, bool rememberMe)
         {
             string grantTypeDefault = "password";
             string urlForward = "/Home";
@@ -40,10 +40,10 @@ namespace EnglishForKid.Controllers
                 }
                 else
                 {
-                    return Json(loginResult.Error, JsonRequestBehavior.AllowGet);
+                    return Json(loginResult, JsonRequestBehavior.AllowGet);
                 }
             }
-            return View("Home");
+            return Json(urlForward, JsonRequestBehavior.AllowGet);
         }
 
         private string GetUrlForward(UserReturnModel userReturnModel)
@@ -65,7 +65,6 @@ namespace EnglishForKid.Controllers
 
         private void SaveTokenIntoCookie(string access_token)
         {
-            throw new NotImplementedException();
         }
 
         // GET: Account

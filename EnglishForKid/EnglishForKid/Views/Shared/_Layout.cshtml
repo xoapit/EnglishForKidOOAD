@@ -20,7 +20,7 @@
     <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/css/animate _home.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
-    
+
     <link href="~/Content/css/home.css" rel="stylesheet" />
 
     <!-- =======================================================
@@ -29,7 +29,6 @@
         Author: BootstrapMade
         Author URL: https://bootstrapmade.com
     ======================================================= -->
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -39,31 +38,9 @@
             <div id="load"></div>
         </div>
         <!-- TOP INFO BAR -->
-        <div id="intro" class="top-info-bar bg-color-7 hidden-xs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ul class="list-inline topList">
-                            <li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i> <a href="mailto:info@yourdomain.com">Engkishforkid@gmail.com</a></li>
-                            <li><i class="fa fa-phone bg-color-2" aria-hidden="true"></i> +84 1 234 567 </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <div class="pull-right">
-                            <ul class="list-inline functionList">
-                                <li>
-                                    <a href='#loginModal' data-toggle="modal">
-                                        <i class="fa fa-unlock-alt bg-color-1" aria-hidden="true"></i>
-                                        Sign In
-                                    </a><span>  </span>
-                                    <a href='/Registation/Index' data-toggle="modal">Sign Up</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @{
+            Html.RenderPartial("TopBarView");
+        }
 
         <!--END TOP INFOR BAR-->
         <!-- NAVBAR -->
@@ -92,56 +69,7 @@
         </nav>
     </header>
     <!--LOGIN AND CREAT MODAL-->
-    <!-- LOGIN MODAL -->
-    <div class="modal fade" id="loginModal" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <!-- Modal content-->
-            <div class="modal-content" style="margin:2%;">
-                <div class="modal-header">
-                    <h4 class="modal-title text-center">LOGIN</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="box-body padding-large">
-
-                        <form action="../../index2.html" method="post">
-                            <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Username">
-                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <input type="password" class="form-control" placeholder="Password">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                            </div>
-                            <div class="form-group">
-                                <div class="checkbox icheck">
-                                    <label>
-                                        <input type="checkbox"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block  pull-right">Sign In</button>
-                            </div>
-                        </form>
-
-                        <div class="social-auth-links text-center">
-                            <br />
-                            <p>- OR -</p>
-                            <a href="#" class="btn btn-block btn-facebook  btn-primary">
-                                <i class="fa fa-facebook"></i> Sign in using
-                                Facebook
-                            </a>
-                            <a href="#" class="btn btn-block btn-google  btn-danger">
-                                <i class="fa fa-google-plus"></i> Sign in using
-                                Google+
-                            </a>
-                        </div>
-                        <a href="#">I forgot my password</a><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- CREATE ACCOUNT MODAL -->
     <div class="modal fade customModal" id="createAccount" tabindex="-1" role="dialog">
         <div class="modal-dialog">
@@ -609,11 +537,14 @@
     </section>
     <!-- /Section: contact -->
 
-  @RenderBody()
+    @RenderBody()
 
     <!-- Core JavaScript Files -->
 
     <script src="~/Content/js/jquery.min.js"></script>
+
+    <script src="~/Scripts/Home/login.js"></script>
+
     <script src="~/Content/js/bootstrap.min.js"></script>
     <script src="~/Content/js/jquery.easing.min.js"></script>
     <script src="~/Content/js/wow.min.js"></script>

@@ -16129,6 +16129,7 @@
     <Content Include="Scripts\ckfinder\_samples\skin_v1.html" />
     <Content Include="Scripts\ckfinder\_samples\standalone.html" />
     <Content Include="Scripts\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="Scripts\Home\login.js" />
     <Content Include="Scripts\Home\view.js" />
     <Content Include="Scripts\html5lightbox.js" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />
@@ -16178,6 +16179,7 @@
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
     <Content Include="Views\Lesson\ListLessonByCategory.cshtml" />
     <Content Include="Views\Registation\Index.cshtml" />
+    <Content Include="Views\Shared\TopBarView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

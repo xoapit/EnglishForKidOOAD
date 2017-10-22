@@ -5,19 +5,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 
 namespace EnglishForKid.Service
 {
-    public class AccountDataStore: BaseDataStore
+    public class AccountDataStore : BaseDataStore
     {
         public async Task<LoginResult> Login(LoginViewModel loginViewModel)
         {
-            string path = "/oauth/token";
+            string path = "oauth/token";
             LoginResult loginResult = null;
             ErrorDescription errorDescription = null;
-            HttpResponseMessage response = await client.PostAsJsonAsync(path, loginViewModel).ConfigureAwait(false);
+
+            var body = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("UserName", loginViewModel.UserName),
+                new KeyValuePair<string, string>("Password", loginViewModel.Password),
+                new KeyValuePair<string, string>("grant_type", loginViewModel.grant_type)
+            };
+
+            HttpContent content = new FormUrlEncodedContent(body);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+
+           HttpClient client = new HttpClient
+            {
+                MaxResponseContentBufferSize = 256000,
+                BaseAddress = new Uri(baseApiUrl),
+                Timeout = TimeSpan.FromMilliseconds(4000)
+            };
+
+            HttpResponseMessage response = await client.PostAsync(path, content).ConfigureAwait(false);
 
             if (response.IsSuccessStatusCode)
             {
