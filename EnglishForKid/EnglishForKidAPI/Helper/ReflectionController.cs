@@ -38,17 +38,17 @@ namespace EnglishForKidAPI.Models
         public List<string> GetActionsForUser(string username = "admin")
         {
             List<string> result = new List<string>();
-            var user = db.Users.FirstOrDefault(u => u.UserName == username);
-            var roles = db.UserRoles.Where(ur => ur.UserId == user.Id);
+            //var user = db.Users.FirstOrDefault(u => u.UserName == username);
+            //var roles = db.Roles;
 
-            foreach (var role in roles)
-            {
-                var functions = db.Functions.Where(f => f.IdentityRoleID == role.RoleId);
-                foreach (var function in functions)
-                {
-                    result.Add(function.Name);
-                }
-            }
+            //foreach (var role in roles)
+            //{
+            //    var functions = db.Functions.Where(f => f.IdentityRoleID == role.RoleId);
+            //    foreach (var function in functions)
+            //    {
+            //        result.Add(function.Name);
+            //    }
+            //}
 
             return result;
         }
