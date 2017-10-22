@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EnglishForKidAPI.Models;
+using EnglishForKidAPI.Models.ViewModels;
+using EnglishForKidAPI.Models.Factory;
 
 namespace EnglishForKidAPI.Controllers
 {
@@ -19,6 +21,18 @@ namespace EnglishForKidAPI.Controllers
         public List<QuestionSurvey> GetQuestionSurveys()
         {
             return db.QuestionSurveys.ToList();
+        }
+
+        [Route("api/QuestionSurveys/base")]
+        public List<BaseQuestionSurveyViewModel> GetBaseQuestionSurveys()
+        {
+            List<BaseQuestionSurveyViewModel> baseQuestionSurveys = new List<BaseQuestionSurveyViewModel>();
+            foreach(var questionSurvey in db.QuestionSurveys)
+            {
+                BaseQuestionSurveyViewModel baseQuestionSurvey = ModelFactory.GetQuestionSurveyViewModel(questionSurvey);
+                baseQuestionSurveys.Add(baseQuestionSurvey);
+            }
+            return baseQuestionSurveys;
         }
 
         // GET: api/QuestionSurveys/5
@@ -117,6 +131,9 @@ namespace EnglishForKidAPI.Controllers
             }
 
             db.QuestionSurveys.Remove(questionSurvey);
+            var answers = db.AnswerSurveys.Where(x => x.QuestionSurveyID == questionSurvey.ID);
+            db.AnswerSurveys.RemoveRange(answers);
+
             db.SaveChanges();
 
             return Ok(questionSurvey);

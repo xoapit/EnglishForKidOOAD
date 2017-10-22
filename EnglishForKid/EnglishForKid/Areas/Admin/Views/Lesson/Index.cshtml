@@ -1,4 +1,5 @@
-﻿
+﻿@using EnglishForKid.Models;
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -19,7 +20,7 @@
     <!-- /.box-header -->
     <div class="box-body padding-large">
         <div class="col-md-12">
-            <button type="Submit" class="btn btn-primary pull-right margin-bottom">Add</button>
+            <button type="button" class="add-lesson btn btn-primary pull-right margin-bottom" data-toggle="modal" data-target="#myModalAddLesson">Add</button>
         </div>
         <table class="table table-bordered table-responsive table-hover text-center">
 
@@ -35,212 +36,373 @@
 
 
             <tbody>
-                <tr>
-                    <td>BH0001</td>
-                    <td>Unit 1:</td>
-                    <td>
-                        <button type="Submit" class="btn btn-primary">Detail</button>
-                        <button type="Submit" class="btn btn-success">Update</button>
-                        <button type="Submit" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>BH0002</td>
-                    <td>Unit 2</td>
-                    <td>
-                        <button type="Submit" class="btn btn-primary">Detail</button>
-                        <button type="Submit" class="btn btn-success">Update</button>
-                        <button type="Submit" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>BH0002</td>
-                    <td>Unit 3</td>
-                    <td>
-                        <button type="Submit" class="btn btn-primary">
-                            Detail
-                        </button>
-                        <button type="Submit" class="btn btn-success">Update</button>
-                        <button type="Submit" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
+                @{
+                    List<Lesson> lessons = ViewBag.Lessons;
+                    for (int i = 0; i < lessons.Count; i++)
+                    {
+                        int index = i + 1;
+                        <tr>
+                            <td>@index</td>
+                            <td>@lessons.ElementAt(i).Title</td>
+                            <td hidden>@lessons.ElementAt(i).ApplicationUserID</td>
+                            <td hidden>@lessons.ElementAt(i).CreateAt.ToString("dd/MMM/yyyy")</td>
+                            <td>
+                                
+                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDetailLesson" >Detail</button>
+                                <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalUpdateLesson" >Update</button>
+                                <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDeleteLesson" >Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+             
             </tbody>
         </table>
     </div>
 </div>
 
-<div class="box box-danger">
-    <div class="box-header with-border">
-        <h3 class="box-title">ADD NEW LESSON</h3>
-        <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                <i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+<!-- Delete Lesson Modal-->
+<div class="modal fade" id="myModalDeleteLesson" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">DELETE LESSON</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group row text-center">
+                            <label>Are you sure that you want to delete this lesson?</label>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group row">
+                    <div class="col-md-9 col-xs-12" id="deleteMessageBox">
+                        <label class="text text-success" id="deleteMessage"></label>
+                    </div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" data-lesson-id="" id="btnDeleteLesson" class="btn btn-primary">Yes</button>
+                    </div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    </div>
+                    <div class="col-md-1 col-xs-12"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--Detail Lesson Modal -->
+<div class="modal fade" id="myModalDetailLesson" role="dialog">
+    <div class="modal-dialog  modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">DETAIL LESSON</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div hidden>
+                            <input type="text" class="form-control" name="viewLessonId" id="viewLessonId" value="" style="background-color:white" />
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Title</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Pictute</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Category</label>
+                            <div>
+                                <select class="form-control" id="">
+                                    <option>Vocabulary</option>
+                                    <option>Reading</option>
+                                    <option>Listening</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Content</label>
+                            <div>
+                                <textarea class="form-control" s="5" id=""></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Exercise</label>
+                            <div>
+                                <textarea class="form-control" s="5" id=""></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Answer</label>
+                            <div>
+                                <textarea class="form-control" s="5" id=""></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Discussion</label>
+                            <div>
+                                <textarea class="form-control" s="5" id=""></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
-
-    <div class="box-body padding-large">
-        <form>
-            <div class="form-group">
-
-                <label for="">Title</label>
-                <div>
-                    <input type="text" class="form-control" id="" value="">
-                </div>
-
+</div>
+                  
+<!--  Add Lesson Modal -->
+<div class="modal fade" id="myModalAddLesson" role="dialog">
+    <div class="modal-dialog  modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ADD LESSON</h4>
             </div>
-            <div class="form-group">
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group">
 
-                <label for="">Pictute</label>
-                <div>
-                    <input type="text" class="form-control" id="" value="">
-                </div>
-                <div class="col-sm-2">
+                            <label for="">Title</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Pictute</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Category</label>
+                            <div>
+                                <select class="form-control" id="">
+                                    <option>Vocabulary</option>
+                                    <option>Reading</option>
+                                    <option>Listening</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Content</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor1"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Exercise</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor2"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Answer</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor3"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Discussion</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor4"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-label-left">
+                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                    Add
+                                </button>
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-label-left">
+                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="form-group">
-
-                <label for="">Category</label>
-                <div>
-                    <select class="form-control" id="">
-                        <option>Vocabulary</option>
-                        <option>Reading</option>
-                        <option>Listening</option>
-                    </select>
-                </div>
-
-            </div>
-            <div class="form-group">
-
-                <label for="">Content</label>
-                <div>
-                    <textarea name="editor" class="ckeditor" id="editor1"></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="form-group">
-
-                <label for="">Exercise</label>
-                <div>
-                    <textarea name="editor" class="ckeditor" id="editor2"></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="form-group ">
-
-                <label for="">Answer</label>
-                <div>
-                    <textarea name="editor" class="ckeditor" id="editor3"></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="form-group ">
-
-                <label for="">Discussion</label>
-                <div>
-                    <textarea name="editor" class="ckeditor" id="editor4"></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="form-group">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2">
-                    <button type="submit" class="btn btn-primary btn-label-left">
-                        <span><i class="fa fa-clock-o txt-danger"></i></span>
-                        Add
-                    </button>
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-2">
-                    <button type="submit" class="btn btn-primary btn-label-left">
-                        <span><i class="fa fa-clock-o txt-danger"></i></span>
-                        Cancel
-                    </button>
-                </div>
-                <div class="col-sm-3"></div>
-            </div>
-        </form>
+            @*<div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>*@
+        </div>
     </div>
 </div>
 
-<div class="box box-danger">
-    <div class="box-header with-border">
-        <h3 class="box-title" style="color: #5a738e" align="center">SEE THE LESSON</h3>
-        <form>
-            <div class="form-group ">
-
-                <label for="">Title</label>
-                <div>
-                    <input type="text" class="form-control" id="" value="">
-                </div>
-
+<!--  Update Lesson Modal -->
+<div class="modal fade" id="myModalUpdateLesson" role="dialog">
+    <div class="modal-dialog  modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">UPDATE LESSON</h4>
             </div>
-            <div class="form-group ">
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group">
 
-                <label for="">Pictute</label>
-                <div>
-                    <input type="text" class="form-control" id="" value="">
-                </div>
-                <div class="col-sm-2">
+                            <label for="">Title</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Pictute</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Category</label>
+                            <div>
+                                <select class="form-control" id="">
+                                    <option>Vocabulary</option>
+                                    <option>Reading</option>
+                                    <option>Listening</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Content</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor1"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Exercise</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor2"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Answer</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor3"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Discussion</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor4"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-label-left">
+                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                    Add
+                                </button>
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-label-left">
+                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="form-group ">
-
-                <label for="">Category</label>
-                <div>
-                    <select class="form-control" id="">
-                        <option>Vocabulary</option>
-                        <option>Reading</option>
-                        <option>Listening</option>
-                    </select>
-                </div>
-
-            </div>
-            <div class="form-group ">
-
-                <label for="">Content</label>
-                <div>
-                    <textarea class="form-control" s="5" id=""></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="form-group ">
-
-                <label for="">Exercise</label>
-                <div>
-                    <textarea class="form-control" s="5" id=""></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="form-group ">
-
-                <label for="">Answer</label>
-                <div>
-                    <textarea class="form-control" s="5" id=""></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="form-group ">
-
-                <label for="">Discussion</label>
-                <div>
-                    <textarea class="form-control" s="5" id=""></textarea>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-        </form>
+            @*<div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>*@
+        </div>
     </div>
 </div>
+
 
 <script>
     CKEditor.replace('editor1');
@@ -248,6 +410,18 @@
     CKEditor.replace('editor3');
     CKEditor.replace('editor4');
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
 
+    $(document).on("click", ".view-DetailLesson", function () {
+        var feedbackId = $(this).data('feedback-id');
+        $(".modal-body #viewFeedbackId").val(feedbackId);
+        $('#myModalDetailFeedback input[name="detailFeedbackTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
+        $('#myModalDetailFeedback input[name="detailFeedbackSender"]').val($(this).closest("tr").find("td:nth-child(3)").text());
+        $('#myModalDetailFeedback input[name="detailFeedbackTime"]').val($(this).closest("tr").find("td:nth-child(4)").text());
+        $('#myModalDetailFeedback textarea[name="detailFeedbackContent"]').val($(this).closest("tr").find("td:nth-child(5)").text());
+        loadFeedbackHistories();
+        $('#btnMinusFeedbackReplyHistory').trigger('click');
+    });
 
-
+</script>

@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EnglishForKid.Service;
+using EnglishForKid.Models;
 
 namespace EnglishForKid.Areas.Admin.Controllers
 {
     public class LessonController : Controller
     {
+        private LessonDataStore lessonDataStore = new LessonDataStore();
         // GET: Admin/Lesson
         public ActionResult Index()
         {
+           List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
+           ViewBag.Lessons = lessons;
             return View();
         }
 
         // GET: Admin/Lesson/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
+            Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
+            ViewBag.DetailLesson = lesson;
             return View();
         }
 

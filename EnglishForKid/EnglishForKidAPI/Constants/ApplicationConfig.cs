@@ -28,5 +28,10 @@ namespace EnglishForKidAPI.Constants
 
         public static readonly string AdminUserName = "Admin";
         public static readonly string AdminPassword = "1234566";
+
+        public static readonly string BossEmail = "englishforkidsprivate@gmail.com";
+        public static readonly string BossEmailPassword = "abc12345678";
+        public static readonly string BossEmailName = "English For Kids";
+        public static readonly string EmailHost = "smtp.gmail.com";
     }
 }

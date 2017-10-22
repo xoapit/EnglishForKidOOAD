@@ -22,7 +22,7 @@ namespace EnglishForKid.Service
         {
             String path = "/api/Rates" + id.ToString();
 
-            HttpResponseMessage response = await client.DeleteAsync(path);
+            HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
         }

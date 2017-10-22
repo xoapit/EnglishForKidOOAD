@@ -19,16 +19,22 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            // InitUsers(context);
-            // InitCategories(context);
-            //   InitBusinessesAndFunctions(context);
+            //InitUsers(context);
+            //InitCategories(context);
+            //InitBusinessesAndFunctions(context);
             //InitFeedbacks(context);
+<<<<<<< HEAD
             //  InitLevels(context);
             //   InitLessons(context);
+=======
+            //InitLevels(context);
+            //InitLessons(context);
+>>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
             //InitCommets(context);
             //InitQuestionSurveys(context);
             //InitRates(context);
             //InitResults(context);
+<<<<<<< HEAD
            // InitAnswerSurveys(context);
         }
 
@@ -53,6 +59,8 @@ namespace EnglishForKidAPI.Migrations
                 Answer = "I have a some problem with my arm"
             });
 
+=======
+>>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
         }
 
         private void InitCommets(ApplicationDbContext context)
@@ -221,7 +229,7 @@ namespace EnglishForKidAPI.Migrations
                 Title = "Tin was blocked!",
                 Content = "Hello, what's up?",
                 CreateAt = DateTime.Now,
-                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+                Email = "taquyit@gmail.com"
             });
 
             context.Feedbacks.Add(new Feedback
@@ -230,7 +238,7 @@ namespace EnglishForKidAPI.Migrations
                 Title = "Tin was blocked!",
                 Content = "Hello, what's up?",
                 CreateAt = DateTime.Now,
-                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+                Email = "huuquan95@gmail.com"
             });
 
             context.Feedbacks.Add(new Feedback
@@ -239,7 +247,7 @@ namespace EnglishForKidAPI.Migrations
                 Title = "Tin was blocked!",
                 Content = "Hello, what's up?",
                 CreateAt = DateTime.Now,
-                ApplicationUserID = "29dcdc6c-24e2-4036-9853-cd26ecc74e6d"
+                Email = "quoctin95@gmail.com"
             });
         }
 
@@ -271,6 +279,35 @@ namespace EnglishForKidAPI.Migrations
                 }
             }
         }
+        
+        //private void InitBusinessesAndFunctions(ApplicationDbContext context)
+        //{
+        //    context.Functions.RemoveRange(context.Functions.ToList());
+        //    context.Businesses.RemoveRange(context.Businesses.ToList());
+
+        //    ReflectionController reflection = new ReflectionController();
+        //    foreach (var controller in reflection.GetControllers())
+        //    {
+        //        Business bussiness = new Business
+        //        {
+        //            ID = Guid.NewGuid(),
+        //            Name = controller.Name
+        //        };
+
+        //        context.Businesses.Add(bussiness);
+
+        //        foreach (var action in reflection.GetActions(controller))
+        //        {
+        //            context.Functions.Add(new Function
+        //            {
+        //                ID = Guid.NewGuid(),
+        //                Name = action,
+        //                BusinessID = bussiness.ID,
+        //                IdentityRoleID = context.Roles.Where(r => r.Name == "Admin").First().Id
+        //            });
+        //        }
+        //    }
+        //}
 
         private void InitUsers(ApplicationDbContext context)
         {

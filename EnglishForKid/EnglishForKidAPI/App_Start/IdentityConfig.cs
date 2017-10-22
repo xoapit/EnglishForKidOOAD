@@ -7,6 +7,8 @@ using EnglishForKidAPI.Models;
 using Microsoft.Owin.Security;
 using System;
 using System.Security.Claims;
+using System.Net.Mail;
+using EnglishForKidAPI.Constants;
 
 namespace EnglishForKidAPI
 {

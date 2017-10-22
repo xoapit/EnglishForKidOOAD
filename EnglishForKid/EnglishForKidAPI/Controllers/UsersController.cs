@@ -21,9 +21,9 @@ namespace EnglishForKidAPI.Controllers
     public class UsersController : BaseApiController
     {
         // GET: api/Users
-        public IQueryable<ApplicationUser> GetUsers()
+        public List<ApplicationUser> GetUsers()
         {
-            return db.Users;
+            return db.Users.ToList();
         }
 
         [ResponseType(typeof(List<ApplicationUser>))]
