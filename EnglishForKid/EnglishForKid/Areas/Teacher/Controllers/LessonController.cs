@@ -3,16 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EnglishForKid.Service;
+using EnglishForKid.Models;
 
 namespace EnglishForKid.Areas.Teacher.Controllers
 {
     public class LessonController : Controller
     {
+        private LessonDataStore lessonDataStore = new LessonDataStore(); 
         // GET: Teacher/Lesson
         public ActionResult Index()
         {
+         
+            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
+            ViewBag.Lessons = lessons;
             return View();
         }
+
+        //delete lesson
+        [HttpPost]
+        public ActionResult DeleteLesson(Guid id)
+        {
+            bool result = lessonDataStore.DeleteItemAsync(id).Result;
+            return Json(new { status = result }, JsonRequestBehavior.AllowGet);
+        }
+
+        //Add lesson
+        [HttpPost]
+        public ActionResult AddLesson (String Title, String CategoryID, String Content, String Image, String Discusson, String Exercise, String Anwser, String Tag, String LevelID, String ApplicationID)
+        {
+            Lesson lesson = new Lesson()
+            {
+
+                ID = Guid.NewGuid(),
+                Title = Title,
+                CategoryID = new Guid(CategoryID),
+                Image = Image,
+                Content = Content,
+                Discussion = Discusson,
+                Exercise = Exercise,
+                Answer = Anwser,
+                CreateAt = DateTime.Now,
+                Tag = Tag,
+                LevelID = new Guid(LevelID),
+                ApplicationUserID = ApplicationID,
+            };
+            LessonDataStore lessonDataStore = new LessonDataStore();
+            bool result = lessonDataStore.AddItemAsync(lesson).Result;
+            return Json(new { status = result}, JsonRequestBehavior.AllowGet );  
+        }
+       
 
         // GET: Teacher/Lesson/Details/5
         public ActionResult Details(int id)
@@ -67,6 +107,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         // GET: Teacher/Lesson/Delete/5
         public ActionResult Delete(int id)
         {
+            
             return View();
         }
 

@@ -213,6 +213,7 @@
     <Compile Include="Constants\ApplicationConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
+    <Compile Include="Controllers\RegistationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -237,6 +238,7 @@
     <Compile Include="Models\Lesson.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\ViewModel\BaseQuestionSurveyViewModel.cs" />
+    <Compile Include="Models\ViewModel\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BaseDataStore.cs" />
     <Compile Include="Service\CommentDataStore.cs" />
@@ -247,6 +249,7 @@
     <Compile Include="Service\QuestionSurveyDataStore.cs" />
     <Compile Include="Service\RateDataStore.cs" />
     <Compile Include="Service\ResultDataStore.cs" />
+    <Compile Include="Service\ViewCountDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
@@ -13717,6 +13720,7 @@
     <Content Include="Areas\Teacher\Content\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Areas\Teacher\Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Areas\Teacher\Content\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Areas\Teacher\Scripts\lesson\index.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -16117,6 +16121,7 @@
     <Content Include="Scripts\ckfinder\_samples\skin_v1.html" />
     <Content Include="Scripts\ckfinder\_samples\standalone.html" />
     <Content Include="Scripts\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="Scripts\Home\view.js" />
     <Content Include="Scripts\html5lightbox.js" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
@@ -16163,6 +16168,7 @@
     <Content Include="Views\Lesson\DetailOfLesson.cshtml" />
     <Content Include="Views\Lesson\ListOfLesson.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
+    <Content Include="Views\Registation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

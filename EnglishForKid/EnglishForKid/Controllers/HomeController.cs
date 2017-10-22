@@ -17,6 +17,7 @@ using System.Data;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using EnglishForKid.Service;
+using EnglishForKid.Models.ViewModel;
 
 namespace EnglishForKid.Controllers
 {
@@ -45,6 +46,12 @@ namespace EnglishForKid.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        [HttpPost]
+        public ActionResult GetCount() {
+            ViewCountDataStore viewCountDataStore = new ViewCountDataStore();
+            var result = viewCountDataStore.GetCountAsync().Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
