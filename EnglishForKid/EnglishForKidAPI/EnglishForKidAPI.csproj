@@ -268,14 +268,6 @@
     <Compile Include="Helper\AuthorizeController.cs" />
     <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\ReflectionController.cs" />
-    <Compile Include="Migrations\201710210354438_adfasdfd.cs" />
-    <Compile Include="Migrations\201710210354438_adfasdfd.Designer.cs">
-      <DependentUpon>201710210354438_adfasdfd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710210751479_asdfcvxc.cs" />
-    <Compile Include="Migrations\201710210751479_asdfcvxc.Designer.cs">
-      <DependentUpon>201710210751479_asdfcvxc.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FeedbackReplyHistory.cs" />
     <Compile Include="Models\View.cs" />
@@ -392,14 +384,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710210354438_adfasdfd.resx">
-      <DependentUpon>201710210354438_adfasdfd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710210751479_asdfcvxc.resx">
-      <DependentUpon>201710210751479_asdfcvxc.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
