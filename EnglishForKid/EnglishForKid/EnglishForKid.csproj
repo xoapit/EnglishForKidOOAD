@@ -16168,7 +16168,10 @@
     <Content Include="Views\Lesson\DetailOfLesson.cshtml" />
     <Content Include="Views\Lesson\ListOfLesson.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
+    <Content Include="Views\Lesson\ListLessonByCategory.cshtml" />
+
     <Content Include="Views\Registation\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
