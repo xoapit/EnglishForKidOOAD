@@ -14,9 +14,6 @@
 
     <title>English for kids</title>
 
-    <!-- Bootstrap Core CSS -->
-    <!-- Bootstrap Core CSS -->
-
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <!-- Fonts -->
 
@@ -54,7 +51,13 @@
                     <div class="col-sm-6 ">
                         <div class="pull-right">
                             <ul class="list-inline functionList">
-                                <li><i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <a href='#loginModal' data-toggle="modal">Login</a><span> or</span><a href='#createAccount' data-toggle="modal">Create an account</a></li>
+                                <li>
+                                    <a href='#loginModal' data-toggle="modal">
+                                        <i class="fa fa-unlock-alt bg-color-1" aria-hidden="true"></i>
+                                        Sign In
+                                    </a><span>  </span>
+                                    <a href='/Registation/Index' data-toggle="modal">Sign Up</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -63,73 +66,6 @@
         </div>
 
         <!--END TOP INFOR BAR-->
-        <!--LOGIN AND CREAT MODAL-->
-        <!-- LOGIN MODAL -->
-        <div class="modal fade customModal" id="loginModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="panel panel-default formPanel">
-                        <div class="panel-heading bg-color-1 border-color-1">
-                            <h3 class="panel-title">Login</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form action="#" method="POST" role="form">
-                                <div class="form-group formField">
-                                    <input type="text" class="form-control" placeholder="User name">
-                                </div>
-                                <div class="form-group formField">
-                                    <input type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="form-group formField">
-                                    <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Log in">
-                                </div>
-                                <div class="form-group formField">
-                                    <p class="help-block"><a href="#">Forgot password?</a></p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- CREATE ACCOUNT MODAL -->
-        <div class="modal fade customModal" id="createAccount" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="panel panel-default formPanel">
-                        <div class="panel-heading bg-color-1 border-color-1">
-                            <h3 class="panel-title">Create  an account</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form action="#" method="POST" role="form">
-                                <div class="form-group formField">
-                                    <input type="text" class="form-control" placeholder="Name">
-                                </div>
-                                <div class="form-group formField">
-                                    <input type="text" class="form-control" placeholder="User name">
-                                </div>
-                                <div class="form-group formField">
-                                    <input type="text" class="form-control" placeholder="Phone">
-                                </div>
-                                <div class="form-group formField">
-                                    <input type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="form-group formField">
-                                    <input type="password" class="form-control" placeholder="Re-Password">
-                                </div>
-                                <div class="form-group formField">
-                                    <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Register">
-                                </div>
-                                <div class="form-group formField">
-                                    <p class="help-block">Allready have an account? <a href="#">Log in</a></p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--END MODAL-->
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -155,7 +91,95 @@
             <!-- /.container -->
         </nav>
     </header>
+    <!--LOGIN AND CREAT MODAL-->
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="loginModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content" style="margin:2%;">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">LOGIN</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box-body padding-large">
 
+                        <form action="../../index2.html" method="post">
+                            <div class="form-group has-feedback">
+                                <input type="text" class="form-control" placeholder="Username">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" class="form-control" placeholder="Password">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox icheck">
+                                    <label>
+                                        <input type="checkbox"> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block  pull-right">Sign In</button>
+                            </div>
+                        </form>
+
+                        <div class="social-auth-links text-center">
+                            <br />
+                            <p>- OR -</p>
+                            <a href="#" class="btn btn-block btn-facebook  btn-primary">
+                                <i class="fa fa-facebook"></i> Sign in using
+                                Facebook
+                            </a>
+                            <a href="#" class="btn btn-block btn-google  btn-danger">
+                                <i class="fa fa-google-plus"></i> Sign in using
+                                Google+
+                            </a>
+                        </div>
+                        <a href="#">I forgot my password</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CREATE ACCOUNT MODAL -->
+    <div class="modal fade customModal" id="createAccount" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel panel-default formPanel">
+                    <div class="panel-heading bg-color-1 border-color-1">
+                        <h3 class="panel-title">Create  an account</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="#" method="POST" role="form">
+                            <div class="form-group formField">
+                                <input type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="form-group formField">
+                                <input type="text" class="form-control" placeholder="User name">
+                            </div>
+                            <div class="form-group formField">
+                                <input type="text" class="form-control" placeholder="Phone">
+                            </div>
+                            <div class="form-group formField">
+                                <input type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="form-group formField">
+                                <input type="password" class="form-control" placeholder="Re-Password">
+                            </div>
+                            <div class="form-group formField">
+                                <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Register">
+                            </div>
+                            <div class="form-group formField">
+                                <p class="help-block">Allready have an account? <a href="#">Log in</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END MODAL-->
     <!-- Sslide -->
 
     <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
@@ -585,6 +609,21 @@
     </section>
     <!-- /Section: contact -->
 
+  @RenderBody()
+
+    <!-- Core JavaScript Files -->
+
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.easing.min.js"></script>
+    <script src="~/Content/js/wow.min.js"></script>
+    <script src="~/Content/js/jquery.scrollTo.js"></script>
+
+    <script src="~/Scripts/Home/view.js"></script>
+    <!-- Custom Theme JavaScript -->
+
+    <script src="~/Content/js/custom.js"></script>
+
     <footer>
         <div class="container">
             <div class="row">
@@ -596,26 +635,13 @@
                             </a>
                         </div>
                     </div>
-                    <p>&copy;English for kids.</p>
+                    <p>English for kids.</p>
                     <p>Where learn english for children</p>
+                    <div id="viewCountMonth"></div>
                 </div>
             </div>
         </div>
     </footer>
-    @RenderBody()
-
-    <!-- Core JavaScript Files -->
-
-    <script src="~/Content/js/jquery.min.js"></script>
-    <script src="~/Content/js/bootstrap.min.js"></script>
-    <script src="~/Content/js/jquery.easing.min.js"></script>
-    <script src="~/Content/js/wow.min.js"></script>
-    <script src="~/Content/js/jquery.scrollTo.js"></script>
-    
-    <!-- Custom Theme JavaScript -->
-
-    <script src="~/Content/js/custom.js"></script>
-
 </body>
 
 </html>

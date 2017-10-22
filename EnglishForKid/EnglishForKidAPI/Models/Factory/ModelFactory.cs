@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishForKidAPI.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -35,6 +36,18 @@ namespace EnglishForKidAPI.Models.Factory
                 Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
             };
         }
+
+        public static BaseQuestionSurveyViewModel GetQuestionSurveyViewModel(QuestionSurvey questionSurvey)
+        {
+            BaseQuestionSurveyViewModel viewModel = new BaseQuestionSurveyViewModel
+            {
+                ID = questionSurvey.ID,
+                Content = questionSurvey.Content,
+                CreateAt = questionSurvey.CreateAt,
+                Status = questionSurvey.Status
+            };
+            return viewModel;
+        }
     }
 
     public class UserReturnModel
@@ -45,9 +58,7 @@ namespace EnglishForKidAPI.Models.Factory
         public string FullName { get; set; }
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
-        public string Username { get; set; }
         public string Avatar { get; set; }
-        public string RoleName { get; set; }
         public string PhoneNumber { get; set; }
         public bool Gender { get; set; }
         public bool Status { get; set; }

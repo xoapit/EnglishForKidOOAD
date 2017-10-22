@@ -14,8 +14,6 @@ using System.Web;
 
 namespace EnglishForKidAPI.Controllers
 {
-    // [AuthorizeController]
-    [Authorize]
     public class CategoriesController : BaseApiController
     {
         // GET: api/Categories

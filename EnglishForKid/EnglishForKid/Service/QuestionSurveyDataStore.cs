@@ -4,29 +4,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
+using System.Net.Http;
+using EnglishForKid.Models.ViewModels;
 
 namespace EnglishForKid.Service
 {
     public class QuestionSurveyDataStore : BaseDataStore, IDataStore<QuestionSurvey>
     {
-        public Task<bool> AddItemAsync(QuestionSurvey item)
+        public async Task<bool> AddItemAsync(QuestionSurvey item)
         {
-            throw new NotImplementedException();
+            string path = "/api/questionsurveys";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            string path = "/api/questionsurveys/" + id.ToString();
+            HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public Task<QuestionSurvey> GetItemAsync(Guid id)
+        public async Task<QuestionSurvey> GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            string path = "/api/questionsurveys/" + id.ToString();
+            QuestionSurvey questionSurvey = null;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                questionSurvey = await response.Content.ReadAsAsync<QuestionSurvey>();
+            }
+            return questionSurvey;
         }
 
-        public Task<List<QuestionSurvey>> GetItemsAsync()
+        public async Task<List<QuestionSurvey>> GetItemsAsync()
         {
-            throw new NotImplementedException();
+            string path = "/api/questionsurveys";
+            List<QuestionSurvey> questionSurveys = new List<QuestionSurvey>();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                questionSurveys = await response.Content.ReadAsAsync<List<QuestionSurvey>>();
+            }
+            return questionSurveys;
+        }
+
+        public async Task<List<BaseQuestionSurveyViewModel>> GetBaseQuestionSurveysAsync()
+        {
+            string path = "/api/QuestionSurveys/base";
+            List<BaseQuestionSurveyViewModel> baseQuestionSurveys = new List<BaseQuestionSurveyViewModel>();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                baseQuestionSurveys = await response.Content.ReadAsAsync<List<BaseQuestionSurveyViewModel>>();
+            }
+            return baseQuestionSurveys;
         }
 
         public Task InitializeAsync()
@@ -34,9 +68,12 @@ namespace EnglishForKid.Service
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateItemAsync(QuestionSurvey item)
+        public async Task<bool> UpdateItemAsync(QuestionSurvey item)
         {
-            throw new NotImplementedException();
+            string path = "/api/questionsurveys/" + item.ID;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
     }
 }

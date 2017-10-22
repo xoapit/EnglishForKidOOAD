@@ -22,7 +22,7 @@ namespace EnglishForKid.Service
         public async Task<bool> DeleteItemAsync(Guid id)
         {
             string path = "/api/feedbacks/" + id.ToString();
-            HttpResponseMessage response = await client.DeleteAsync(path);
+            HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
@@ -42,7 +42,7 @@ namespace EnglishForKid.Service
         public async Task<List<Feedback>> GetItemsAsync()
         {
             string path = "/api/feedbacks";
-            List<Feedback> feedbacks = null;
+            List<Feedback> feedbacks = new List<Feedback>();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
