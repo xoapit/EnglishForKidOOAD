@@ -1,0 +1,149 @@
+﻿using EnglishForKid.Constants;
+using EnglishForKid.Models.ViewModel;
+using EnglishForKid.Models.ViewModels;
+using EnglishForKid.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace EnglishForKid.Controllers
+{
+    public class AccountController : Controller
+    {
+        AccountDataStore accountDataStore = new AccountDataStore();
+
+        [HttpPost]
+        public ActionResult Login(string username, string password, bool rememberMe)
+        {
+            string grantTypeDefault = "password";
+            string urlForward = "/Home";
+            LoginViewModel loginViewModel = new LoginViewModel()
+            {
+                UserName = username,
+                Password = password,
+                RememberMe = rememberMe,
+                ShouldLockOut = false,
+                grant_type = grantTypeDefault
+            };
+
+            LoginResult loginResult = accountDataStore.Login(loginViewModel).Result;
+            if (loginResult != null)
+            {
+                if (loginResult.access_token != null)
+                {
+                    UserReturnModel userReturnModel = accountDataStore.GetAccountByUserNameAsync(loginViewModel.UserName).Result;
+                    urlForward = GetUrlForward(userReturnModel);
+                    SaveTokenIntoCookie(loginResult.access_token);
+                    return Json(urlForward, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(loginResult.Error, JsonRequestBehavior.AllowGet);
+                }
+            }
+            return View("Home");
+        }
+
+        private string GetUrlForward(UserReturnModel userReturnModel)
+        {
+            string urlForward = "/Home";
+            if (userReturnModel != null)
+            {
+                if (userReturnModel.Roles.Contains(ApplicationConfig.AdminRole))
+                {
+                    urlForward = "/Admin/Home";
+                }
+                else if (userReturnModel.Roles.Contains(ApplicationConfig.TeacherRole))
+                {
+                    urlForward = "/Teacher/Home";
+                }
+            }
+            return urlForward;
+        }
+
+        private void SaveTokenIntoCookie(string access_token)
+        {
+            throw new NotImplementedException();
+        }
+
+        // GET: Account
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Account/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Account/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Account/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Account/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Account/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Account/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Account/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}
