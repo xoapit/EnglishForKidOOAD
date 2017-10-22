@@ -1,0 +1,51 @@
+﻿.box{
+    border:#eeeeee solid 1px;
+    box-shadow: 0 0 15px #777;
+    margin:10px;
+}
+
+.box-header {
+    padding: 10px;
+
+}
+
+.box-body {
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+
+.bold{
+    font-weight:600;
+}
+
+.red {
+    background: #e74c3c;
+}
+
+.blue {
+    background: #3498db;
+}
+
+.white{
+    background: #fff;
+}
+
+.black {
+    background: #111;
+}
+
+
+.text-red {
+    color: #e74c3c;
+}
+
+.text-blue {
+    color: #3498db;
+}
+.text-white {
+    color: #ffffff;
+}
+.text-black {
+    color: #111;
+}
+

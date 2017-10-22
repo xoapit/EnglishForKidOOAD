@@ -67,6 +67,11 @@ namespace EnglishForKid.Controllers
         {
         }
 
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
         // GET: Account
         public ActionResult Index()
         {
