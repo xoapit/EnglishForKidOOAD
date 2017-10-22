@@ -268,6 +268,14 @@
     <Compile Include="Migrations\201710170749105_Second.Designer.cs">
       <DependentUpon>201710170749105_Second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710220745476_Third.cs" />
+    <Compile Include="Migrations\201710220745476_Third.Designer.cs">
+      <DependentUpon>201710220745476_Third.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710220825011_asdf.cs" />
+    <Compile Include="Migrations\201710220825011_asdf.Designer.cs">
+      <DependentUpon>201710220825011_asdf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\AccountBindingModels.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
@@ -383,6 +391,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710170749105_Second.resx">
       <DependentUpon>201710170749105_Second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220745476_Third.resx">
+      <DependentUpon>201710220745476_Third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220825011_asdf.resx">
+      <DependentUpon>201710220825011_asdf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
