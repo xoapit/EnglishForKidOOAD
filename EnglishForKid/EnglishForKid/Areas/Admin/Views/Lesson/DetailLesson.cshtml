@@ -1,0 +1,77 @@
+﻿@using EnglishForKid.Models;
+@{
+    if (ViewBag.DetailLesson != null)
+    {
+        Lesson LessonDetail = ViewBag.DetailLesson;
+        <div class="box-body padding-large">
+            <form>
+                <div class="form-group ">
+
+                    <label for="">Title</label>
+                    <div>
+                        <input type="text" class="form-control" id="" value="@LessonDetail.ID">
+                    </div>
+
+                </div>
+                <div class="form-group ">
+
+                    <label for="">Pictute</label>
+                    <div>
+                        <input type="text" class="form-control" id="" value="">
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="form-group ">
+
+                    <label for="">Category</label>
+                    <div>
+                        <select class="form-control" id="">
+                            <option>Vocabulary</option>
+                            <option>Reading</option>
+                            <option>Listening</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group ">
+
+                    <label for="">Content</label>
+                    <div>
+                        <textarea class="form-control" s="5" id=""></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="form-group ">
+
+                    <label for="">Exercise</label>
+                    <div>
+                        <textarea class="form-control" s="5" id=""></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="form-group ">
+
+                    <label for="">Answer</label>
+                    <div>
+                        <textarea class="form-control" s="5" id=""></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="form-group ">
+
+                    <label for="">Discussion</label>
+                    <div>
+                        <textarea class="form-control" s="5" id=""></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+            </form>
+        </div>
+    } }
+
+

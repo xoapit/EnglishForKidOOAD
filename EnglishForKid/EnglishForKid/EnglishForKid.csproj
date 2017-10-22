@@ -15035,6 +15035,7 @@
     <Content Include="Scripts\ckfinder\web.config" />
     <Content Include="Areas\Admin\Views\Feedback\CreateFeedbackReply.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\FeedbackReplyHistory.cshtml" />
+    <Content Include="Areas\Admin\Views\Lesson\DetailLesson.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
