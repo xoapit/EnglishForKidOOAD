@@ -92,10 +92,9 @@ namespace EnglishForKidAPI.Models
         }
 
         public ApplicationDbContext()
-            : base("EnglishForKids", throwIfV1Schema: false)
+            : base("EnglishForKids")
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
+           
         }
 
         public static ApplicationDbContext Create()

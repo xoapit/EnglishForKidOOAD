@@ -346,3 +346,5 @@ EnglishForKid/EnglishForKid/Areas/Teacher/Views/Lesson/Index.cshtml
 *.cshtml
 *.cs
 *.ide
+*.config
+*.ide
