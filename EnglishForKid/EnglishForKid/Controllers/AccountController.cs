@@ -1,4 +1,5 @@
 ﻿using EnglishForKid.Constants;
+using EnglishForKid.Helpers;
 using EnglishForKid.Models.ViewModel;
 using EnglishForKid.Models.ViewModels;
 using EnglishForKid.Service;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static EnglishForKid.Helpers.Credential;
 
 namespace EnglishForKid.Controllers
 {
@@ -49,8 +51,10 @@ namespace EnglishForKid.Controllers
         private string GetUrlForward(UserReturnModel userReturnModel)
         {
             string urlForward = "/Home";
+
             if (userReturnModel != null)
             {
+                SaveUserInfo(userReturnModel);
                 if (userReturnModel.Roles.Contains(ApplicationConfig.AdminRole))
                 {
                     urlForward = "/Admin/Home";
@@ -63,8 +67,27 @@ namespace EnglishForKid.Controllers
             return urlForward;
         }
 
+        private void SaveUserInfo(UserReturnModel userReturnModel)
+        {
+            SetCookie("username", userReturnModel.UserName);
+        }
+
         private void SaveTokenIntoCookie(string access_token)
         {
+            SetCookie("token", access_token);
+        }
+
+        private void SetCookie(string key, string value)
+        {
+            HttpCookie ck = new HttpCookie(key);
+            ck.Value = value;
+            ck.Expires = DateTime.Now.AddDays(15);
+        }
+
+        private string GetCookie(string key)
+        {
+            HttpCookie ck = Request.Cookies[key];
+            return ck.Value;
         }
 
         public ActionResult ResetPassword()

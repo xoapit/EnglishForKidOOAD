@@ -1,0 +1,174 @@
+﻿body {
+    background: #ecf0f1;
+    font-family: 'GochiHand', cursive !important;
+}
+
+.navbar, .dropdown-menu {
+    background: #FFFFF7;
+    border: none;
+    color: #fefefe;
+}
+
+    .nav > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a, .dropdown-menu > li {
+        border-bottom: 3px solid transparent;
+    }
+
+        .nav > li > a:focus, .nav > li > a:hover, .nav .open > a, .nav .open > a:focus, .nav .open > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+            border-bottom: 3px solid transparent;
+            background: none;
+        }
+
+        .navbar a, .dropdown-menu > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .navbar-toggle {
+            font-weight: bold;
+        }
+
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1) {
+    border-bottom: #C4E17F 3px solid;
+}
+
+.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2) {
+    border-bottom: #9b59b6 3px solid;
+    background: #eee;
+}
+
+.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3) {
+    border-bottom: #FECF71 3px solid;
+    background: #eee;
+}
+
+.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4) {
+    border-bottom: #F0776C 3px solid;
+    background: #eee;
+}
+
+.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5) {
+    border-bottom: #DB9DBE 3px solid;
+    background: #eee;
+}
+
+.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6) {
+    border-bottom: #C49CDE 3px solid;
+    background: #eee;
+}
+
+.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7) {
+    border-bottom: #669AE1 3px solid;
+    background: #eee;
+}
+
+.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8) {
+    border-bottom: #62C2E4 3px solid;
+    background: #eee;
+}
+
+
+
+
+/* Profile container */
+.profile {
+    margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+    padding: 20px 0 10px 0;
+    background: #fff;
+}
+
+.profile-userpic img {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-usertitle-name {
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+    .profile-userbuttons .btn {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 6px 15px;
+        margin-right: 5px;
+    }
+
+        .profile-userbuttons .btn:last-child {
+            margin-right: 0px;
+        }
+
+.profile-usermenu {
+    margin-top: 30px;
+}
+
+    .profile-usermenu ul li {
+        border-bottom: 1px solid #f0f4f7;
+    }
+
+        .profile-usermenu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-usermenu ul li a {
+            color: #93a3b5;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+            .profile-usermenu ul li a i {
+                margin-right: 8px;
+                font-size: 14px;
+            }
+
+            .profile-usermenu ul li a:hover {
+                background-color: #fafcfd;
+                color: #5b9bd1;
+            }
+
+        .profile-usermenu ul li.active {
+            border-bottom: none;
+        }
+
+            .profile-usermenu ul li.active a {
+                color: #5b9bd1;
+                background-color: #f6f9fb;
+                border-left: 2px solid #5b9bd1;
+                margin-left: -2px;
+            }
+
+/* Profile Content */
+.profile-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+}

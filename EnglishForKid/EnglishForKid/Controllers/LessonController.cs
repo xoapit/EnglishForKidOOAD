@@ -1,4 +1,5 @@
 ﻿using EnglishForKid.Models;
+using EnglishForKid.Models.ViewModels;
 using EnglishForKid.Service;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,11 @@ namespace EnglishForKid.Controllers
             return View();
         }
 
-        public ActionResult ListLessonByCategory(String name="")
+        public ActionResult ListLessonByCategory(String categoryName = "Reading")
         {
-            List<Lesson> lesson = lessonDataStore.GetItemsAsync().Result;
-            ViewBag.Lesson = lesson;
-            return View(); 
+            List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName).Result;
+            ViewBag.BaseLessonInfoViewModels = baseLessonInfoViewModels;
+            return View();
         }
 
     }
