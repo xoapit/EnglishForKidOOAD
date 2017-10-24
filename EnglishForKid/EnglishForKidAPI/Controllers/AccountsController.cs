@@ -74,6 +74,12 @@ namespace identity.Controllers
             return Ok(this.UserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
 
+        public IHttpActionResult GetUsersByRoleName()
+        {
+            List<UserReturnModel> users = this.UserManager.Users.Select(u => this.TheModelFactory.Create(u)).ToList();
+            return Ok(users);
+        }
+
         public async Task<IHttpActionResult> GetUser(string Id)
         {
             var user = await this.UserManager.FindByIdAsync(Id);
@@ -112,7 +118,7 @@ namespace identity.Controllers
             }
             UserManager.PasswordHasher.HashPassword("123456");
             //var tokenjsonString = GetTokenForNewUser(model.UserName, model.Password);
-            
+
             // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);

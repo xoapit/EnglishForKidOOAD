@@ -68,5 +68,10 @@ namespace EnglishForKid.Models.ViewModels
 
         public IList<string> Roles { get; set; }
         public IList<System.Security.Claims.Claim> Claims { get; set; }
+
+        public string GetStatus()
+        {
+            return Status ? "Active" : "Inactive";
+        }
     }
 }
