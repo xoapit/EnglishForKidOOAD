@@ -52,7 +52,14 @@ namespace EnglishForKid.Areas.Teacher.Controllers
             bool result = lessonDataStore.AddItemAsync(lesson).Result;
             return Json(new { status = result}, JsonRequestBehavior.AllowGet );  
         }
-       
+        // Update Lesson
+        [HttpPost]
+        public ActionResult UpdateLesson(Lesson item)
+        {
+
+            bool result = lessonDataStore.UpdateItemAsync(item).Result;
+            return Json(new { sattus = result }, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Teacher/Lesson/Details/5
         public ActionResult Details(int id)

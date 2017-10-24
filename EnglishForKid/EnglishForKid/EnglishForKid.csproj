@@ -250,6 +250,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AccountDataStore.cs" />
     <Compile Include="Service\BaseDataStore.cs" />
+    <Compile Include="Service\BaseLessonInfoViewModel.cs" />
     <Compile Include="Service\CommentDataStore.cs" />
     <Compile Include="Service\FeedbackReplyHistoryDataStore.cs" />
     <Compile Include="Service\FeedbackDataStore.cs" />

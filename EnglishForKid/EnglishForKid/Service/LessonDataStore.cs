@@ -72,9 +72,13 @@ namespace EnglishForKid.Service
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateItemAsync(Lesson item)
+        public async Task<bool> UpdateItemAsync(Lesson item)
         {
-            throw new NotImplementedException();
+
+            String path = "/api/lessons/" + item.ID;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path,item ).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
     }
