@@ -74,6 +74,22 @@ namespace identity.Controllers
             return Ok(this.UserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
 
+        public IHttpActionResult GetUsersByRoleName(string roleName)
+        {
+            List<UserReturnModel> userReturnModels = new List<UserReturnModel>(); 
+
+            var users = this.UserManager.Users;
+            foreach(var user in users)
+            {
+                UserReturnModel userReturnModel= this.TheModelFactory.Create(user);
+                if (userReturnModel.Roles.Contains(roleName))
+                {
+                    userReturnModels.Add(userReturnModel);
+                }
+            }
+            return Ok(userReturnModels);
+        }
+
         public async Task<IHttpActionResult> GetUser(string Id)
         {
             var user = await this.UserManager.FindByIdAsync(Id);
