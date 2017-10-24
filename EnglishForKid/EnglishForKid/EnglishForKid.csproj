@@ -243,6 +243,7 @@
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\ViewModel\AccountBindingModels.cs" />
     <Compile Include="Models\ViewModel\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModel\BaseLessonInfoViewModel.cs" />
     <Compile Include="Models\ViewModel\BaseQuestionSurveyViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateUserBindingModel.cs" />
     <Compile Include="Models\ViewModel\LoginResult.cs" />
