@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EnglishForKid.Models.ViewModels;
+using EnglishForKid.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,7 @@ namespace EnglishForKid.Areas.Admin.Controllers
 {
     public class StudentController : Controller
     {
+        AccountDataStore accountDataStore = new AccountDataStore();
         // GET: Admin/Student
         public ActionResult Index()
         {
