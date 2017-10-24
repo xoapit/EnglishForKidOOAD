@@ -6995,6 +6995,7 @@
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Areas\Admin\Scripts\Account\student.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\feedbackReplyHistory.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\index.js" />
     <Content Include="Areas\Admin\Scripts\Survey\index.js" />

@@ -24,7 +24,8 @@ namespace EnglishForKid.Areas.Admin.Controllers
         public ActionResult Details(string id)
         {
             UserReturnModel user = accountDataStore.GetAccountByIDAsync(id).Result;
-            return View();
+            ViewBag.User = user;
+            return View(user);
         }
 
         // GET: Admin/Student/Create
