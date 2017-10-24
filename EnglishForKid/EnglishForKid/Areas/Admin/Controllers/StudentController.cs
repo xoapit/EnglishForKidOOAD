@@ -1,4 +1,5 @@
-﻿using EnglishForKid.Models.ViewModels;
+﻿using EnglishForKid.Constants;
+using EnglishForKid.Models.ViewModels;
 using EnglishForKid.Service;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace EnglishForKid.Areas.Admin.Controllers
         // GET: Admin/Student
         public ActionResult Index()
         {
+            List<UserReturnModel> users = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.StudentRole).Result;
+            ViewBag.Users = users;
             return View();
         }
 
         // GET: Admin/Student/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             UserReturnModel user = accountDataStore.GetAccountByIDAsync(id).Result;
             ViewBag.User = user;
