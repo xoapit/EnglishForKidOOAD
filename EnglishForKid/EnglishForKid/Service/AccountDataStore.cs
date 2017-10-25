@@ -101,5 +101,21 @@ namespace EnglishForKid.Service
             }
             return userReturnModels;
         }
+
+        public async Task<bool> UpdateAccountAsync(UserReturnModel userReturnModel)
+        {
+            string path = "/api/accounts/" + userReturnModel.Id;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, userReturnModel).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
+
+        public async Task<bool> LockAccountAsync(string id, bool status)
+        {
+            string path = "/api/accounts/" + id + "?status=" + status;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, true).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
     }
 }

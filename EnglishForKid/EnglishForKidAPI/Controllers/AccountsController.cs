@@ -20,6 +20,9 @@ using EnglishForKidAPI.Models.ViewModels;
 using EnglishForKidAPI.Models.Factory;
 using System.Linq;
 using EnglishForKidAPI.Helper;
+using System.Web.Http.Description;
+using System.Data.Entity.Infrastructure;
+using System.Net;
 
 namespace identity.Controllers
 {
@@ -76,12 +79,12 @@ namespace identity.Controllers
 
         public IHttpActionResult GetUsersByRoleName(string roleName)
         {
-            List<UserReturnModel> userReturnModels = new List<UserReturnModel>(); 
+            List<UserReturnModel> userReturnModels = new List<UserReturnModel>();
 
             var users = this.UserManager.Users;
-            foreach(var user in users)
+            foreach (var user in users)
             {
-                UserReturnModel userReturnModel= this.TheModelFactory.Create(user);
+                UserReturnModel userReturnModel = this.TheModelFactory.Create(user);
                 if (userReturnModel.Roles.Contains(roleName))
                 {
                     userReturnModels.Add(userReturnModel);
@@ -687,6 +690,67 @@ namespace identity.Controllers
                 _random.GetBytes(data);
                 return HttpServerUtility.UrlTokenEncode(data);
             }
+        }
+
+        // PUT: api/Accounts/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutAccount(string id, UserReturnModel userReturnModel)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != userReturnModel.Id)
+            {
+                return BadRequest();
+            }
+
+            ApplicationUser user = db.Users.Find(id);
+            user.Gender = userReturnModel.Gender;
+            user.Email = userReturnModel.Email;
+            user.PhoneNumber = userReturnModel.PhoneNumber;
+            user.FullName = userReturnModel.FullName;
+            user.Address = userReturnModel.Address;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        // PUT: api/Accounts/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutAccount(string id, bool status)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            ApplicationUser user = db.Users.Find(id);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            user.Status = status;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         #endregion
