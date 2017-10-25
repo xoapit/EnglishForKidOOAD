@@ -29,7 +29,7 @@ namespace EnglishForKid.Service
             HttpContent content = new FormUrlEncodedContent(body);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
 
-           HttpClient client = new HttpClient
+            HttpClient client = new HttpClient
             {
                 MaxResponseContentBufferSize = 256000,
                 BaseAddress = new Uri(baseApiUrl),
@@ -92,7 +92,7 @@ namespace EnglishForKid.Service
 
         public async Task<List<UserReturnModel>> GetAccountsByRoleNameAsync(string roleName)
         {
-            string path = "/api/accounts?rolename="+roleName;
+            string path = "/api/accounts?rolename=" + roleName;
             List<UserReturnModel> userReturnModels = new List<UserReturnModel>();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
@@ -100,6 +100,22 @@ namespace EnglishForKid.Service
                 userReturnModels = await response.Content.ReadAsAsync<List<UserReturnModel>>();
             }
             return userReturnModels;
+        }
+
+        public async Task<bool> UpdateAccountAsync(UserReturnModel userReturnModel)
+        {
+            string path = "/api/accounts/" + userReturnModel.Id;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, userReturnModel).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
+
+        public async Task<bool> LockAccountAsync(string id, bool status)
+        {
+            string path = "/api/accounts/" + id + "?status=" + status;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, true).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
     }
 }
