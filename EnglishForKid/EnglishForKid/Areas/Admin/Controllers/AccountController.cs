@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace EnglishForKid.Areas.Admin.Controllers
 {
-    public class StudentController : Controller
+    public class AccountController : Controller
     {
         AccountDataStore accountDataStore = new AccountDataStore();
         // GET: Admin/Student
@@ -17,6 +17,12 @@ namespace EnglishForKid.Areas.Admin.Controllers
         {
             List<UserReturnModel> users = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.StudentRole).Result;
             ViewBag.Users = users;
+
+            List<UserReturnModel> teachers = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.TeacherRole).Result;
+            ViewBag.Teachers = teachers;
+
+            List<UserReturnModel> admins = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.TeacherRole).Result;
+            ViewBag.Admins = admins;
             return View();
         }
 
