@@ -1,4 +1,4 @@
-﻿$(document).on("click", ".add-lesson", function () {
+$(document).on("click", ".add-lesson", function () {
     AddNewLesson();
 });
 
@@ -29,7 +29,7 @@ $(document).ready(function () {
                 id: idLesson
             },
             Picture: function (response) {
-                if (response != false) {
+                if (response !== false) {
                     $('#deleteMessage').text("You deleted the lesson Picturefully!");
                 }
                 else {
@@ -174,6 +174,7 @@ function AdddNewLesson() {
             },
             fail: function (data) {
                 $('#sendEmailMessage').html("Can not add!!!");
+
             }
         });
 

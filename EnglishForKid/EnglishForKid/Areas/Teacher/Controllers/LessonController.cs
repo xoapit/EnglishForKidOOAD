@@ -36,6 +36,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         //    Lesson lesson = new Lesson()
         //    {
 
+
         //        ID = Guid.NewGuid(),
         //        Title = Title,
         //        CategoryID = new Guid(CategoryID),
@@ -54,6 +55,15 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         //    return Json(new { status = result}, JsonRequestBehavior.AllowGet );  
         //}
        
+        }
+        // Update Lesson
+        [HttpPost]
+        public ActionResult UpdateLesson(Lesson item)
+        {
+
+            bool result = lessonDataStore.UpdateItemAsync(item).Result;
+            return Json(new { sattus = result }, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Teacher/Lesson/Details/5
         public ActionResult Details(String id)

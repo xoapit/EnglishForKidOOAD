@@ -16,8 +16,8 @@ namespace EnglishForKidAPI.Controllers
 {
     public class LessonsController : BaseApiController
     {
-
         // GET: api/Lessons
+        [Route("Lessons")]
         public IQueryable<Lesson> GetLessons()
         {
             return db.Lessons;
