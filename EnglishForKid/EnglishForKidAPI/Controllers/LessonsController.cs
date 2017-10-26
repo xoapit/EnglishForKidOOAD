@@ -37,7 +37,6 @@ namespace EnglishForKidAPI.Controllers
         }
 
         [ResponseType(typeof(BaseLessonInfoViewModel))]
-        [Route("api/lessons")]
         public IHttpActionResult GetLessonsByCategoryName(string categoryName)
         {
             List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();

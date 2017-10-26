@@ -7,7 +7,7 @@
 }
 
 <script src="~/Areas/Teacher/Scripts/lesson/index.js"></script>
-@*<script src="~/Areas/Admin/Scripts/Feedback/feedbackReplyHistory.js"></script>*@
+
 
 <div class="box box-danger">
     <div class="box-header with-border">
@@ -30,7 +30,16 @@
                 <tr align="center" style="">
                     <th>ID Lesson</th>
                     <th>Lesson Name</th>
-                    <th>Action</th>
+                    <th hidden>LevelID</th>
+                    <th hidden>Image</th>
+                    <th hidden>CategoryID</th>
+                    <th hidden>Content</th>
+                    <th hidden>Exercise</th>
+                    <th hidden>Answer</th>
+                    <th hidden>Discussion</th>
+                    <th hidden>ApplicationUserID</th>
+                    <th hidden>CrateAt</th>
+                    <th >Action</th>
 
 
                 </tr>
@@ -39,33 +48,33 @@
 
             <tbody>
                 @{
-                    List<Lesson> lessons = ViewBag.Lessons;
-                    for (int i = 0; i < lessons.Count; i++)
+                    int i = 1;
+                    foreach (Lesson lessons in ViewBag.Lessons)
                     {
-                        int index = i + 1;
-                        <tr>
-                           
 
-                            <td>@index</td>
-                            <td>@lessons.ElementAt(i).Title</td>
-                            <td hidden>@lessons.ElementAt(i).LevelID</td>
-                            <td hidden>@lessons.ElementAt(i).Image</td>
-                            <td hidden>@lessons.ElementAt(i).CategoryID</td>                          
+                        <tr>
+                            <td>@i</td>
+                            <td>@lessons.</td>
+                            <td hidden>@lessons.LevelID</td>
+                            <td hidden>@lessons.Image</td>
+                            <td hidden>@lessons.CategoryID</td>                          
                             
-                            <td hidden>@lessons.ElementAt(i).Content</td>
+                            <td hidden>@lessons.Content</td>
                             
-                            <td hidden>@lessons.ElementAt(i).Exercise</td>
-                            <td hidden>@lessons.ElementAt(i).Answer</td>
-                            <td hidden>@lessons.ElementAt(i).Discussion</td>
-                            <td hidden>@lessons.ElementAt(i).ApplicationUserID</td>
-                            <td hidden>@lessons.ElementAt(i).CreateAt.ToString("dd/MMM/yyyy")</td>
+                            <td hidden>@lessons.Exercise</td>
+                            <td hidden>@lessons.Answer</td>
+                            <td hidden>@lessons.Discussion</td>
+                            <td hidden>@lessons.ApplicationUserID</td>
+                            <td hidden>@lessons.CreateAt.ToString("dd/MMM/yyyy")</td>
                             <td>
 
-                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalUpdateLesson">Update</button>
-                                <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
+                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
+                                <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">Update</button>
+                                <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
                             </td>
                         </tr>
+
+                        i++;
                     }
                 }
 
@@ -127,95 +136,8 @@
                 <h4 class="modal-title">DETAIL LESSON</h4>
             </div>
             <div class="modal-body">
-                <div class="box-body padding-large">
-                    <form>
-
-                        <div hidden>
-                            <input type="text" class="form-control" name="viewLessonId" id="viewLessonId" value="" style="background-color:white" />
-                        </div>
-
-                        <div class="form-group ">
-
-                            <label for="">Title</label>
-                            <div>
-                                <input type="text" name="detailLessonTitle" id="detailLessonTitle" class="form-control" value="">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group ">
-
-                            <label for="" >Level</label>
-                            <div>
-                                <select class="form-control" name="detailLessonLevel" id="detailLessonlLevel">
-                                    <option>1</option>
-                                    <option> 2</option>
-                                    <option> 3</option>
-                                    <option> 4</option>
-                                    <option> 5</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group ">
-
-                            <label for="">Picture</label>
-                            <div>
-                                <input type="text" class="form-control" name="detailLessonPicture" id="detailLessonPicture" value="">
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Category</label>
-                            <div>
-                                <select class="form-control" name="detailLessonCategory" id="detailLessonCategory">
-                                    <option>Vocabulary</option>
-                                    <option>Reading</option>
-                                    <option>Listening</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Content</label>
-                            <div>
-                                <textarea class="form-control" s="5" name="detailLessonContent" id="detailLessonContent"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Exercise</label>
-                            <div>
-                                <textarea class="form-control" s="5" name="detailLessonExercise" id="detailLessonExcercise"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Answer</label>
-                            <div>
-                                <textarea class="form-control" s="5" name="detailLessonAnswer" id="detailLessonAnswer"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Discussion</label>
-                            <div>
-                                <textarea class="form-control" s="5" name="detailLessonDiscussion" id="detailLessonDiscussion"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                    </form>
+                <div id="detailLesson">
+                   
                 </div>
             </div>
             <div class="modal-footer">
@@ -235,110 +157,8 @@
                 <h4 class="modal-title">ADD LESSON</h4>
             </div>
             <div class="modal-body">
-                <div class="box-body padding-large">
-                    <form>
-                        <div class="form-group">
-
-                            <label for="">Title</label>
-                            <div>
-                                <input type="text" class="form-control" name="addLessonTitle" id="addLessonTitle" value="">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group ">
-
-                            <label for="">Level</label>
-                            <div>
-                                <select class="form-control" name="addLessonLevel" id="addLessonLevel">
-                                    <option>1</option>
-                                    <option> 2</option>
-                                    <option> 3</option>
-                                    <option> 4</option>
-                                    <option> 5</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="">Picture</label>
-                            <div>
-                                <input type="text" class="form-control" name="addLessonPicture" id="addLessonPicture" value="">
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label for="">Category</label>
-                            <div>
-                                <select class="form-control" iname="addLessonCategory" id="addLessonCategory">
-                                    <option>Vocabulary</option>
-                                    <option>Reading</option>
-                                    <option>Listening</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-
-                            <label for="">Content</label>
-                            <div>
-                                <textarea  class="ckeditor" name="addLessonContent" id="addLessonContent"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label for="">Exercise</label>
-                            <div>
-                                <textarea  class="ckeditor" name="addLessonExercise" id="addLessonExercise"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Answer</label>
-                            <div>
-                                <textarea  class="ckeditor" name="addLessonAnswer" id="addLessonAnswer"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Discussion</label>
-                            <div>
-                                <textarea  class="ckeditor" name="addLessonDiscussion" id="addLessonDiscussion"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="form-group">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-2">
-                                <label class="alert-info" id="sendEmailMessage"></label>
-                                <button type="submit" class="btn btn-primary btn-label-left" name="btnAddLesson" id="btnAddLesson">
-                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
-                                    Add
-                                </button>
-                            </div>
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-2">
-                                
-                                    <button type="button" class="btn btn-danger btn-label-left" data-dismiss="modal">
-                                        <span><i class="fa fa-clock-o txt-danger"></i></span>
-                                        Cancel
-                                    </button>
-</div>
-                            <div class="col-sm-3"></div>
-                        </div>
-                    </form>
+                <div id="addLesson">
+                    
                 </div>
             </div>
       
@@ -356,118 +176,11 @@
                 <h4 class="modal-title">UPDATE LESSON</h4>
             </div>
             <div class="modal-body">
-                <div class="box-body padding-large">
-                    <form>
-                        <div class="form-group">
-
-
-                            <div hidden>
-                                <input type="text" class="form-control" name="updateLessonId" id="updateLessonId" value="" style="background-color:white" />
-                            </div>
-
-                            <label for="">Title</label>
-                            <div>
-                                <input type="text" class="form-control" name="updateLessonTitle" id="updateLessonTitle" value="">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group ">
-
-                            <label for="">Level</label>
-                            <div>
-                                <select class="form-control" name="updateLessonLevel" id="updateLessonLevel">
-                                    <option>1</option>
-                                    <option> 2</option>
-                                    <option> 3</option>
-                                    <option> 4</option>
-                                    <option> 5</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="">Picture</label>
-                            <div>
-                                <input type="text" class="form-control" name="updateLessonPicture" id="updateLessonPicture" value="">
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label for="">Category</label>
-                            <div>
-                                <select class="form-control" iname="updateLessonCategory" id="updateLessonCategory">
-                                    <option>Vocabulary</option>
-                                    <option>Reading</option>
-                                    <option>Listening</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-
-                            <label for="">Content</label>
-                            <div>
-                                <textarea class="ckeditor" name="updateLessonContent" id="updateLessonContent"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <label for="">Exercise</label>
-                            <div>
-                                <textarea class="ckeditor" name="updateLessonExercise" id="updateLessonExercise"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Answer</label>
-                            <div>
-                                <textarea class="ckeditor" name="updateLessonAnswer" id="updateLessonAnswer"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="form-group ">
-
-                            <label for="">Discussion</label>
-                            <div>
-                                <textarea class="ckeditor" name="updateLessonDiscussion" id="updateLessonDiscussion"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="form-group">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-2">
-                                <label class="alert-info" id="sendEmailMessage"></label>
-                                <button type="submit" class="btn btn-primary btn-label-left" name="btnUpdateLesson" id="btnUpdateLesson">
-                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
-                                    Update
-                                </button>
-                            </div>
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-2">
-
-                                <button type="button" class="btn btn-danger btn-label-left" data-dismiss="modal">
-                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
-                                    Cancel
-                                </button>
-                            </div>
-                            <div class="col-sm-3"></div>
-                        </div>
-                    </form>
+                <div id="updateLesson">
+                   
                 </div>
             </div>
-
+           
         </div>
     </div>
 </div>
