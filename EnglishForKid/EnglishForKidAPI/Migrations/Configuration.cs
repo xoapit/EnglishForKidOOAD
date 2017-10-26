@@ -23,12 +23,44 @@ namespace EnglishForKidAPI.Migrations
             //InitCategories(context);
             //InitBusinessesAndFunctions(context);
             //InitFeedbacks(context);
+<<<<<<< HEAD
+            //  InitLevels(context);
+            //   InitLessons(context);
+=======
             //InitLevels(context);
             //InitLessons(context);
+>>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
             //InitCommets(context);
             //InitQuestionSurveys(context);
             //InitRates(context);
             //InitResults(context);
+<<<<<<< HEAD
+           // InitAnswerSurveys(context);
+        }
+
+        private void InitAnswerSurveys(ApplicationDbContext context)
+        {
+            context.AnswerSurveys.Add(new AnswerSurvey
+            {
+                ID = Guid.NewGuid(),
+                QuestionSurveyID = context.QuestionSurveys.First().ID,
+                Answer = "I have a some problem with my neck"
+            });
+            context.AnswerSurveys.Add(new AnswerSurvey
+            {
+                ID = Guid.NewGuid(),
+                QuestionSurveyID = context.QuestionSurveys.First().ID,
+                Answer = "I have a some problem with my leg"
+            });
+            context.AnswerSurveys.Add(new AnswerSurvey
+            {
+                ID = Guid.NewGuid(),
+                QuestionSurveyID = context.QuestionSurveys.First().ID,
+                Answer = "I have a some problem with my arm"
+            });
+
+=======
+>>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
         }
 
         private void InitCommets(ApplicationDbContext context)
@@ -115,7 +147,6 @@ namespace EnglishForKidAPI.Migrations
                 ID = Guid.NewGuid(),
                 QuestionSurveyID = context.QuestionSurveys.First().ID,
                 Answer = "Gi vay troi",
-                ApplicationUserID = context.Users.First().Id,
                 CreateAt = DateTime.Now
             });
 

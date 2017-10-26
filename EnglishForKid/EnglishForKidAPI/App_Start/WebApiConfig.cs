@@ -37,7 +37,6 @@ namespace EnglishForKidAPI
 
             json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
             
-
             GlobalConfiguration.Configuration.Formatters.JsonFormatter
                 .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
            
