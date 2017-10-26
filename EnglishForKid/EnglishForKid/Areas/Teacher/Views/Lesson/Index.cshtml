@@ -138,7 +138,7 @@
 
                             <label for="">Title</label>
                             <div>
-                                <input type="text" name="detailLessonTitle" id="detailLessonTitle" class="form-control" id="" value="">
+                                <input type="text" name="detailLessonTitle" id="detailLessonTitle" class="form-control" value="">
                             </div>
 
                         </div>
@@ -323,7 +323,7 @@
                             <div class="col-sm-4"></div>
                             <div class="col-sm-2">
                                 <label class="alert-info" id="sendEmailMessage"></label>
-                                <button type="submit" class="btn btn-primary btn-label-left" name="btnAddLesson" id="btnaddLesson">
+                                <button type="submit" class="btn btn-primary btn-label-left" name="btnAddLesson" id="btnAddLesson">
                                     <span><i class="fa fa-clock-o txt-danger"></i></span>
                                     Add
                                 </button>
@@ -360,17 +360,38 @@
                     <form>
                         <div class="form-group">
 
+
+                            <div hidden>
+                                <input type="text" class="form-control" name="updateLessonId" id="updateLessonId" value="" style="background-color:white" />
+                            </div>
+
                             <label for="">Title</label>
                             <div>
-                                <input type="text" class="form-control" id="" value="">
+                                <input type="text" class="form-control" name="updateLessonTitle" id="updateLessonTitle" value="">
                             </div>
 
                         </div>
+
+                        <div class="form-group ">
+
+                            <label for="">Level</label>
+                            <div>
+                                <select class="form-control" name="updateLessonLevel" id="updateLessonLevel">
+                                    <option>1</option>
+                                    <option> 2</option>
+                                    <option> 3</option>
+                                    <option> 4</option>
+                                    <option> 5</option>
+                                </select>
+                            </div>
+
+                        </div>
+
                         <div class="form-group">
 
                             <label for="">Picture</label>
                             <div>
-                                <input type="text" class="form-control" id="" value="">
+                                <input type="text" class="form-control" name="updateLessonPicture" id="updateLessonPicture" value="">
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -379,7 +400,7 @@
 
                             <label for="">Category</label>
                             <div>
-                                <select class="form-control" id="">
+                                <select class="form-control" iname="updateLessonCategory" id="updateLessonCategory">
                                     <option>Vocabulary</option>
                                     <option>Reading</option>
                                     <option>Listening</option>
@@ -391,7 +412,7 @@
 
                             <label for="">Content</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor1"></textarea>
+                                <textarea class="ckeditor" name="updateLessonContent" id="updateLessonContent"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -400,7 +421,7 @@
 
                             <label for="">Exercise</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor2"></textarea>
+                                <textarea class="ckeditor" name="updateLessonExercise" id="updateLessonExercise"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -409,7 +430,7 @@
 
                             <label for="">Answer</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor3"></textarea>
+                                <textarea class="ckeditor" name="updateLessonAnswer" id="updateLessonAnswer"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -418,7 +439,7 @@
 
                             <label for="">Discussion</label>
                             <div>
-                                <textarea name="editor" class="ckeditor" id="editor4"></textarea>
+                                <textarea class="ckeditor" name="updateLessonDiscussion" id="updateLessonDiscussion"></textarea>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -427,14 +448,16 @@
                         <div class="form-group">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-label-left">
+                                <label class="alert-info" id="sendEmailMessage"></label>
+                                <button type="submit" class="btn btn-primary btn-label-left" name="btnUpdateLesson" id="btnUpdateLesson">
                                     <span><i class="fa fa-clock-o txt-danger"></i></span>
-                                    Add
+                                    Update
                                 </button>
                             </div>
                             <div class="col-sm-1"></div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-label-left">
+
+                                <button type="button" class="btn btn-danger btn-label-left" data-dismiss="modal">
                                     <span><i class="fa fa-clock-o txt-danger"></i></span>
                                     Cancel
                                 </button>
@@ -444,12 +467,13 @@
                     </form>
                 </div>
             </div>
-            @*<div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                </div>*@
+
         </div>
     </div>
 </div>
+           
+       
+
 
 
 <script>
