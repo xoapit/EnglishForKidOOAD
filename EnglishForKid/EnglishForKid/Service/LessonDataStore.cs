@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using System.Net.Http;
+using EnglishForKid.Models.ViewModels;
 
 namespace EnglishForKid.Service
 {
@@ -48,6 +49,19 @@ namespace EnglishForKid.Service
             if (response.IsSuccessStatusCode)
             {
                 listLesson = await response.Content.ReadAsAsync<List<Lesson>>();
+            }
+
+            return listLesson;
+        }
+
+        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsByCategoryNameAsync(string categoryName)
+        {
+            List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
+            String path = "/api/Lessons?categoryName="+categoryName;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                listLesson = await response.Content.ReadAsAsync<List<BaseLessonInfoViewModel>>();
             }
 
             return listLesson;

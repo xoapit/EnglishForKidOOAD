@@ -19,6 +19,10 @@ using EnglishForKidAPI;
 using EnglishForKidAPI.Models.ViewModels;
 using EnglishForKidAPI.Models.Factory;
 using System.Linq;
+using EnglishForKidAPI.Helper;
+using System.Web.Http.Description;
+using System.Data.Entity.Infrastructure;
+using System.Net;
 
 namespace identity.Controllers
 {
@@ -73,6 +77,22 @@ namespace identity.Controllers
             return Ok(this.UserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
 
+        public IHttpActionResult GetUsersByRoleName(string roleName)
+        {
+            List<UserReturnModel> userReturnModels = new List<UserReturnModel>();
+
+            var users = this.UserManager.Users;
+            foreach (var user in users)
+            {
+                UserReturnModel userReturnModel = this.TheModelFactory.Create(user);
+                if (userReturnModel.Roles.Contains(roleName))
+                {
+                    userReturnModels.Add(userReturnModel);
+                }
+            }
+            return Ok(userReturnModels);
+        }
+
         public async Task<IHttpActionResult> GetUser(string Id)
         {
             var user = await this.UserManager.FindByIdAsync(Id);
@@ -111,7 +131,7 @@ namespace identity.Controllers
             }
             UserManager.PasswordHasher.HashPassword("123456");
             //var tokenjsonString = GetTokenForNewUser(model.UserName, model.Password);
-            
+
             // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
@@ -131,9 +151,33 @@ namespace identity.Controllers
         }
 
         // POST: /Account/ResetPassword
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[System.Web.Mvc.ValidateAntiForgeryToken]
+        //[Route("ResetPassword")]
+        //public async Task<IHttpActionResult> ResetPassword(ResetPasswordViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    var user = await UserManager.FindByNameAsync(model.Email);
+        //    if (user == null)
+        //    {
+        //        // Don't reveal that the user does not exist
+        //        return NotFound();
+        //    }
+        //    var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+        //    if (result.Succeeded)
+        //    {
+        //        return Ok();
+        //    }
+        //    return BadRequest();
+        //}
+
         [HttpPost]
         [AllowAnonymous]
-        [System.Web.Mvc.ValidateAntiForgeryToken]
+        //[System.Web.Mvc.ValidateAntiForgeryToken]
         [Route("ResetPassword")]
         public async Task<IHttpActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -141,18 +185,37 @@ namespace identity.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                // Don't reveal that the user does not exist
                 return NotFound();
             }
-            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            var result = await UserManager.RemovePasswordAsync(user.Id);
+            string newPassword = GeneratePassword();
             if (result.Succeeded)
             {
+                var resetResult = await UserManager.AddPasswordAsync(user.Id, newPassword);
+                string subject = "Reset password for your account at EnglishForKids";
+                string content = "Your new password: " + newPassword;
+                EmailHelper emailHelper = new EmailHelper();
+                IdentityMessage email = new IdentityMessage
+                {
+                    Destination = user.Email,
+                    Body = content,
+                    Subject = subject
+                };
+                emailHelper.SendEmail(email);
                 return Ok();
             }
             return BadRequest();
+        }
+
+        public string GeneratePassword()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            var list = Enumerable.Repeat(0, 10).Select(x => chars[random.Next(chars.Length)]);
+            return string.Join("", list);
         }
 
         // GET api/Account/UserInfo
@@ -627,6 +690,67 @@ namespace identity.Controllers
                 _random.GetBytes(data);
                 return HttpServerUtility.UrlTokenEncode(data);
             }
+        }
+
+        // PUT: api/Accounts/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutAccount(string id, UserReturnModel userReturnModel)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != userReturnModel.Id)
+            {
+                return BadRequest();
+            }
+
+            ApplicationUser user = db.Users.Find(id);
+            user.Gender = userReturnModel.Gender;
+            user.Email = userReturnModel.Email;
+            user.PhoneNumber = userReturnModel.PhoneNumber;
+            user.FullName = userReturnModel.FullName;
+            user.Address = userReturnModel.Address;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        // PUT: api/Accounts/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutAccount(string id, bool status)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            ApplicationUser user = db.Users.Find(id);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            user.Status = status;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         #endregion

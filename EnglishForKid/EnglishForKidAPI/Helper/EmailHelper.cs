@@ -26,7 +26,7 @@ namespace EnglishForKidAPI.Helper
             };
         }
 
-        public bool SendEmail(string toEmail, IdentityMessage message, string ccEmail=null)
+        public bool SendEmail(IdentityMessage message, string ccEmail=null)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace EnglishForKidAPI.Helper
                     Body = message.Body,
                 };
                 mailMsg.From = fromAddress;
-                mailMsg.To.Add(toEmail);
+                mailMsg.To.Add(message.Destination);
 
                 if (ccEmail != null)
                 {

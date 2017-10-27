@@ -48,6 +48,22 @@ namespace EnglishForKidAPI.Models.Factory
             };
             return viewModel;
         }
+
+        public static BaseLessonInfoViewModel GetBaseLessonInfoViewModel(Lesson lesson)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            BaseLessonInfoViewModel viewModel = new BaseLessonInfoViewModel()
+            {
+                ID = lesson.ID,
+                CategoryName = lesson.Category.Name,
+                CreateAt = lesson.CreateAt,
+                Description = lesson.Content,
+                Title = lesson.Title,
+                NumberOfComments = db.Comments.Where(x => x.LessonID == lesson.ID).Count(),
+                Rate = db.Rates.Where(x => x.LessonID == lesson.ID).Count() / 5
+            };
+            return viewModel;
+        }
     }
 
     public class UserReturnModel
