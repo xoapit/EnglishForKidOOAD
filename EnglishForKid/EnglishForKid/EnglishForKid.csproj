@@ -15146,6 +15146,9 @@
     <Content Include="Content\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Lesson\Details.cshtml" />
+    <Content Include="Areas\Teacher\Views\Lesson\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Lesson\Create.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />

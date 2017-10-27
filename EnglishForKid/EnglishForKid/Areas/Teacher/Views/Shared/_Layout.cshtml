@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="~/Areas/Admin/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="~/Areas/Admin/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/Areas/Admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Areas/Admin/Content/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -41,6 +43,8 @@
     <![endif]-->
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -598,8 +602,11 @@
     <!-- jQuery UI 1.11.4 -->
     <script src="~/Areas/Admin/bower_components/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
+
     <script>
-        $.widget.bridge('uibutton', $.ui.button);
+            $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.7 -->
     <script src="~/Areas/Admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -632,6 +639,14 @@
     <script src="~/Areas/Admin/Content/dist/js/demo.js"></script>
 
     <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckfinder/ckfinder.js"></script>
+
+    <script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Areas/Admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Areas/Admin/bower_components/fastclick/lib/fastclick.js"></script>
 
 
 </body>

@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
 }
 
 <script src="~/Areas/Teacher/Scripts/lesson/index.js"></script>
@@ -24,7 +24,7 @@
         <div class="col-md-12">
             <button type="button" class="add-lesson btn btn-primary pull-right margin-bottom" data-toggle="modal" data-target="#myModalAddLesson">Add</button>
         </div>
-        <table id="mylessontable" class="table table-bordered table-responsive table-hover text-center">
+        <table id="myLessonTable" class="table table-bordered table-responsive table-hover text-center">
 
             <thead>
                 <tr align="center" style="">
@@ -54,7 +54,7 @@
 
                         <tr>
                             <td>@i</td>
-                            <td>@lessons.</td>
+                            <td>@lessons.Title</td>
                             <td hidden>@lessons.LevelID</td>
                             <td hidden>@lessons.Image</td>
                             <td hidden>@lessons.CategoryID</td>                          
@@ -191,12 +191,26 @@
     CKEditor.replace('editor3');
     CKEditor.replace('editor4');
 </script>
+
 <!-- DataTable-->
 @*<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>*@
 <script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#myFeedbackTable').DataTable();
+        var table = $('#myLessonTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'collection',
+                    text: 'Export',
+                    buttons: ['pdfHtml5', 'csvHtml5', 'copyHtml5', 'excelHtml5']
+                }
+            ]
+        });
+
+        $('#btn-pdf').on('click', function () {
+            table.button('0-0').trigger();
+        });  
     });
 </script>
 
