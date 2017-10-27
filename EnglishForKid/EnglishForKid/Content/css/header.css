@@ -172,3 +172,33 @@
     background: #fff;
     min-height: 460px;
 }
+
+.bg-danger {
+    background: #e74c3c;
+    color:white;
+}
+
+.bg-primary {
+    background: #3498db;
+    color:white;
+}
+
+.bg-info {
+    background: #1abc9c;
+}
+
+.bg-white {
+    background: #fefefe;
+}
+
+.padding{
+    padding:10px;
+}
+
+.padding-small{
+    padding:5px;
+}
+
+.padding-large{
+    padding:15px;
+}

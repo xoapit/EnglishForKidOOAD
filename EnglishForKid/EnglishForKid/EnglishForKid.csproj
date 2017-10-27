@@ -214,13 +214,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
-    <Compile Include="Controllers\RegistationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Credential.cs" />
-    <Compile Include="Models\AccountBindingModels.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnswerSurvey.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\AuthenticationToken.cs" />
@@ -13869,18 +13866,6 @@
     <Content Include="Content\files\image\work4.jpg" />
     <Content Include="Content\files\image\work5.jpg" />
     <Content Include="Content\files\image\work6.jpg" />
-    <Content Include="Content\font-awesome\css\font-awesome.css" />
-    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
-    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\js\aaa.js" />
-    <Content Include="Content\js\bootstrap.js" />
-    <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\js\custom.js" />
-    <Content Include="Content\js\jquery-1.10.2.js" />
-    <Content Include="Content\js\jquery.easing.min.js" />
-    <Content Include="Content\js\jquery.min.js" />
-    <Content Include="Content\js\jquery.scrollTo.js" />
-    <Content Include="Content\js\wow.min.js" />
     <Content Include="Content\table.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\et-line.svg" />
@@ -15144,8 +15129,11 @@
     <Content Include="Content\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Student\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Student\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
@@ -16280,11 +16268,11 @@
     <Content Include="Views\Lesson\ListOfLesson.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
     <Content Include="Views\Lesson\ListLessonByCategory.cshtml" />
-    <Content Include="Views\Registation\Index.cshtml" />
     <Content Include="Views\Shared\TopBarView.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Survey.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

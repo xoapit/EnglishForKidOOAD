@@ -62,21 +62,26 @@ namespace EnglishForKid.Service
             return userReturnModel;
         }
 
-        //public async Task<bool> AddItemAsync(CreateAccountViewModel item)
-        //{
-        //    string path = "/api/feedbacks";
-        //    HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
+        public async Task<bool> UsernameAlreadyExistAsync(string username)
+        {
+            string path = "/api/accounts/UsernameAlreadyExists?username=" + username;
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, true).ConfigureAwait(false);
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
 
-        //    return await Task.FromResult(response.IsSuccessStatusCode);
-        //}
+        public async Task<bool> EmailAlreadyExistAsync(string email)
+        {
+            string path = "/api/accounts/EmailAlreadyExists?email=" + email;
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, true).ConfigureAwait(false);
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
 
-        //public async Task<bool> DeleteItemAsync(Guid id)
-        //{
-        //    string path = "/api/feedbacks/" + id.ToString();
-        //    HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
-
-        //    return await Task.FromResult(response.IsSuccessStatusCode);
-        //}
+        public async Task<bool> AddItemAsync(CreateUserBindingModel item)
+        {
+            string path = "/api/accounts/register";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
 
         public async Task<UserReturnModel> GetAccountByIDAsync(string id)
         {

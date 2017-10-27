@@ -11,10 +11,8 @@ namespace EnglishForKidAPI.Models
     {
         public Guid QuestionSurveyID { get; set; }
         public string Answer { get; set; }
-        public string ApplicationUserID { get; set; }
         public DateTime CreateAt { get; set; }
-
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        
         public virtual QuestionSurvey QuestionSurvey { get; set; }
 
         public Result()

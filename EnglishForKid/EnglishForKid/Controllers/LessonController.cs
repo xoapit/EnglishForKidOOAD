@@ -18,7 +18,7 @@ namespace EnglishForKid.Controllers
             return View();
         }
 
-        public ActionResult DetailOfLesson(Guid id)
+        public ActionResult DetailOfLesson(String id)
         {
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             ViewBag.Lesson = lesson;
