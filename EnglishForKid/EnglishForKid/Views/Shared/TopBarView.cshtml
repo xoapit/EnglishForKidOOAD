@@ -1,30 +1,78 @@
-﻿<div id="intro" class="top-info-bar bg-color-7 hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <ul class="list-inline topList">
-                    <li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i> <a href="mailto:info@yourdomain.com">Engkishforkid@gmail.com</a></li>
-                    <li><i class="fa fa-phone bg-color-2" aria-hidden="true"></i> +84 1 234 567 </li>
-                </ul>
-            </div>
-            <div class="col-sm-6 ">
-                <div class="pull-right">
-                    <ul class="list-inline functionList">
-                        <li>
-                            <a href='#loginModal' data-toggle="modal">
-                                <i class="fa fa-unlock-alt bg-color-1" aria-hidden="true"></i>
-                                Sign In
-                            </a><span>  </span>
-                            <a href='/Registation/Index' data-toggle="modal">Sign Up</a>
+﻿<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="~/Content/files/image/img/logo2.png" /></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#" class="text-primary">HOME</a></li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle text-danger"
+                               style="color:#d35400;"
+                               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LISTENING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
+                                </li>
+                                <li><a href="#">Add New</a></li>
+                            </ul>
                         </li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active text-orange"
+                               data-toggle="dropdown" role="button" aria-haspopup="true"
+                               style="color:#9b59b6;"
+                               aria-expanded="false">SPEAKING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Staff</a></li>
+                                <li><a href="#">Add New</a></li>
+                                <li><a href="#">Bulk Upload</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active text-orange"
+                               data-toggle="dropdown" role="button" aria-haspopup="true"
+                               style="color:#e74c3c;"
+                               aria-expanded="false">READING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Staff</a></li>
+                                <li><a href="#">Add New</a></li>
+                                <li><a href="#">Bulk Upload</a></li>
+                            </ul>
+                        </li>
+                        <li class=" down">
+                            <a href="#" class="dropdown-toggle active text-primary"
+                               style="color:#27ae60;"
+                               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WRITTING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Time Entry</a></li>
+                                <li><a href="#">Report</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Password</a></li>
+                                <li><a href="#">My Profile</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
     </div>
 </div>
-
-<!-- LOGIN MODAL -->
+ <!-- LOGIN MODAL -->
 <div class="modal fade" id="loginModal" role="dialog">
     <div class="modal-dialog modal-sm">
         <!-- Modal content-->
@@ -34,27 +82,27 @@
             </div>
             <div class="modal-body">
                 <div class="box-body padding-large">
-                    <div>
-                        <label class="text-center text-danger" id="loginMessage"></label>
+
+                    <form action="../../index2.html" method="post">
                         <div class="form-group has-feedback">
-                            <input type="text" id="username" min="3" max="24" required name="username" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" placeholder="Username">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
-                            <input type="password" id="password" min="6" required name="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password">
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
                         <div class="form-group">
                             <div class="checkbox icheck">
                                 <label>
-                                    <input type="checkbox" name="rememberMe" id="rememberMe"> Remember Me
+                                    <input type="checkbox"> Remember Me
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" id="btnLogin" class="btn btn-primary btn-block  pull-right">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block  pull-right">Sign In</button>
                         </div>
-                    </div>
+                    </form>
 
                     <div class="social-auth-links text-center">
                         <br />
@@ -74,5 +122,3 @@
         </div>
     </div>
 </div>
-
-
