@@ -270,10 +270,6 @@
     <Compile Include="Helper\AuthorizeController.cs" />
     <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\ReflectionController.cs" />
-    <Compile Include="Migrations\201710261613051_adsdf.cs" />
-    <Compile Include="Migrations\201710261613051_adsdf.Designer.cs">
-      <DependentUpon>201710261613051_adsdf.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FeedbackReplyHistory.cs" />
     <Compile Include="Models\View.cs" />
@@ -393,11 +389,13 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710261613051_adsdf.resx">
       <DependentUpon>201710261613051_adsdf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

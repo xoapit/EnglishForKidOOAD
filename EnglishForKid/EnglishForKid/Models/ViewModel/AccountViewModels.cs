@@ -52,7 +52,6 @@ namespace EnglishForKid.Models.ViewModels
 
     public class UserReturnModel
     {
-        //public string Url { get; set; }
         public string Id { get; set; }
         public string UserName { get; set; }
         public string FullName { get; set; }
@@ -68,5 +67,10 @@ namespace EnglishForKid.Models.ViewModels
 
         public IList<string> Roles { get; set; }
         public IList<System.Security.Claims.Claim> Claims { get; set; }
+
+        public string GetStatus()
+        {
+            return Status ? "Active" : "Inactive";
+        }
     }
 }

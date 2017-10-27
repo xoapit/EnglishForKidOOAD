@@ -11,11 +11,11 @@ namespace EnglishForKid.Areas.Teacher.Controllers
 {
     public class LessonController : Controller
     {
-        LessonDataStore lessonDataStore = new LessonDataStore(); 
+        LessonDataStore lessonDataStore = new LessonDataStore();
         // GET: Teacher/Lesson
         public ActionResult Index()
         {
-         
+
             List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
             ViewBag.Lessons = lessons;
             return View();
@@ -54,8 +54,8 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         //    bool result = lessonDataStore.AddItemAsync(lesson).Result;
         //    return Json(new { status = result}, JsonRequestBehavior.AllowGet );  
         //}
-       
-        }
+
+
         // Update Lesson
         [HttpPost]
         public ActionResult UpdateLesson(Lesson item)
@@ -75,7 +75,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         }
 
         // GET: Teacher/Lesson/Create
-        public ActionResult Create( )
+        public ActionResult Create()
         {
             return View();
         }
@@ -113,7 +113,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                 };
                 LessonDataStore lessonDataStore = new LessonDataStore();
                 bool result = lessonDataStore.AddItemAsync(lesson).Result;
-                return Json(result, JsonRequestBehavior.AllowGet );
+                return Json(result, JsonRequestBehavior.AllowGet);
 
             }
             catch
@@ -172,7 +172,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         // GET: Teacher/Lesson/Delete/5
         public ActionResult Delete(int id)
         {
-            
+
             return View();
         }
 
@@ -193,3 +193,4 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         }
     }
 }
+

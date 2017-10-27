@@ -18,7 +18,7 @@
     <script src="~/Areas/Admin/Scripts/Account/student.js"></script>
     <!-- /.box-header -->
     <div class="box-body padding-large">
-        <table id="example1" class="table table-bordered table-striped text-center">
+        <table id="studentTable" class="table table-bordered table-striped text-center">
             <thead>
                 <tr>
                     <th hidden>ID</th>
@@ -55,7 +55,7 @@
                                         }
                                     }
                                 </button>
-                                <button type="button" class="btn btn-primary authorization-Account" data-id="@user.Id" data-toggle="modal" data-target="">Authorization</button>
+                                <button type="button" class="btn btn-primary Auth-Account" data-id="@user.Id" data-toggle="modal" data-target="">Auth</button>
                             </td>
                         </tr>
                                             i++;
@@ -68,12 +68,14 @@
     <!-- /.box-body -->
 </div>
 <!-- /.box -->
-
 <!-- /.box teacher -->
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title">LIST OF TEACHERS</h3>
         <div class="box-tools pull-right">
+            <a id="btnCreateTeacher" class="btn btn-primary">
+                <i class="fa fa-adjust"></i> Create
+            </a>
             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                 <i class="fa fa-minus"></i>
             </button>
@@ -83,7 +85,7 @@
     <script src="~/Areas/Admin/Scripts/Account/student.js"></script>
     <!-- /.box-header -->
     <div class="box-body padding-large">
-        <table id="example1" class="table table-bordered table-striped text-center">
+        <table id="teacherTable" class="table table-bordered table-responsive table-condensed text-center">
             <thead>
                 <tr>
                     <th hidden>ID</th>
@@ -120,7 +122,7 @@
                                         }
                                     }
                                 </button>
-                                <button type="button" class="btn btn-primary authorization-Account" data-id="@user.Id" data-toggle="modal" data-target="">Authorization</button>
+                                <button type="button" class="btn btn-primary Auth-Account" data-id="@user.Id" data-toggle="modal" data-target="">Auth</button>
                             </td>
                         </tr>
                                             i++;
@@ -133,7 +135,6 @@
     <!-- /.box-body -->
 </div>
 <!-- /.box teacher-->
-
 <!-- /.box admin-->
 <div class="box box-danger">
     <div class="box-header with-border">
@@ -148,7 +149,7 @@
     <script src="~/Areas/Admin/Scripts/Account/student.js"></script>
     <!-- /.box-header -->
     <div class="box-body padding-large">
-        <table id="example1" class="table table-bordered table-striped text-center">
+        <table id="adminTable" class="table table-bordered table-striped text-center">
             <thead>
                 <tr>
                     <th hidden>ID</th>
@@ -185,7 +186,7 @@
                                         }
                                     }
                                 </button>
-                                <button type="button" class="btn btn-primary authorization-Account" data-id="@user.Id" data-toggle="modal" data-target="">Authorization</button>
+                                <button type="button" class="btn btn-primary Auth-Account" data-id="@user.Id" data-toggle="modal" data-target="">Auth</button>
                             </td>
                         </tr>
                                             i++;
@@ -222,14 +223,12 @@
             </div>
             <div class="modal-footer">
                 <div class="form-group">
-                        <label id="blockMessage" class="pull-left text-danger"></label>
-                        <button type="button" id="btn-block-account" class="btn btn-success pull-right margin-r-5">Yes</button>
-                        <button type="button" class="btn btn-danger pull-right margin-r-5" data-dismiss="modal">No</button>
-                    </div>
+                    <label id="blockMessage" class="pull-left text-danger"></label>
+                    <button type="button" id="btn-block-account" class="btn btn-success pull-right margin-r-5">Yes</button>
+                    <button type="button" class="btn btn-danger pull-right margin-r-5" data-dismiss="modal">No</button>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -270,8 +269,8 @@
                             <div class="col-sm-3">
                                 <img src="../img/admin.png" alt="..." width="30%" class="img-circle profile_img">
                             </div>
-                            
-                            </div>
+
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-2 control-label" style="text-align:left">Username</label>
                             <div class="col-sm-3">
@@ -343,9 +342,9 @@
                             Update
                         </button>
                     </div>
-                        <div class="col-sm-1">
-                        </div>
+                    <div class="col-sm-1">
                     </div>
+                </div>
 
                 <div id="updateAccount">
                 </div>
@@ -358,13 +357,24 @@
 </div>
 
 <script type="text/javascript">
-        $(document).ready(function () {
-            $("#birthdate").datepicker({
-                autoclose: true,
-                format: 'yyyy-mm-dd',
-                todayHighlight: true,
-                clearBtn: true,
-                orientation: 'bottom'
-            });
+    $(document).ready(function () {
+        $("#birthdate").datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd',
+            todayHighlight: true,
+            clearBtn: true,
+            orientation: 'bottom'
         });
-    </script>
+    });
+</script>
+
+<script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/Areas/Admin/bower_components/datatables.net/js/"></script>
+<script>
+    $(document).ready(function () {
+        var studentTable = $('#studentTable').DataTable();
+        var teacherTable = $('#teacherTable').DataTable();
+        var adminTable = $('#adminTable').DataTable();
+        document.getElementById('btnCreateTeacher').href = window.location.origin + "/Admin/Account/Create";
+    });
+</script>

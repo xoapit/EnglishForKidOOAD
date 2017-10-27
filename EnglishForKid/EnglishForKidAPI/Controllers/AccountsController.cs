@@ -486,6 +486,38 @@ namespace identity.Controllers
             return logins;
         }
 
+        [AllowAnonymous]
+        [Route("UsernameAlreadyExists")]
+        public async Task<IHttpActionResult> UsernameAlreadyExistsAsync(string username)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await this.UserManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        [AllowAnonymous]
+        [Route("EmailAlreadyExists")]
+        public async Task<IHttpActionResult> EmailAlreadyExistsAsync(string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await this.UserManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -508,7 +540,8 @@ namespace identity.Controllers
                 Gender = createUserModel.Gender,
                 Id = Guid.NewGuid().ToString(),
                 Status = createUserModel.Status,
-                PhoneNumber = createUserModel.PhoneNumber
+                PhoneNumber = createUserModel.PhoneNumber,
+                UpdateAt= DateTime.Now,
             };
 
             IdentityResult addUserResult = await this.UserManager.CreateAsync(user, createUserModel.Password);

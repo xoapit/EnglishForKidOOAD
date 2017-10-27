@@ -4,6 +4,7 @@ using EnglishForKid.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -46,14 +47,60 @@ namespace EnglishForKid.Areas.Admin.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                var email = collection["email"];
+                var username = collection["Username"];
+                var fullname = collection["fullname"];
+                var roleName = collection["rolename"];
+                var phone = collection["phonenumber"];
+                var gender = collection["gender"];
+                var birthday = collection["birthday"];
+                var address = collection["address"];
+                var password = collection["password"];
+                var confirmPassword = collection["confirmpassword"];
 
-                return RedirectToAction("Index");
+                CreateUserBindingModel account = new CreateUserBindingModel
+                {
+                    Email = email,
+                    Username = username,
+                    Address = address,
+                    Birthday = Convert.ToDateTime(birthday),
+                    FullName = fullname,
+                    Gender = gender == "Male" ? true : false,
+                    Password = password,
+                    PhoneNumber = phone,
+                    RoleName = roleName,
+                    Status = true,
+                    ConfirmPassword = confirmPassword
+                };
+
+                var result = accountDataStore.AddItemAsync(account).Result;
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {
                 return View();
             }
+        }
+
+        [AllowAnonymous]
+        public async Task<JsonResult> UsernameAlreadyExistsAsync(string username)
+        {
+            var result = await accountDataStore.UsernameAlreadyExistAsync(username);
+            return Json(!result, JsonRequestBehavior.AllowGet);
+        }
+
+        [AllowAnonymous]
+        public async Task<JsonResult> EmailAlreadyExistsAsync(string email)
+        {
+            var result = await accountDataStore.EmailAlreadyExistAsync(email);
+            return Json(!result, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Admin/Student/Edit/5
