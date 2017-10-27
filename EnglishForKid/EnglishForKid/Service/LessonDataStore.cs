@@ -19,7 +19,7 @@ namespace EnglishForKid.Service
             return await Task.FromResult(response.IsSuccessStatusCode);
 
         }
-    
+
         public async Task<bool> DeleteItemAsync(Guid id)
         {
             String path = "/api/Lessons/" + id.ToString();
