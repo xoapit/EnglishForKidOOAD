@@ -39,21 +39,7 @@ namespace EnglishForKidAPI.Models
         {
             List<string> result = new List<string>();
             //var user = db.Users.FirstOrDefault(u => u.UserName == username);
-<<<<<<< HEAD
             //var roles = db.UserRoles.Where(ur => ur.UserId == user.Id);
-=======
-            //var roles = db.Roles;
->>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
-
-            //foreach (var role in roles)
-            //{
-            //    var functions = db.Functions.Where(f => f.IdentityRoleID == role.RoleId);
-            //    foreach (var function in functions)
-            //    {
-            //        result.Add(function.Name);
-            //    }
-            //}
-<<<<<<< HEAD
 
             return result;
         }
@@ -81,8 +67,6 @@ namespace EnglishForKidAPI.Models
             {
                 db.GrantPermissions.Remove(grantPermission);
             }
-=======
->>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
 
             return true;
         }

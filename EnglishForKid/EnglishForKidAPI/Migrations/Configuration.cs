@@ -23,19 +23,14 @@ namespace EnglishForKidAPI.Migrations
             //InitCategories(context);
             //InitBusinessesAndFunctions(context);
             //InitFeedbacks(context);
-<<<<<<< HEAD
+
             //  InitLevels(context);
             //   InitLessons(context);
-=======
-            //InitLevels(context);
-            //InitLessons(context);
->>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
             //InitCommets(context);
             //InitQuestionSurveys(context);
             //InitRates(context);
             //InitResults(context);
-<<<<<<< HEAD
-           // InitAnswerSurveys(context);
+            // InitAnswerSurveys(context);
         }
 
         private void InitAnswerSurveys(ApplicationDbContext context)
@@ -59,8 +54,7 @@ namespace EnglishForKidAPI.Migrations
                 Answer = "I have a some problem with my arm"
             });
 
-=======
->>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
+
         }
 
         private void InitCommets(ApplicationDbContext context)
@@ -279,7 +273,7 @@ namespace EnglishForKidAPI.Migrations
                 }
             }
         }
-        
+
         //private void InitBusinessesAndFunctions(ApplicationDbContext context)
         //{
         //    context.Functions.RemoveRange(context.Functions.ToList());
