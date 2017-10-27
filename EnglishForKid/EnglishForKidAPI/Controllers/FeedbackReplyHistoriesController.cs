@@ -116,7 +116,7 @@ namespace EnglishForKidAPI.Controllers
             };
 
             EmailHelper emailHelper = new EmailHelper();
-            emailHelper.SendEmail(feedback.Email, identityMessage);
+            emailHelper.SendEmail(identityMessage);
             return CreatedAtRoute("DefaultApi", new { id = feedbackReplyHistory.ID }, feedbackReplyHistory);
         }
 

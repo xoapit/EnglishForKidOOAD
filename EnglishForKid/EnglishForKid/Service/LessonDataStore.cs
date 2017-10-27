@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using System.Net.Http;
+using EnglishForKid.Models.ViewModels;
 
 namespace EnglishForKid.Service
 {
@@ -13,7 +14,7 @@ namespace EnglishForKid.Service
         public async Task<bool> AddItemAsync(Lesson item)
         {
             String path = "/api/Lessons";
-            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
 
@@ -21,8 +22,8 @@ namespace EnglishForKid.Service
 
         public async Task<bool> DeleteItemAsync(Guid id)
         {
-            String path = "/api/Lessons" + id.ToString();
-            HttpResponseMessage response = await client.DeleteAsync(path);
+            String path = "/api/Lessons/" + id.ToString();
+            HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
@@ -31,7 +32,7 @@ namespace EnglishForKid.Service
         {
             Lesson lesson = null;
 
-            String path = "/api/Lessons" +id.ToString();
+            String path = "/api/Lessons/" +id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
@@ -42,12 +43,25 @@ namespace EnglishForKid.Service
 
         public async Task<List<Lesson>> GetItemsAsync()
         {
-            List<Lesson> listLesson = null;
+            List<Lesson> listLesson = new List<Lesson>();
             String path = "/api/Lessons";
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 listLesson = await response.Content.ReadAsAsync<List<Lesson>>();
+            }
+
+            return listLesson;
+        }
+
+        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsByCategoryNameAsync(string categoryName)
+        {
+            List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
+            String path = "/api/Lessons?categoryName="+categoryName;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                listLesson = await response.Content.ReadAsAsync<List<BaseLessonInfoViewModel>>();
             }
 
             return listLesson;

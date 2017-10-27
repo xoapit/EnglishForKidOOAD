@@ -1,5 +1,4 @@
 ﻿@using EnglishForKid.Models;
-@Model EnglishForKid.Models.Lesson;
 
 @{
     ViewBag.Title = "Index";
@@ -49,7 +48,7 @@
                             <td hidden>@lessons.ElementAt(i).CreateAt.ToString("dd/MMM/yyyy")</td>
                             <td>
                                 
-                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
+                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDetailLesson" >Detail</button>
                                 <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalUpdateLesson" >Update</button>
                                 <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDeleteLesson" >Delete</button>
                             </td>
@@ -100,6 +99,7 @@
     </div>
 </div>
 
+
 <!--Detail Lesson Modal -->
 <div class="modal fade" id="myModalDetailLesson" role="dialog">
     <div class="modal-dialog  modal-lg">
@@ -112,6 +112,9 @@
             <div class="modal-body">
                 <div class="box-body padding-large">
                     <form>
+                        <div hidden>
+                            <input type="text" class="form-control" name="viewLessonId" id="viewLessonId" value="" style="background-color:white" />
+                        </div>
                         <div class="form-group ">
 
                             <label for="">Title</label>
@@ -179,6 +182,9 @@
                         </div>
                     </form>
                 </div>
+
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
@@ -186,7 +192,7 @@
         </div>
     </div>
 </div>
-
+                  
 <!--  Add Lesson Modal -->
 <div class="modal fade" id="myModalAddLesson" role="dialog">
     <div class="modal-dialog  modal-lg">
@@ -404,6 +410,18 @@
     CKEditor.replace('editor3');
     CKEditor.replace('editor4');
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
 
+    $(document).on("click", ".view-DetailLesson", function () {
+        var feedbackId = $(this).data('feedback-id');
+        $(".modal-body #viewFeedbackId").val(feedbackId);
+        $('#myModalDetailFeedback input[name="detailFeedbackTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
+        $('#myModalDetailFeedback input[name="detailFeedbackSender"]').val($(this).closest("tr").find("td:nth-child(3)").text());
+        $('#myModalDetailFeedback input[name="detailFeedbackTime"]').val($(this).closest("tr").find("td:nth-child(4)").text());
+        $('#myModalDetailFeedback textarea[name="detailFeedbackContent"]').val($(this).closest("tr").find("td:nth-child(5)").text());
+        loadFeedbackHistories();
+        $('#btnMinusFeedbackReplyHistory').trigger('click');
+    });
 
-
+</script>

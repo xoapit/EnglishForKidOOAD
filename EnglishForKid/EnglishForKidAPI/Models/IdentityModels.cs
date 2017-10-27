@@ -12,7 +12,6 @@ using EnglishForKidAPI.Constants;
 namespace EnglishForKidAPI.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    [Table("User")]
     public class ApplicationUser : IdentityUser
     {
         public bool Status { get; set; }
@@ -71,8 +70,7 @@ namespace EnglishForKidAPI.Models
         public DbSet<GrantPermission> GrantPermissions { get; set; }
         public DbSet<AnswerSurvey> AnswerSurveys { get; set; }
         public DbSet<AuthenticationToken> AuthenticationTokens { get; set; }
-        public DbSet<IdentityUserRole> UserRoles { get; set; }
-
+        public DbSet<View> Views { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -94,10 +92,9 @@ namespace EnglishForKidAPI.Models
         }
 
         public ApplicationDbContext()
-            : base("EnglishForKids", throwIfV1Schema: false)
+            : base("EnglishForKids")
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
+           
         }
 
         public static ApplicationDbContext Create()

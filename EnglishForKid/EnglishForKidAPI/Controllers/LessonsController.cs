@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EnglishForKidAPI.Models;
+using EnglishForKidAPI.Models.ViewModels;
+using EnglishForKidAPI.Models.Factory;
 
 namespace EnglishForKidAPI.Controllers
 {
@@ -32,6 +34,23 @@ namespace EnglishForKidAPI.Controllers
             }
 
             return Ok(lesson);
+        }
+
+        [ResponseType(typeof(BaseLessonInfoViewModel))]
+        [Route("api/lessons")]
+        public IHttpActionResult GetLessonsByCategoryName(string categoryName)
+        {
+            List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
+            List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName).ToList();
+            if (lessons == null)
+            {
+                return NotFound();
+            }
+            foreach (Lesson lesson in lessons)
+            {
+                baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
+            }
+            return Ok(baseLessons);
         }
 
         // PUT: api/Lessons/5
