@@ -26,6 +26,9 @@ namespace EnglishForKid.Controllers
 
         public ActionResult Index()
         {
+            LessonDataStore lessonDataStore = new LessonDataStore();
+            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
+            ViewBag.Lessons = lessons.Take(8);
             return View();
         }
 
@@ -46,6 +49,11 @@ namespace EnglishForKid.Controllers
         public ActionResult GetCount() {
             ViewCountDataStore viewCountDataStore = new ViewCountDataStore();
             var result = viewCountDataStore.GetCountAsync().Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult GetLesson() {
+            LessonDataStore lessonDataStore = new LessonDataStore();
+            var result = lessonDataStore.GetItemsAsync().Result;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
