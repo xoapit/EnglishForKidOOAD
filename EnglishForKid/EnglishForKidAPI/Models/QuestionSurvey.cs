@@ -14,10 +14,12 @@ namespace EnglishForKidAPI.Models
         public bool Status { get; set; }
         public string ApplicationUserID { get; set; }
 
+        public virtual ICollection<AnswerSurvey> AnswerSurveys { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         public QuestionSurvey()
         {
+            AnswerSurveys = new List<AnswerSurvey>();
             CreateAt = DateTime.Now;
             Status = false;
         }

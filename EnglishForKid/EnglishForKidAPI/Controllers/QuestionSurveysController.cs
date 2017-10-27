@@ -18,9 +18,9 @@ namespace EnglishForKidAPI.Controllers
     {
 
         // GET: api/QuestionSurveys
-        public IQueryable<QuestionSurvey> GetQuestionSurveys()
+        public List<QuestionSurvey> GetQuestionSurveys()
         {
-            return db.QuestionSurveys;
+            return db.QuestionSurveys.ToList();
         }
 
         [Route("api/QuestionSurveys/base")]
@@ -40,6 +40,7 @@ namespace EnglishForKidAPI.Controllers
         public IHttpActionResult GetQuestionSurvey(Guid id)
         {
             QuestionSurvey questionSurvey = db.QuestionSurveys.Find(id);
+
             if (questionSurvey == null)
             {
                 return NotFound();
@@ -93,6 +94,12 @@ namespace EnglishForKidAPI.Controllers
             }
 
             db.QuestionSurveys.Add(questionSurvey);
+            db.AnswerSurveys.AddRange(questionSurvey.AnswerSurveys);
+
+            //foreach( var answerSurvey in questionSurvey.AnswerSurveys)
+            //{
+            //    db.AnswerSurveys.Add(answerSurvey);
+            //}
 
             try
             {

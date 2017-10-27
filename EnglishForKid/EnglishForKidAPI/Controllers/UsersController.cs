@@ -10,18 +10,42 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using EnglishForKidAPI.Models;
 using EnglishForKidAPI.Helper;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace EnglishForKidAPI.Controllers
 {
     // Authorize depend on ordering of Authorize Items
-   // [AuthorizeController]
-   // [Authorize]
+    // [AuthorizeController]
+    // [Authorize]
     public class UsersController : BaseApiController
     {
         // GET: api/Users
         public List<ApplicationUser> GetUsers()
         {
             return db.Users.ToList();
+        }
+
+        [ResponseType(typeof(List<ApplicationUser>))]
+        public IHttpActionResult GetUsersByCat(string cat)
+        {
+            List<ApplicationUser> usersByCat = new List<ApplicationUser>();
+            IdentityRole role = db.Roles.Where(r => r.Name == cat).FirstOrDefault();
+
+            if (role == null)
+            {
+                return NotFound();
+            }
+
+            foreach (var user in db.Users)
+            {
+                if (db.UserRoles.Where(ur => ur.RoleId == role.Id && ur.UserId == user.Id).Count() == 1)
+                {
+                    usersByCat.Add(user);
+                }
+            }
+
+            return Ok(usersByCat);
         }
 
         // GET: api/Users/5

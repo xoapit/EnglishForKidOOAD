@@ -20,7 +20,7 @@ namespace EnglishForKid.Areas.Admin.Controllers
         }
 
         // GET: Admin/Lesson/Details/5
-        public ActionResult Details(Guid id)
+        public ActionResult Details(String id)
         {
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             ViewBag.DetailLesson = lesson;

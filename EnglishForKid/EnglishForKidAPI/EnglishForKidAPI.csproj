@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -269,6 +270,18 @@
     <Compile Include="Helper\AuthorizeController.cs" />
     <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\ReflectionController.cs" />
+    <Compile Include="Migrations\201710250947284_First.cs" />
+    <Compile Include="Migrations\201710250947284_First.Designer.cs">
+      <DependentUpon>201710250947284_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710220745476_Third.cs" />
+    <Compile Include="Migrations\201710220745476_Third.Designer.cs">
+      <DependentUpon>201710220745476_Third.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710220825011_asdf.cs" />
+    <Compile Include="Migrations\201710220825011_asdf.Designer.cs">
+      <DependentUpon>201710220825011_asdf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FeedbackReplyHistory.cs" />
     <Compile Include="Models\View.cs" />
@@ -387,6 +400,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710250947284_First.resx">
+      <DependentUpon>201710250947284_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220745476_Third.resx">
+      <DependentUpon>201710220745476_Third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220825011_asdf.resx">
+      <DependentUpon>201710220825011_asdf.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

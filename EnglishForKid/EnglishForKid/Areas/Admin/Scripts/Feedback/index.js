@@ -26,7 +26,7 @@ $(document).ready(function () {
                 id: idFeedback
             },
             success: function (response) {
-                if (response != false) {
+                if (response !== false) {
                     $('#deleteMessage').text("You deleted the feedback successfully!");
                 }
                 else {
@@ -62,7 +62,7 @@ function sendEmailToReplyFeedback() {
                 Content: contentFeedbackReply,
             },
             success: function (response) {
-                if (response != false) {
+                if (response !== false) {
                     $('#sendEmailMessage').text("You send the email successfully!");
                 }
                 else {

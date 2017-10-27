@@ -13867,18 +13867,6 @@
     <Content Include="Content\files\image\work4.jpg" />
     <Content Include="Content\files\image\work5.jpg" />
     <Content Include="Content\files\image\work6.jpg" />
-    <Content Include="Content\font-awesome\css\font-awesome.css" />
-    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
-    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\js\aaa.js" />
-    <Content Include="Content\js\bootstrap.js" />
-    <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\js\custom.js" />
-    <Content Include="Content\js\jquery-1.10.2.js" />
-    <Content Include="Content\js\jquery.easing.min.js" />
-    <Content Include="Content\js\jquery.min.js" />
-    <Content Include="Content\js\jquery.scrollTo.js" />
-    <Content Include="Content\js\wow.min.js" />
     <Content Include="Content\table.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\et-line.svg" />
@@ -15112,6 +15100,7 @@
     <Content Include="Areas\Admin\Views\Feedback\CreateFeedbackReply.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\FeedbackReplyHistory.cshtml" />
     <Content Include="Areas\Admin\Views\Lesson\DetailLesson.cshtml" />
+
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -15142,6 +15131,10 @@
     <Content Include="Content\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
+
+    <Content Include="Areas\Admin\Views\Student\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Student\Edit.cshtml" />
+
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
