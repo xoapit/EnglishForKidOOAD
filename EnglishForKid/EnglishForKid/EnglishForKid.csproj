@@ -201,8 +201,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LessonController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PermissionController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\GiaoVienController.cs" />
@@ -6998,7 +6996,6 @@
     <Content Include="Areas\Admin\Scripts\Survey\index.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Lesson\Index.cshtml" />
     <Content Include="Areas\Teacher\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Teacher\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Teacher\bower_components\bootstrap-colorpicker\dist\img\bootstrap-colorpicker\alpha-horizontal.png" />
@@ -15072,7 +15069,6 @@
     <Content Include="fonts\weblysleekuil.ttf" />
     <Content Include="fonts\weblysleekuisb.ttf" />
     <Content Include="Areas\Admin\Views\Permission\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
@@ -15098,7 +15094,6 @@
     <Content Include="Scripts\ckfinder\web.config" />
     <Content Include="Areas\Admin\Views\Feedback\CreateFeedbackReply.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\FeedbackReplyHistory.cshtml" />
-    <Content Include="Areas\Admin\Views\Lesson\DetailLesson.cshtml" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />

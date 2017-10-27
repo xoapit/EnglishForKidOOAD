@@ -18,17 +18,12 @@ namespace EnglishForKid.Helpers
             ckUsername.Value = credentialInfo.Token;
             ckUsername.Expires = DateTime.Now.AddDays(15);
 
-            HttpCookie ckRememberMe = new HttpCookie("rememberMe");
-            ckRememberMe.Value = credentialInfo.Token;
-            ckRememberMe.Expires = DateTime.Now.AddDays(15);
-
             cookies.Add(ckToken);
             cookies.Add(ckUsername);
-            cookies.Add(ckRememberMe);
             return cookies;
         }
 
-        public class CredentialInfo
+         public class CredentialInfo
         {
             public string Token { get; set; }
             public string Username { get; set; }

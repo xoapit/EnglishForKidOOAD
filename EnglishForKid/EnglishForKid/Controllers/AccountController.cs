@@ -49,6 +49,12 @@ namespace EnglishForKid.Controllers
             return Json(urlForward, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Logout()
+        {
+            DeleteCookie();
+            return RedirectToAction("Index", "Home");
+        }
+
         private string GetUrlForward(UserReturnModel userReturnModel)
         {
             string urlForward = "/Home";
@@ -78,11 +84,23 @@ namespace EnglishForKid.Controllers
             SetCookie("token", access_token);
         }
 
+        private void DeleteCookie()
+        {
+            DeleteCookieByKey("token");
+            DeleteCookieByKey("username");
+        }
+
         private void SetCookie(string key, string value)
         {
             HttpCookie ck = new HttpCookie(key);
             ck.Value = value;
             ck.Expires = DateTime.Now.AddDays(15);
+        }
+
+        private void DeleteCookieByKey(string key)
+        {
+            HttpCookie ck = new HttpCookie(key);
+            ck.Expires = DateTime.Now.AddDays(-1);
         }
 
         private string GetCookie(string key)
