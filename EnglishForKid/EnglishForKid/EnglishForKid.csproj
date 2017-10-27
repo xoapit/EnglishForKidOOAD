@@ -15100,7 +15100,6 @@
     <Content Include="Areas\Admin\Views\Feedback\CreateFeedbackReply.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\FeedbackReplyHistory.cshtml" />
     <Content Include="Areas\Admin\Views\Lesson\DetailLesson.cshtml" />
-
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -15131,10 +15130,8 @@
     <Content Include="Content\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
-
     <Content Include="Areas\Admin\Views\Student\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Student\Edit.cshtml" />
-
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
