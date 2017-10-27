@@ -22,6 +22,7 @@ namespace EnglishForKid.Areas.Admin.Controllers
 
         public ActionResult Add(QuestionSurvey questionSurvey)
         {
+
             return View();
         }
     }

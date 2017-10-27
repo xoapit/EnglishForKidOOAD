@@ -70,7 +70,7 @@ namespace EnglishForKidAPI.Controllers
 
         // POST: api/AnswerSurveys
         [ResponseType(typeof(AnswerSurvey))]
-        public IHttpActionResult PostAnswerSurvey(AnswerSurvey answerSurvey)
+        public IHttpActionResult PostAnswerSurvey(Guid idQuestionSurvey, AnswerSurvey answerSurvey)
         {
             if (!ModelState.IsValid)
             {

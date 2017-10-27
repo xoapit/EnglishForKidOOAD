@@ -69,30 +69,30 @@ function sendEmailToReplyFeedback() {
             url: urlAdd,
             data: {
                 Tiitle = title;
-                Level = level;
-                Picture = picture;
-                Category = category;
-                Content = content;
-                Exercise= exercise;
-                Answer = answer;
-                Discussion = discussion;
-            },
-            success: function (response) {
-                if (response != false) {
-                    $('#sendEmailMessage').text("You send the email successfully!");
-                }
-                else {
-                    $('#sendEmailMessage').text("Can not send the email!");
-                }
-                setTimeout(function () {
-                    location.reload();
-                }, 1000);
-            },
-            fail: function (response) {
+        Level = level;
+        Picture = picture;
+        Category = category;
+        Content = content;
+        Exercise= exercise;
+        Answer = answer;
+        Discussion = discussion;
+    },
+        success: function (response) {
+            if (response != false) {
+                $('#sendEmailMessage').text("You send the email successfully!");
+            }
+            else {
                 $('#sendEmailMessage').text("Can not send the email!");
             }
-        });
-    });
+            setTimeout(function () {
+                location.reload();
+            }, 1000);
+        },
+    fail: function (response) {
+        $('#sendEmailMessage').text("Can not send the email!");
+    }
+});
+});
 }
 
 function guid() {

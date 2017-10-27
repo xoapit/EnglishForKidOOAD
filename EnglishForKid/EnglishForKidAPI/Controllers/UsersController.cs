@@ -39,7 +39,7 @@ namespace EnglishForKidAPI.Controllers
 
             foreach (var user in db.Users)
             {
-                if (db.UserRoles.Where(ur => ur.RoleId == role.Id && ur.UserId == user.Id).Count() == 1)
+                if (user.Roles.Where(r => r.RoleId == role.Id).Count() == 1)
                 {
                     usersByCat.Add(user);
                 }

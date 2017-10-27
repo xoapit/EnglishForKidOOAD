@@ -19,23 +19,17 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            //InitUsers(context);
-            //InitCategories(context);
-            //InitBusinessesAndFunctions(context);
-            //InitFeedbacks(context);
-<<<<<<< HEAD
-            //  InitLevels(context);
-            //   InitLessons(context);
-=======
-            //InitLevels(context);
-            //InitLessons(context);
->>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
-            //InitCommets(context);
-            //InitQuestionSurveys(context);
-            //InitRates(context);
-            //InitResults(context);
-<<<<<<< HEAD
-           // InitAnswerSurveys(context);
+            InitUsers(context);
+            InitCategories(context);
+            InitBusinessesAndFunctions(context);
+            InitFeedbacks(context);
+            InitLevels(context);
+            InitLessons(context);
+            InitCommets(context);
+            InitQuestionSurveys(context);
+            InitRates(context);
+            InitResults(context);
+            InitAnswerSurveys(context);
         }
 
         private void InitAnswerSurveys(ApplicationDbContext context)
@@ -58,9 +52,6 @@ namespace EnglishForKidAPI.Migrations
                 QuestionSurveyID = context.QuestionSurveys.First().ID,
                 Answer = "I have a some problem with my arm"
             });
-
-=======
->>>>>>> dc50d76c9af69a05a4cf110cfec3abd7633d52b0
         }
 
         private void InitCommets(ApplicationDbContext context)
