@@ -16268,6 +16268,8 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Survey.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
