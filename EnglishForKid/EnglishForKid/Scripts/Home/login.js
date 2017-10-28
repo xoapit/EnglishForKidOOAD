@@ -3,10 +3,7 @@
         username = $('#username').val();
         password = $('#password').val();
         rememberMe = false;
-
-        if ($('#rememberMe').is(":checked")) {
-            rememberMe = true;
-        }
+       
         urlLogin = "Account/Login";
         $.ajax({
             type: 'post',

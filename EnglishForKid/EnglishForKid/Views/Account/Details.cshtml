@@ -1,0 +1,67 @@
+﻿@model EnglishForKid.Models.ViewModels.UserReturnModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_ST.cshtml";
+}
+
+<div class="box bg-white">
+    <div class="box padding bg-danger">
+        <div>
+            <span class="glyphicon glyphicon-user"></span>
+            PROFILE
+        </div>
+    </div>
+    <div class="box-border">
+        <div class="padding-large row">
+            <div class="bg-white">
+                <div class="col-md-4 padding-large" style="height:100%">
+                    <div class="text-center padding">
+                        <img src="~/Content/files/image/avatar.png" class="img-circle img-avatar" />
+                    </div>
+                    <div class="text-center text-bold text-primary">
+                       <b>@Html.DisplayFor(model => model.UserName)</b>
+                    </div>
+
+                </div>
+                <div class="col-md-8 padding-large">
+                    <div class="row padding">
+                        <label>Full Name </label>
+                        @Html.DisplayFor(model => model.FullName)
+                        <div class="pull-right">
+                            <a href="../Edit/@Model.Id">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row padding">
+                        <label>Email </label>
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
+                    <div class="row padding">
+                        <label>Phone </label>
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </div>
+
+                    <div class="row padding">
+                        <label>Gender </label>
+                        @Model.GetGender()
+                    </div>
+
+                    <div class="row padding">
+                        <label>Birthday </label>
+                        @Model.Birthday.ToString("dd/MM/yyyy")
+                    </div>
+
+                    <div class="row padding">
+                        <label>Address </label>
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+</div>
+

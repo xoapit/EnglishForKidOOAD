@@ -3,3 +3,14 @@
 @{
     ViewBag.Title = "Home Page";
 }
+
+<div>
+    @{ 
+        foreach(Lesson lesson in ViewBag.Lessons)
+        {
+            <div>
+                @lesson.Title;
+            </div>
+        }
+    }
+</div>

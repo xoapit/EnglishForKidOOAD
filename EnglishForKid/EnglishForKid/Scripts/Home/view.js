@@ -16,7 +16,23 @@
         }
     });
 }
+
+function getLinkImages() {
+    var urlLesson = "Home/GetCount";
+    $.ajax({
+        type: 'post',
+        url: urlLesson,
+        data: {
+
+        },
+        success: function (data) {
+            var json = $.parseJSON(data);
+            document.getElementById("img1").innerHTML += '<img src="' + json[1].Image + '">';
+        }
+    });
+}
 $(document).ready(function () {
+    getLinkImages();
     loadViewCount();
 });
 

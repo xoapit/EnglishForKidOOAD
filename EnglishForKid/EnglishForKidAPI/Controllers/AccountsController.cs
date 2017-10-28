@@ -551,16 +551,13 @@ namespace identity.Controllers
                 return GetErrorResult(addUserResult);
             }
 
-            IdentityResult addUserRoleResult = this.UserManager.AddToRole(user.Id, createUserModel.Password);
+            IdentityResult addUserRoleResult = this.UserManager.AddToRole(user.Id, createUserModel.RoleName);
 
             if (!addUserRoleResult.Succeeded)
             {
                 return GetErrorResult(addUserResult);
             }
-
-            Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-
-            return Created(locationHeader, TheModelFactory.Create(user));
+            return Ok(TheModelFactory.Create(user));
         }
 
         // POST api/Account/RegisterExternal
