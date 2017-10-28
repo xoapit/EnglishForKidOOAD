@@ -1,118 +1,107 @@
-﻿@using EnglishForKid.Models
-@model EnglishForKid.Models.Lesson
+﻿@model EnglishForKid.Models.Lesson
+
 @{
-    Lesson lesson = ViewBag.Lesson;
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
 }
 
-<div class="box-body padding-large">
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <div hidden>
-                <input type="text" class="form-control" name="updateLessonId" id="updateLessonId" value="@lesson.ID" style="background-color:white" />
-            </div>
 
-            <label for="">Title</label>
-            <div>
-                <input type="text" class="form-control" name="updateLessonTitle" id="updateLessonTitle" value="@lesson.Title">
-            </div>
+<div class="box box-success">
+    <div class="box-header with-border">
+        <h3 class="box-title">UPDATE A LESSON</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+    </div>
 
+    <div class="box-body padding-large ">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.Category.ID, new SelectList(ViewBag.Categories, "Name"))
+
+                        @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Level, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9 ">
+                        @Html.DropDownListFor(model => model.Level, new SelectList(ViewBag.Levels, "Value"))
+                        @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2 " })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Discussion, htmlAttributes: new { @class = "control-label col-md-2 " })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Discussion, new { htmlAttributes = new { @class = "form-control", @id = "Discussion" } })
+                        @Html.ValidationMessageFor(model => model.Discussion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Exercise, htmlAttributes: new { @class = "control-label col-md-2", })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Exercise, new { htmlAttributes = new { @class = "form-control ", @id = "Exercise" } })
+                        @Html.ValidationMessageFor(model => model.Exercise, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2", })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control", @id = "Answer" } })
+                        @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-9">
+                        <input type="submit" value="UPDATE" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-primary btn-large fa fa-arrow-left" })
         </div>
 
-        <div class="form-group ">
-
-            <label for="">Level</label>
-            <div>
-                <select class="form-control" name="updateLessonLevel" id="updateLessonLevel"value="@lesson.LevelID" >
-                    <option>1</option>
-                    <option> 2</option>
-                    <option> 3</option>
-                    <option> 4</option>
-                    <option> 5</option>
-                </select>
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <label for="">Picture</label>
-            <div>
-                <input type="text" class="form-control" name="updateLessonPicture" id="updateLessonPicture" value="@lesson.Image">
-            </div>
-            <div class="col-sm-2">
-            </div>
-        </div>
-        <div class="form-group">
-
-            <label for="">Category</label>
-            <div>
-                <select class="form-control" iname="updateLessonCategory" id="updateLessonCategory" value="@lesson.CategoryID">
-                    <option>Vocabulary</option>
-                    <option>Reading</option>
-                    <option>Listening</option>
-                </select>
-            </div>
-
-        </div>
-        <div class="form-group">
-
-            <label for="">Content</label>
-            <div>
-                <textarea class="ckeditor form-control" name="updateLessonContent" id="updateLessonContent" value="@lesson.Content"></textarea>
-            </div>
-            <div class="col-sm-2">
-            </div>
-        </div>
-        <div class="form-group">
-
-            <label for="">Exercise</label>
-            <div>
-                <textarea class="ckeditor form-control" name="updateLessonExercise" id="updateLessonExercise" value="@lesson.Exercise"></textarea>
-            </div>
-            <div class="col-sm-2">
-            </div>
-        </div>
-        <div class="form-group ">
-
-            <label for="">Answer</label>
-            <div>
-                <textarea class="ckeditor form-control" name="updateLessonAnswer" id="updateLessonAnswer" value="@lesson.Answer"></textarea>
-            </div>
-            <div class="col-sm-2">
-            </div>
-        </div>
-        <div class="form-group ">
-
-            <label for="">Discussion</label>
-            <div>
-                <textarea class="ckeditor form-control" name="updateLessonDiscussion" id="updateLessonDiscussion" value="@lesson.Discussion"></textarea>
-            </div>
-            <div class="col-sm-2">
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="form-group">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-2">
-                
-                <button type="submit" class="btn btn-primary btn-label-left" name="btnUpdateLesson" id="btnUpdateLesson">
-                    <span><i class="fa fa-clock-o txt-danger"></i></span>
-                    Update
-                </button>
-            </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-2">
-
-                <button type="button" class="btn btn-danger btn-label-left" data-dismiss="modal">
-                    <span><i class="fa fa-clock-o txt-danger"></i></span>
-                    Cancel
-                </button>
-            </div>
-            <div class="col-sm-3"></div>
-        </div>
-        <hr>
-        <div class="form-group">
-            <label class="alert-info" id="sendEmailMessage"></label>
-        </div>
-    </form>
+    </div>
 </div>
