@@ -29,7 +29,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
             return Json(new { status = result }, JsonRequestBehavior.AllowGet);
         }
 
-        
+
 
         // GET: Teacher/Lesson/Details/5
         public ActionResult Details(String id)
@@ -43,45 +43,61 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         // GET: Teacher/Lesson/Create
         public ActionResult Create()
         {
+            InitCreate();
+            return View();
+        }
+
+        private void InitCreate()
+        {
             //Get list Categories
             CategoryDataStore categoryDataStore = new CategoryDataStore();
             List<Category> categories = categoryDataStore.GetItemsAsync().Result;
+            ViewBag.ListCategories = categories;
             ViewBag.Categories = categories.Select(x => x.Name).ToList();
 
             //Get list Level
             LevelDataStore levelDataStore = new LevelDataStore();
             List<Level> levels = levelDataStore.GetItemsAsync().Result;
+            ViewBag.ListLevels = levels;
             ViewBag.Levels = levels.Select(x => x.Value.ToString()).ToList();
-            return View();
         }
 
         // POST: Teacher/Lesson/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-
+            InitCreate();
+            List<Level> levels = ViewBag.ListLevels;
+            List<Category> categories = ViewBag.ListCategories;
             try
             {
                 var title = collection["Title"];
-                var category = collection["Category"];
-                var level = collection["Level"];
+                var categoryValue = collection["CategoryID"];
+                var levelValue = collection["LevelID"];
+
                 var image = collection["Image"];
                 var content = collection["Content"];
                 var discussion = collection["Discussion"];
-                var exercise = collection["Excercise"];
+                var exercise = collection["Exercise"];
                 var answer = collection["Answer"];
 
+                Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
+                Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
                 Lesson lesson = new Lesson
                 {
+                    ID = Guid.NewGuid(),
+                    CreateAt = DateTime.Now,
+                    Tag = "",
+                    ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
                     Title = title,
-                    CategoryID = new Guid(category),
-                    LevelID = new Guid(level),
+                    CategoryID = categoryID,
+                    LevelID = levelID,
                     Image = image,
                     Content = content,
                     Discussion = discussion,
                     Exercise = exercise,
                     Answer = answer
-                };
+                };//doan ni xu ly logic hoi ra
 
                 var result = lessonDataStore.AddItemAsync(lesson).Result;
                 if (result)
@@ -103,15 +119,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         // GET: Teacher/Lesson/Edit/5
         public ActionResult Edit(String id)
         {
-            //Get list Categories
-            CategoryDataStore categoryDataStore = new CategoryDataStore();
-            List<Category> categories = categoryDataStore.GetItemsAsync().Result;
-            ViewBag.Categories = categories.Select(x => x.Name).ToList();
-
-            //Get list Level
-            LevelDataStore levelDataStore = new LevelDataStore();
-            List<Level> levels = levelDataStore.GetItemsAsync().Result;
-            ViewBag.Levels = levels.Select(x => x.Value.ToString()).ToList();
+            InitCreate();
 
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             ViewBag.Lesson = lesson;
@@ -122,28 +130,38 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         [HttpPost]
         public ActionResult Edit(String id, FormCollection collection)
         {
+            InitCreate();
+            List<Level> levels = ViewBag.ListLevels;
+            List<Category> categories = ViewBag.ListCategories;
             try
             {
                 var title = collection["Title"];
-                var category = collection["Category"];
-                var level = collection["Level"];
+                var categoryValue = collection["CategoryID"];
+                var levelValue = collection["LevelID"];
+
                 var image = collection["Image"];
                 var content = collection["Content"];
                 var discussion = collection["Discussion"];
-                var exercise = collection["Excercise"];
+                var exercise = collection["Exercise"];
                 var answer = collection["Answer"];
 
+                Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
+                Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
                 Lesson lesson = new Lesson
                 {
+                    ID = Guid.NewGuid(),
+                    CreateAt = DateTime.Now,
+                    Tag = "",
+                    ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
                     Title = title,
-                    CategoryID = new Guid(category),
-                    LevelID = new Guid(level),
+                    CategoryID = categoryID,
+                    LevelID = levelID,
                     Image = image,
                     Content = content,
                     Discussion = discussion,
                     Exercise = exercise,
                     Answer = answer
-                };
+                };//doan ni xu ly logic hoi ra
 
                 var result = lessonDataStore.AddItemAsync(lesson).Result;
                 if (result)
@@ -162,8 +180,8 @@ namespace EnglishForKid.Areas.Teacher.Controllers
             }
         }
 
-            // GET: Teacher/Lesson/Delete/5
-            public ActionResult Delete(int id)
+        // GET: Teacher/Lesson/Delete/5
+        public ActionResult Delete(int id)
         {
 
             return View();
