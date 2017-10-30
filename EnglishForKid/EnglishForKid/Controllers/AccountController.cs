@@ -15,7 +15,7 @@ namespace EnglishForKid.Controllers
 {
     public class AccountController : Controller
     {
-        AccountDataStore accountDataStore = new AccountDataStore();
+        private readonly AccountDataStore accountDataStore = new AccountDataStore();
 
         [HttpPost]
         public JsonResult Login(string username, string password, bool rememberMe)
@@ -111,7 +111,7 @@ namespace EnglishForKid.Controllers
         private string GetCookie(string key)
         {
             HttpCookie ck = Request.Cookies[key];
-            return ck.Value;
+            return ck?.Value;
         }
 
         public ActionResult ResetPassword()
@@ -201,10 +201,11 @@ namespace EnglishForKid.Controllers
             return Json(!result, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Account/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Account/Edit/
+        public ActionResult Edit()
         {
-            UserReturnModel user = accountDataStore.GetAccountByIDAsync(id).Result;
+            string username = Request.Cookies["username"]?.Value;
+            UserReturnModel user = accountDataStore.GetAccountByUserNameAsync(username).Result;
             return View(user);
         }
 
@@ -241,34 +242,12 @@ namespace EnglishForKid.Controllers
                 var result = accountDataStore.UpdateAccountAsync(account).Result;
                 if (result)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     return View();
                 }
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Account/Delete/5
-        public ActionResult Delete(string id)
-        {
-            return View();
-        }
-
-        // POST: Account/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
             }
             catch
             {
