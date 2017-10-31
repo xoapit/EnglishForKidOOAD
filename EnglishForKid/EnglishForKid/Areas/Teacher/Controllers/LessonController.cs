@@ -83,6 +83,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
 
                 Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
                 Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
+                
                 Lesson lesson = new Lesson
                 {
                     ID = Guid.NewGuid(),

@@ -43,8 +43,6 @@
                     <th hidden>ApplicationUserID</th>
                     <th hidden>CrateAt</th>
                     <th >Action</th>
-
-
                 </tr>
             </thead>
 
@@ -72,9 +70,9 @@
                             <td>
 
                                 <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <a id="btnUpdateLesson" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" >
+                                <button id="btnUpdateLesson"  type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">
                                     Update
-                                </a>
+                                </button>
                                 <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
                             </td>
                         </tr>
@@ -154,7 +152,7 @@
 
 
 <!--  Update Lesson Modal -->
-@*<div class="modal fade" id="myModalUpdateLesson" role="dialog">
+<div class="modal fade" id="myModalUpdateLesson" role="dialog">
         <div class="modal-dialog  modal-lg">
             <!-- Modal content-->
             <div class="modal-content" style="margin:2%;">
@@ -171,7 +169,7 @@
             </div>
         </div>
     </div>
-*@
+
 <!-- DataTable-->
     <script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="~/Areas/Admin/bower_components/datatables.net/js/"></script>
@@ -179,7 +177,7 @@
     $(document).ready(function () {
         var lessonTable = $('#myLessonTable').DataTable();       
         document.getElementById('btnAddLesson').href = window.location.origin + "/Teacher/Lesson/Create";
-        document.getElementById('btnUpdateLesson').href = window.location.origin + "/Teacher/Lesson/Edit/5";
+        
     });
 </script>
 

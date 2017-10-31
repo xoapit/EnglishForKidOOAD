@@ -92,12 +92,7 @@ namespace EnglishForKidAPI.Controllers
         [Route("api/Lessons")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult PostLesson(Lesson lesson)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
+        { 
             db.Lessons.Add(lesson);
 
             try
