@@ -23,6 +23,7 @@ namespace EnglishForKid.Models
 
         public virtual Level Level { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+
         public virtual Category Category { get; set; }
 
         public Lesson()

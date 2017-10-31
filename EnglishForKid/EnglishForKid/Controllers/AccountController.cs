@@ -77,6 +77,7 @@ namespace EnglishForKid.Controllers
         private void SaveUserInfo(UserReturnModel userReturnModel)
         {
             SetCookie("username", userReturnModel.UserName);
+            SetCookie("id", userReturnModel.Id);
         }
 
         private void SaveTokenIntoCookie(string access_token)
@@ -88,6 +89,7 @@ namespace EnglishForKid.Controllers
         {
             DeleteCookieByKey("token");
             DeleteCookieByKey("username");
+            DeleteCookieByKey("id");
         }
 
         private void SetCookie(string key, string value)
