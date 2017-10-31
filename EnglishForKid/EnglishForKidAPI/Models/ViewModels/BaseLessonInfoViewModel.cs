@@ -9,6 +9,7 @@ namespace EnglishForKidAPI.Models.ViewModels
     {
         public Guid ID { get; set; }
         public string Title { get; set; }
+        public string Image { get; set; }
         public string Description { get; set; }
         public DateTime CreateAt { get; set; }
         public int NumberOfComments { get; set; }

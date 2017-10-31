@@ -1,0 +1,153 @@
+@using Microsoft.Ajax.Utilities
+<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="~/Content/files/image/img/logo2.png" /></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="" id="home" class="text-primary">HOME</a></li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle text-danger"
+                               style="color:#d35400;"
+                               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LISTENING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
+                                </li>
+                                <li><a href="#">Add New</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active text-orange"
+                               data-toggle="dropdown" role="button" aria-haspopup="true"
+                               style="color:#9b59b6;"
+                               aria-expanded="false">SPEAKING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Staff</a></li>
+                                <li><a href="#">Add New</a></li>
+                                <li><a href="#">Bulk Upload</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active text-orange"
+                               data-toggle="dropdown" role="button" aria-haspopup="true"
+                               style="color:#e74c3c;"
+                               aria-expanded="false">READING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Staff</a></li>
+                                <li><a href="#">Add New</a></li>
+                                <li><a href="#">Bulk Upload</a></li>
+                            </ul>
+                        </li>
+                        <li class="down">
+                            <a href="#" class="dropdown-toggle active text-primary"
+                               style="color:#27ae60;"
+                               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WRITTING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Time Entry</a></li>
+                                <li><a href="#">Report</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav pull-right">
+                        @{
+                            var token = Request.Cookies["token"]?.Value;
+                            var username = Request.Cookies["username"]?.Value;
+                            if (token.IsNullOrWhiteSpace() || username == null)
+                            {
+                                <li class="">
+                                    <a href="" id="signIn" data-toggle="modal" data-target="#loginModal">Login</a>
+                                </li>
+                                <li>
+                                    <a href="" id="register">Register</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@username<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="changePassword"> Change Password</a></li>
+                                        <li><a id="profile"> My Profile</a></li>
+                                    </ul>
+                                </li>
+                                <li class="text-danger">
+                                    <a href="" id="logout">Log out</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <h4 class="modal-title text-center">LOGIN</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <label class="text-danger" id="loginMessage"></label>
+                    <div class="form-group has-feedback">
+                        <input type="text" id="username" class="form-control" placeholder="Username">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" id="password" class="form-control" placeholder="Password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button id="btnLogin" class="btn btn-primary btn-block  pull-right">Sign In</button>
+                    </div>
+
+                    <div class="social-auth-links text-center">
+                        <br />
+                        <p>- OR -</p>
+                        <a href="#" class="btn btn-block btn-facebook  btn-primary">
+                            <i class="fa fa-facebook"></i> Sign in using
+                            Facebook
+                        </a>
+                        <a href="#" class="btn btn-block btn-google  btn-danger">
+                            <i class="fa fa-google-plus"></i> Sign in using
+                            Google+
+                        </a>
+                    </div>
+                    <a href="" id="forgotPassword">I forgot my password</a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Home/login.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var profile = $('#changePassword').val();
+        if (profile != null) {
+            document.getElementById('changePassword').href = window.location.origin + "/Account/ChangePassword";
+            document.getElementById('profile').href = window.location.origin + "/Account/Details";
+            document.getElementById('logout').href = window.location.origin + "/Account/Logout";
+        } else {
+            document.getElementById('forgotPassword').href = window.location.origin + "/Account/ResetPassword";
+            document.getElementById('register').href = window.location.origin + "/Account/Register";
+
+        }
+        $('#home').attr("href", window.location.origin);
+    });
+</script>

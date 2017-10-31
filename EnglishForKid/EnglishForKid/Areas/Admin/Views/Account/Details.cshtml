@@ -16,17 +16,17 @@
             <div class="col-sm-4">
                 <div class="row">
                     <div class="col-md-6 radio">
-                        <label><input type="radio" readonly checked="@user.Gender" name="optradio">Man</label>
+                        <label><input type="radio" readonly checked="@user.Gender" name="optradio">Male</label>
                     </div>
                     <div class="col-md-6 radio">
                         @{
                             if (user.Gender)
                             {
-                                <label><input type="radio" readonly name="optradio">Woman</label>
+                                <label><input type="radio" readonly name="optradio">Female</label>
                             }
                             else
                             {
-                                <label><input type="radio" checked readonly name="optradio">Woman</label>
+                                <label><input type="radio" checked readonly name="optradio">Female</label>
                             }
                         }
                     </div>

@@ -201,8 +201,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LessonController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PermissionController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\GiaoVienController.cs" />
@@ -214,7 +212,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
-    <Compile Include="Controllers\RegistationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,6 +242,7 @@
     <Compile Include="Models\ViewModel\BaseQuestionSurveyViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateUserBindingModel.cs" />
     <Compile Include="Models\ViewModel\LoginResult.cs" />
+    <Compile Include="Models\ViewModel\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AccountDataStore.cs" />
@@ -257,6 +255,7 @@
     <Compile Include="Service\QuestionSurveyDataStore.cs" />
     <Compile Include="Service\RateDataStore.cs" />
     <Compile Include="Service\ResultDataStore.cs" />
+    <Compile Include="Service\StatisticDataStore.cs" />
     <Compile Include="Service\ViewCountDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -6999,7 +6998,6 @@
     <Content Include="Areas\Admin\Scripts\Survey\index.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Lesson\Index.cshtml" />
     <Content Include="Areas\Teacher\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Teacher\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Teacher\bower_components\bootstrap-colorpicker\dist\img\bootstrap-colorpicker\alpha-horizontal.png" />
@@ -15073,7 +15071,6 @@
     <Content Include="fonts\weblysleekuil.ttf" />
     <Content Include="fonts\weblysleekuisb.ttf" />
     <Content Include="Areas\Admin\Views\Permission\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
@@ -15099,8 +15096,6 @@
     <Content Include="Scripts\ckfinder\web.config" />
     <Content Include="Areas\Admin\Views\Feedback\CreateFeedbackReply.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\FeedbackReplyHistory.cshtml" />
-    <Content Include="Areas\Admin\Views\Lesson\DetailLesson.cshtml" />
-
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -15131,10 +15126,8 @@
     <Content Include="Content\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
-
     <Content Include="Areas\Admin\Views\Student\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Student\Edit.cshtml" />
-
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
@@ -16272,17 +16265,20 @@
     <Content Include="Views\Lesson\ListOfLesson.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
     <Content Include="Views\Lesson\ListLessonByCategory.cshtml" />
-    <Content Include="Views\Registation\Index.cshtml" />
     <Content Include="Views\Shared\TopBarView.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Survey.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Teacher\Models\" />
     <Folder Include="Scripts\QuestionSurvey\" />
+    <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

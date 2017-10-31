@@ -6,6 +6,7 @@ using EnglishForKid.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using static EnglishForKid.Helpers.Credential;
@@ -14,7 +15,7 @@ namespace EnglishForKid.Controllers
 {
     public class AccountController : Controller
     {
-        AccountDataStore accountDataStore = new AccountDataStore();
+        private readonly AccountDataStore accountDataStore = new AccountDataStore();
 
         [HttpPost]
         public JsonResult Login(string username, string password, bool rememberMe)
@@ -48,6 +49,12 @@ namespace EnglishForKid.Controllers
             return Json(urlForward, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Logout()
+        {
+            DeleteCookie();
+            return RedirectToAction("Index", "Home");
+        }
+
         private string GetUrlForward(UserReturnModel userReturnModel)
         {
             string urlForward = "/Home";
@@ -77,17 +84,34 @@ namespace EnglishForKid.Controllers
             SetCookie("token", access_token);
         }
 
+        private void DeleteCookie()
+        {
+            DeleteCookieByKey("token");
+            DeleteCookieByKey("username");
+        }
+
         private void SetCookie(string key, string value)
         {
             HttpCookie ck = new HttpCookie(key);
             ck.Value = value;
             ck.Expires = DateTime.Now.AddDays(15);
+            Response.Cookies.Add(ck);
+        }
+
+        private void DeleteCookieByKey(string key)
+        {
+            if (Request.Cookies.AllKeys.Contains(key))
+            {
+                HttpCookie ck = Request.Cookies[key];
+                ck.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(ck);
+            }
         }
 
         private string GetCookie(string key)
         {
             HttpCookie ck = Request.Cookies[key];
-            return ck.Value;
+            return ck?.Value;
         }
 
         public ActionResult ResetPassword()
@@ -102,26 +126,60 @@ namespace EnglishForKid.Controllers
         }
 
         // GET: Account/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details()
+        {
+            string username = Request.Cookies["username"]?.Value;
+            UserReturnModel user = accountDataStore.GetAccountByUserNameAsync(username).Result;
+            return View(user);
+        }
+
+        // GET: Account/Register
+        public ActionResult Register()
         {
             return View();
         }
 
-        // GET: Account/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Account/Create
+        // POST: Account/Register
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Register(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                var email = collection["email"];
+                var username = collection["Username"];
+                var fullname = collection["fullname"];
+                var roleName = collection["rolename"];
+                var phone = collection["phonenumber"];
+                var gender = collection["gender"];
+                var birthday = collection["birthday"];
+                var address = collection["address"];
+                var password = collection["password"];
+                var confirmPassword = collection["confirmpassword"];
 
-                return RedirectToAction("Index");
+                CreateUserBindingModel account = new CreateUserBindingModel
+                {
+                    Email = email,
+                    Username = username,
+                    Address = address,
+                    Birthday = Convert.ToDateTime(birthday),
+                    FullName = fullname,
+                    Gender = gender == "Male" ? true : false,
+                    Password = password,
+                    PhoneNumber = phone,
+                    RoleName = roleName,
+                    Status = true,
+                    ConfirmPassword = confirmPassword
+                };
+
+                var result = accountDataStore.AddItemAsync(account).Result;
+                if (result)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {
@@ -129,43 +187,67 @@ namespace EnglishForKid.Controllers
             }
         }
 
-        // GET: Account/Edit/5
-        public ActionResult Edit(int id)
+        [AllowAnonymous]
+        public async Task<JsonResult> UsernameAlreadyExistsAsync(string username)
         {
-            return View();
+            var result = await accountDataStore.UsernameAlreadyExistAsync(username);
+            return Json(!result, JsonRequestBehavior.AllowGet);
+        }
+
+        [AllowAnonymous]
+        public async Task<JsonResult> EmailAlreadyExistsAsync(string email)
+        {
+            var result = await accountDataStore.EmailAlreadyExistAsync(email);
+            return Json(!result, JsonRequestBehavior.AllowGet);
+        }
+
+        // GET: Account/Edit/
+        public ActionResult Edit()
+        {
+            string username = Request.Cookies["username"]?.Value;
+            UserReturnModel user = accountDataStore.GetAccountByUserNameAsync(username).Result;
+            return View(user);
         }
 
         // POST: Account/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                var email = collection["email"];
+                var username = collection["Username"];
+                var fullname = collection["fullname"];
+                var roleName = collection["rolename"];
+                var phone = collection["phonenumber"];
+                var gender = collection["gender"];
+                var birthday = collection["birthday"];
+                var address = collection["address"];
+                var password = collection["password"];
+                var confirmPassword = collection["confirmpassword"];
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                UserReturnModel account = new UserReturnModel
+                {
+                    Email = email,
+                    UserName = username,
+                    Address = address,
+                    Birthday = Convert.ToDateTime(birthday),
+                    FullName = fullname,
+                    Gender = gender == "Male" ? true : false,
+                    PhoneNumber = phone,
+                    Status = true,
+                    Id = id
+                };
 
-        // GET: Account/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Account/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                var result = accountDataStore.UpdateAccountAsync(account).Result;
+                if (result)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {

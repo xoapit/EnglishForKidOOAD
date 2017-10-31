@@ -22,7 +22,7 @@ namespace EnglishForKid.Areas.Admin.Controllers
             List<UserReturnModel> teachers = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.TeacherRole).Result;
             ViewBag.Teachers = teachers;
 
-            List<UserReturnModel> admins = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.TeacherRole).Result;
+            List<UserReturnModel> admins = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.AdminRole).Result;
             ViewBag.Admins = admins;
             return View();
         }
