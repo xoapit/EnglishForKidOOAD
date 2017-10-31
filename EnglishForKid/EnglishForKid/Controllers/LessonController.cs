@@ -55,7 +55,7 @@ namespace EnglishForKid.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ListLessonByCategory(String categoryName = "Reading")
+        public ActionResult ListLessonByCategory(string categoryName)
         {
             List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName).Result;
             ViewBag.BaseLessonInfoViewModels = baseLessonInfoViewModels;

@@ -36,20 +36,21 @@ namespace EnglishForKidAPI.Controllers
             return Ok(lesson);
         }
 
-        [ResponseType(typeof(BaseLessonInfoViewModel))]
-        public IHttpActionResult GetLessonsByCategoryName(string categoryName)
+        [Route("api/lessons")]
+        [HttpGet]
+        public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName)
         {
             List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
             List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName).ToList();
-            if (lessons == null)
+            if (lessons != null)
             {
-                return NotFound();
+                foreach (Lesson lesson in lessons)
+                {
+                    baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
+                }
             }
-            foreach (Lesson lesson in lessons)
-            {
-                baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
-            }
-            return Ok(baseLessons);
+
+            return baseLessons;
         }
 
         // PUT: api/Lessons/5
