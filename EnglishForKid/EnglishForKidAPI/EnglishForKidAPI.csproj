@@ -389,13 +389,6 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710261613051_adsdf.resx">
-      <DependentUpon>201710261613051_adsdf.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -72,7 +72,9 @@
                             <td>
 
                                 <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">Update</button>
+                                <a id="btnUpdateLesson" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" >
+                                    Update
+                                </a>
                                 <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
                             </td>
                         </tr>
@@ -152,24 +154,24 @@
 
 
 <!--  Update Lesson Modal -->
-<div class="modal fade" id="myModalUpdateLesson" role="dialog">
-    <div class="modal-dialog  modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content" style="margin:2%;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">UPDATE LESSON</h4>
-            </div>
-            <div class="modal-body">
-                <div id="updateLesson">
-                   
+@*<div class="modal fade" id="myModalUpdateLesson" role="dialog">
+        <div class="modal-dialog  modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style="margin:2%;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">UPDATE LESSON</h4>
                 </div>
+                <div class="modal-body">
+                    <div id="updateLesson">
+
+                    </div>
+                </div>
+
             </div>
-           
         </div>
     </div>
-</div>
-
+*@
 <!-- DataTable-->
     <script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="~/Areas/Admin/bower_components/datatables.net/js/"></script>
@@ -177,7 +179,7 @@
     $(document).ready(function () {
         var lessonTable = $('#myLessonTable').DataTable();       
         document.getElementById('btnAddLesson').href = window.location.origin + "/Teacher/Lesson/Create";
-        document.getElementById('btnUpdateLesson').href = window.location.origin + "/Teacher/Lesson/Edit";
+        document.getElementById('btnUpdateLesson').href = window.location.origin + "/Teacher/Lesson/Edit/5";
     });
 </script>
 

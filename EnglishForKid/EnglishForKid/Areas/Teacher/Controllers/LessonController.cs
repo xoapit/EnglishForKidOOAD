@@ -97,7 +97,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                     Discussion = discussion,
                     Exercise = exercise,
                     Answer = answer
-                };//doan ni xu ly logic hoi ra
+                };
 
                 var result = lessonDataStore.AddItemAsync(lesson).Result;
                 if (result)
@@ -121,9 +121,8 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         {
             InitCreate();
 
-            Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
-            ViewBag.Lesson = lesson;
-            return View();
+            Lesson lesson = lessonDataStore.GetItemAsync(id).Result; 
+            return View(lesson);
         }
 
         // POST: Teacher/Lesson/Edit/5
@@ -147,12 +146,13 @@ namespace EnglishForKid.Areas.Teacher.Controllers
 
                 Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
                 Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
+
                 Lesson lesson = new Lesson
                 {
                     ID = Guid.NewGuid(),
                     CreateAt = DateTime.Now,
-                    Tag = "",
-                    ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
+                   // Tag = "",
+                   // ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
                     Title = title,
                     CategoryID = categoryID,
                     LevelID = levelID,
@@ -161,9 +161,9 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                     Discussion = discussion,
                     Exercise = exercise,
                     Answer = answer
-                };//doan ni xu ly logic hoi ra
+                };
 
-                var result = lessonDataStore.AddItemAsync(lesson).Result;
+                var result = lessonDataStore.UpdateItemAsync(lesson).Result;
                 if (result)
                 {
                     return RedirectToAction("Index");
