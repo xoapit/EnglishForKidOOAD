@@ -16,8 +16,8 @@ namespace EnglishForKidAPI.Controllers
 {
     public class LessonsController : BaseApiController
     {
-
         // GET: api/Lessons
+        [Route("Lessons")]
         public IQueryable<Lesson> GetLessons()
         {
             return db.Lessons;
@@ -37,7 +37,6 @@ namespace EnglishForKidAPI.Controllers
         }
 
         [ResponseType(typeof(BaseLessonInfoViewModel))]
-        [Route("api/lessons")]
         public IHttpActionResult GetLessonsByCategoryName(string categoryName)
         {
             List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();

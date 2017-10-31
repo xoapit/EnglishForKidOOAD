@@ -9,7 +9,7 @@ using EnglishForKid.Models.ViewModels;
 
 namespace EnglishForKid.Service
 {
-    public class LessonDataStore : BaseDataStore, IDataStore<Lesson>
+    public class LessonDataStore : BaseDataStore
     {
         public async Task<bool> AddItemAsync(Lesson item)
         {
@@ -28,7 +28,7 @@ namespace EnglishForKid.Service
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public async Task<Lesson> GetItemAsync(Guid id)
+        public async Task<Lesson> GetItemAsync(String id)
         {
             Lesson lesson = null;
 
@@ -44,7 +44,7 @@ namespace EnglishForKid.Service
         public async Task<List<Lesson>> GetItemsAsync()
         {
             List<Lesson> listLesson = new List<Lesson>();
-            String path = "/api/Lessons";
+            String path = "/Lessons";
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
@@ -72,9 +72,11 @@ namespace EnglishForKid.Service
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateItemAsync(Lesson item)
+        public async Task<bool> UpdateItemAsync(Lesson item)
         {
-            throw new NotImplementedException();
+            string path = "/api/Lessons/" + item.ID;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
+            return await Task.FromResult(response.IsSuccessStatusCode); 
         }
 
     }

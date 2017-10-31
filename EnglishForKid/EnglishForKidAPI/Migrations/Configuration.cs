@@ -23,12 +23,38 @@ namespace EnglishForKidAPI.Migrations
             //InitCategories(context);
             //InitBusinessesAndFunctions(context);
             //InitFeedbacks(context);
-            //InitLevels(context);
-            //InitLessons(context);
+
+            //  InitLevels(context);
+            //   InitLessons(context);
             //InitCommets(context);
             //InitQuestionSurveys(context);
             //InitRates(context);
             //InitResults(context);
+            // InitAnswerSurveys(context);
+        }
+
+        private void InitAnswerSurveys(ApplicationDbContext context)
+        {
+            context.AnswerSurveys.Add(new AnswerSurvey
+            {
+                ID = Guid.NewGuid(),
+                QuestionSurveyID = context.QuestionSurveys.First().ID,
+                Answer = "I have a some problem with my neck"
+            });
+            context.AnswerSurveys.Add(new AnswerSurvey
+            {
+                ID = Guid.NewGuid(),
+                QuestionSurveyID = context.QuestionSurveys.First().ID,
+                Answer = "I have a some problem with my leg"
+            });
+            context.AnswerSurveys.Add(new AnswerSurvey
+            {
+                ID = Guid.NewGuid(),
+                QuestionSurveyID = context.QuestionSurveys.First().ID,
+                Answer = "I have a some problem with my arm"
+            });
+
+
         }
 
         private void InitCommets(ApplicationDbContext context)
@@ -115,7 +141,6 @@ namespace EnglishForKidAPI.Migrations
                 ID = Guid.NewGuid(),
                 QuestionSurveyID = context.QuestionSurveys.First().ID,
                 Answer = "Gi vay troi",
-                ApplicationUserID = context.Users.First().Id,
                 CreateAt = DateTime.Now
             });
 
@@ -248,7 +273,7 @@ namespace EnglishForKidAPI.Migrations
                 }
             }
         }
-        
+
         //private void InitBusinessesAndFunctions(ApplicationDbContext context)
         //{
         //    context.Functions.RemoveRange(context.Functions.ToList());
