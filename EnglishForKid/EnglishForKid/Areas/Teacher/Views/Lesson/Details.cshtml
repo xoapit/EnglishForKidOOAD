@@ -1,0 +1,100 @@
+﻿@using EnglishForKid.Models
+@model EnglishForKid.Models.Lesson
+
+@{ 
+    Lesson lesson = ViewBag.Lesson;
+}
+
+<div class="box box-success">
+    <div class="box-header with-border">
+        <h3 class="box-title">DETAIL A LESSON</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body padding-large">
+        <form class="form-horizontal" role="form">
+
+            <div hidden>
+                <input type="text" class="form-control" name="viewLessonId" id="viewLessonId" value="@lesson.ID" style="background-color:white" />
+            </div>
+
+            <div class="form-group ">
+
+                <label for="">Title</label>
+                <div>
+                    <input type="text" name="detailLessonTitle" id="detailLessonTitle" class="form-control" readonly value="@lesson.Title">
+                </div>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label for="">Level</label>
+                <div>
+                    <input type="text" name="detailLessonLevel" id="detailLessonlLevel" class="form-control" readonly value="@lesson.Level">
+
+                </div>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label for="">Picture</label>
+                <div>
+                    <input type="text" class="form-control" name="detailLessonPicture" id="detailLessonPicture" readonly value="@lesson.Image">
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Category</label>
+                <div>
+                    <input type="text" class="form-control" name="detailLessonCategory" id="detailLessonCategory" readonly value="@lesson.Category">
+
+                </div>
+
+            </div>
+            <div class="form-group ">
+
+                <label for="">Content</label>
+                <div>
+                    <textarea class="form-control" s="5" name="detailLessonContent" id="detailLessonContent" readonly value="@lesson.Content"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+
+            <div class="form-group ">
+
+                <label for="">Exercise</label>
+                <div>
+                    <textarea class="form-control" s="5" name="detailLessonExercise" id="detailLessonExcercise" readonly value="@lesson.Exercise"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Answer</label>
+                <div>
+                    <textarea class="form-control" s="5" name="detailLessonAnswer" id="detailLessonAnswer" readonly value="@lesson.Answer"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="form-group ">
+
+                <label for="">Discussion</label>
+                <div>
+                    <textarea class="form-control" s="5" name="detailLessonDiscussion" id="detailLessonDiscussion" readonly value="@lesson.Discussion"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

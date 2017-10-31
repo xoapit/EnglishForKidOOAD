@@ -29,41 +29,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
             return Json(new { status = result }, JsonRequestBehavior.AllowGet);
         }
 
-        ////Add lesson
-        //[HttpPost]
-        //public ActionResult AddLesson (String Title, String CategoryID, String Content, String Image, String Discusson, String Exercise, String Anwser, String Tag, String LevelID, String ApplicationID)
-        //{
-        //    Lesson lesson = new Lesson()
-        //    {
 
-
-        //        ID = Guid.NewGuid(),
-        //        Title = Title,
-        //        CategoryID = new Guid(CategoryID),
-        //        Image = Image,
-        //        Content = Content,
-        //        Discussion = Discusson,
-        //        Exercise = Exercise,
-        //        Answer = Anwser,
-        //        CreateAt = DateTime.Now,
-        //        Tag = Tag,
-        //        LevelID = new Guid(LevelID),
-        //        ApplicationUserID = ApplicationID,
-        //    };
-        //    LessonDataStore lessonDataStore = new LessonDataStore();
-        //    bool result = lessonDataStore.AddItemAsync(lesson).Result;
-        //    return Json(new { status = result}, JsonRequestBehavior.AllowGet );  
-        //}
-
-
-        // Update Lesson
-        [HttpPost]
-        public ActionResult UpdateLesson(Lesson item)
-        {
-
-            bool result = lessonDataStore.UpdateItemAsync(item).Result;
-            return Json(new { sattus = result }, JsonRequestBehavior.AllowGet);
-        }
 
         // GET: Teacher/Lesson/Details/5
         public ActionResult Details(String id)
@@ -77,95 +43,141 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         // GET: Teacher/Lesson/Create
         public ActionResult Create()
         {
+            InitCreate();
             return View();
+        }
+
+        private void InitCreate()
+        {
+            //Get list Categories
+            CategoryDataStore categoryDataStore = new CategoryDataStore();
+            List<Category> categories = categoryDataStore.GetItemsAsync().Result;
+            ViewBag.ListCategories = categories;
+            ViewBag.Categories = categories.Select(x => x.Name).ToList();
+
+            //Get list Level
+            LevelDataStore levelDataStore = new LevelDataStore();
+            List<Level> levels = levelDataStore.GetItemsAsync().Result;
+            ViewBag.ListLevels = levels;
+            ViewBag.Levels = levels.Select(x => x.Value.ToString()).ToList();
         }
 
         // POST: Teacher/Lesson/Create
         [HttpPost]
-        public ActionResult Create(Lesson lesson)
+        public ActionResult Create(FormCollection collection)
         {
-
+            InitCreate();
+            List<Level> levels = ViewBag.ListLevels;
+            List<Category> categories = ViewBag.ListCategories;
             try
             {
-                string lessonID = Request.Form["lessonID"];
-                string title = Request.Form["title"];
-                string categoryID = Request.Form["category"];
-                string image = Request.Form["image"];
-                string content = Request.Form["content"];
-                string discussion = Request.Form["discussion"];
-                string exercise = Request.Form["exercise"];
-                string answer = Request.Form["answer"];
-                string leveID = Request.Form["levelID"];
+                var title = collection["Title"];
+                var categoryValue = collection["CategoryID"];
+                var levelValue = collection["LevelID"];
 
-                lesson = new Lesson()
+                var image = collection["Image"];
+                var content = collection["Content"];
+                var discussion = collection["Discussion"];
+                var exercise = collection["Exercise"];
+                var answer = collection["Answer"];
+
+                Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
+                Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
+                
+                Lesson lesson = new Lesson
                 {
-
-                    ID = new Guid(lessonID),
+                    ID = Guid.NewGuid(),
+                    CreateAt = DateTime.Now,
+                    Tag = "",
+                    ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
                     Title = title,
-                    CategoryID = new Guid(categoryID),
+                    CategoryID = categoryID,
+                    LevelID = levelID,
                     Image = image,
                     Content = content,
                     Discussion = discussion,
                     Exercise = exercise,
-                    LevelID = new Guid(leveID),
-                    CreateAt = DateTime.Now,
-
+                    Answer = answer
                 };
-                LessonDataStore lessonDataStore = new LessonDataStore();
-                bool result = lessonDataStore.AddItemAsync(lesson).Result;
-                return Json(result, JsonRequestBehavior.AllowGet);
+
+                var result = lessonDataStore.AddItemAsync(lesson).Result;
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
 
             }
             catch
             {
-                bool result = false;
-                return Json(result, JsonRequestBehavior.AllowGet);
+                return View();
             }
         }
 
         // GET: Teacher/Lesson/Edit/5
         public ActionResult Edit(String id)
         {
-            Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
-            ViewBag.Lesson = lesson;
-            return View();
+            InitCreate();
+
+            Lesson lesson = lessonDataStore.GetItemAsync(id).Result; 
+            return View(lesson);
         }
 
         // POST: Teacher/Lesson/Edit/5
         [HttpPost]
         public ActionResult Edit(String id, FormCollection collection)
         {
+            InitCreate();
+            List<Level> levels = ViewBag.ListLevels;
+            List<Category> categories = ViewBag.ListCategories;
             try
             {
-                string lessonID = Request.Form["lessonID"];
-                string title = Request.Form["title"];
-                string categoryID = Request.Form["category"];
-                string image = Request.Form["image"];
-                string content = Request.Form["content"];
-                string discussion = Request.Form["discussion"];
-                string exercise = Request.Form["exercise"];
-                string answer = Request.Form["answer"];
-                string leveID = Request.Form["levelID"];
+                var title = collection["Title"];
+                var categoryValue = collection["CategoryID"];
+                var levelValue = collection["LevelID"];
 
-                Lesson lesson = new Lesson()
+                var image = collection["Image"];
+                var content = collection["Content"];
+                var discussion = collection["Discussion"];
+                var exercise = collection["Exercise"];
+                var answer = collection["Answer"];
+
+                Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
+                Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
+
+                Lesson lesson = new Lesson
                 {
-
-                    ID = new Guid(lessonID),
+                    ID = Guid.NewGuid(),
+                    CreateAt = DateTime.Now,
+                   // Tag = "",
+                   // ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
                     Title = title,
-                    CategoryID = new Guid(categoryID),
+                    CategoryID = categoryID,
+                    LevelID = levelID,
                     Image = image,
                     Content = content,
                     Discussion = discussion,
                     Exercise = exercise,
-                    LevelID = new Guid(leveID),
+                    Answer = answer
                 };
-                bool result = lessonDataStore.UpdateItemAsync(lesson).Result;
-                return Json(result, JsonRequestBehavior.AllowGet);
+
+                var result = lessonDataStore.UpdateItemAsync(lesson).Result;
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {
-                bool result = false;
-                return Json(result, JsonRequestBehavior.AllowGet);
+                return View();
             }
         }
 
