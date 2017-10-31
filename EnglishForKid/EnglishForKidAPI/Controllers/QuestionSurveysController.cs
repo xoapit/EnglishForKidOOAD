@@ -27,7 +27,7 @@ namespace EnglishForKidAPI.Controllers
         public List<BaseQuestionSurveyViewModel> GetBaseQuestionSurveys()
         {
             List<BaseQuestionSurveyViewModel> baseQuestionSurveys = new List<BaseQuestionSurveyViewModel>();
-            foreach(var questionSurvey in db.QuestionSurveys)
+            foreach (var questionSurvey in db.QuestionSurveys)
             {
                 BaseQuestionSurveyViewModel baseQuestionSurvey = ModelFactory.GetQuestionSurveyViewModel(questionSurvey);
                 baseQuestionSurveys.Add(baseQuestionSurvey);
@@ -65,6 +65,11 @@ namespace EnglishForKidAPI.Controllers
 
             db.Entry(questionSurvey).State = EntityState.Modified;
 
+            foreach (var answerSurvey in questionSurvey.AnswerSurveys)
+            {
+                db.Entry(answerSurvey).State = EntityState.Modified;
+            }
+
             try
             {
                 db.SaveChanges();
@@ -96,11 +101,6 @@ namespace EnglishForKidAPI.Controllers
             db.QuestionSurveys.Add(questionSurvey);
             db.AnswerSurveys.AddRange(questionSurvey.AnswerSurveys);
 
-            //foreach( var answerSurvey in questionSurvey.AnswerSurveys)
-            //{
-            //    db.AnswerSurveys.Add(answerSurvey);
-            //}
-
             try
             {
                 db.SaveChanges();
@@ -124,7 +124,7 @@ namespace EnglishForKidAPI.Controllers
         [ResponseType(typeof(QuestionSurvey))]
         public IHttpActionResult DeleteQuestionSurvey(Guid id)
         {
-            QuestionSurvey questionSurvey = db.QuestionSurveys.Find(id);
+            QuestionSurvey questionSurvey = db.QuestionSurveys.Find();
             if (questionSurvey == null)
             {
                 return NotFound();

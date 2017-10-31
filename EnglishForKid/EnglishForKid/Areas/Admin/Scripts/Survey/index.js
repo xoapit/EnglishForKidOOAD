@@ -2,6 +2,133 @@
     hideExtraAnswer();
 });
 
+
+$(document).ready(function () {
+    $('.detailQuestion').click(function () {
+        var urlDetail = "/Survey/GetQuestion";
+        var idQuestion = $(this).data('question-id');
+
+        $.ajax({
+            type: 'get',
+            url: urlDetail,
+            data: {
+                id: idQuestion
+            },
+            success: function (response) {
+
+                var json = response;
+                console.log(json);
+                console.log(json.questionSurvey.AnswerSurveys[0]);
+
+                $("#formDetailQuestion").empty();
+
+                $("#formDetailQuestion").append("<div class=\"form-group row\"><label id=\"contentQuestionSurvey\" style=\"color:slateblue;\">Content: " + json.questionSurvey.Content + "</label></div>");
+
+                for (var i = 0; i < json.questionSurvey.AnswerSurveys.length; i++) {
+                    $("#formDetailQuestion").append("<div class=\"form-group row\"><label class=\"col-md-2 col-xs-12 text-left\">Answer " + (i + 1) + ":</label><div class=\"col-md-10 col-xs-12\"><label class=\"col-md-10 col-xs-12 text-left\">" + json.questionSurvey.AnswerSurveys[i].Answer + "</label></div></div>");
+                }
+            },
+            fail: function (response) {
+                $("#formDetailQuestion").empty();
+                $("#formDetailQuestion").append("<div class=\"form-group row\"><label id=\"contentQuestionSurvey\" style=\"color:slateblue;\">No Data. Please Reload.</label></div>");
+            }
+        });
+    });
+
+    var jsonUpdateQuestion;
+
+    $('.updateQuestion').click(function () {
+        var urlDetail = "/Survey/GetQuestion";
+        var idQuestion = $(this).data('question-id');
+
+        $.ajax({
+            type: 'get',
+            url: urlDetail,
+            data: {
+                id: idQuestion
+            },
+            success: function (response) {
+
+                var json = response;
+                var jsonUpdateQuestion = response;
+
+                $('#contentUpdate').val(json.questionSurvey.Content);
+
+                $('#answerContent').empty();
+
+                for (var i = 0; i < json.questionSurvey.AnswerSurveys.length; i++) {
+                    $('#answerContent').append("<div class=\"form-group row\"><label class=\"col-md-2 col-xs-12 text-left\">Answer " + (i + 1) + "</label><div class=\"col-md-10 col-xs-12\"><input type=\"text\" class=\"form-control\" id=\"answerUpdate" + i + "\" value=\"" + json.questionSurvey.AnswerSurveys[i].Answer + "\"></div></div>");
+                }
+            },
+            fail: function (response) {
+                $('#answerContent').text("No data. Please reload.");
+            }
+        });
+    });
+
+    $('#updateQuestion').click(function () {
+        var a = jsonUpdateQuestion.questionSurvey.Content;
+        alert("abc");
+    });
+
+    $('.activeQuestion').click(function () {
+        var urlDetail = "/Survey/UpdateQuestion";
+        var idQuestion = $(this).data('question-id');
+
+        $.ajax({
+            type: 'get',
+            url: urlDetail,
+            data: {
+                id: idQuestion
+            },
+            success: function (response) {
+
+                var json = response;
+                console.log(json);
+                console.log(json.questionSurvey.AnswerSurveys[0]);
+                $("#contentQuestionSurvey").text("Content: " + json.questionSurvey.Content);
+
+                for (var i = 0; i < json.questionSurvey.AnswerSurveys.length; i++) {
+                    $("#formDetailQuestion").append("<div class=\"form-group row\"><label class=\"col-md-2 col-xs-12 text-left\">Answer " + (i + 1) + ":</label><div class=\"col-md-10 col-xs-12\"><label class=\"col-md-10 col-xs-12 text-left\">" + json.questionSurvey.AnswerSurveys[i].Answer + "</label></div></div>");
+                }
+            },
+            fail: function (response) {
+                $('#deleteMessage').text("Can not delete the feedback!");
+            }
+        });
+    });
+
+    $('.deleteQuestion').click(function () {
+        var urlDetail = "/Survey/UpdateQuestion";
+        var idQuestion = $(this).data('question-id');
+
+        $.ajax({
+            type: 'get',
+            url: urlDetail,
+            data: {
+                id: idQuestion
+            },
+            success: function (response) {
+
+                var json = response;
+                console.log(json);
+                console.log(json.questionSurvey.AnswerSurveys[0]);
+                $("#contentQuestionSurvey").text("Content: " + json.questionSurvey.Content);
+
+                for (var i = 0; i < json.questionSurvey.AnswerSurveys.length; i++) {
+                    $("#formDetailQuestion").append("<div class=\"form-group row\"><label class=\"col-md-2 col-xs-12 text-left\">Answer " + (i + 1) + ":</label><div class=\"col-md-10 col-xs-12\"><label class=\"col-md-10 col-xs-12 text-left\">" + json.questionSurvey.AnswerSurveys[i].Answer + "</label></div></div>");
+                }
+            },
+            fail: function (response) {
+                $('#deleteMessage').text("Can not delete the feedback!");
+            }
+        });
+    });
+
+});
+
+
+
 function hideExtraAnswer() {
     var answerItems = $('.answerContent').each(function () {
         var i = 0;
@@ -58,11 +185,7 @@ function loadDetailSurveyQuestion(id) {
             }
         },
         fail: function (data) {
-            
+
         }
     });
 }
-
-
-
-

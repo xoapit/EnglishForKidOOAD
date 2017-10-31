@@ -7,9 +7,7 @@ namespace EnglishForKid.Constants
 {
     public class ApplicationConfig
     {
-        public static readonly string BaseApiUrl = "http://localhost:8088";
-<<<<<<< HEAD
-=======
+        public static readonly string BaseApiUrl = "http://localhost:50828";
 
         public static readonly string AdminRole = "Admin";
         public static readonly string TeacherRole = "Teacher";
@@ -31,6 +29,5 @@ namespace EnglishForKid.Constants
         public static readonly string BossEmailPassword = "abc12345678";
         public static readonly string BossEmailName = "English For Kids";
         public static readonly string EmailHost = "smtp.gmail.com";
->>>>>>> master
     }
 }
