@@ -88,6 +88,8 @@ namespace EnglishForKidAPI.Controllers
         }
 
         // POST: api/Lessons
+        [HttpPost]
+        [Route("api/Lessons")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult PostLesson(Lesson lesson)
         {
@@ -114,7 +116,7 @@ namespace EnglishForKidAPI.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = lesson.ID }, lesson);
+            return Ok(lesson);
         }
 
         // DELETE: api/Lessons/5

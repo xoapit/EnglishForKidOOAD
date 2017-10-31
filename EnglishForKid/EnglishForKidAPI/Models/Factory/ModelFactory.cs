@@ -55,6 +55,7 @@ namespace EnglishForKidAPI.Models.Factory
             BaseLessonInfoViewModel viewModel = new BaseLessonInfoViewModel()
             {
                 ID = lesson.ID,
+                Image = lesson.Image,
                 CategoryName = lesson.Category.Name,
                 CreateAt = lesson.CreateAt,
                 Description = lesson.Content,

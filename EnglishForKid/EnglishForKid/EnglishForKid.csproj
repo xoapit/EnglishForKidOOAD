@@ -212,7 +212,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
-    <Compile Include="Controllers\RegistationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,18 +242,22 @@
     <Compile Include="Models\ViewModel\BaseQuestionSurveyViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateUserBindingModel.cs" />
     <Compile Include="Models\ViewModel\LoginResult.cs" />
+    <Compile Include="Models\ViewModel\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AccountDataStore.cs" />
     <Compile Include="Service\BaseDataStore.cs" />
+    <Compile Include="Service\CategoryDataStore.cs" />
     <Compile Include="Service\CommentDataStore.cs" />
     <Compile Include="Service\FeedbackReplyHistoryDataStore.cs" />
     <Compile Include="Service\FeedbackDataStore.cs" />
     <Compile Include="Service\IDataStore.cs" />
     <Compile Include="Service\LessonDataStore.cs" />
+    <Compile Include="Service\LevelDataStore.cs" />
     <Compile Include="Service\QuestionSurveyDataStore.cs" />
     <Compile Include="Service\RateDataStore.cs" />
     <Compile Include="Service\ResultDataStore.cs" />
+    <Compile Include="Service\StatisticDataStore.cs" />
     <Compile Include="Service\ViewCountDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -15142,11 +15145,10 @@
     <Content Include="Content\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
-
     <Content Include="Areas\Teacher\Views\Lesson\Details.cshtml" />
     <Content Include="Areas\Teacher\Views\Lesson\Edit.cshtml" />
     <Content Include="Areas\Teacher\Views\Lesson\Create.cshtml" />
-
+    <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
@@ -16286,6 +16288,9 @@
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Survey.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,148 +1,80 @@
-﻿@using EnglishForKid.Models
+﻿@using EnglishForKid.Models.ViewModels
 
 @{
     ViewBag.Title = "ListLessonByCategory";
     Layout = "~/Views/Shared/_Layout_ST.cshtml";
+    List<BaseLessonInfoViewModel> lessons = ViewBag.BaseLessonInfoViewModels;
 }
 
+<div class="row box">
+    <div class="panel">
+        <div class="box-header red">
+            Reading
+        </div>
+        <div class="panel-body">
 
-
-
-
-<!--Breadcrumbs-->
-<div class="col-lg-12 top2">
-    <div class="container">
-
-
-    </div>
-</div>
-<!--Breadcrumbs-->
-<!--Blog Body-->
-
-<div class="container">
-    <div class="row">
-
-        <div class="col-md-8">
-            <div class="panel">
-                <div class="panel-body">
-
-                    <!-- <div class="cat-article">
-                        <h2 class="category-title"><?php echo $nameCatParent." >> ".$nameCat; ?></h2>
-                     </div> -->
-                    <!--/Blog Posts-->
-                    <!-- Phân trang -->
-
-                    <div class="row posts">
-                        @{ 
-                            List<Lesson> lessons = ViewBag.Lessons;
-                            foreach (Lesson lesson in lessons) {
-                        <div class="lesson-item">
-                            <div class="col-md-2 col-sm-3 text-center">
-                                <a class="cat-img" href="#"><img src="@lesson.Image" style="width:100px;height:100px" class="img-circle"></a>
-                            </div>
-                            <div class="col-md-10 col-sm-9">
-                                <h3>@lesson.Title</h3>
-                                <div class="row">
-                                    <div class="col-xs-9">
-                                        <p>@lesson.Content</p>
-                                        <div class="read-more padding text-center">
-                                            <a class="btn btn-default btn-hover" href="<?php echo $urlDetail; ?>" role="button">Read More</a>
+            <div class="row posts">
+                <div class="lesson-item">
+                    @{
+                        foreach (BaseLessonInfoViewModel lesson in lessons)
+                        {
+                            <div class="box">
+                                <div class="col-md-2 col-xs-12 text-center">
+                                    <a class="cat-img" href=""><img src="@lesson.Image" style="width:100px;height:100px" class="img-circle"></a>
+                                </div>
+                                <div class="col-md-10 col-xs-12">
+                                    <h3>@lesson.Title</h3>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p>@lesson.Description</p>
+                                            <div class="read-more padding text-center">
+                                                <a class="btn btn-primary btn-hover pull-right" href="DetailOfLesson/@lesson.ID" role="button">Read More</a>
+                                            </div>
+                                            <ul class="list-inline">
+                                                <li><a href="">Published @lesson.CreateAt</a></li>
+                                                <li>
+                                                    <a href="">
+                                                        <i class="fa fa-comment">
+                                                        </i> @lesson.NumberOfComments Comments
+                                                    </a>
+                                                </li>
+                                                <li><a href=""></a></li>
+                                            </ul>
                                         </div>
-                                        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
-                                        <ul class="list-inline">
-                                            <li><a href="#">Ngày đăng: @lesson.CreateAt</a></li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-comment">
-                                                    </i> 100 Comments
-                                                </a>
-                                            </li>
-                                            <li><a href="#"></li>
-                                        </ul>
                                     </div>
-                                    <div class="col-xs-3"></div>
                                 </div>
                             </div>
-                        </div> 
-                            }
+                                <hr />
                         }
-                    </div>
-                    <!--/Blog Posts-->
-                </div>
-                <!--Pagniation-->
-                <div class="container">
-                    <div class="row table">
-                        <div class="text-center col-lg-8">
-                            <a class="btn btn-default btn-block toggle-pagination"><i class="glyphicon glyphicon-plus"></i> Toggle Pagination</a>
-                            <ul class="pagination pagination-responsive pagination-lg">
-                                <li><a href="#">&laquo;</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li class="disabled"><span>...</span></li>
-                                <li><a href="#">12</a></li>
-                                <li><a href="#">13</a></li>
-                                <li><a href="#">14</a></li>
-                                <li><a href="#">15</a></li>
-                                <li><a href="#">16</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Pagniation End-->
-            </div>
-        </div>
+                    }
 
-
-        <!-- //right-bar -->
-        <!--Sidebar Start-->
-        <div class="col-md-4 top3">
-            <!-- Blog Search Well -->
-            <div id="block-menu-menu-help-and-support" class="block block-menu first odd" role="navigation">
-                <div class="inner-block">
-                    <h3 class="block__title block-title">Help and Support</h3>
-                    <ul class="menu">
-                        <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">House rules for kids</a></li>
-                        <li class="menu__item is-leaf last leaf"><a href="/en/house-rules-parents-and-teachers" class="menu__link">House rules for parents and teachers</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="block-menu-menu-help-and-support" class="block block-menu first odd" role="navigation">
-                <div class="inner-block">
-                    <h3 class="block__title block-title">Courses</h3>
-                    <ul class="menu">
-                        <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Find a face-to-face or online course in your country.</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="block-menu-menu-help-and-support" class="block block-menu first odd" role="navigation">
-                <div class="inner-block">
-                    <h3 class="block__title block-title">A-Z Topics</h3>
-                    <div class="Topics">
-                        <ul class="menu">
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Actions</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Alphabet</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Ancient Egypt</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Animals</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Around the world</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Birthdays</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Bugs and insects</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Christmas</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Circus</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Clothes</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Colours</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Colours</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Colours</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Colours</a></li>
-                            <li class="menu__item is-collapsed first collapsed"><a href="/en/house-rules-kids" class="menu__link">Colours</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
+        <!--/Blog Posts-->
+        <!--Pagniation-->
+        <div class="container">
+            <div class="row table">
+                <div class="text-center col-xs-8">
+                    <a class="btn btn-default btn-block toggle-pagination"><i class="glyphicon glyphicon-plus"></i> Toggle Pagination</a>
+                    <ul class="pagination pagination-responsive pagination-lg">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li class="disabled"><span>...</span></li>
+                        <li><a href="#">12</a></li>
+                        <li><a href="#">13</a></li>
+                        <li><a href="#">14</a></li>
+                        <li><a href="#">15</a></li>
+                        <li><a href="#">16</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Pagniation End-->
     </div>
+</div>
