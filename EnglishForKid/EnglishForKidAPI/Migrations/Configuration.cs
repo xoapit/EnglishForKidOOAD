@@ -373,7 +373,7 @@ namespace EnglishForKidAPI.Migrations
             context.Categories.Add(new Category()
             {
                 ID = Guid.NewGuid(),
-                Name = ApplicationConfig.SpeakingCategory
+                Name = ApplicationConfig.ReadingCategory
             });
             context.Categories.Add(new Category()
             {

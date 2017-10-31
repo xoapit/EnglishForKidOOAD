@@ -16,15 +16,8 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="" id="home" class="text-primary">HOME</a></li>
                         <li class=" dropdown">
-                            <a href="#" class="dropdown-toggle text-danger"
-                               style="color:#d35400;"
-                               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LISTENING<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
-                                </li>
-                                <li><a href="#">Add New</a></li>
-                            </ul>
+                            <a href="" class="dropdown-toggle text-danger" id="listeningMenu"
+                               style="color:#d35400;" role="button" aria-haspopup="true" aria-expanded="false">LISTENING</a>
                         </li>
                         <li class=" dropdown">
                             <a href="#" class="dropdown-toggle active text-orange"
@@ -32,9 +25,8 @@
                                style="color:#9b59b6;"
                                aria-expanded="false">SPEAKING<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">View Staff</a></li>
-                                <li><a href="#">Add New</a></li>
-                                <li><a href="#">Bulk Upload</a></li>
+                                <li><a href="#" role="button" id="speakingMenu1" aria-haspopup="true" aria-expanded="false">Spelling</a></li>
+                                <li><a href="#" role="button" id="speakingMenu2" aria-haspopup="true" aria-expanded="false">Speaking</a></li>
                             </ul>
                         </li>
                         <li class=" dropdown">
@@ -43,9 +35,8 @@
                                style="color:#e74c3c;"
                                aria-expanded="false">READING<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">View Staff</a></li>
-                                <li><a href="#">Add New</a></li>
-                                <li><a href="#">Bulk Upload</a></li>
+                                <li><a href="#" id="readingMenu1" role="button" aria-haspopup="true" aria-expanded="false">Vocabulary</a></li>
+                                <li><a href="#" id="readingMenu2" role="button" aria-haspopup="true" aria-expanded="false">Reading</a></li>
                             </ul>
                         </li>
                         <li class="down">
@@ -53,8 +44,9 @@
                                style="color:#27ae60;"
                                data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WRITTING<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Change Time Entry</a></li>
-                                <li><a href="#">Report</a></li>
+                                <li><a href="#" role="button" id="writtingMenu1" aria-haspopup="true" aria-expanded="false">Grammar</a></li>
+                                <li><a href="#" role="button" id="writtingMenu2" aria-haspopup="true" aria-expanded="false">Writting</a></li>
+
                             </ul>
                         </li>
                     </ul>
@@ -138,6 +130,15 @@
 
 <script>
     $(document).ready(function () {
+        document.getElementById('listeningMenu').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=listening";
+        document.getElementById('speakingMenu1').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=spell";
+        document.getElementById('speakingMenu2').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=speaking";
+        document.getElementById('readingMenu1').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=vacabulary";
+        document.getElementById('readingMenu2').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=reading";
+        document.getElementById('writtingMenu1').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=grammar";
+        document.getElementById('writtingMenu2').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=writting";
+
+
         var profile = $('#changePassword').val();
         if (profile != null) {
             document.getElementById('changePassword').href = window.location.origin + "/Account/ChangePassword";
