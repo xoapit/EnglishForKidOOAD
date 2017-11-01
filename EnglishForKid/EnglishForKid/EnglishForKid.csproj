@@ -15534,11 +15534,8 @@
     <Content Include="Views\Shared\Survey.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
-
     <Content Include="Views\Account\Register.cshtml" />
-
     <Content Include="Views\Lesson\GetComments.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

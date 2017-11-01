@@ -348,3 +348,4 @@ EnglishForKid/EnglishForKid/Areas/Teacher/Views/Lesson/Index.cshtml
 *.ide
 *.config
 *.ide
+*.config
