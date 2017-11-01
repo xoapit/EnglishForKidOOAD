@@ -63,6 +63,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         }
 
         // POST: Teacher/Lesson/Create
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -76,20 +77,20 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                 var levelValue = collection["LevelID"];
 
                 var image = collection["Image"];
-                var content = collection["Content"];
+                var content = Request.Unvalidated.Form.Get("Content");
                 var discussion = collection["Discussion"];
                 var exercise = collection["Exercise"];
                 var answer = collection["Answer"];
 
                 Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
                 Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
-                
+
                 Lesson lesson = new Lesson
                 {
                     ID = Guid.NewGuid(),
                     CreateAt = DateTime.Now,
                     Tag = "",
-                    ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
+                    ApplicationUserID = Request.Cookies["Id"].Value,
                     Title = title,
                     CategoryID = categoryID,
                     LevelID = levelID,
@@ -122,7 +123,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         {
             InitCreate();
 
-            Lesson lesson = lessonDataStore.GetItemAsync(id).Result; 
+            Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             return View(lesson);
         }
 
@@ -152,8 +153,8 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                 {
                     ID = Guid.NewGuid(),
                     CreateAt = DateTime.Now,
-                   // Tag = "",
-                   // ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
+                    // Tag = "",
+                    // ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
                     Title = title,
                     CategoryID = categoryID,
                     LevelID = levelID,
@@ -181,27 +182,12 @@ namespace EnglishForKid.Areas.Teacher.Controllers
             }
         }
 
-        // GET: Teacher/Lesson/Delete/5
-        public ActionResult Delete(int id)
-        {
-
-            return View();
-        }
-
         // POST: Teacher/Lesson/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            bool result = lessonDataStore.DeleteItemAsync(id).Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

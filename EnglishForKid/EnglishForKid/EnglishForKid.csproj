@@ -15477,6 +15477,7 @@
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\Home\contact.js" />
     <Content Include="Scripts\Home\login.js" />
     <Content Include="Scripts\Home\view.js" />
     <Content Include="Scripts\html5lightbox.js" />
@@ -15524,7 +15525,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Lesson\DetailOfLesson.cshtml" />
-    <Content Include="Views\Lesson\ListOfLesson.cshtml" />
     <Content Include="Views\Shared\_Layout_ST.cshtml" />
     <Content Include="Views\Lesson\ListLessonByCategory.cshtml" />
     <Content Include="Views\Registation\Index.cshtml" />
@@ -15534,17 +15534,16 @@
     <Content Include="Views\Shared\Survey.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
-
     <Content Include="Views\Account\Register.cshtml" />
-
     <Content Include="Views\Lesson\GetComments.cshtml" />
-
+    <Content Include="Views\Home\GetFourTeachers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Teacher\Models\" />
     <Folder Include="Scripts\QuestionSurvey\" />
+    <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

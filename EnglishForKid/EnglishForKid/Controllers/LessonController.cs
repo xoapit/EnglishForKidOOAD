@@ -22,6 +22,7 @@ namespace EnglishForKid.Controllers
         {
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             ViewBag.Lesson = lesson;
+            ViewBag.IsLogin = IsLogin(this.Request);
             return View();
         }
 
@@ -62,5 +63,10 @@ namespace EnglishForKid.Controllers
             return View();
         }
 
+        public bool IsLogin(HttpRequestBase Request)
+        {
+            string id = Request.Cookies["id"]?.Value;
+            return !string.IsNullOrEmpty(id);
+        }
     }
 }

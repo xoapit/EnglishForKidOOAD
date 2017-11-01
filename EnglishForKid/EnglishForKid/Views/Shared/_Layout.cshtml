@@ -14,15 +14,16 @@
 
     <title>English for kids</title>
 
+    <script src="~/Content/js/jquery-1.10.2.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <script src="~/Content/js/bootstrap.min.js"></script>
-    <script src="~/Content/js/jquery-1.10.2.js"></script>
     <!-- Fonts -->
     <link href="~/Content/css/header.css" rel="stylesheet" />
     <link href="~/Content/css/myStyle.css" rel="stylesheet" />
     <link href="~/Content/css/home.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Scripts/Home/contact.js"></script>
 
-  
 </head>
 
 <body>
@@ -97,7 +98,7 @@
     </div> <!-- End  bootstrap-touch-slider Slider -->
     <!--end slide-->
     <!--MAIN-->
-    <section class="clearfix linkSection hidden-xs">
+    <section class="clearfix linkSection hidden-xs" hidden>
         <div class="sectionLinkArea hidden-xs scrolling">
             <div class="container">
                 <div class="row">
@@ -132,10 +133,10 @@
 
     <!-- /Section: intro -->
     <!-- Section: about -->
-    <section id="teacher" class="home-section text-center ">
+    <section id="teacher" class="home-section text-center" hidden>
         <div class="heading-about">
             <div class="container">
-                <div class="row ">
+                <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 ">
                         <div class="wow bounceInDown" data-wow-delay="0.4s">
                             <div class="section-heading">
@@ -148,7 +149,7 @@
                 </div>
             </div>
         </div>
-        <div class="container bg-color-5">
+        <div class="container bg-primary">
 
             <div class="row">
                 <div class="col-lg-2 col-lg-offset-5">
@@ -156,84 +157,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="wow bounceInUp" data-wow-delay="0.2s">
-                        <div class="team boxed-grey">
-                            <div class="inner">
-                                <h5>Anna Hanaceck</h5>
-
-                                <div class="avatar">
-                                    <img src="~/Content/files/image/img/team/1.jpg" alt="" class="img-responsive img-circle" />
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="maskingContent">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="wow bounceInUp" data-wow-delay="0.5s">
-                        <div class="team boxed-grey">
-                            <div class="inner">
-                                <h5>Maura Daniels</h5>
-                                <div class="avatar"><img src="~/Content/files/image/img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                            </div>
-                        </div>
-                        <div class="maskingContent">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="wow bounceInUp" data-wow-delay="0.8s">
-                        <div class="team boxed-grey">
-                            <div class="inner">
-                                <h5>Jack Briane</h5>
-                                <div class="avatar"><img src="~/Content/files/image/img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                            </div>
-                        </div>
-                        <div class="maskingContent">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="wow bounceInUp" data-wow-delay="1s">
-                        <div class="team boxed-grey">
-                            <div class="inner">
-                                <h5>Tom Petterson</h5>
-                                <div class="avatar"><img src="~/Content/files/image/img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
-                            </div>
-                        </div>
-                        <div class="maskingContent">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @{ 
+                    Html.RenderPartial("GetFourTeachers");
+                }
             </div>
         </div>
     </section>
@@ -259,9 +185,12 @@
         <div class="container mt40">
             <section class="row">
                 <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body" id="img1">
-                           
+                    <div class="panel panel-default" id="img2">
+                        <div class="panel-body">
+                            <a href="~/Content/files/image/img/g2.jpg" title="Food Portfolio" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
+                                <img src="~/Content/files/image/img/g2.jpg" alt="Food Portfolio" />
+                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                            </a>
                         </div>
 
                     </div>
@@ -386,7 +315,7 @@
                                         <label for="name">
                                             Name
                                         </label>
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <input type="text" name="name" class="form-control" id="contactName" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="form-group">
@@ -394,7 +323,7 @@
                                             Email Address
                                         </label>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                            <input type="email" class="form-control" name="email" id="contactEmail" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                                             <div class="validation"></div>
                                         </div>
                                     </div>
@@ -402,7 +331,7 @@
                                         <label for="subject">
                                             Subject
                                         </label>
-                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                        <input type="text" class="form-control" name="subject" id="contactSubject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                                         <div class="validation"></div>
                                     </div>
                                 </div>
@@ -411,12 +340,12 @@
                                         <label for="name">
                                             Message
                                         </label>
-                                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                        <textarea class="form-control" id="contactMessage" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                                         <div class="validation"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                                    <button class="btn btn-skin pull-right" id="btnContactUs">
                                         Send Message
                                     </button>
                                 </div>
@@ -430,15 +359,15 @@
                         <h5>Main Office</h5>
 
                         <address>
-                            <strong>Squas Design, Inc.</strong><br>
-                            Tower 795 Folsom Ave, Beautiful Suite 600<br>
-                            San Francisco, CA 94107<br>
+                            <strong>Danang, Inc.</strong><br>
+                            45 Ngo Si Lien, Danang City<br>
+                            Vietnam, VN 94107<br>
                             <abbr title="Phone">P:</abbr> (123) 456-7890
                         </address>
 
                         <address>
                             <strong>Email</strong><br>
-                            <a href="mailto:#">email.name@example.com</a>
+                            <a href="mailto:#">englishforkidprivate@gmail.com</a>
                         </address>
                         <address>
                             <strong>We're on social networks</strong><br>
@@ -462,11 +391,9 @@
 
     <!-- Core JavaScript Files -->
 
-    <script src="~/Content/js/jquery.min.js"></script>
 
     <script src="~/Scripts/Home/login.js"></script>
 
-    <script src="~/Content/js/bootstrap.min.js"></script>
     <script src="~/Content/js/jquery.easing.min.js"></script>
     <script src="~/Content/js/wow.min.js"></script>
     <script src="~/Content/js/jquery.scrollTo.js"></script>
