@@ -44,7 +44,7 @@ namespace EnglishForKid.Service
         public async Task<List<Lesson>> GetItemsAsync()
         {
             List<Lesson> listLesson = new List<Lesson>();
-            String path = "/Lessons";
+            String path = "/api/Lessons";
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {

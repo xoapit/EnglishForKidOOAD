@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_Layout_ST.cshtml";
 }
 
-<div class="box bg-white">
-    <div class="box padding bg-danger">
+<div class="box bg-white border">
+    <div class="bg-danger border">
         <div>
             <span class="glyphicon glyphicon-user"></span>
             PROFILE
         </div>
     </div>
-    <div class="box-border">
-        <div class="padding-large row">
+    <div class="#">
+        <div class="row">
             <div class="bg-white">
                 <div class="col-md-4 padding-large" style="height:100%">
                     <div class="text-center padding">
@@ -28,7 +28,7 @@
                     <div class="row padding">
                         <label>Full Name </label>
                         @Html.DisplayFor(model => model.FullName)
-                        <div class="pull-right">
+                        <div class="pull-right" style="margin-right:10px;">
                             <a href="/Account/Edit">
                                 <span class="glyphicon glyphicon-edit"></span>
                             </a>
@@ -62,6 +62,5 @@
             </div>
         </div>
     </div>
-    <hr />
 </div>
 

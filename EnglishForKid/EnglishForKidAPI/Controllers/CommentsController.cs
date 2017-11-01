@@ -25,7 +25,7 @@ namespace EnglishForKidAPI.Controllers
         [Route("api/comments/Lesson/{id}")]
         public IQueryable<Comment> GetCommentsByLessonID(Guid id)
         {
-            return db.Comments.Where(x => x.LessonID == id);
+            return db.Comments.Where(x => x.LessonID == id)?.OrderByDescending(x=>x.CreateAt);
         }
 
         // GET: api/Comments/5
