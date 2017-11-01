@@ -23,6 +23,22 @@ namespace EnglishForKidAPI.Controllers
             return db.Lessons;
         }
 
+        [HttpGet]
+        [Route("api/lessons")]
+        public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(int limit)
+        {
+            List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
+            List<Lesson> lessons = db.Lessons.Take(limit).OrderByDescending(x => x.CreateAt).ToList();
+            if (lessons != null)
+            {
+                foreach (Lesson lesson in lessons)
+                {
+                    baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
+                }
+            }
+            return baseLessons;
+        }
+
         // GET: api/Lessons/5
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult GetLesson(Guid id)
@@ -49,7 +65,6 @@ namespace EnglishForKidAPI.Controllers
                     baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
                 }
             }
-
             return baseLessons;
         }
 
@@ -129,7 +144,7 @@ namespace EnglishForKidAPI.Controllers
             }
             catch (Exception e)
             {
-                
+
             }
 
             return Ok(lesson);

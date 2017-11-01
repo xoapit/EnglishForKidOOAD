@@ -67,6 +67,18 @@ namespace EnglishForKid.Service
             return listLesson;
         }
 
+        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsAsync(int limit)
+        {
+            List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
+            String path = "/api/Lessons?limit=" + limit;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                listLesson = await response.Content.ReadAsAsync<List<BaseLessonInfoViewModel>>();
+            }
+            return listLesson;
+        }
+
         public Task InitializeAsync()
         {
             throw new NotImplementedException();
