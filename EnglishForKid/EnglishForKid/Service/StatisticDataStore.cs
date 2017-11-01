@@ -32,6 +32,19 @@ namespace EnglishForKid.Service
 
         }
 
+        public async Task<ChartStatisticViewModel> GetChartStatisticAsync(int days)
+        {
+            string path = "api/statistics?days="+days;
+            ChartStatisticViewModel statisticViewModel = null;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                statisticViewModel = await response.Content.ReadAsAsync<ChartStatisticViewModel>();
+            }
+            return statisticViewModel;
+
+        }
+
         public Task<StatisticViewModel> GetItemAsync(Guid id)
         {
             throw new NotImplementedException();

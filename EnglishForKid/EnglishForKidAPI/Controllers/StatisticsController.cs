@@ -30,6 +30,7 @@ namespace EnglishForKidAPI.Controllers
             }
         }
 
+        [Route("api/Statistics")]
         [ResponseType(typeof(StatisticViewModel))]
         public IHttpActionResult GetStatistic()
         {
@@ -68,6 +69,38 @@ namespace EnglishForKidAPI.Controllers
             };
 
             return Ok(statisticViewModel);
+        }
+
+        [Route("api/Statistics")]
+        [ResponseType(typeof(ChartStatisticViewModel))]
+        public IHttpActionResult GetChartData(int days)
+        {
+            string[] labels = new string[days];
+            int[] views = new int[days];
+            int[] lessons = new int[days];
+            int[] users = new int[days];
+
+            DateTime startDate = DateTime.Now.AddDays(-14);
+            for (int i = 0; i < days; i++)
+            {
+                DateTime currentDate = startDate.AddDays(i);
+                labels[i] = currentDate.ToString("dd/MMM");
+
+                int numberOfUsers = db.Users.Where(x => x.CreateAt.Day== currentDate.Day).Count();
+                int numberOfLessons = db.Lessons.Where(x => x.CreateAt.Day== currentDate.Day).Count();
+                users[i] = numberOfUsers;
+                lessons[i] = numberOfLessons;
+            }
+
+            ChartStatisticViewModel chartStatistic = new ChartStatisticViewModel
+            {
+                Labels = labels,
+                Lessons = lessons,
+                Users = users,
+                Views = views
+            };
+
+            return Ok(chartStatistic);
         }
     }
 }

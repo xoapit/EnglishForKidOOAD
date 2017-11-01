@@ -20,7 +20,7 @@ namespace EnglishForKidAPI.Controllers
         [Route("api/Views/SetViewCount")]
         [HttpGet]
         public IHttpActionResult SetViewCount() {
-            View view = db.Views.Where(x => x.Year == DateTime.Now.Year && x.Month==DateTime.Now.Month).First();
+            View view = db.Views.Where(x => x.Year == DateTime.Now.Year && x.Month==DateTime.Now.Month)?.First();
             if (view != null)
             {
                 view.PageView++;
@@ -39,7 +39,6 @@ namespace EnglishForKidAPI.Controllers
                 });
                 db.SaveChanges();
                 return Ok(GetViewCount());
-
             }
         }
 
