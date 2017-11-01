@@ -76,6 +76,12 @@ namespace EnglishForKid.Controllers
 
         private void SaveUserInfo(UserReturnModel userReturnModel)
         {
+            string roles = "";
+            foreach (string role in userReturnModel.Roles)
+            {
+                roles += role;
+            }
+            SetCookie("roles", roles);
             SetCookie("username", userReturnModel.UserName);
             SetCookie("id", userReturnModel.Id);
         }
@@ -87,6 +93,7 @@ namespace EnglishForKid.Controllers
 
         private void DeleteCookie()
         {
+            DeleteCookieByKey("roles");
             DeleteCookieByKey("token");
             DeleteCookieByKey("username");
             DeleteCookieByKey("id");
@@ -134,6 +141,8 @@ namespace EnglishForKid.Controllers
             UserReturnModel user = accountDataStore.GetAccountByUserNameAsync(username).Result;
             return View(user);
         }
+
+
 
         // GET: Account/Register
         public ActionResult Register()

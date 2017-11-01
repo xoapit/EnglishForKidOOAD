@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace EnglishForKid.Models
 {
@@ -21,17 +22,21 @@ namespace EnglishForKid.Models
         public string Image { get; set; }
 
         [Required]
+        [AllowHtml]
         [Display(Name ="Content")]
         public string Content { get; set; }
 
+        [AllowHtml]
         [Required]
         [Display(Name ="Discussion")]
         public string Discussion { get; set; }
 
+        [AllowHtml]
         [Required]
         [Display(Name ="Exercise")]
         public string Exercise { get; set; }
 
+        [AllowHtml]
         [Required]
         [Display(Name ="Answer")]
         public string Answer { get; set; }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace EnglishForKidAPI.Models.Factory
@@ -52,18 +53,26 @@ namespace EnglishForKidAPI.Models.Factory
         public static BaseLessonInfoViewModel GetBaseLessonInfoViewModel(Lesson lesson)
         {
             ApplicationDbContext db = new ApplicationDbContext();
+            string des = RemoveHTML(lesson.Content);
+            if (des.Length > 150) des = des.Substring(0, 150);
             BaseLessonInfoViewModel viewModel = new BaseLessonInfoViewModel()
             {
                 ID = lesson.ID,
                 Image = lesson.Image,
                 CategoryName = lesson.Category.Name,
                 CreateAt = lesson.CreateAt,
-                Description = lesson.Content,
+                Description = des,
                 Title = lesson.Title,
                 NumberOfComments = db.Comments.Where(x => x.LessonID == lesson.ID).Count(),
                 Rate = db.Rates.Where(x => x.LessonID == lesson.ID).Count() / 5
             };
+
             return viewModel;
+        }
+
+        public static string RemoveHTML(string strHTML)
+        {
+            return Regex.Replace(strHTML, "<(.|\n)*?>", "");
         }
     }
 

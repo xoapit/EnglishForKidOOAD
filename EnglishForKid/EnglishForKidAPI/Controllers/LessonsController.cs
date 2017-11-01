@@ -93,14 +93,30 @@ namespace EnglishForKidAPI.Controllers
         [Route("api/Lessons")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult PostLesson(Lesson lesson)
-        { 
-            db.Lessons.Add(lesson);
+        {
+            Lesson item = new Lesson()
+            {
+                ID = Guid.NewGuid(),
+                Answer = lesson.Answer,
+                ApplicationUserID = lesson.ApplicationUserID,
+                CategoryID = lesson.CategoryID,
+                Content = lesson.Content,
+                CreateAt = DateTime.Now,
+                Discussion = lesson.Discussion,
+                Exercise = lesson.Exercise,
+                Image = lesson.Image,
+                LevelID = lesson.LevelID,
+                Tag = lesson.Tag,
+                Title = lesson.Title
+            };
+
+            db.Lessons.Add(item);
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException ex)
             {
                 if (LessonExists(lesson.ID))
                 {
@@ -110,6 +126,10 @@ namespace EnglishForKidAPI.Controllers
                 {
                     throw;
                 }
+            }
+            catch (Exception e)
+            {
+                
             }
 
             return Ok(lesson);

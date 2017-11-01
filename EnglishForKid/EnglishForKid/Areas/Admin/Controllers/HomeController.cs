@@ -21,6 +21,14 @@ namespace EnglishForKid.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult GetChartData(int days)
+        {
+            ChartStatisticViewModel statisticViewModel = new ChartStatisticViewModel();
+            statisticViewModel = statisticDataStore.GetChartStatisticAsync(days).Result;
+            return Json(statisticViewModel, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Admin/Home/Details/5
         public ActionResult Details(int id)
         {

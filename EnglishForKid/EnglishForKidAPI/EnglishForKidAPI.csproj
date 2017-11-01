@@ -295,6 +295,7 @@
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\ViewModels\BaseLessonInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\BaseQuestionSurveyViewModel.cs" />
+    <Compile Include="Models\ViewModels\ChartStatisticViewModel.cs" />
     <Compile Include="Models\ViewModels\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModels\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
