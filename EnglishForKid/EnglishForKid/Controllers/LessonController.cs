@@ -91,10 +91,12 @@ namespace EnglishForKid.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ListLessonByCategory(string categoryName)
+        public ActionResult ListLessonByCategory(string categoryName, int start = 0, int take = 10)
         {
-            List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName).Result;
+            List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName, start, take).Result;
             ViewBag.BaseLessonInfoViewModels = baseLessonInfoViewModels;
+            int numberOfLessons = lessonDataStore.GetNumberOfLessonsByCategoryNameAsync(categoryName).Result;
+            ViewBag.NumberOfLessons = numberOfLessons;
             return View();
         }
 

@@ -54,22 +54,37 @@ namespace EnglishForKidAPI.Controllers
 
         [Route("api/lessons")]
         [HttpGet]
-        public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName, int start=0, int take=10)
+        public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName, int start = 0, int take = 10)
         {
             List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
-            List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName)?
-                .OrderByDescending(x=>x.CreateAt)
-                .Skip(start)
-                .Take(take)
-                .ToList();
+            List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName).ToList();
+
             if (lessons != null)
             {
+                int remainingNumber = lessons.Count() - start;
+                if (remainingNumber < take)
+                {
+                    take = remainingNumber;
+                }
+                lessons = lessons
+               .OrderByDescending(x => x.CreateAt)
+               .Skip(start)
+               .Take(take)
+               .ToList();
                 foreach (Lesson lesson in lessons)
                 {
                     baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
                 }
             }
             return baseLessons;
+        }
+
+        [Route("api/lessons/numberOfLessons")]
+        [HttpGet]
+        public int GetNumberOfLessonsByCategoryName(string categoryName)
+        {
+            List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName).ToList();
+            return lessons.Count();
         }
 
         // PUT: api/Lessons/5
