@@ -32,7 +32,7 @@ namespace EnglishForKid.Service
         {
             Lesson lesson = null;
 
-            String path = "/api/Lessons/" +id.ToString();
+            String path = "/api/Lessons/" + id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
@@ -54,10 +54,10 @@ namespace EnglishForKid.Service
             return listLesson;
         }
 
-        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsByCategoryNameAsync(string categoryName)
+        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsByCategoryNameAsync(string categoryName, int start=0, int take=10)
         {
             List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
-            String path = "/api/Lessons?categoryName="+categoryName;
+            String path = "/api/Lessons?categoryName=" + categoryName+"&start="+start+"&take="+take;
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
@@ -88,7 +88,7 @@ namespace EnglishForKid.Service
         {
             string path = "/api/Lessons/" + item.ID;
             HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
-            return await Task.FromResult(response.IsSuccessStatusCode); 
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
     }
