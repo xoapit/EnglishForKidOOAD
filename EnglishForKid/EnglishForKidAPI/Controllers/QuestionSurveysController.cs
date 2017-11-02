@@ -69,7 +69,7 @@ namespace EnglishForKidAPI.Controllers
             {
                 db.Entry(answerSurvey).State = EntityState.Modified;
             }
-
+            
             try
             {
                 db.SaveChanges();
@@ -86,7 +86,7 @@ namespace EnglishForKidAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(HttpStatusCode.OK);
         }
 
         // POST: api/QuestionSurveys

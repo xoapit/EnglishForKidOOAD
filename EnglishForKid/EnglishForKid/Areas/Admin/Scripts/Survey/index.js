@@ -8,6 +8,8 @@ $(document).ready(function () {
         var urlDetail = "/Survey/GetQuestion";
         var idQuestion = $(this).data('question-id');
 
+        $("#formDetailQuestion").empty();
+
         $.ajax({
             type: 'get',
             url: urlDetail,
@@ -17,10 +19,6 @@ $(document).ready(function () {
             success: function (response) {
 
                 var json = response;
-                console.log(json);
-                console.log(json.questionSurvey.AnswerSurveys[0]);
-
-                $("#formDetailQuestion").empty();
 
                 $("#formDetailQuestion").append("<div class=\"form-group row\"><label id=\"contentQuestionSurvey\" style=\"color:slateblue;\">Content: " + json.questionSurvey.Content + "</label></div>");
 
@@ -29,7 +27,6 @@ $(document).ready(function () {
                 }
             },
             fail: function (response) {
-                $("#formDetailQuestion").empty();
                 $("#formDetailQuestion").append("<div class=\"form-group row\"><label id=\"contentQuestionSurvey\" style=\"color:slateblue;\">No Data. Please Reload.</label></div>");
             }
         });
@@ -38,8 +35,11 @@ $(document).ready(function () {
     var jsonUpdateQuestion;
 
     $('.updateQuestion').click(function () {
+
         var urlDetail = "/Survey/GetQuestion";
         var idQuestion = $(this).data('question-id');
+
+        $('#answerContent').empty();
 
         $.ajax({
             type: 'get',
@@ -53,8 +53,7 @@ $(document).ready(function () {
                 var jsonUpdateQuestion = response;
 
                 $('#contentUpdate').val(json.questionSurvey.Content);
-
-                $('#answerContent').empty();
+                $('#updateQuestion').val(json.questionSurvey.ID);
 
                 for (var i = 0; i < json.questionSurvey.AnswerSurveys.length; i++) {
                     $('#answerContent').append("<div class=\"form-group row\"><label class=\"col-md-2 col-xs-12 text-left\">Answer " + (i + 1) + "</label><div class=\"col-md-10 col-xs-12\"><input type=\"text\" class=\"form-control\" id=\"answerUpdate" + i + "\" value=\"" + json.questionSurvey.AnswerSurveys[i].Answer + "\"></div></div>");
@@ -66,10 +65,7 @@ $(document).ready(function () {
         });
     });
 
-    $('#updateQuestion').click(function () {
-        var a = jsonUpdateQuestion.questionSurvey.Content;
-        alert("abc");
-    });
+    updateQuestion();
 
     $('.activeQuestion').click(function () {
         var urlDetail = "/Survey/UpdateQuestion";
@@ -125,44 +121,62 @@ $(document).ready(function () {
         });
     });
 
+
+    
+
+    $('#quantity').change(function () {
+        hideExtraAnswer();
+        var index = $(this).val();
+        showAnswerTo(index);
+    });
+    $('#quantity1').change(function () {
+        hideExtraAnswer();
+        var index = $(this).val();
+        showAnswerTo(index);
+    });
+
+    
+
+    $(document).on("click", ".view-Question", function () {
+        var feedbackId = $(this).data('feedback-id');
+        $(".modal-body #viewFeedbackId").val(feedbackId);
+        $('#myModalDetailFeedback input[name="detailFeedbackTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
+    });
+
 });
 
+function updateQuestion() {
+    $('#updateQuestion').click(function () {
+        var urlUpdate = "/Survey/UpdateQuestion";
+        var idQuestion = $('#updateQuestion').val();
+        var content = $('#contentUpdate').val();
 
+        var answers = [];
 
-function hideExtraAnswer() {
-    var answerItems = $('.answerContent').each(function () {
-        var i = 0;
-        $(this).children('div').each(function () {
-            if (i > 2) $(this).hide();
-            i++;
+        var inputCount = document.getElementById('answerContent').getElementsByTagName('input').length;
+
+        for (i = 0; i < inputCount; i++) {
+            answers.push($('#answerUpdate' + i).val());
+        }
+
+        $.ajax({
+            type: 'post',
+            url: urlUpdate,
+            data: {
+                id: idQuestion,
+                content: content,
+                answers: answers
+            },
+            success: function (res) {
+                setTimeout(function () { }, 1000);
+                location.reload();
+            },
+            fail: function (response) {
+            }
         });
+        location.reload();
     });
 }
-
-$('#quantity').change(function () {
-    hideExtraAnswer();
-    var index = $(this).val();
-    showAnswerTo(index);
-});
-$('#quantity1').change(function () {
-    hideExtraAnswer();
-    var index = $(this).val();
-    showAnswerTo(index);
-});
-
-function showAnswerTo(index) {
-    for (var i = 0; i <= 6; i++) {
-        if (i <= index) {
-            $('.answerContent').find("div:nth-child(" + i + ")").show();
-        }
-    }
-}
-
-$(document).on("click", ".view-Question", function () {
-    var feedbackId = $(this).data('feedback-id');
-    $(".modal-body #viewFeedbackId").val(feedbackId);
-    $('#myModalDetailFeedback input[name="detailFeedbackTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
-});
 
 function loadDetailSurveyQuestion(id) {
     $('#bodyDetailSurveyQuestion').html("");
@@ -188,4 +202,22 @@ function loadDetailSurveyQuestion(id) {
 
         }
     });
+}
+
+function hideExtraAnswer() {
+    var answerItems = $('.answerContent').each(function () {
+        var i = 0;
+        $(this).children('div').each(function () {
+            if (i > 2) $(this).hide();
+            i++;
+        });
+    });
+}
+
+function showAnswerTo(index) {
+    for (var i = 0; i <= 6; i++) {
+        if (i <= index) {
+            $('.answerContent').find("div:nth-child(" + i + ")").show();
+        }
+    }
 }

@@ -33,5 +33,22 @@ namespace EnglishForKid.Areas.Admin.Controllers
             ViewBag.Result = result;
             return View();
         }
+
+        [HttpPost]
+        public ActionResult UpdateQuestion(Guid id, string content, string[] answers)
+        {
+            QuestionSurvey questionSurvey = questionSurveyDataStore.GetItemAsync(id)?.Result;
+
+            questionSurvey.ApplicationUser = null;
+
+            questionSurvey.Content = content;
+            for (int i = 0; i < answers.Length; i++)
+            {
+                questionSurvey.AnswerSurveys[i].Answer = answers[i];
+            }
+
+            var result = questionSurveyDataStore.UpdateItemAsync(questionSurvey).Result;
+            return Json( result , JsonRequestBehavior.AllowGet);
+        }
     }
 }
