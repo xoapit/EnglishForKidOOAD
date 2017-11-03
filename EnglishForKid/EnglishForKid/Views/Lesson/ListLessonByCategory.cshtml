@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout_ST.cshtml";
     List<BaseLessonInfoViewModel> lessons = ViewBag.BaseLessonInfoViewModels;
     int numberOfLessons = ViewBag.NumberOfLessons;
-    int step = 2;
+    int step = 3;
 }
 
 <div class="margin-top-small">
@@ -58,11 +58,19 @@
         <!--Pagniation-->
         <div class="container">
             <div class="row table">
-                <div class="text-center col-xs-8">
+                <div class="text-center col-xs-12 col-md-12">
                     <ul class="pagination pagination-responsive pagination">
                         @{
                             string categoryName = Request.QueryString["categoryname"];
                             string start = Request.QueryString["start"];
+                            if (categoryName == null)
+                            {
+                                categoryName = "reading";
+                            }
+                            if (start == null)
+                            {
+                                start = "0";
+                            }
                             int before = Int32.Parse(start) - step;
                             int after = Int32.Parse(start) + step;
 

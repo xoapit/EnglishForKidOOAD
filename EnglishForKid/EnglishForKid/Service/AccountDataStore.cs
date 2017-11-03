@@ -83,6 +83,13 @@ namespace EnglishForKid.Service
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
+        public async Task<bool> UpdateRoleAsync(RoleViewModel item)
+        {
+            string path = "/api/accounts/UpdateRole";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
+
         public async Task<UserReturnModel> GetAccountByIDAsync(string id)
         {
             string path = "/api/accounts/" + id.ToString();

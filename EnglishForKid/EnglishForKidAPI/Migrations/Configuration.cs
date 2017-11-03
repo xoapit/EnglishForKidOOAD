@@ -24,13 +24,13 @@ namespace EnglishForKidAPI.Migrations
             //InitBusinessesAndFunctions(context);
             //InitFeedbacks(context);
 
-            InitLevels(context);
-            InitLessons(context);
-            InitCommets(context);
-            InitQuestionSurveys(context);
-            InitRates(context);
-            InitResults(context);
-            InitAnswerSurveys(context);
+            //InitLevels(context);
+            //InitLessons(context);
+            //InitCommets(context);
+            //InitQuestionSurveys(context);
+            //InitRates(context);
+            //InitResults(context);
+            //InitAnswerSurveys(context);
         }
 
         private void InitAnswerSurveys(ApplicationDbContext context)

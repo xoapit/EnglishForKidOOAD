@@ -14,6 +14,7 @@ using EnglishForKidAPI.Models.Factory;
 
 namespace EnglishForKidAPI.Controllers
 {
+    [Authorize]
     public class LessonsController : BaseApiController
     {
         // GET: api/Lessons

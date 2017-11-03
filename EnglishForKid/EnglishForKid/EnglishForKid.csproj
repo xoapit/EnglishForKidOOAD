@@ -262,6 +262,7 @@
     <Compile Include="Models\ViewModel\ChartStatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateUserBindingModel.cs" />
     <Compile Include="Models\ViewModel\LoginResult.cs" />
+    <Compile Include="Models\ViewModel\RoleViewModel.cs" />
     <Compile Include="Models\ViewModel\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -7014,6 +7015,7 @@
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Areas\Admin\Scripts\Account\role.js" />
     <Content Include="Areas\Admin\Scripts\Account\student.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\feedbackReplyHistory.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\index.js" />

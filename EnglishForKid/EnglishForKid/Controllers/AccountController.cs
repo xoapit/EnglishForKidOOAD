@@ -30,7 +30,7 @@ namespace EnglishForKid.Controllers
                 ShouldLockOut = false,
                 grant_type = grantTypeDefault
             };
-
+           
             LoginResult loginResult = accountDataStore.Login(loginViewModel).Result;
             if (loginResult != null)
             {

@@ -17,7 +17,7 @@ namespace EnglishForKid.Service
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public async  Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
             String path = "/api/Comments" + id.ToString();
             HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
@@ -30,7 +30,7 @@ namespace EnglishForKid.Service
             Comment comment = null;
             String path = "/api/Comments" + id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
-             if (response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 comment = await response.Content.ReadAsAsync<Comment>();
             }

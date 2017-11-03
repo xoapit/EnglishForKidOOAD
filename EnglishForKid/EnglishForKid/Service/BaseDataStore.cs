@@ -29,8 +29,12 @@ namespace EnglishForKid.Service
                 BaseAddress = new Uri(baseApiUrl),
                 Timeout = TimeSpan.FromMilliseconds(4000)
             };
+
+            string token = HttpContext.Current.Request.Cookies["token"]?.Value;
+
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
     }
 }
