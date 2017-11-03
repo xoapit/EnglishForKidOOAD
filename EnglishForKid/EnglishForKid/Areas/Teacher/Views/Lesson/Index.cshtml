@@ -1,5 +1,5 @@
-﻿@using EnglishForKid.Models;
-@Model EnglishForKid.Models.Lesson;
+﻿@using EnglishForKid.Models
+@model EnglishForKid.Models.Lesson
 
 @{
     ViewBag.Title = "Index";
@@ -70,7 +70,7 @@
                             <td>
 
                                 <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <button id="btnUpdateLesson"  type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">
+                                <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">
                                     Update
                                 </button>
                                 <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>

@@ -1,5 +1,4 @@
 ﻿@model EnglishForKid.Models.Lesson
-
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
@@ -75,29 +74,29 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Discussion, htmlAttributes: new { @class = "control-label col-md-2 " })
                             <div class="col-md-10">
-                                @Html.TextAreaFor(model => model.Discussion, new { htmlAttributes = new { @class = "form-control" }, id="Discussion" })
+                                @Html.TextAreaFor(model => model.Discussion, new { htmlAttributes = new { @class = "form-control" }, id = "Discussion" })
                                 @Html.ValidationMessageFor(model => model.Discussion, "", new { @class = "text-danger" })
                             </div>
-                            
+
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Exercise, htmlAttributes: new { @class = "control-label col-md-2", })
                             <div class="col-md-10">
-                                @Html.TextAreaFor(model => model.Exercise, new { htmlAttributes = new { @class = "form-control "}, id="Exercise" })
+                                @Html.TextAreaFor(model => model.Exercise, new { htmlAttributes = new { @class = "form-control " }, id = "Exercise" })
                                 @Html.ValidationMessageFor(model => model.Exercise, "", new { @class = "text-danger" })
                             </div>
-                            
+
 
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2 ", })
                             <div class="col-md-10">
-                                @Html.TextAreaFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control"}, id="Answer" })
+                                @Html.TextAreaFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" }, id = "Answer" })
                                 @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
                             </div>
-                           
+
                         </div>
 
                         <div class="form-group">
@@ -113,14 +112,14 @@
         <div>
             @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-primary btn-large fa fa-arrow-left" })
         </div>
-    
+
     </div>
 
 </div>
 
 
 
-<script >
+<script>
     CKEDITOR.replace('Content');
     CKEDITOR.replace('Answer');
     CKEDITOR.replace('Exercise');
