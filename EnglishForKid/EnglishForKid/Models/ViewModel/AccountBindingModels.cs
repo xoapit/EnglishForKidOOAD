@@ -86,6 +86,7 @@ namespace EnglishForKid.Models.ViewModels
     {
         [Required]
         [EmailAddress]
+        [System.Web.Mvc.Remote("EmailNotAlreadyExistsAsync", "Account", ErrorMessage = "Email not already exists")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

@@ -59,6 +59,10 @@ namespace EnglishForKid.Models
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         public virtual Category Category { get; set; }
+
+        //public bool Status { get; set; }
+
+        //public String GetStatus() => Status ? "Active" : "InActive";
         
         public Lesson()
         {

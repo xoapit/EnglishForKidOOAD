@@ -24,6 +24,9 @@ namespace EnglishForKid.Areas.Admin.Controllers
 
             List<UserReturnModel> admins = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.AdminRole).Result;
             ViewBag.Admins = admins;
+
+            List<UserReturnModel> allUsers = accountDataStore.GetAccountsByRoleNameAsync(string.Empty).Result;
+            ViewBag.AllUsers = allUsers;
             return View();
         }
 

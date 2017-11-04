@@ -4,6 +4,8 @@
     ViewBag.Title = "ListLessonByCategory";
     Layout = "~/Views/Shared/_Layout_ST.cshtml";
     List<BaseLessonInfoViewModel> lessons = ViewBag.BaseLessonInfoViewModels;
+    int numberOfLessons = ViewBag.NumberOfLessons;
+    int step = 3;
 }
 
 <div class="margin-top-small">
@@ -19,7 +21,7 @@
                     @{
                         foreach (BaseLessonInfoViewModel lesson in lessons)
                         {
-                            <div class="box">
+                            <div class="row">
                                 <div class="col-md-2 col-xs-12 text-center">
                                     <a class="cat-img" href=""><img src="@lesson.Image" style="width:100px;height:100px" class="img-circle"></a>
                                 </div>
@@ -44,7 +46,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <hr class="divider" />
                         }
                     }
@@ -54,15 +56,64 @@
         </div>
         <!--/Blog Posts-->
         <!--Pagniation-->
-        <div class="container" hidden>
+        <div class="container">
             <div class="row table">
-                <div class="text-center col-xs-8">
-                    <ul class="pagination pagination-responsive pagination-lg">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
+                <div class="text-center col-xs-12 col-md-12">
+                    <ul class="pagination pagination-responsive pagination">
+                        @{
+                            string categoryName = Request.QueryString["categoryname"];
+                            string start = Request.QueryString["start"];
+                            if (categoryName == null)
+                            {
+                                categoryName = "reading";
+                            }
+                            if (start == null)
+                            {
+                                start = "0";
+                            }
+                            int before = Int32.Parse(start) - step;
+                            int after = Int32.Parse(start) + step;
+
+                            <li>
+                                @{if (Int32.Parse(start) == 0)
+                                    {
+                                        <a>&laquo;</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Lesson/ListLessonByCategory?categoryname=@categoryName&start=@before&take=@step">&laquo;</a>
+                                    }
+                                }
+                            </li>
+
+                                    for (int i = 0; i < Math.Ceiling((decimal)numberOfLessons / step); i++)
+                                    {
+                                        if (Int32.Parse(start) / step == i)
+                                        {
+                                            <li class="active">
+                                                <a href="/Lesson/ListLessonByCategory?categoryname=@categoryName&start=@(i * step)&take=@step">@(i + 1)</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a href="/Lesson/ListLessonByCategory?categoryname=@categoryName&start=@(i * step)&take=@step">@(i + 1)</a>
+                                            </li>
+                                        }
+                                    }
+                                    <li>
+                                        @{if (Int32.Parse(start) == numberOfLessons / step * step)
+                                            {
+                                                <a>&raquo;</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="/Lesson/ListLessonByCategory?categoryname=@categoryName&start=@after&take=@step">&raquo;</a>
+                                            }
+                                        }
+                                    </li>
+
+                        }
                     </ul>
                 </div>
             </div>

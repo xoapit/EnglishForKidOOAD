@@ -248,6 +248,7 @@
     <Compile Include="Models\ViewModel\ChartStatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\CreateUserBindingModel.cs" />
     <Compile Include="Models\ViewModel\LoginResult.cs" />
+    <Compile Include="Models\ViewModel\RoleViewModel.cs" />
     <Compile Include="Models\ViewModel\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModel\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -7000,6 +7001,7 @@
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Areas\Admin\Content\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Areas\Admin\Scripts\Account\role.js" />
     <Content Include="Areas\Admin\Scripts\Account\student.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\feedbackReplyHistory.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\index.js" />
@@ -13737,6 +13739,42 @@
     <Content Include="Areas\Teacher\Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Areas\Teacher\Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Areas\Teacher\Scripts\lesson\index.js" />
+
+    <Content Include="Content\bootstrap-star-rating\css\star-rating.css" />
+    <Content Include="Content\bootstrap-star-rating\css\star-rating.min.css" />
+    <Content Include="Content\bootstrap-star-rating\examples\index.html" />
+    <Content Include="Content\bootstrap-star-rating\examples\sample.html" />
+    <Content Include="Content\bootstrap-star-rating\img\loading.gif" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\ar.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\de.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\es.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\fa.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\fr.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\it.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\ko.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\LANG.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\pl.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\pt-BR.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\ro.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\ru.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\tr.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\ua.js" />
+    <Content Include="Content\bootstrap-star-rating\js\locales\zh.js" />
+    <Content Include="Content\bootstrap-star-rating\js\star-rating.js" />
+    <Content Include="Content\bootstrap-star-rating\js\star-rating.min.js" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-fa\theme.css" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-fa\theme.js" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-fa\theme.min.css" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-fa\theme.min.js" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-svg\theme.css" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-svg\theme.js" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-svg\theme.min.css" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-svg\theme.min.js" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-uni\theme.css" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-uni\theme.js" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-uni\theme.min.css" />
+    <Content Include="Content\bootstrap-star-rating\themes\krajee-uni\theme.min.js" />
+
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -15130,7 +15168,7 @@
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
     <Content Include="Areas\Teacher\Views\Lesson\Details.cshtml" />
-    <Content Include="Areas\Teacher\Views\Lesson\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Lesson\Edit2.cshtml" />
     <Content Include="Areas\Teacher\Views\Lesson\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
@@ -15477,6 +15515,19 @@
     <Content Include="Scripts\ckeditor\package.json" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
+<<<<<<< HEAD
+=======
+    <Content Include="Content\bootstrap-star-rating\.github\CONTRIBUTING.md" />
+    <Content Include="Content\bootstrap-star-rating\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="Content\bootstrap-star-rating\.github\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="Content\bootstrap-star-rating\bower.json" />
+    <Content Include="Content\bootstrap-star-rating\CHANGE.md" />
+    <Content Include="Content\bootstrap-star-rating\composer.json" />
+    <Content Include="Content\bootstrap-star-rating\LICENSE.md" />
+    <Content Include="Content\bootstrap-star-rating\package.json" />
+    <Content Include="Content\bootstrap-star-rating\README.md" />
+    <Content Include="Areas\Teacher\Views\Lesson\Edit.cshtml" />
+>>>>>>> master
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\Home\login.js" />
@@ -15500,7 +15551,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+
     <Content Include="Scripts\Lesson\lesson-detail.js" />
+    <Content Include="Scripts\Lesson\rate.js" />
+
     <Content Include="Scripts\lightbox.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -15531,14 +15585,21 @@
     <Content Include="Views\Lesson\ListLessonByCategory.cshtml" />
     <Content Include="Views\Registation\Index.cshtml" />
     <Content Include="Views\Shared\TopBarView.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword2.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Survey.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+
     <Content Include="Views\Lesson\GetComments.cshtml" />
+
     <Content Include="Views\Home\GetLessonIndex.cshtml" />
+
+    <Content Include="Views\Home\GetFourTeachers.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Shared\SurveyChart.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

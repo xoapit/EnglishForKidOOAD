@@ -53,8 +53,6 @@ namespace EnglishForKidAPI.Migrations
                 QuestionSurveyID = context.QuestionSurveys.First().ID,
                 Answer = "I have a some problem with my arm"
             });
-
-
         }
 
         private void InitCommets(ApplicationDbContext context)
