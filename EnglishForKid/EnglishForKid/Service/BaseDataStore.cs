@@ -27,7 +27,7 @@ namespace EnglishForKid.Service
             {
                 MaxResponseContentBufferSize = 256000,
                 BaseAddress = new Uri(baseApiUrl),
-                Timeout = TimeSpan.FromMilliseconds(4000)
+                Timeout = TimeSpan.FromMilliseconds(10000)
             };
 
             string token = HttpContext.Current.Request.Cookies["token"]?.Value;

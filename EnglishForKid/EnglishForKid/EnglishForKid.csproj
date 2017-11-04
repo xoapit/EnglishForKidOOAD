@@ -15996,7 +15996,7 @@
     <Content Include="Views\Lesson\ListLessonByCategory.cshtml" />
     <Content Include="Views\Registation\Index.cshtml" />
     <Content Include="Views\Shared\TopBarView.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword2.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Survey.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
@@ -16004,6 +16004,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Lesson\GetComments.cshtml" />
     <Content Include="Views\Home\GetFourTeachers.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

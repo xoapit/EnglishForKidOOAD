@@ -128,6 +128,18 @@ namespace EnglishForKid.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ResetPassword(FormCollection form)
+        {
+            string email = form.Get("email");
+            ResetPasswordViewModel resetPassword = new ResetPasswordViewModel
+            {
+                Email = email
+            };
+            bool result = accountDataStore.ResetPasswordAsync(resetPassword).Result;
+            return RedirectToAction("Index","Home");
+        }
+
         // GET: Account
         public ActionResult Index()
         {
@@ -210,6 +222,13 @@ namespace EnglishForKid.Controllers
         {
             var result = await accountDataStore.EmailAlreadyExistAsync(email);
             return Json(!result, JsonRequestBehavior.AllowGet);
+        }
+
+        [AllowAnonymous]
+        public async Task<JsonResult> EmailNotAlreadyExistsAsync(string email)
+        {
+            var result = await accountDataStore.EmailAlreadyExistAsync(email);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Account/Edit/

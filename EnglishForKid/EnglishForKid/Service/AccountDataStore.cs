@@ -50,6 +50,13 @@ namespace EnglishForKid.Service
             return loginResult;
         }
 
+        public async Task<bool> ResetPasswordAsync(ResetPasswordViewModel item)
+        {
+            string path = "/api/accounts/ResetPassword";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
+
         public async Task<UserReturnModel> GetAccountByUserNameAsync(string username)
         {
             string path = "/api/accounts?username=" + username;
