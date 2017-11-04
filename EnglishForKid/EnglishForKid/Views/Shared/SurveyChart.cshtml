@@ -1,0 +1,43 @@
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+
+<div class="chart">
+    <!-- Sales Chart Canvas -->
+    <canvas id="myChart" height="200" width="200"></canvas>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var config = {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        20,
+                        10,
+                        50,
+                        20
+                    ],
+                    backgroundColor: [
+                        "#F7464A",
+                        "#46BFBD",
+                        "#FDB45C",
+                        "#3498db"
+                    ],
+                }],
+                labels: [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var ctx = document.getElementById("myChart").getContext("2d");
+        window.myDoughnut = new Chart(ctx, config);
+    });
+</script>

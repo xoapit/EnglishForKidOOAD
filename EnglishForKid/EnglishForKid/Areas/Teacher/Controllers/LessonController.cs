@@ -119,17 +119,16 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         }
 
         // GET: Teacher/Lesson/Edit/5
-        public ActionResult Edit(String id)
+        public ActionResult Edit(string id)
         {
             InitCreate();
-
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             return View(lesson);
         }
 
         // POST: Teacher/Lesson/Edit/5
         [HttpPost]
-        public ActionResult Edit(String id, FormCollection collection)
+        public ActionResult Edit(string id, FormCollection collection)
         {
             InitCreate();
             List<Level> levels = ViewBag.ListLevels;

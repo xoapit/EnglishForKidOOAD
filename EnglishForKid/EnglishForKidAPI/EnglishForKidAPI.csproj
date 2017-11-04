@@ -271,7 +271,6 @@
     <Compile Include="Helper\AuthorizeController.cs" />
     <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\ReflectionController.cs" />
-
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FeedbackReplyHistory.cs" />
     <Compile Include="Models\View.cs" />

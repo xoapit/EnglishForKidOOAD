@@ -14,7 +14,6 @@ using EnglishForKidAPI.Models.Factory;
 
 namespace EnglishForKidAPI.Controllers
 {
-    [Authorize]
     public class LessonsController : BaseApiController
     {
         // GET: api/Lessons
@@ -88,6 +87,7 @@ namespace EnglishForKidAPI.Controllers
             return lessons.Count();
         }
 
+        [Authorize]
         // PUT: api/Lessons/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutLesson(Guid id, Lesson lesson)
@@ -123,6 +123,7 @@ namespace EnglishForKidAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize]
         // POST: api/Lessons
         [HttpPost]
         [Route("api/Lessons")]
@@ -170,6 +171,7 @@ namespace EnglishForKidAPI.Controllers
             return Ok(lesson);
         }
 
+        [Authorize]
         // DELETE: api/Lessons/5
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult DeleteLesson(Guid id)

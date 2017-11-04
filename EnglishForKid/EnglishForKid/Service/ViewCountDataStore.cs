@@ -39,6 +39,7 @@ namespace EnglishForKid.Service
         {
             throw new NotImplementedException();
         }
+
         public async Task<string> GetCountAsync() {
             string path = "api/Views/SetViewCount";
             string viewCountViewModel="";
