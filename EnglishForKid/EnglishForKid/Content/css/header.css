@@ -172,3 +172,78 @@
     background: #fff;
     min-height: 460px;
 }
+
+.bg-danger {
+    background: #e74c3c;
+    color:white;
+}
+
+.bg-primary {
+    background: #3498db;
+    color:white;
+}
+
+.bg-info {
+    background: #1abc9c;
+}
+
+.bg-white {
+    background: #fefefe;
+}
+
+.padding{
+    padding:10px;
+}
+
+.padding-small{
+    padding:5px;
+}
+
+.padding-large{
+    padding:15px;
+}
+
+.box-border{
+    padding:10px;
+    margin:10px;
+    border:1px solid #fefefe;
+    border-radius:3px;
+    box-shadow:0 0 1px #ccc;
+}
+
+.border {
+    padding: 10px;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+}
+
+
+.img-avatar{
+    width:150px;
+    height:150px;
+    border:5px solid #eee;
+}
+
+.margin-top{
+    margin-top:10px;
+}
+
+.margin-top-small {
+    margin-top: 5px;
+}
+
+.padding-left{
+    padding-left:10px;
+}
+
+.padding-left-large {
+    padding-left: 20px;
+}
+
+.product .img-responsive {
+    margin: 0 auto;
+}
+
+.margin-bottom{
+    margin-bottom:10px;
+}

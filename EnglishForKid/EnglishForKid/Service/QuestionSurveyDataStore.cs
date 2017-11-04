@@ -13,7 +13,7 @@ namespace EnglishForKid.Service
     {
         public async Task<bool> AddItemAsync(QuestionSurvey item)
         {
-            string path = "/api/questionsurveys";
+            string path = "/api/postQuestionSurvey";
             HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
@@ -72,8 +72,31 @@ namespace EnglishForKid.Service
         {
             string path = "/api/questionsurveys/" + item.ID;
             HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
-            
+
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
+
+        public async Task<bool> ActiveQuestion(Guid id)
+        {
+            string path = "/api/activeQuestion";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, id).ConfigureAwait(false);
+
+            return await Task.FromResult(response.IsSuccessStatusCode);
+        }
+
+        public async Task<QuestionSurvey> GetActiveQuestion()
+        {
+            string path = "/api/getActiveQuestion";
+            QuestionSurvey questionSurvey = null;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                questionSurvey = await response.Content.ReadAsAsync<QuestionSurvey>();
+            }
+            return questionSurvey;
+        }
+
+
+        //api/getActiveQuestion
     }
 }

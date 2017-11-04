@@ -4,6 +4,38 @@
 
 
 $(document).ready(function () {
+
+    $('#addQuestion').click(function () {
+        var urlAdd = "/Survey/AddQuestion";
+        var content = $('#contentAdd').val();
+        var answers = [];
+        var quantity = $('#quantity').val();
+
+        for (i = 0; i < quantity; i++) {
+            answers.push($('#answerAdd' + (i + 1)).val());
+        }
+
+        $.ajax({
+            type: 'post',
+            url: urlAdd,
+            data: {
+                content: content,
+                answers: answers
+            },
+            success: function (response) {
+
+                location.reload();
+
+                $('#textNotice').val('Add successful');
+                alert('thanh cong');
+            },
+            fail: function (response) {
+                alert('that bai');
+            }
+        });
+    });
+
+
     $('.detailQuestion').click(function () {
         var urlDetail = "/Survey/GetQuestion";
         var idQuestion = $(this).data('question-id');
@@ -32,7 +64,33 @@ $(document).ready(function () {
         });
     });
 
-    var jsonUpdateQuestion;
+    $('.activeQuestion').click(function () {
+        $('#activeQuestion').val($(this).data('question-id'));
+    });
+
+    $('#activeQuestion').click(function () {
+        var urlActive = "/Survey/ActiveQuestion";
+        var idQuestion = $('#activeQuestion').val();
+
+        $.ajax({
+            type: 'post',
+            url: urlActive,
+            data: {
+                id: idQuestion
+            },
+            success: function (response) {
+                location.reload();
+            },
+            fail: function (response) {
+                alert('Changing status fail');
+            }
+        });
+
+    });
+
+    $('#deleteQuestion').click(function () {
+        alert("delete QUinto");
+    });
 
     $('.updateQuestion').click(function () {
 
@@ -50,7 +108,6 @@ $(document).ready(function () {
             success: function (response) {
 
                 var json = response;
-                var jsonUpdateQuestion = response;
 
                 $('#contentUpdate').val(json.questionSurvey.Content);
                 $('#updateQuestion').val(json.questionSurvey.ID);
@@ -67,63 +124,6 @@ $(document).ready(function () {
 
     updateQuestion();
 
-    $('.activeQuestion').click(function () {
-        var urlDetail = "/Survey/UpdateQuestion";
-        var idQuestion = $(this).data('question-id');
-
-        $.ajax({
-            type: 'get',
-            url: urlDetail,
-            data: {
-                id: idQuestion
-            },
-            success: function (response) {
-
-                var json = response;
-                console.log(json);
-                console.log(json.questionSurvey.AnswerSurveys[0]);
-                $("#contentQuestionSurvey").text("Content: " + json.questionSurvey.Content);
-
-                for (var i = 0; i < json.questionSurvey.AnswerSurveys.length; i++) {
-                    $("#formDetailQuestion").append("<div class=\"form-group row\"><label class=\"col-md-2 col-xs-12 text-left\">Answer " + (i + 1) + ":</label><div class=\"col-md-10 col-xs-12\"><label class=\"col-md-10 col-xs-12 text-left\">" + json.questionSurvey.AnswerSurveys[i].Answer + "</label></div></div>");
-                }
-            },
-            fail: function (response) {
-                $('#deleteMessage').text("Can not delete the feedback!");
-            }
-        });
-    });
-
-    $('.deleteQuestion').click(function () {
-        var urlDetail = "/Survey/UpdateQuestion";
-        var idQuestion = $(this).data('question-id');
-
-        $.ajax({
-            type: 'get',
-            url: urlDetail,
-            data: {
-                id: idQuestion
-            },
-            success: function (response) {
-
-                var json = response;
-                console.log(json);
-                console.log(json.questionSurvey.AnswerSurveys[0]);
-                $("#contentQuestionSurvey").text("Content: " + json.questionSurvey.Content);
-
-                for (var i = 0; i < json.questionSurvey.AnswerSurveys.length; i++) {
-                    $("#formDetailQuestion").append("<div class=\"form-group row\"><label class=\"col-md-2 col-xs-12 text-left\">Answer " + (i + 1) + ":</label><div class=\"col-md-10 col-xs-12\"><label class=\"col-md-10 col-xs-12 text-left\">" + json.questionSurvey.AnswerSurveys[i].Answer + "</label></div></div>");
-                }
-            },
-            fail: function (response) {
-                $('#deleteMessage').text("Can not delete the feedback!");
-            }
-        });
-    });
-
-
-    
-
     $('#quantity').change(function () {
         hideExtraAnswer();
         var index = $(this).val();
@@ -134,8 +134,6 @@ $(document).ready(function () {
         var index = $(this).val();
         showAnswerTo(index);
     });
-
-    
 
     $(document).on("click", ".view-Question", function () {
         var feedbackId = $(this).data('feedback-id');
@@ -167,9 +165,8 @@ function updateQuestion() {
                 content: content,
                 answers: answers
             },
-            success: function (res) {
-                setTimeout(function () { }, 1000);
-                location.reload();
+            success: function (respone) {
+                setTimeout(function () { location.reload() }, 1000);
             },
             fail: function (response) {
             }

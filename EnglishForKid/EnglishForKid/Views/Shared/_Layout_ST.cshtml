@@ -25,90 +25,23 @@
     <link href="~/Content/css/myStyle.css" rel="stylesheet" />
 
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Gochi+Hand|Pacifico&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="navbar-wrapper">
-        <div class="container-fluid">
-            <nav class="navbar navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#"><img src="~/Content/files/image/img/logo2.png" /></a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#" class="text-primary">HOME</a></li>
-                            <li class=" dropdown">
-                                <a href="#" class="dropdown-toggle text-danger" 
-                                   style="color:#d35400;"
-                                   data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LISTENING <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class=" dropdown">
-                                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
-                                    </li>
-                                    <li><a href="#">Add New</a></li>
-                                </ul>
-                            </li>
-                            <li class=" dropdown">
-                                <a href="#" class="dropdown-toggle active text-orange"
-                                   data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   style="color:#9b59b6;"
-                                   aria-expanded="false">SPEAKING<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">View Staff</a></li>
-                                    <li><a href="#">Add New</a></li>
-                                    <li><a href="#">Bulk Upload</a></li>
-                                </ul>
-                            </li>
-                            <li class=" dropdown">
-                                <a href="#" class="dropdown-toggle active text-orange" 
-                                   data-toggle="dropdown" role="button" aria-haspopup="true" 
-                                   style="color:#e74c3c;"
-                                   aria-expanded="false">READING <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">View Staff</a></li>
-                                    <li><a href="#">Add New</a></li>
-                                    <li><a href="#">Bulk Upload</a></li>
-                                </ul>
-                            </li>
-                            <li class=" down">
-                                <a href="#" class="dropdown-toggle active text-primary" 
-                                   style="color:#27ae60;"
-                                   data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WRITTING <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Change Time Entry</a></li>
-                                    <li><a href="#">Report</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav pull-right">
-                            <li class=" dropdown">
-                                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Change Password</a></li>
-                                    <li><a href="#">My Profile</a></li>
-                                </ul>
-                            </li>
-                            <li class=""><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+    @{
+        Html.RenderPartial("TopBarView");
+    }
     <div class="container-fluid" style="margin-top:60px;">
-        
-        <div class="row" >
-            <div class="col-sm-12 col-md-10 col-md-offset-1" >
-                <div class="row white box" style="height:80px;">
-                    <div class="viewHeader red col-md-12">
 
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="~/Content/files/image/banner.jpg" style="background-size: cover; width: 100%;height: 100% "/>
                     </div>
                 </div>
                 <div class="row">
@@ -129,8 +62,7 @@
 
     <!-- Core JavaScript Files -->
 
-    <script src="~/Content/js/jquery.min.js"></script>
-    <script src="~/Content/js/bootstrap.min.js"></script>
+
     <script src="~/Content/js/jquery.easing.min.js"></script>
     <script src="~/Content/js/wow.min.js"></script>
     <script src="~/Content/js/jquery.scrollTo.js"></script>

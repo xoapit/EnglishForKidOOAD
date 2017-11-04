@@ -13,11 +13,11 @@ namespace EnglishForKid.Service
         public async Task<bool> AddItemAsync(Comment item)
         {
             String path = "/api/Comments";
-            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public async  Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
             String path = "/api/Comments" + id.ToString();
             HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
@@ -30,7 +30,7 @@ namespace EnglishForKid.Service
             Comment comment = null;
             String path = "/api/Comments" + id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
-             if (response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 comment = await response.Content.ReadAsAsync<Comment>();
             }
@@ -65,8 +65,8 @@ namespace EnglishForKid.Service
 
         public async Task<List<Comment>> GetCommentsAcyncByLessonIdAsync(Guid id)
         {
-            List<Comment> ListCommentOfLesson = null;
-            String path = "/api/comments/Lesson" + id.ToString();
+            List<Comment> ListCommentOfLesson = new List<Comment>();
+            String path = "/api/comments/Lesson/" + id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
 
             if (response.IsSuccessStatusCode)

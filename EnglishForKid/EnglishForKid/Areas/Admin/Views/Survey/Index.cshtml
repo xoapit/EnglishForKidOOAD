@@ -16,6 +16,7 @@
         </div>
     </div>
     <div class="box-body padding-large">
+        <div class="col-md-12"><h2 style="text-align:center;" class="text-success" id="textNotice"></h2></div>
         <button type="Submit" class="btn btn-primary  margin-bottom" data-toggle="modal" data-target="#myModalAddSurvey">Add new survey question</button>
 
         <table class="table table-bordered text-center table-responsive table-hover">
@@ -73,7 +74,7 @@
                             <label for="">Content</label>
                         </div>
                         <div class="form-group row">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="contentAdd"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Aswer option</label>
@@ -86,45 +87,39 @@
                         </div>
                         <div class="answerContent">
                             <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">A</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                <label class="col-md-2 col-xs-12 text-left">Answer 1</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd1" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">B</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                <label class="col-md-2 col-xs-12 text-left">Answer 2</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd2" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">C</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                <label class="col-md-2 col-xs-12 text-left">Answer 3</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd3" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">D</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
+                                <label class="col-md-2 col-xs-12 text-left">Answer 4</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd4" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">E</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
+                                <label class="col-md-2 col-xs-12 text-left">Answer 5</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd5" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">F</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
+                                <label class="col-md-2 col-xs-12 text-left">Answer 6</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd6" value="">
                                 </div>
                             </div>
                         </div>
@@ -133,8 +128,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary pull-right margin">
-                    <span><i class="fa fa-clock-o txt-danger"></i></span> Add
+                <button type="submit" id="addQuestion" class="btn btn-primary pull-right margin">
+                    <span><i class="fa fa-clock-o txt-danger" ></i></span> Add
                 </button>
                 <button type="button" class="btn btn-default margin" data-dismiss="modal"> Close </button>
             </div>
@@ -230,7 +225,7 @@
                 <div class="form-group row">
                     <div class="col-md-9 col-xs-12"></div>
                     <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-success">Yes</button>
+                        <button type="button" class="btn btn-success" id="deleteQuestion">Yes</button>
                     </div>
                     <div class="col-md-1 col-xs-12">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
@@ -243,6 +238,7 @@
 
     </div>
 </div>
+
 <div class="modal fade" id="myModalActiveSurvey" role="dialog">
     <div class="modal-dialog">
 
@@ -265,12 +261,11 @@
                 <div class="form-group row">
                     <div class="col-md-9 col-xs-12"></div>
                     <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-success">Yes</button>
+                        <button type="button" class="btn btn-success" id="activeQuestion">Yes</button>
                     </div>
                     <div class="col-md-1 col-xs-12">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     </div>
-
                     <div class="col-md-1 col-xs-12"></div>
                 </div>
             </div>

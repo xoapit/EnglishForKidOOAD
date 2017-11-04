@@ -16,11 +16,11 @@ namespace EnglishForKidAPI.Controllers
 {
     public class QuestionSurveysController : BaseApiController
     {
-
         // GET: api/QuestionSurveys
-        public List<QuestionSurvey> GetQuestionSurveys()
+        [Route("api/QuestionSurveys")]
+        public IEnumerable<QuestionSurvey> GetQuestionSurveys()
         {
-            return db.QuestionSurveys.ToList();
+            return db.QuestionSurveys;
         }
 
         [Route("api/QuestionSurveys/base")]
@@ -40,6 +40,20 @@ namespace EnglishForKidAPI.Controllers
         public IHttpActionResult GetQuestionSurvey(Guid id)
         {
             QuestionSurvey questionSurvey = db.QuestionSurveys.Find(id);
+
+            if (questionSurvey == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(questionSurvey);
+        }
+
+        [ResponseType(typeof(QuestionSurvey))]
+        [Route("api/getActiveQuestion")]
+        public IHttpActionResult GetActiveQuestion()
+        {
+            QuestionSurvey questionSurvey = db.QuestionSurveys.FirstOrDefault(p => p.Status == true);
 
             if (questionSurvey == null)
             {
@@ -69,7 +83,7 @@ namespace EnglishForKidAPI.Controllers
             {
                 db.Entry(answerSurvey).State = EntityState.Modified;
             }
-            
+
             try
             {
                 db.SaveChanges();
@@ -86,26 +100,34 @@ namespace EnglishForKidAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.OK);
+            return Ok();
         }
 
         // POST: api/QuestionSurveys
         [ResponseType(typeof(QuestionSurvey))]
-        public IHttpActionResult PostQuestionSurvey(QuestionSurvey questionSurvey)
+        [Route("api/activeQuestion")]
+        public IHttpActionResult PostActiveQuestion(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.QuestionSurveys.Add(questionSurvey);
-            db.AnswerSurveys.AddRange(questionSurvey.AnswerSurveys);
+            QuestionSurvey questionSurvey = db.QuestionSurveys.FirstOrDefault(p => p.ID == id);
+            if (questionSurvey == null)
+            {
+                return NotFound();
+            }
+
+            questionSurvey.Status = !questionSurvey.Status;
+
+            db.Entry(questionSurvey).State = EntityState.Modified;
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException ex)
             {
                 if (QuestionSurveyExists(questionSurvey.ID))
                 {
@@ -117,7 +139,53 @@ namespace EnglishForKidAPI.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = questionSurvey.ID }, questionSurvey);
+            return Ok();
+
+        }
+
+
+        // POST: api/QuestionSurveys
+        [ResponseType(typeof(QuestionSurvey))]
+        [Route("api/postQuestionSurvey")]
+        public IHttpActionResult PostQuestionSurvey(QuestionSurvey questionSurvey)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            List<AnswerSurvey> answers = questionSurvey.AnswerSurveys.ToList();
+            questionSurvey.AnswerSurveys = null;
+
+            db.QuestionSurveys.Add(questionSurvey);
+
+            foreach (var answer in answers)
+            {
+                db.AnswerSurveys.Add(new AnswerSurvey
+                {
+                    ID = Guid.NewGuid(),
+                    Answer = answer.Answer,
+                    QuestionSurveyID = questionSurvey.ID
+                });
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                if (QuestionSurveyExists(questionSurvey.ID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok();
         }
 
         // DELETE: api/QuestionSurveys/5
