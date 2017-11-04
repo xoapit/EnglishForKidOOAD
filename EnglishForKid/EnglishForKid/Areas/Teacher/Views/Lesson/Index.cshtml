@@ -1,5 +1,8 @@
-﻿@using EnglishForKid.Models
+﻿@using EnglishForKid.Models;
 @model EnglishForKid.Models.Lesson
+
+﻿@using EnglishForKid.Models;
+
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +15,7 @@
 
 <div class="box box-danger">
     <div class="box-header with-border">
-        <h3 class="box-title">LIST OF LESSON</h3>
+        <h3 class="box-title">LIST OF LESSONS</h3>
         <div class="box-tools pull-right">
             <a id="btnAddLesson" class="btn btn-primary">
                 <i class="fa fa-adjust"></i> Create
@@ -26,13 +29,13 @@
     <script src="~/Areas/Teacher/Scripts/lesson/index.js"></script>
     <!-- /.box-header -->
     <div class="box-body padding-large">
-        
+
         <table id="myLessonTable" class="table table-bordered table-responsive table-hover text-center">
 
             <thead>
                 <tr align="center" style="">
-                    <th>ID Lesson</th>
-                    <th>Lesson Name</th>
+                    <th>Index</th>
+                    <th>Title</th>
                     <th hidden>LevelID</th>
                     <th hidden>Image</th>
                     <th hidden>CategoryID</th>
@@ -42,7 +45,8 @@
                     <th hidden>Discussion</th>
                     <th hidden>ApplicationUserID</th>
                     <th hidden>CrateAt</th>
-                    <th >Action</th>
+                    @*<th> Status </th>*@
+                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -58,21 +62,34 @@
                             <td>@lessons.Title</td>
                             <td hidden>@lessons.LevelID</td>
                             <td hidden>@lessons.Image</td>
-                            <td hidden>@lessons.CategoryID</td>                          
-                            
+                            <td hidden>@lessons.CategoryID</td>
+
                             <td hidden>@lessons.Content</td>
-                            
+
                             <td hidden>@lessons.Exercise</td>
                             <td hidden>@lessons.Answer</td>
                             <td hidden>@lessons.Discussion</td>
                             <td hidden>@lessons.ApplicationUserID</td>
                             <td hidden>@lessons.CreateAt.ToString("dd/MMM/yyyy")</td>
+                            @*<td>
+                                <button type="button" class="btn btn-danger block-Account" data-status="@lessons.Status" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalBlockLesson">
+                                    @{
+                                        if (lessons.Status)
+                                        {
+                                            <text>Block</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Unlock</text>
+                                        }
+                                    }
+                                </button>
+                            </td>*@
+
                             <td>
 
                                 <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">
-                                    Update
-                                </button>
+                                <button  type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">Update </button>
                                 <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
                             </td>
                         </tr>
@@ -95,38 +112,39 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">DELETE LESSON</h4>
             </div>
+
             <div class="modal-body">
                 <div class="box-body padding-large">
                     <form>
 
                         <div hidden>
-                        <input type="text" class="form-control" name="deleteLessonId" id="deleteLessonId" value="" style="background-color:white" />
+                            <input type="text" class="form-control" name="deleteLessonId" id="deleteLessonId" value="" style="background-color:white" />
                         </div>
 
-                <div class="form-group row text-center">
-                    <label>Are you sure that you want to delete this lesson?</label>
-                </div>
+                        <div class="form-group row text-center">
+                            <label>Are you sure that you want to delete this lesson?</label>
+                        </div>
 
-                </form>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group row">
+                    <div class="col-md-9 col-xs-12" id="deleteMessageBox">
+                        <label class="text text-success" id="deleteMessage"></label>
+                    </div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" data-lesson-id="" id="btnDeleteLesson" class="btn btn-primary">Yes</button>
+                    </div>
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    </div>
+                    <div class="col-md-1 col-xs-12"></div>
+                </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <div class="form-group row">
-                <div class="col-md-9 col-xs-12" id="deleteMessageBox">
-                    <label class="text text-success" id="deleteMessage"></label>
-                </div>
-                <div class="col-md-1 col-xs-12">
-                    <button type="button" data-lesson-id="" id="btnDeleteLesson" class="btn btn-primary">Yes</button>
-                </div>
-                <div class="col-md-1 col-xs-12">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                </div>
-                <div class="col-md-1 col-xs-12"></div>
-            </div>
-        </div>
+
     </div>
-
-</div>
 </div>
 
 <!--Detail Lesson Modal -->
@@ -140,7 +158,7 @@
             </div>
             <div class="modal-body">
                 <div id="detailLesson">
-                   
+
                 </div>
             </div>
             <div class="modal-footer">
@@ -153,31 +171,31 @@
 
 <!--  Update Lesson Modal -->
 <div class="modal fade" id="myModalUpdateLesson" role="dialog">
-        <div class="modal-dialog  modal-lg">
-            <!-- Modal content-->
-            <div class="modal-content" style="margin:2%;">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">UPDATE LESSON</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="updateLesson">
-
-                    </div>
-                </div>
-
+    <div class="modal-dialog  modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">UPDATE LESSON</h4>
             </div>
+            <div class="modal-body">
+                <div id="updateLesson">
+
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 
 <!-- DataTable-->
-    <script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="~/Areas/Admin/bower_components/datatables.net/js/"></script>
 <script>
     $(document).ready(function () {
-        var lessonTable = $('#myLessonTable').DataTable();       
+        var lessonTable = $('#myLessonTable').DataTable();
         document.getElementById('btnAddLesson').href = window.location.origin + "/Teacher/Lesson/Create";
-        
+
     });
 </script>
 

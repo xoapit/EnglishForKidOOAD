@@ -28,9 +28,9 @@ $(document).ready(function () {
             data: {
                 id: idLesson
             },
-            Picture: function (response) {
+            success: function (response) {
                 if (response !== false) {
-                    $('#deleteMessage').text("You deleted the lesson Picturefully!");
+                    $('#deleteMessage').text("You deleted the lesson successfully!");
                 }
                 else {
                     $('#deleteMessage').text("Can not delete the lesson!");

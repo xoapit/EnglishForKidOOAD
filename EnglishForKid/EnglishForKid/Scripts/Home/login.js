@@ -4,7 +4,7 @@
         password = $('#password').val();
         rememberMe = false;
        
-        urlLogin = "Account/Login";
+        urlLogin =window.location.origin+ "/Account/Login";
         $.ajax({
             type: 'post',
             url: urlLogin,

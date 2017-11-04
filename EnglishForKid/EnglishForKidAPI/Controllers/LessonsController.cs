@@ -23,6 +23,22 @@ namespace EnglishForKidAPI.Controllers
             return db.Lessons;
         }
 
+        [HttpGet]
+        [Route("api/lessons")]
+        public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(int limit)
+        {
+            List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
+            List<Lesson> lessons = db.Lessons.Take(limit).OrderByDescending(x => x.CreateAt).ToList();
+            if (lessons != null)
+            {
+                foreach (Lesson lesson in lessons)
+                {
+                    baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
+                }
+            }
+            return baseLessons;
+        }
+
         // GET: api/Lessons/5
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult GetLesson(Guid id)
@@ -38,19 +54,37 @@ namespace EnglishForKidAPI.Controllers
 
         [Route("api/lessons")]
         [HttpGet]
-        public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName)
+        public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName, int start = 0, int take = 10)
         {
             List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
             List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName).ToList();
+
             if (lessons != null)
             {
+                int remainingNumber = lessons.Count() - start;
+                if (remainingNumber < take)
+                {
+                    take = remainingNumber;
+                }
+                lessons = lessons
+               .OrderByDescending(x => x.CreateAt)
+               .Skip(start)
+               .Take(take)
+               .ToList();
                 foreach (Lesson lesson in lessons)
                 {
                     baseLessons.Add(ModelFactory.GetBaseLessonInfoViewModel(lesson));
                 }
             }
-
             return baseLessons;
+        }
+
+        [Route("api/lessons/numberOfLessons")]
+        [HttpGet]
+        public int GetNumberOfLessonsByCategoryName(string categoryName)
+        {
+            List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName).ToList();
+            return lessons.Count();
         }
 
         // PUT: api/Lessons/5
@@ -93,14 +127,30 @@ namespace EnglishForKidAPI.Controllers
         [Route("api/Lessons")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult PostLesson(Lesson lesson)
-        { 
-            db.Lessons.Add(lesson);
+        {
+            Lesson item = new Lesson()
+            {
+                ID = Guid.NewGuid(),
+                Answer = lesson.Answer,
+                ApplicationUserID = lesson.ApplicationUserID,
+                CategoryID = lesson.CategoryID,
+                Content = lesson.Content,
+                CreateAt = DateTime.Now,
+                Discussion = lesson.Discussion,
+                Exercise = lesson.Exercise,
+                Image = lesson.Image,
+                LevelID = lesson.LevelID,
+                Tag = lesson.Tag,
+                Title = lesson.Title
+            };
+
+            db.Lessons.Add(item);
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException )
             {
                 if (LessonExists(lesson.ID))
                 {
@@ -110,6 +160,10 @@ namespace EnglishForKidAPI.Controllers
                 {
                     throw;
                 }
+            }
+            catch (Exception )
+            {
+
             }
 
             return Ok(lesson);

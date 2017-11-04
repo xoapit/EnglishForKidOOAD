@@ -16,7 +16,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         // GET: Teacher/Home
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Lesson");
         }
 
         // GET: Teacher/Home/Details/5

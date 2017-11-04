@@ -32,7 +32,7 @@ namespace EnglishForKid.Service
         {
             Lesson lesson = null;
 
-            String path = "/api/Lessons/" +id.ToString();
+            String path = "/api/Lessons/" + id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
@@ -54,10 +54,10 @@ namespace EnglishForKid.Service
             return listLesson;
         }
 
-        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsByCategoryNameAsync(string categoryName)
+        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsByCategoryNameAsync(string categoryName, int start = 0, int take = 10)
         {
             List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
-            String path = "/api/Lessons?categoryName="+categoryName;
+            String path = "/api/Lessons?categoryName=" + categoryName + "&start=" + start + "&take=" + take;
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
@@ -67,16 +67,40 @@ namespace EnglishForKid.Service
             return listLesson;
         }
 
+        public async Task<int> GetNumberOfLessonsByCategoryNameAsync(string categoryName)
+        {
+            int numberOfLessons = 0;
+            String path = "/api/Lessons/numberOfLessons?categoryName=" + categoryName;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                numberOfLessons = Int32.Parse(await response.Content.ReadAsStringAsync());
+            }
+            return numberOfLessons;
+        }
+
+        public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsAsync(int limit)
+        {
+            List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
+            String path = "/api/Lessons?limit=" + limit;
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                listLesson = await response.Content.ReadAsAsync<List<BaseLessonInfoViewModel>>();
+            }
+            return listLesson;
+        }
+
         public Task InitializeAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> UpdateItemAsync(Lesson item)
+        public async Task<bool> UpdateItemAsync(Lesson lesson)
         {
-            string path = "/api/Lessons/" + item.ID;
-            HttpResponseMessage response = await client.PutAsJsonAsync(path, item).ConfigureAwait(false);
-            return await Task.FromResult(response.IsSuccessStatusCode); 
+            string path = "/api/Lessons/" + lesson.ID;
+            HttpResponseMessage response = await client.PutAsJsonAsync(path, lesson).ConfigureAwait(false);
+            return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
     }
