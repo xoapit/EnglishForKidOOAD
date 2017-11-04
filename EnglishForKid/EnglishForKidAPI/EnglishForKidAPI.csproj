@@ -297,7 +297,6 @@
     <Compile Include="Models\ViewModels\BaseLessonInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\BaseQuestionSurveyViewModel.cs" />
     <Compile Include="Models\ViewModels\ChartStatisticViewModel.cs" />
-    <Compile Include="Models\ViewModels\RoleViewModel.cs" />
     <Compile Include="Models\ViewModels\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModels\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -400,7 +399,6 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

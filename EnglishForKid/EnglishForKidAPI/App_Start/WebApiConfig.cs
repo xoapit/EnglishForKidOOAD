@@ -37,7 +37,7 @@ namespace EnglishForKidAPI
             json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
 
             GlobalConfiguration.Configuration.Formatters.JsonFormatter
-                .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+                .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
             GlobalConfiguration.Configuration.Formatters.Remove(config.Formatters.XmlFormatter);
 
