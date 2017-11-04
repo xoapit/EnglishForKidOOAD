@@ -1,4 +1,8 @@
 ﻿@using EnglishForKid.Models;
+@model EnglishForKid.Models.Lesson
+
+﻿@using EnglishForKid.Models;
+
 
 @{
     ViewBag.Title = "Index";
@@ -40,7 +44,8 @@
                     <th hidden>Answer</th>
                     <th hidden>Discussion</th>
                     <th hidden>ApplicationUserID</th>
-                    <th>CrateAt</th>
+                    <th hidden>CrateAt</th>
+                    @*<th> Status </th>*@
                     <th>Action</th>
                 </tr>
             </thead>
@@ -65,13 +70,26 @@
                             <td hidden>@lessons.Answer</td>
                             <td hidden>@lessons.Discussion</td>
                             <td hidden>@lessons.ApplicationUserID</td>
-                            <td>@lessons.CreateAt.ToString("dd/MMM/yyyy")</td>
+                            <td hidden>@lessons.CreateAt.ToString("dd/MMM/yyyy")</td>
+                            @*<td>
+                                <button type="button" class="btn btn-danger block-Account" data-status="@lessons.Status" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalBlockLesson">
+                                    @{
+                                        if (lessons.Status)
+                                        {
+                                            <text>Block</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Unlock</text>
+                                        }
+                                    }
+                                </button>
+                            </td>*@
+
                             <td>
 
                                 <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <button id="btnUpdateLesson" type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">
-                                    Update
-                                </button>
+                                <button  type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">Update </button>
                                 <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
                             </td>
                         </tr>

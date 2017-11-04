@@ -151,7 +151,7 @@ namespace EnglishForKidAPI.Controllers
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException )
             {
                 if (LessonExists(lesson.ID))
                 {
@@ -162,7 +162,7 @@ namespace EnglishForKidAPI.Controllers
                     throw;
                 }
             }
-            catch (Exception e)
+            catch (Exception )
             {
 
             }
