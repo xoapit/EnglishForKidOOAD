@@ -271,7 +271,6 @@
     <Compile Include="Helper\AuthorizeController.cs" />
     <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\ReflectionController.cs" />
-
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FeedbackReplyHistory.cs" />
     <Compile Include="Models\View.cs" />
@@ -297,6 +296,7 @@
     <Compile Include="Models\ViewModels\BaseLessonInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\BaseQuestionSurveyViewModel.cs" />
     <Compile Include="Models\ViewModels\ChartStatisticViewModel.cs" />
+    <Compile Include="Models\ViewModels\RoleViewModel.cs" />
     <Compile Include="Models\ViewModels\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModels\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

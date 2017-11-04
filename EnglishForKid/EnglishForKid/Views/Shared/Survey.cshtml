@@ -46,27 +46,27 @@
                     <div class="col-md-10 col-sm-9">
                         <h4>@lesson.Title</h4>
                     </div>
-</div>
-</div>
-   }
-    }
-<div class="box bg-white border box profile-sidebar margin-bottom" style="margin-bottom:10px;">
-    <div>
-        @{ 
-            Html.RenderPartial("SurveyChart");
-        }
-    </div>
-    <div row>
-        <div class="box-header bg-primary">
-            Where are you now?
-        </div>
-        <div class="padding">
-            <div class="row padding">
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 1</label>
-
                 </div>
             </div>
-     </div>
-</div>
-<script src="~/Scripts/Share/showQuestion.js"></script>
+        }
+    }
+    <div class="box bg-white border box profile-sidebar margin-bottom" style="margin-bottom:10px;">
+        <div>
+            @{
+                Html.RenderPartial("SurveyChart");
+            }
+        </div>
+        <div row>
+            <div class="box-header bg-primary">
+                Where are you now?
+            </div>
+            <div class="padding">
+                <div class="row padding">
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Option 1</label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="~/Scripts/Share/showQuestion.js"></script>

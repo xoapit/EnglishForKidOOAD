@@ -15515,8 +15515,7 @@
     <Content Include="Scripts\ckeditor\package.json" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
-<<<<<<< HEAD
-=======
+
     <Content Include="Content\bootstrap-star-rating\.github\CONTRIBUTING.md" />
     <Content Include="Content\bootstrap-star-rating\.github\ISSUE_TEMPLATE.md" />
     <Content Include="Content\bootstrap-star-rating\.github\PULL_REQUEST_TEMPLATE.md" />
@@ -15527,7 +15526,7 @@
     <Content Include="Content\bootstrap-star-rating\package.json" />
     <Content Include="Content\bootstrap-star-rating\README.md" />
     <Content Include="Areas\Teacher\Views\Lesson\Edit.cshtml" />
->>>>>>> master
+
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\Home\login.js" />
