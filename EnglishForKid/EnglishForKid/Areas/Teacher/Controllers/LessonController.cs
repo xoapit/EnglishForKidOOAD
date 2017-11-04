@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using EnglishForKid.Service;
 using EnglishForKid.Models;
+using EnglishForKid.Models.ViewModels;
 
 namespace EnglishForKid.Areas.Teacher.Controllers
 {
@@ -16,7 +17,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         public ActionResult Index()
         {
 
-            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
+            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
             ViewBag.Lessons = lessons;
             return View();
         }

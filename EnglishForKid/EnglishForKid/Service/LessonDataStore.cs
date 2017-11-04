@@ -32,7 +32,11 @@ namespace EnglishForKid.Service
         {
             Lesson lesson = null;
 
+<<<<<<< HEAD
+            String path = "/api/Lessons/detail/" +id.ToString();
+=======
             String path = "/api/Lessons/" + id.ToString();
+>>>>>>> master
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
@@ -41,14 +45,14 @@ namespace EnglishForKid.Service
             return lesson;
         }
 
-        public async Task<List<Lesson>> GetItemsAsync()
+        public async Task<List<BaseLessonInfoViewModel>> GetItemsAsync()
         {
-            List<Lesson> listLesson = new List<Lesson>();
+            List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
             String path = "/api/Lessons";
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                listLesson = await response.Content.ReadAsAsync<List<Lesson>>();
+                listLesson = await response.Content.ReadAsAsync<List<BaseLessonInfoViewModel>>();
             }
 
             return listLesson;
@@ -57,7 +61,11 @@ namespace EnglishForKid.Service
         public async Task<List<BaseLessonInfoViewModel>> GetBaseLessonInfoViewModelsByCategoryNameAsync(string categoryName, int start = 0, int take = 10)
         {
             List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
+<<<<<<< HEAD
+            String path = "/api/Lessons/" + categoryName ;
+=======
             String path = "/api/Lessons?categoryName=" + categoryName + "&start=" + start + "&take=" + take;
+>>>>>>> master
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {

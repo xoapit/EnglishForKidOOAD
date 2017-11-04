@@ -25,8 +25,7 @@
 </head>
 
 <body>
-
-
+   
     @{
         Html.RenderPartial("TopBarView");
     }
@@ -182,52 +181,11 @@
         </div>
         <div class="container mt40">
             <section class="row">
-                <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default" id="img2">
-                        <div class="panel-body">
-                            <a href="~/Content/files/image/img/g2.jpg" title="Food Portfolio" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
-                                <img src="~/Content/files/image/img/g2.jpg" alt="Food Portfolio" />
-                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
-                            </a>
-                        </div>
-
-                    </div>
-                </article>
-                <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default" id="img2">
-                        <div class="panel-body">
-                            <a href="~/Content/files/image/img/g2.jpg" title="Food Portfolio" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
-                                <img src="~/Content/files/image/img/g2.jpg" alt="Food Portfolio" />
-                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
-                            </a>
-                        </div>
-
-                    </div>
-                </article>
-                <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default" id="img3">
-                        <div class="panel-body">
-                            <a href="~/Content/files/image/img/g3.jpg" title="Sports Portfolio" class="zoom" data-title="Radical Sports" data-footer="This are the best moments" data-type="image" data-toggle="lightbox">
-                                <img src="~/Content/files/image/img/g3.jpg" alt="Sports Portfolio" />
-                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
-                            </a>
-                        </div>
-
-                    </div>
-                </article>
-                <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default"id="img4">
-                        <div class="panel-body">
-                            <a href="~/Content/files/image/img/logoo.png" title="People Portfolio" class="zoom" data-title="Beautiful People" data-footer="We create relationships" data-type="image" data-toggle="lightbox">
-                                <img src="~/Content/files/image/img/g4.jpg" alt="People Portfolio" />
-                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
-                            </a>
-                        </div>
-
-                    </div>
-                </article>
+               
+                    @{Html.RenderAction("GetLessonIndex", "Home"); }
+                
             </section>
-            <section class="row">
+            @*<section class="row">
                 <article class="col-xs-12 col-sm-6 col-md-3">
                     <div class="panel panel-default" id="img5">
                         <div class="panel-body">
@@ -239,40 +197,8 @@
 
                     </div>
                 </article>
-                <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body" id="img6">
-                            <a href="~/Content/files/image/img/g2.jpg" title="Food Portfolio" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
-                                <img src="~/Content/files/image/img/g2.jpg" alt="Food Portfolio" />
-                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
-                            </a>
-                        </div>
-
-                    </div>
-                </article>
-                <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default" id="img7">
-                        <div class="panel-body">
-                            <a href="~/Content/files/image/img/g3.jpg" title="Sports Portfolio" class="zoom" data-title="Radical Sports" data-footer="This are the best moments" data-type="image" data-toggle="lightbox">
-                                <img src="~/Content/files/image/img/g3.jpg" alt="Sports Portfolio" />
-                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
-                            </a>
-                        </div>
-
-                    </div>
-                </article>s
-                <article class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body" id="img8">
-                            <a href="~/Content/files/image/img/g4.jpg" title="People Portfolio" class="zoom" data-title="Beautiful People" data-footer="We create relationships" data-type="image" data-toggle="lightbox">
-                                <img src="~/Content/files/image/img/g4.jpg" alt="People Portfolio" />
-                                <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
-                            </a>
-                        </div>
-
-                    </div>
-                </article>
-            </section>
+                
+            </section>*@
         </div>
     </section>
 
