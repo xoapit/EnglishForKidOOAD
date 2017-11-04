@@ -123,7 +123,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         {
             InitCreate();
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
-            return View(lesson);
+            return View();
         }
 
         // POST: Teacher/Lesson/Edit/5
@@ -140,7 +140,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                 var levelValue = collection["LevelID"];
 
                 var image = collection["Image"];
-                var content = collection["Content"];
+                var content = Request.Unvalidated.Form.Get("Content");
                 var discussion = collection["Discussion"];
                 var exercise = collection["Exercise"];
                 var answer = collection["Answer"];
@@ -152,8 +152,8 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                 {
                     ID = Guid.NewGuid(),
                     CreateAt = DateTime.Now,
-                    // Tag = "",
-                    // ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
+                    Tag = "",
+                    ApplicationUserID = Request.Cookies["Id"].Value,
                     Title = title,
                     CategoryID = categoryID,
                     LevelID = levelID,

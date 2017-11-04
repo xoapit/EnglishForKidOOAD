@@ -31,7 +31,6 @@ namespace EnglishForKidAPI.Migrations
             //InitRates(context);
             //InitResults(context);
             //InitAnswerSurveys(context);
-
         }
 
         private void InitAnswerSurveys(ApplicationDbContext context)
