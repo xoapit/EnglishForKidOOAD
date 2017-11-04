@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EnglishForKid.Models.ViewModels;
+using EnglishForKid.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,23 @@ namespace EnglishForKid.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
+        StatisticDataStore statisticDataStore = new StatisticDataStore();
+
         // GET: Admin/Home
         public ActionResult Index()
         {
+            StatisticViewModel statisticViewModel = new StatisticViewModel();
+            statisticViewModel = statisticDataStore.GetStatisticAsync().Result;
+            ViewBag.StatisticViewModel = statisticViewModel;
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult GetChartData(int days)
+        {
+            ChartStatisticViewModel statisticViewModel = new ChartStatisticViewModel();
+            statisticViewModel = statisticDataStore.GetChartStatisticAsync(days).Result;
+            return Json(statisticViewModel, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Admin/Home/Details/5

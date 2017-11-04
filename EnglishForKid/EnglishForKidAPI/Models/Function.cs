@@ -8,7 +8,7 @@ using System.Web;
 
 namespace EnglishForKidAPI.Models
 {
-    [Table("Functions")]
+    [Table("Function")]
     public class Function: BaseDataObject
     {
         public string Name { get; set; }

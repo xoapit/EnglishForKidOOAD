@@ -14,7 +14,6 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body padding-large">
-        <button type="button" id="btn-pdf">PDF</button>
         <table id="myFeedbackTable" class="table table-bordered table-hover table-responsive text-center" cellspacing="0">
             <thead>
                 <tr align="center" style="">
@@ -163,9 +162,6 @@
 
 
 <script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="~/Areas/Admin/bower_components/datatables.net/js/"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/r/dt/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.9,b-1.0.3,b-html5-1.0.3/datatables.min.css"></script>
 <script>
     $(document).ready(function () {
         var table = $('#myFeedbackTable').DataTable({
@@ -178,9 +174,5 @@
                 }
             ]
         });
-
-        $('#btn-pdf').on('click', function () {
-            table.button('0-0').trigger();
-        });  
     });
 </script>

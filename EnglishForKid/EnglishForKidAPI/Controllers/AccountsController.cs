@@ -131,7 +131,7 @@ namespace identity.Controllers
             }
             UserManager.PasswordHasher.HashPassword("123456");
             //var tokenjsonString = GetTokenForNewUser(model.UserName, model.Password);
-
+            
             // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
@@ -486,6 +486,38 @@ namespace identity.Controllers
             return logins;
         }
 
+        [AllowAnonymous]
+        [Route("UsernameAlreadyExists")]
+        public async Task<IHttpActionResult> UsernameAlreadyExistsAsync(string username)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await this.UserManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        [AllowAnonymous]
+        [Route("EmailAlreadyExists")]
+        public async Task<IHttpActionResult> EmailAlreadyExistsAsync(string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await this.UserManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -508,7 +540,8 @@ namespace identity.Controllers
                 Gender = createUserModel.Gender,
                 Id = Guid.NewGuid().ToString(),
                 Status = createUserModel.Status,
-                PhoneNumber = createUserModel.PhoneNumber
+                PhoneNumber = createUserModel.PhoneNumber,
+                UpdateAt= DateTime.Now,
             };
 
             IdentityResult addUserResult = await this.UserManager.CreateAsync(user, createUserModel.Password);
@@ -518,16 +551,13 @@ namespace identity.Controllers
                 return GetErrorResult(addUserResult);
             }
 
-            IdentityResult addUserRoleResult = this.UserManager.AddToRole(user.Id, createUserModel.Password);
+            IdentityResult addUserRoleResult = this.UserManager.AddToRole(user.Id, createUserModel.RoleName);
 
             if (!addUserRoleResult.Succeeded)
             {
                 return GetErrorResult(addUserResult);
             }
-
-            Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-
-            return Created(locationHeader, TheModelFactory.Create(user));
+            return Ok(TheModelFactory.Create(user));
         }
 
         // POST api/Account/RegisterExternal

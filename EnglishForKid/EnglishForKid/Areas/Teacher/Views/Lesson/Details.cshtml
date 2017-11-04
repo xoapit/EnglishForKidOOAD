@@ -1,0 +1,90 @@
+﻿@using EnglishForKid.Models
+@model EnglishForKid.Models.Lesson
+
+@{
+    Lesson lesson = ViewBag.Lesson;
+}
+
+<div class="padding-large">
+    <form class="form-horizontal" role="form">
+
+        <div hidden>
+            <input type="text" class="form-control" name="viewLessonId" id="viewLessonId" value="@lesson.ID" style="background-color:white" />
+        </div>
+
+        <div class="form-group ">
+
+            <label for="">Title</label>
+            <div>
+                <input type="text" name="detailLessonTitle" id="detailLessonTitle" class="form-control" readonly value="@lesson.Title">
+            </div>
+
+        </div>
+
+        <div class="form-group ">
+
+            <label for="">Level</label>
+            <div>
+                <input type="text" name="detailLessonLevel" id="detailLessonlLevel" class="form-control" readonly value="@lesson.Level.Value">
+
+            </div>
+
+        </div>
+
+        <div class="form-group ">
+
+            <label for="">Picture</label>
+            <div>
+                <img name="detailLessonPicture" id="detailLessonPicture" src="@lesson.Image">
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+        <div class="form-group ">
+
+            <label for="">Category</label>
+            <div>
+                <input type="text" class="form-control" name="detailLessonCategory" id="detailLessonCategory" readonly value="@lesson.Category.Name">
+
+            </div>
+
+        </div>
+        <div class="row">
+
+            <label for="">Content</label>
+            <div>
+                <div name="detailLessonContent" id="detailLessonContent" >@Html.Raw(lesson.Content)</div>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+
+        <div class="form-group ">
+
+            <label for="">Exercise</label>
+            <div>
+                <textarea class="form-control" s="5" name="detailLessonExercise" id="detailLessonExcercise" readonly value="@Html.Raw(lesson.Exercise)"></textarea>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+        <div class="form-group ">
+
+            <label for="">Answer</label>
+            <div>
+                <textarea class="form-control" s="5" name="detailLessonAnswer" id="detailLessonAnswer" readonly value="@Html.Raw(lesson.Answer)"></textarea>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+        <div class="form-group ">
+
+            <label for="">Discussion</label>
+            <div>
+                <textarea class="form-control" s="5" name="detailLessonDiscussion" id="detailLessonDiscussion" readonly value="@Html.Raw(lesson.Discussion)"></textarea>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+    </form>
+</div>

@@ -27,11 +27,45 @@ namespace EnglishForKid.Areas.Admin.Controllers
             return Json(new { questionSurvey }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Add(QuestionSurvey questionSurvey)
+        public ActionResult GetActiveQuestion(Guid id)
         {
-            var result = questionSurveyDataStore.AddItemAsync(questionSurvey);
+            QuestionSurvey questionSurvey = questionSurveyDataStore.GetActiveQuestion()?.Result;
+            return Json(new { questionSurvey }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpDelete]
+        public ActionResult DeleteQuestion(Guid id)
+        {
+            var result = questionSurveyDataStore.DeleteItemAsync(id)?.Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult AddQuestion(string content, string[] answers)
+        {
+            Guid idQuestion = Guid.NewGuid();
+            QuestionSurvey questionSurvey = new QuestionSurvey
+            {
+                ID = idQuestion,
+                Content = content,
+                CreateAt = DateTime.Now,
+                //TODO, change the value here
+                ApplicationUserID = "18129df2-218a-4d84-9e75-a4768342c653"
+            };
+
+            foreach (var answer in answers)
+            {
+                questionSurvey.AnswerSurveys.Add(new AnswerSurvey
+                {
+                    ID = Guid.NewGuid(),
+                    QuestionSurveyID = idQuestion,
+                    Answer = answer
+                });
+            }
+
+            var result = questionSurveyDataStore.AddItemAsync(questionSurvey)?.Result;
             ViewBag.Result = result;
-            return View();
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -47,8 +81,16 @@ namespace EnglishForKid.Areas.Admin.Controllers
                 questionSurvey.AnswerSurveys[i].Answer = answers[i];
             }
 
-            var result = questionSurveyDataStore.UpdateItemAsync(questionSurvey).Result;
-            return Json( result , JsonRequestBehavior.AllowGet);
+            var result = questionSurveyDataStore.UpdateItemAsync(questionSurvey)?.Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult ActiveQuestion(Guid id)
+        {
+            var result = questionSurveyDataStore.ActiveQuestion(id)?.Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        
     }
 }
