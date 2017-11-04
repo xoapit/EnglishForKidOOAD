@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EnglishForKid.Models;
+using EnglishForKid.Service;
 
 namespace EnglishForKid.Areas.Teacher.Controllers
 {
+
+
     public class HomeController : Controller
     {
+        LessonDataStore lessonDataStore = new LessonDataStore();
         // GET: Teacher/Home
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Lesson");
         }
 
         // GET: Teacher/Home/Details/5
@@ -23,7 +28,18 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         // GET: Teacher/Home/Create
         public ActionResult Create()
         {
+            //Get list Categories
+            CategoryDataStore categoryDataStore = new CategoryDataStore();
+            List<Category> categories = categoryDataStore.GetItemsAsync().Result;
+            ViewBag.Categories = categories.Select(x => x.Name).ToList();
+
+            //Get list Level
+            LevelDataStore levelDataStore = new LevelDataStore();
+            List<Level> levels = levelDataStore.GetItemsAsync().Result;
+            ViewBag.Levels = levels.Select(x => x.Value.ToString()).ToList();
+
             return View();
+
         }
 
         // POST: Teacher/Home/Create
@@ -32,9 +48,37 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                var title = collection["Title"];
+                var category = collection["Category"];
+                var level = collection["Level"];
+                var image = collection["Image"];
+                var content = collection["Content"];
+                var discussion = collection["Discussion"];
+                var exercise = collection["Excercise"];
+                var answer = collection["Answer"];
 
-                return RedirectToAction("Index");
+                Lesson lesson = new Lesson
+                {
+                    Title = title,
+                    CategoryID = new Guid(category),
+                    LevelID = new Guid(level),
+                    Image = image,
+                    Content = content,
+                    Discussion = discussion,
+                    Exercise = exercise,
+                    Answer = answer
+                };
+
+                var result = lessonDataStore.AddItemAsync(lesson).Result;
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch
             {

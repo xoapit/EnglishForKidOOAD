@@ -1,25 +1,21 @@
-﻿$(document).on("click", ".view-lesson", function () {
-    var lessonID = $(this).data('lesson-id');
-    $(".modal-body #viewLessonId").val(lessonID);
-    $('#myModalDetailLesson input[name="detailLessonTitle"]').val($(this).closest("tr").find("td:nth-child(2)").text());
-    $('#myModalDetailLesson select[name="detailLessonLevel"]').val($(this).closest("tr").find("td:nth-child(3)").text());
-    $('#myModalDetailLesson input[name="detailLessonPicture"]').val($(this).closest("tr").find("td:nth-child(4)").text());
-    $('#myModalDetailLesson select[name="detailLessonCategory"]').val($(this).closest("tr").find("td:nth-child(5)").text());
-    $('#myModalDetailLesson textarea[name="detailLessonContent"]').val($(this).closest("tr").find("td:nth-child(6)").text());
-    $('#myModalDetailLesson textarea[name="detailLessonExercise"]').val($(this).closest("tr").find("td:nth-child(7)").text());
-    $('#myModalDetailLesson textarea[name="detailLessonAswer"]').val($(this).closest("tr").find("td:nth-child(8)").text());
-    $('#myModalDetailLesson textarea[name="detailLessonDiscussion"]').val($(this).closest("tr").find("td:nth-child(9)").text());
+$(document).on("click", ".add-lesson", function () {
+    AddNewLesson();
+});
 
-    //loadFeedbackHistories();
-    //$('#btnMinusFeedbackReplyHistory').trigger('click');
+$(document).on("click", ".view-lesson", function () {
+    var lessonID = $(this).data('lesson-id');
+    loadLesson(lessonID);
+});
+
+$(document).on("click", ".update-lesson", function () {
+    var lessonID = $(this).data('lesson-id');
+    loadUpdateLesson(lessonID);
 });
 
 $(document).on("click", ".delete-lesson", function () {
     var lessonID = $(this).data('lesson-id');
     $(".modal-body #deleteLessonId").val(lessonID);
 });
-
-
 
 $(document).ready(function () {
     $('#btnDeleteLesson').click(function () {
@@ -32,9 +28,9 @@ $(document).ready(function () {
             data: {
                 id: idLesson
             },
-            Picture: function (response) {
-                if (response != false) {
-                    $('#deleteMessage').text("You deleted the lesson Picturefully!");
+            success: function (response) {
+                if (response !== false) {
+                    $('#deleteMessage').text("You deleted the lesson successfully!");
                 }
                 else {
                     $('#deleteMessage').text("Can not delete the lesson!");
@@ -51,48 +47,138 @@ $(document).ready(function () {
     });
 });
 
-function sendEmailToReplyFeedback() {
-    $('#btnAddLesson').click(function () {
-        var urlAdd = "/Teacher/Lesson/AddLesson";
-        var Title = $(".modal-body #addLessonTitle").val();
-        var Level = $(".modal-body #addLessonLevel").val();
-        var Picture = $(".modal-body #addLessonPicture").val();
-        var Category = $(".modal-body #addLessonCategory").val();
-        var Content = $(".modal-body #addLessonContent").val();
-        var Exercise = $(".modal-body #addLessonExercisse").val();
-        var Answer = $(".modal-body #addLessonAnswer").val();
-        var Discussion = $(".modal-body #addLessonDiscussion").val();
-        
+function loadLesson(lessonID) {
+    $('#detailLesson').html("");
 
+    var urlGetLesson = "/Teacher/Lesson/Details";
+    $.ajax({
+        type: 'post',
+        url: urlGetLesson,
+        data: {
+            id: lessonID,
+        },
+        success: function (data) {
+            data = data.trim();
+            $('#detailLesson').html(data);
+        },
+        fail: function (data) {
+            $('#detailLesson').html("Loading....");
+        }
+    });
+}
+
+
+function loadUpdateLesson(LessonID) {
+    $('#updateLessonId').val(LessonID);
+
+    var urlGetLesson = "/Teacher/Lesson/Edit";
+    $.ajax({
+        type: 'get',
+        url: urlGetLesson,
+        data: {
+            id: LessonID,
+        },
+        success: function (data) {
+            data = data.trim();
+            $('#updateLesson').html(data);
+        },
+        fail: function (data) {
+            $('#updateLesson').html("Loading....");
+        }
+    });
+}
+
+$(document).on("click", "#btnUpdateLesson", function () {
+    updateLesson();
+});
+
+function updateLesson() {
+    var LessonID = $("updateLessonID").val();
+    var Title = $("#updateLessonTitle").val();
+    var Level = $("#updateLessonLevel").val();
+    var Picture = $("#updateLessonPicture").val();
+    var Category = $("#updateLessonCategory").val();
+    var Content = $("#updateLessonContent").val();
+    var Exercise = $("#updatedLessonExercisse").val();
+    var Answer = $("#updateLessonAnswer").val();
+    var Discussion = $("#updateLessonDiscussion").val();
+
+    var urlUpdateLesson = "/Teacher/Lesson/Edit/" + LessonID;
+    $.ajax({
+        type: 'post',
+        url: urlUpdateLesson,
+        data: {
+            lessonID: LessonID,
+            title: Title,
+            levelID: Level,
+            image: Picture,
+            content: Content,
+            exercise: Exercise,
+            answer: Answer,
+            dicussion: Discussion
+        },
+        success: function (data) {
+            if (data) {
+                $('#sendEmailMessage').text("You have updated successfully!");
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+            } else {
+                $('#sendEmailMessage').text("Can not update!!!");
+            }
+
+        },
+        fail: function (data) {
+            $('#sendEmailMessage').html("Can not update!!!");
+        }
+    });
+}
+
+function AdddNewLesson() {
+    $('#btnAddLesson').click(function () {
+
+        var LessonID = $("addLessonID").val();
+        var Title = $("#addLessonTitle").val();
+        var Level = $("#addLessonLevel").val();
+        var Picture = $("#addLessonPicture").val();
+        var Category = $("#addLessonCategory").val();
+        var Content = $("#addLessonContent").val();
+        var Exercise = $("#addLessonExercisse").val();
+        var Answer = $("#addLessonAnswer").val();
+        var Discussion = $("#addLessonDiscussion").val();
+
+        var urlAddLesson = "/Teacher/Lesson/Creat/";
         $.ajax({
             type: 'post',
-            url: urlAdd,
+            url: urlAddLesson,
             data: {
-                Tiitle = title;
-        Level = level;
-        Picture = picture;
-        Category = category;
-        Content = content;
-        Exercise= exercise;
-        Answer = answer;
-        Discussion = discussion;
-    },
-        success: function (response) {
-            if (response != false) {
-                $('#sendEmailMessage').text("You send the email successfully!");
+                lessonID: LessonID,
+                title: Title,
+                levelID: Level,
+                image: Picture,
+                content: Content,
+                exercise: Exercise,
+                answer: Answer,
+                dicussion: Discussion
+            },
+            success: function (data) {
+                if (data) {
+                    $('#sendEmailMessage').text("You have added successfully!");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000);
+                } else {
+                    $('#sendEmailMessage').text("Can not add!!!");
+                }
+
+            },
+            fail: function (data) {
+                $('#sendEmailMessage').html("Can not add!!!");
+
             }
-            else {
-                $('#sendEmailMessage').text("Can not send the email!");
-            }
-            setTimeout(function () {
-                location.reload();
-            }, 1000);
-        },
-    fail: function (response) {
-        $('#sendEmailMessage').text("Can not send the email!");
-    }
-});
-});
+        });
+
+    });
 }
 
 function guid() {

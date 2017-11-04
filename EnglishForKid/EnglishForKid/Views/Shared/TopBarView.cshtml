@@ -1,29 +1,89 @@
-﻿<div id="intro" class="top-info-bar bg-color-7 hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <ul class="list-inline topList">
-                    <li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i> <a href="mailto:info@yourdomain.com">Engkishforkid@gmail.com</a></li>
-                    <li><i class="fa fa-phone bg-color-2" aria-hidden="true"></i> +84 1 234 567 </li>
-                </ul>
-            </div>
-            <div class="col-sm-6 ">
-                <div class="pull-right">
-                    <ul class="list-inline functionList">
-                        <li>
-                            <a href='#loginModal' data-toggle="modal">
-                                <i class="fa fa-unlock-alt bg-color-1" aria-hidden="true"></i>
-                                Sign In
-                            </a><span>  </span>
-                            <a href='/Registation/Index' data-toggle="modal">Sign Up</a>
+@using Microsoft.Ajax.Utilities
+<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="~/Content/files/image/img/logo2.png" /></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="" id="home" class="text-primary">HOME</a></li>
+                        <li class=" dropdown">
+                            <a href="" class="dropdown-toggle text-danger" id="listeningMenu"
+                               style="color:#d35400;" role="button" aria-haspopup="true" aria-expanded="false">LISTENING</a>
                         </li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active text-orange"
+                               data-toggle="dropdown" role="button" aria-haspopup="true"
+                               style="color:#9b59b6;"
+                               aria-expanded="false">SPEAKING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" role="button" id="speakingMenu1" aria-haspopup="true" aria-expanded="false">Spelling</a></li>
+                                <li><a href="#" role="button" id="speakingMenu2" aria-haspopup="true" aria-expanded="false">Speaking</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle active text-orange"
+                               data-toggle="dropdown" role="button" aria-haspopup="true"
+                               style="color:#e74c3c;"
+                               aria-expanded="false">READING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="readingMenu1" role="button" aria-haspopup="true" aria-expanded="false">Vocabulary</a></li>
+                                <li><a href="#" id="readingMenu2" role="button" aria-haspopup="true" aria-expanded="false">Reading</a></li>
+                            </ul>
+                        </li>
+                        <li class="down">
+                            <a href="#" class="dropdown-toggle active text-primary"
+                               style="color:#27ae60;"
+                               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WRITTING<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" role="button" id="writtingMenu1" aria-haspopup="true" aria-expanded="false">Grammar</a></li>
+                                <li><a href="#" role="button" id="writtingMenu2" aria-haspopup="true" aria-expanded="false">Writting</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav pull-right">
+                        @{
+                            var token = Request.Cookies["token"]?.Value;
+                            var username = Request.Cookies["username"]?.Value;
+                            if (token.IsNullOrWhiteSpace() || username == null)
+                            {
+                                <li class="">
+                                    <a href="" id="signIn" data-toggle="modal" data-target="#loginModal">Login</a>
+                                </li>
+                                <li>
+                                    <a href="" id="register">Register</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@username<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="changePassword"> Change Password</a></li>
+                                        <li><a id="profile"> My Profile</a></li>
+                                    </ul>
+                                </li>
+                                <li class="text-danger">
+                                    <a href="" id="logout">Log out</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
     </div>
 </div>
-
 <!-- LOGIN MODAL -->
 <div class="modal fade" id="loginModal" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -34,29 +94,21 @@
             </div>
             <div class="modal-body">
                 <div class="box-body padding-large">
-                    <div>
-                        <label class="text-center text-danger" id="loginMessage"></label>
-                        <div class="form-group has-feedback">
-                            <input type="text" id="username" min="3" max="24" required name="username" class="form-control" placeholder="Username">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        </div>
-                        <div class="form-group has-feedback">
-                            <input type="password" id="password" min="6" required name="password" class="form-control" placeholder="Password">
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox icheck">
-                                <label>
-                                    <input type="checkbox" name="rememberMe" id="rememberMe"> Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" id="btnLogin" class="btn btn-primary btn-block  pull-right">Sign In</button>
-                        </div>
+                    <label class="text-danger" id="loginMessage"></label>
+                    <div class="form-group has-feedback">
+                        <input type="text" id="username" class="form-control" placeholder="Username">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" id="password" class="form-control" placeholder="Password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
 
-                    <div class="social-auth-links text-center">
+                    <div class="form-group">
+                        <button id="btnLogin" class="btn btn-primary btn-block  pull-right">Sign In</button>
+                    </div>
+
+                    <div class="social-auth-links text-center" hidden>
                         <br />
                         <p>- OR -</p>
                         <a href="#" class="btn btn-block btn-facebook  btn-primary">
@@ -68,11 +120,35 @@
                             Google+
                         </a>
                     </div>
-                    <a href="#">I forgot my password</a><br>
+                    <a href="" id="forgotPassword">I forgot my password</a><br>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="~/Scripts/Home/login.js"></script>
+
+<script>
+    $(document).ready(function () {
+        document.getElementById('listeningMenu').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=listening&start=0&take=3";
+        document.getElementById('speakingMenu1').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=spell&start=0&take=3";
+        document.getElementById('speakingMenu2').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=speaking&start=0&take=3";
+        document.getElementById('readingMenu1').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=vacabulary&start=0&take=3";
+        document.getElementById('readingMenu2').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=reading&start=0&take=3";
+        document.getElementById('writtingMenu1').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=grammar&start=0&take=3";
+        document.getElementById('writtingMenu2').href = window.location.origin + "/Lesson/ListLessonByCategory?categoryname=writting&start=0&take=3";
 
 
+        var profile = $('#changePassword').val();
+        if (profile != null) {
+            document.getElementById('changePassword').href = window.location.origin + "/Account/ChangePassword";
+            document.getElementById('profile').href = window.location.origin + "/Account/Details";
+            document.getElementById('logout').href = window.location.origin + "/Account/Logout";
+        } else {
+            document.getElementById('forgotPassword').href = window.location.origin + "/Account/ResetPassword";
+            document.getElementById('register').href = window.location.origin + "/Account/Register";
+
+        }
+        $('#home').attr("href", window.location.origin);
+    });
+</script>

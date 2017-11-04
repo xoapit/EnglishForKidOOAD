@@ -30,16 +30,17 @@ namespace EnglishForKidAPI
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.Add(config.Formatters.JsonFormatter);
 
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
 
             json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-            
+
             GlobalConfiguration.Configuration.Formatters.JsonFormatter
-                .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-           
+                .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            GlobalConfiguration.Configuration.Formatters.Remove(config.Formatters.XmlFormatter);
+
         }
     }
 }

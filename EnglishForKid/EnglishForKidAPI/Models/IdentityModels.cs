@@ -94,6 +94,7 @@ namespace EnglishForKidAPI.Models
         public ApplicationDbContext()
             : base("EnglishForKids")
         {
+
         }
 
         public static ApplicationDbContext Create()

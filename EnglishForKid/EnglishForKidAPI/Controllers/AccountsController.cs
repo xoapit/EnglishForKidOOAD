@@ -23,6 +23,7 @@ using EnglishForKidAPI.Helper;
 using System.Web.Http.Description;
 using System.Data.Entity.Infrastructure;
 using System.Net;
+using EnglishForKidAPI.Constants;
 
 namespace identity.Controllers
 {
@@ -85,7 +86,7 @@ namespace identity.Controllers
             foreach (var user in users)
             {
                 UserReturnModel userReturnModel = this.TheModelFactory.Create(user);
-                if (userReturnModel.Roles.Contains(roleName))
+                if (userReturnModel.Roles.Contains(roleName) || string.IsNullOrWhiteSpace(roleName))
                 {
                     userReturnModels.Add(userReturnModel);
                 }
@@ -486,7 +487,74 @@ namespace identity.Controllers
             return logins;
         }
 
-        // POST api/Account/Register
+        [AllowAnonymous]
+        [Route("UsernameAlreadyExists")]
+        public async Task<IHttpActionResult> UsernameAlreadyExistsAsync(string username)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await this.UserManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        [AllowAnonymous]
+        [Route("EmailAlreadyExists")]
+        public async Task<IHttpActionResult> EmailAlreadyExistsAsync(string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await this.UserManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        [HttpPost]
+        [Route("UpdateRole")]
+        public IHttpActionResult UpdateRole(RoleViewModel roleViewModel)
+        {
+            List<string> myRoles = new List<string>();
+            if (roleViewModel.IsStudent)
+            {
+                myRoles.Add(ApplicationConfig.StudentRole);
+            }
+            if (roleViewModel.IsTeacher)
+            {
+                myRoles.Add(ApplicationConfig.TeacherRole);
+            }
+            if (roleViewModel.IsAdmin)
+            {
+                myRoles.Add(ApplicationConfig.AdminRole);
+            }
+
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
+            List<string> roles = userManager.GetRoles(roleViewModel.UserID).ToList();
+
+            userManager.RemoveFromRoles(roleViewModel.UserID, roles.ToArray());
+
+            try
+            {
+                userManager.AddToRoles(roleViewModel.UserID, myRoles.ToArray());
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+            return Ok();
+        }
+
+        //POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(CreateUserBindingModel createUserModel)
@@ -508,7 +576,8 @@ namespace identity.Controllers
                 Gender = createUserModel.Gender,
                 Id = Guid.NewGuid().ToString(),
                 Status = createUserModel.Status,
-                PhoneNumber = createUserModel.PhoneNumber
+                PhoneNumber = createUserModel.PhoneNumber,
+                UpdateAt = DateTime.Now,
             };
 
             IdentityResult addUserResult = await this.UserManager.CreateAsync(user, createUserModel.Password);
@@ -518,16 +587,13 @@ namespace identity.Controllers
                 return GetErrorResult(addUserResult);
             }
 
-            IdentityResult addUserRoleResult = this.UserManager.AddToRole(user.Id, createUserModel.Password);
+            IdentityResult addUserRoleResult = this.UserManager.AddToRole(user.Id, createUserModel.RoleName);
 
             if (!addUserRoleResult.Succeeded)
             {
                 return GetErrorResult(addUserResult);
             }
-
-            Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-
-            return Created(locationHeader, TheModelFactory.Create(user));
+            return Ok(TheModelFactory.Create(user));
         }
 
         // POST api/Account/RegisterExternal

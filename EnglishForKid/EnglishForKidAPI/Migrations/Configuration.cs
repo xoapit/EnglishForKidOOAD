@@ -19,17 +19,19 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            InitUsers(context);
-            InitCategories(context);
-            InitBusinessesAndFunctions(context);
-            InitFeedbacks(context);
-            InitLevels(context);
-            InitLessons(context);
-            InitCommets(context);
-            InitQuestionSurveys(context);
-            InitRates(context);
-            InitResults(context);
-            InitAnswerSurveys(context);
+            //InitUsers(context);
+            //InitCategories(context);
+            //InitBusinessesAndFunctions(context);
+            //InitFeedbacks(context);
+
+            //InitLevels(context);
+            //InitLessons(context);
+            //InitCommets(context);
+            //InitQuestionSurveys(context);
+            //InitRates(context);
+            //InitResults(context);
+            //InitAnswerSurveys(context);
+
         }
 
         private void InitAnswerSurveys(ApplicationDbContext context)
@@ -270,7 +272,7 @@ namespace EnglishForKidAPI.Migrations
                 }
             }
         }
-        
+
         //private void InitBusinessesAndFunctions(ApplicationDbContext context)
         //{
         //    context.Functions.RemoveRange(context.Functions.ToList());
@@ -370,7 +372,7 @@ namespace EnglishForKidAPI.Migrations
             context.Categories.Add(new Category()
             {
                 ID = Guid.NewGuid(),
-                Name = ApplicationConfig.SpeakingCategory
+                Name = ApplicationConfig.ReadingCategory
             });
             context.Categories.Add(new Category()
             {

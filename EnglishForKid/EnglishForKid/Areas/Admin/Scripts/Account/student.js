@@ -18,7 +18,7 @@ $(document).on("click", ".block-Account", function () {
 function loadAccount(idAccount) {
     $('#viewAccount').html("");
 
-    var urlGetAccount = "/Admin/Student/Details";
+    var urlGetAccount = "/Admin/Account/Details";
     $.ajax({
         type: 'post',
         url: urlGetAccount,
@@ -38,7 +38,7 @@ function loadAccount(idAccount) {
 function loadUpdateAccount(idAccount) {
     $('#update-accountId').val(idAccount);
 
-    var urlGetAccount = "/Admin/Student/Edit";
+    var urlGetAccount = "/Admin/Account/Edit";
     $.ajax({
         type: 'get',
         url: urlGetAccount,
@@ -69,7 +69,7 @@ function updateAccount() {
     var address = $('#update-address').val();
     var gender = $('#update-gender:checked').val();
 
-    var urlUpdateAccount = "/Admin/Student/Edit/" + idAccount;
+    var urlUpdateAccount = "/Admin/Account/Edit/" + idAccount;
     $.ajax({
         type: 'post',
         url: urlUpdateAccount,
@@ -103,7 +103,7 @@ $(document).on("click", "#btn-block-account", function () {
     var idAccount = $('#block-account-id').val();
     var status = $('#block-account-status').val();
 
-    var urlUpdateAccount = "/Admin/Student/Lock";
+    var urlUpdateAccount = "/Admin/Account/Lock";
     $.ajax({
         type: 'post',
         url: urlUpdateAccount,

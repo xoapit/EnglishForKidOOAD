@@ -1,0 +1,75 @@
+﻿@using EnglishForKid.Models.ViewModels
+@model EnglishForKid.Models.ViewModels.UserReturnModel
+@{
+    UserReturnModel user = ViewBag.User;
+}
+
+<div class="box-body padding-large">
+    <form class="form-horizontal" role="form">
+
+        <div class="form-group row">
+            <label class="col-sm-2 control-label" style="text-align:left">Username</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" readonly value="@user.UserName" placeholder="Username">
+            </div>
+            <label class="col-sm-2 control-label" style="text-align:left">Gender</label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-md-6 radio">
+                        <label><input type="radio" readonly checked="@user.Gender" name="optradio">Male</label>
+                    </div>
+                    <div class="col-md-6 radio">
+                        @{
+                            if (user.Gender)
+                            {
+                                <label><input type="radio" readonly name="optradio">Female</label>
+                            }
+                            else
+                            {
+                                <label><input type="radio" checked readonly name="optradio">Female</label>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 control-label" style="text-align:left">Full Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" readonly placeholder="Full name" value="@user.FullName">
+            </div>
+
+            <label class="col-sm-2 control-label" style="text-align:left">Address</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" readonly placeholder="Address" value="@user.Address">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 control-label" style="text-align:left">Date of Birth</label>
+            <div class="col-sm-4">
+                <div class='input-group date' id='birthdate'>
+                    <input type='text' class="form-control" readonly value="@user.Birthday" placeholder="Date of Birth" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <label class="col-sm-2 control-label" style="text-align:left">Phone Number</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" readonly value="@user.PhoneNumber" placeholder="Phone Number">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 control-label" style="text-align:left">Email</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" readonly placeholder="Email" value="@user.Email" />
+            </div>
+            <label class="col-sm-2 control-label" style="text-align:left">Status</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" readonly placeholder="Status" value="@user.GetStatus()" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</div>
+
