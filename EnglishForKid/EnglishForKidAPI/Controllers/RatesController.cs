@@ -16,12 +16,14 @@ namespace EnglishForKidAPI.Controllers
     {
 
         // GET: api/Rates
+        [Route("api/Rates")]
         public IQueryable<Rate> GetRates()
         {
             return db.Rates;
         }
 
         // GET: api/Rates/5
+        [Route("api/Rates/")]
         [ResponseType(typeof(Rate))]
         public IHttpActionResult GetRate(Guid id)
         {
@@ -31,6 +33,24 @@ namespace EnglishForKidAPI.Controllers
                 return NotFound();
             }
 
+            return Ok(rate);
+        }
+
+        [Route("api/Rates")]
+        public float GetRateOfLesson(Guid lessonID)
+        {
+            var rates = db.Rates.Where(x => x.LessonID == lessonID).ToList();
+            if (rates == null || rates.Count == 0)
+            {
+                return 0;
+            }
+            return (float)rates?.Sum(x => x.Level) / rates.Count();
+        }
+
+        [Route("api/Rates")]
+        public IHttpActionResult GetRateByLessonAndUser(Guid lessonID, string userID)
+        {
+            var rate = db.Rates.Where(x => x.LessonID == lessonID && x.ApplicationUserID == userID)?.First();
             return Ok(rate);
         }
 
@@ -70,6 +90,7 @@ namespace EnglishForKidAPI.Controllers
         }
 
         // POST: api/Rates
+        [Route("api/Rates")]
         [ResponseType(typeof(Rate))]
         public IHttpActionResult PostRate(Rate rate)
         {
@@ -77,8 +98,15 @@ namespace EnglishForKidAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.Rates.Add(rate);
+            if (db.Rates.Find(rate.ID) == null)
+            {
+                db.Rates.Add(rate);
+            }
+            else
+            {
+                Rate tempRate = db.Rates.Find(rate.ID);
+                tempRate.Level = rate.Level;
+            }
 
             try
             {
@@ -95,8 +123,7 @@ namespace EnglishForKidAPI.Controllers
                     throw;
                 }
             }
-
-            return CreatedAtRoute("DefaultApi", new { id = rate.ID }, rate);
+            return Ok(rate);
         }
 
         // DELETE: api/Rates/5

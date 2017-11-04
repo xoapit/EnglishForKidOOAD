@@ -53,7 +53,7 @@ namespace EnglishForKid.Service
 
         public async Task<string> GetFeedbackReplyHistoriesByFeedbackIDAsync(Guid id)
         {
-            string path = "/api/FeedbackReplyHistories/feedbacks/"+id.ToString();
+            string path = "/api/FeedbackReplyHistories/feedbacks/" + id.ToString();
             string feedbackHistories = string.Empty;
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)

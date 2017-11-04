@@ -9,7 +9,7 @@ namespace EnglishForKidAPI.Models
     [Table("Rate")]
     public class Rate : BaseDataObject
     {
-        public int Level { get; set; }
+        public float Level { get; set; }
         public string ApplicationUserID { get; set; }
         public Guid LessonID { get; set; }
         public DateTime CreateAt { get; set; }
