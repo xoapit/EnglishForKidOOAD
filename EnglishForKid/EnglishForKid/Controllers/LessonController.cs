@@ -23,6 +23,9 @@ namespace EnglishForKid.Controllers
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             ViewBag.Lesson = lesson;
             ViewBag.IsLogin = IsLogin(this.Request);
+            //Xau ra ben thanh ben phai
+            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+            ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
             return View();
         }
 
@@ -60,6 +63,9 @@ namespace EnglishForKid.Controllers
         {
             List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName).Result;
             ViewBag.BaseLessonInfoViewModels = baseLessonInfoViewModels;
+            //Xau ra ben thanh ben phai
+            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+            ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
             return View();
         }
 

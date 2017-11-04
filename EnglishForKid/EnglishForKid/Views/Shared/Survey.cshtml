@@ -31,27 +31,47 @@
     </div>
 </div>
 
-<div class="box bg-info border top3 box profile-sidebar" style="background-image:url(../../Content/files/image/ads1.jpg);background-size:cover; height:250px;">
+<div class="box bg-info border top3 box profile-sidebar" style="background-image:url(../../Content/files/image/ads1.jpg);background-size:cover; height:300px">
+    <div class="box-header bg-primary">
+        READ MORE
+    </div>
+    @{
+        foreach (var lesson in ViewBag.BaseLessonInfoViewModels1)
+        {
+            <div row>
+                <div class="padding">
+                    <div class="col-md-2 col-sm-3">
+                        <a class="cat-img" href="DetailOfLesson?id=@lesson.ID"><img src="~/Content/files/image/LessonImage/5.jpg" style="width:30px;height:30px" class="img-circle"></a>
+                    </div>
+                    <div class="col-md-10 col-sm-9">
+                        <h4>@lesson.Title</h4>
+                    </div>
+
+                </div>
+            </div>
+        }
+    }
 </div>
 
-<div class="box bg-white border box profile-sidebar margin-bottom" style="margin-bottom:10px;">
-    <div row>
-        <div class="box-header bg-primary">
-            Where are you now?
-        </div>
-        <div class="padding">
-            <div class="row padding">
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 1</label>
+
+            <div class="box bg-white border box profile-sidebar margin-bottom" style="margin-bottom:10px;">
+                <div row>
+                    <div class="box-header bg-primary">
+                        Where are you now?
+                    </div>
+                    <div class="padding">
+                        <div class="row padding">
+                            <div class="radio">
+                                <label><input type="radio" name="optradio">Option 1</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio">Option 2</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio">Option 3</label>
+                            </div>
+                            <button class="btn btn-danger pull-right">Submit</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 2</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 3</label>
-                </div>
-                <button class="btn btn-danger pull-right">Submit</button>
             </div>
-        </div>
-    </div>
-</div>

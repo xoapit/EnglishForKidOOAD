@@ -7,7 +7,7 @@ namespace EnglishForKid.Constants
 {
     public class ApplicationConfig
     {
-        public static readonly string BaseApiUrl = "http://englishforkidapi20171028040502.azurewebsites.net";
+        public static readonly string BaseApiUrl = "http://localhost:50827";
 
         public static readonly string AdminRole = "Admin";
         public static readonly string TeacherRole = "Teacher";

@@ -15538,6 +15538,7 @@
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Lesson\GetComments.cshtml" />
+    <Content Include="Views\Home\GetLessonIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,6 +14,7 @@ using EnglishForKidAPI.Models.Factory;
 
 namespace EnglishForKidAPI.Controllers
 {
+    [RoutePrefix("")]
     public class LessonsController : BaseApiController
     {
         // GET: api/Lessons
@@ -24,6 +25,8 @@ namespace EnglishForKidAPI.Controllers
         }
 
         // GET: api/Lessons/5
+        [HttpGet]
+        [Route("api/lessons/detail/{id}")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult GetLesson(Guid id)
         {
@@ -36,8 +39,9 @@ namespace EnglishForKidAPI.Controllers
             return Ok(lesson);
         }
 
-        [Route("api/lessons")]
         [HttpGet]
+        [Route("api/lessons/{categoryName}")]
+        
         public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName)
         {
             List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
