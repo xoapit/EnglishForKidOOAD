@@ -8,6 +8,9 @@ namespace EnglishForKidAPI.Models.ViewModels
     public class ViewCountViewModel
     {
         public int Month { get; set; }
+
         public int Year { get; set; }
+
+        public int Day { get; set; }
     }
 }

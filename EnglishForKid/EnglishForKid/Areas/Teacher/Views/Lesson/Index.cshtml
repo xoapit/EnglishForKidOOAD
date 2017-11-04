@@ -1,5 +1,5 @@
 ﻿@using EnglishForKid.Models;
-@Model EnglishForKid.Models.Lesson;
+@model EnglishForKid.Models.Lesson
 
 @{
     ViewBag.Title = "Index";
@@ -28,8 +28,18 @@
 
             <thead>
                 <tr align="center" style="">
-                    <th>ID Lesson</th>
-                    <th>Lesson Name</th>
+                    <th>Index</th>
+                    <th>Title</th>
+                    <th hidden>LevelID</th>
+                    <th hidden>Image</th>
+                    <th hidden>CategoryID</th>
+                    <th hidden>Content</th>
+                    <th hidden>Exercise</th>
+                    <th hidden>Answer</th>
+                    <th hidden>Discussion</th>
+                    <th hidden>ApplicationUserID</th>
+                    <th hidden>CrateAt</th>
+                    @*<th> Status </th>*@
                     <th>Action</th>
 
 
@@ -44,26 +54,42 @@
                     {
                         int index = i + 1;
                         <tr>
-                           
+                            <td>@i</td>
+                            <td>@lessons.Title</td>
+                            <td hidden>@lessons.LevelID</td>
+                            <td hidden>@lessons.Image</td>
+                            <td hidden>@lessons.CategoryID</td>
 
-                            <td>@index</td>
-                            <td>@lessons.ElementAt(i).Title</td>
-                            <td hidden>@lessons.ElementAt(i).LevelID</td>
-                            <td hidden>@lessons.ElementAt(i).Image</td>
-                            <td hidden>@lessons.ElementAt(i).Category.Name</td>
-                            
-                            <td hidden>@lessons.ElementAt(i).Content</td>
-                            
-                            <td hidden>@lessons.ElementAt(i).Exercise</td>
-                            <td hidden>@lessons.ElementAt(i).Answer</td>
-                            <td hidden>@lessons.ElementAt(i).Discussion</td>
-                            <td hidden>@lessons.ElementAt(i).ApplicationUserID</td>
-                            <td hidden>@lessons.ElementAt(i).CreateAt.ToString("dd/MMM/yyyy")</td>
+                            <td hidden>@lessons.Content</td>
+
+                            <td hidden>@lessons.Exercise</td>
+                            <td hidden>@lessons.Answer</td>
+                            <td hidden>@lessons.Discussion</td>
+                            <td hidden>@lessons.ApplicationUserID</td>
+                            <td hidden>@lessons.CreateAt.ToString("dd/MMM/yyyy")</td>
+                            @*<td>
+                                <button type="button" class="btn btn-danger block-Account" data-status="@lessons.Status" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalBlockLesson">
+                                    @{
+                                        if (lessons.Status)
+                                        {
+                                            <text>Block</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Unlock</text>
+                                        }
+                                    }
+                                </button>
+                            </td>*@
+
                             <td>
 
-                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <button type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalUpdateLesson">Update</button>
-                                <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
+                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
+
+                                <a id="btnUpdateLesson2" href="/Teacher/Lesson/Edit/@lessons.ID" class="update-lesson btn btn-success">
+                                    Update
+                                </a>
+                                <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
                             </td>
                         </tr>
                     }

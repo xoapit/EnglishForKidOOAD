@@ -25,12 +25,13 @@ namespace EnglishForKid.Controllers
 {
     public class HomeController : Controller
     {
-
+        LessonDataStore lessonDataStore = new LessonDataStore();
         public ActionResult Index()
         {
             LessonDataStore lessonDataStore = new LessonDataStore();
-            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
-            ViewBag.Lessons = lessons.Take(8);
+            //List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
+            //ViewBag.Lessons = lessons.Take(8);
+
             return View();
         }
 
@@ -47,6 +48,14 @@ namespace EnglishForKid.Controllers
             List<UserReturnModel> teachers = accountDataStore.GetAccountsByRoleNameAsync(ApplicationConfig.TeacherRole).Result;
             ViewBag.Teachers = teachers;
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult GetLessonIndex()
+        {
+            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+            ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
+            return PartialView();
         }
 
         [HttpPost]

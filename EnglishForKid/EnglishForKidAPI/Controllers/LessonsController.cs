@@ -14,7 +14,7 @@ using EnglishForKidAPI.Models.Factory;
 
 namespace EnglishForKidAPI.Controllers
 {
-    [Authorize]
+    [RoutePrefix("")]
     public class LessonsController : BaseApiController
     {
         // GET: api/Lessons
@@ -41,6 +41,8 @@ namespace EnglishForKidAPI.Controllers
         }
 
         // GET: api/Lessons/5
+        [HttpGet]
+        [Route("api/lessons/detail/{id}")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult GetLesson(Guid id)
         {
@@ -53,9 +55,9 @@ namespace EnglishForKidAPI.Controllers
             return Ok(lesson);
         }
 
-        [Route("api/lessons")]
         [HttpGet]
         public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName, int start = 0, int take = 10)
+
         {
             List<BaseLessonInfoViewModel> baseLessons = new List<BaseLessonInfoViewModel>();
             List<Lesson> lessons = db.Lessons.Where(x => x.Category.Name == categoryName).ToList();
@@ -88,6 +90,7 @@ namespace EnglishForKidAPI.Controllers
             return lessons.Count();
         }
 
+        [Authorize]
         // PUT: api/Lessons/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutLesson(Guid id, Lesson lesson)
@@ -123,6 +126,7 @@ namespace EnglishForKidAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize]
         // POST: api/Lessons
         [HttpPost]
         [Route("api/Lessons")]
@@ -151,7 +155,7 @@ namespace EnglishForKidAPI.Controllers
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException )
             {
                 if (LessonExists(lesson.ID))
                 {
@@ -162,7 +166,7 @@ namespace EnglishForKidAPI.Controllers
                     throw;
                 }
             }
-            catch (Exception e)
+            catch (Exception )
             {
 
             }
@@ -170,6 +174,7 @@ namespace EnglishForKidAPI.Controllers
             return Ok(lesson);
         }
 
+        [Authorize]
         // DELETE: api/Lessons/5
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult DeleteLesson(Guid id)

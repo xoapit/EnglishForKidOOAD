@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using EnglishForKid.Service;
 using EnglishForKid.Models;
+using EnglishForKid.Models.ViewModels;
 
 namespace EnglishForKid.Areas.Teacher.Controllers
 {
@@ -16,7 +17,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         public ActionResult Index()
         {
 
-            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
+            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
             ViewBag.Lessons = lessons;
             return View();
         }
@@ -119,17 +120,16 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         }
 
         // GET: Teacher/Lesson/Edit/5
-        public ActionResult Edit(String id)
+        public ActionResult Edit(string id)
         {
             InitCreate();
-
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
-            return View(lesson);
+            return View();
         }
 
         // POST: Teacher/Lesson/Edit/5
         [HttpPost]
-        public ActionResult Edit(String id, FormCollection collection)
+        public ActionResult Edit(string id, FormCollection collection)
         {
             InitCreate();
             List<Level> levels = ViewBag.ListLevels;
@@ -141,7 +141,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                 var levelValue = collection["LevelID"];
 
                 var image = collection["Image"];
-                var content = collection["Content"];
+                var content = Request.Unvalidated.Form.Get("Content");
                 var discussion = collection["Discussion"];
                 var exercise = collection["Exercise"];
                 var answer = collection["Answer"];
@@ -153,8 +153,8 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                 {
                     ID = Guid.NewGuid(),
                     CreateAt = DateTime.Now,
-                    // Tag = "",
-                    // ApplicationUserID = "a4c6a3e7-00c8-41ae-ba18-7f3a77099037",
+                    Tag = "",
+                    ApplicationUserID = Request.Cookies["Id"].Value,
                     Title = title,
                     CategoryID = categoryID,
                     LevelID = levelID,

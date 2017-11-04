@@ -7,13 +7,13 @@ namespace EnglishForKid.Constants
 {
     public class ApplicationConfig
     {
-        public static readonly string BaseApiUrl = "http://localhost:50828";
+        public static readonly string BaseApiUrl = "http://localhost:50827";
 
         public static readonly string AdminRole = "Admin";
         public static readonly string TeacherRole = "Teacher";
         public static readonly string StudentRole = "Student";
 
-        public static readonly string ListentCategory = "Listen";
+        public static readonly string ListentCategory = "Listening";
         public static readonly string ReadingCategory = "Reading";
         public static readonly string SpeakingCategory = "Speaking";
         public static readonly string WritingCategory = "Writing";

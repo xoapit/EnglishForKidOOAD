@@ -24,6 +24,11 @@ namespace EnglishForKid.Controllers
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             ViewBag.Lesson = lesson;
             ViewBag.IsLogin = IsLogin(this.Request);
+
+            //Xau ra ben thanh ben phai
+            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+            ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
+
             float averageRating = rateDataStore.GetAverageRateByLessonIDAsync(lesson.ID).Result;
             ViewBag.AverageRating = averageRating;
 
@@ -95,8 +100,14 @@ namespace EnglishForKid.Controllers
         {
             List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName, start, take).Result;
             ViewBag.BaseLessonInfoViewModels = baseLessonInfoViewModels;
+
+            //Xau ra ben thanh ben phai
+            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+            ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
+
             int numberOfLessons = lessonDataStore.GetNumberOfLessonsByCategoryNameAsync(categoryName).Result;
             ViewBag.NumberOfLessons = numberOfLessons;
+
             return View();
         }
 
