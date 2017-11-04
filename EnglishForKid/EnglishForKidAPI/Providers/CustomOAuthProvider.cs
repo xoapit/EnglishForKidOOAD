@@ -39,7 +39,13 @@ namespace EnglishForKidAPI.Providers
 
             if (!user.EmailConfirmed)
             {
-                context.SetError("invalid_grant", "User did not confirm email.");
+                context.SetError("invalid_grant", "You need confirm your email.");
+                return;
+            }
+
+            if (!user.Status)
+            {
+                context.SetError("invalid_grant", "Your account is blocked.");
                 return;
             }
 
