@@ -67,7 +67,6 @@ namespace EnglishForKidAPI.Models
             {
                 db.GrantPermissions.Remove(grantPermission);
             }
-
             return true;
         }
     }

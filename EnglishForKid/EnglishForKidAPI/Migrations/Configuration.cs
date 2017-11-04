@@ -31,6 +31,7 @@ namespace EnglishForKidAPI.Migrations
             //InitRates(context);
             //InitResults(context);
             //InitAnswerSurveys(context);
+
         }
 
         private void InitAnswerSurveys(ApplicationDbContext context)
@@ -53,8 +54,6 @@ namespace EnglishForKidAPI.Migrations
                 QuestionSurveyID = context.QuestionSurveys.First().ID,
                 Answer = "I have a some problem with my arm"
             });
-
-
         }
 
         private void InitCommets(ApplicationDbContext context)

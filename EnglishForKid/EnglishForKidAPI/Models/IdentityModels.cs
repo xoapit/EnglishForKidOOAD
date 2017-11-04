@@ -94,7 +94,7 @@ namespace EnglishForKidAPI.Models
         public ApplicationDbContext()
             : base("EnglishForKids")
         {
-            //Configuration.LazyLoadingEnabled = false;
+
         }
 
         public static ApplicationDbContext Create()

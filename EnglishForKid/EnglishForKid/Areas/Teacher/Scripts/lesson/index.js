@@ -179,7 +179,6 @@ function AdddNewLesson() {
         });
 
     });
-
 }
 
 function guid() {

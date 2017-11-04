@@ -10,6 +10,7 @@ namespace EnglishForKid.Models.ViewModels
         public string Content { get; set; }
         public bool Status { get; set; }
         public DateTime CreateAt { get; set; }
+//        public List<AnswerSurvey> AnswerSurveys { get; set; }
         public string GetStatus
         {
             get { return Status ? "Active" : "InActive"; }
