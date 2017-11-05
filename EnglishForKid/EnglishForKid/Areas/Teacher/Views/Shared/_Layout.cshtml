@@ -54,7 +54,7 @@
     string roles = Request.Cookies["roles"]?.Value;
     if (string.IsNullOrWhiteSpace(roles) || !roles.Contains("Teacher"))
     {
-        Response.Redirect("/Home/Index");
+        //Response.Redirect("/Home/Index");
     }
 }
 <body class="hold-transition skin-blue sidebar-mini">

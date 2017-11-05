@@ -37,11 +37,11 @@ namespace EnglishForKidAPI.Providers
                 return;
             }
 
-            if (!user.EmailConfirmed)
-            {
-                context.SetError("invalid_grant", "You need confirm your email.");
-                return;
-            }
+            //if (!user.EmailConfirmed)
+            //{
+            //    context.SetError("invalid_grant", "You need confirm your email.");
+            //    return;
+            //}
 
             if (!user.Status)
             {

@@ -49,8 +49,8 @@ namespace EnglishForKid.Areas.Admin.Controllers
                 ID = idQuestion,
                 Content = content,
                 CreateAt = DateTime.Now,
-                //TODO, change the value here
-                ApplicationUserID = "18129df2-218a-4d84-9e75-a4768342c653"
+
+                ApplicationUserID = Request.Cookies["id"].Value
             };
 
             foreach (var answer in answers)

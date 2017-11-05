@@ -42,14 +42,14 @@ namespace EnglishForKid.Service
             return lesson;
         }
 
-        public async Task<List<BaseLessonInfoViewModel>> GetItemsAsync()
+        public async Task<List<Lesson>> GetItemsAsync()
         {
-            List<BaseLessonInfoViewModel> listLesson = new List<BaseLessonInfoViewModel>();
+            List<Lesson> listLesson = new List<Lesson>();
             String path = "/api/Lessons";
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                listLesson = await response.Content.ReadAsAsync<List<BaseLessonInfoViewModel>>();
+                listLesson = await response.Content.ReadAsAsync<List<Lesson>>();
             }
 
             return listLesson;

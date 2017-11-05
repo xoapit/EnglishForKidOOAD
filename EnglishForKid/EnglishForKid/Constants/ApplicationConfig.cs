@@ -7,7 +7,7 @@ namespace EnglishForKid.Constants
 {
     public class ApplicationConfig
     {
-        public static readonly string BaseApiUrl = "http://localhost:50827";
+        public static readonly string BaseApiUrl = "http://localhost:8088";
 
         public static readonly string AdminRole = "Admin";
         public static readonly string TeacherRole = "Teacher";

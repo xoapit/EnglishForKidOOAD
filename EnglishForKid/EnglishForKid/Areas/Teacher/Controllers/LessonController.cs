@@ -17,7 +17,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         public ActionResult Index()
         {
 
-            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
             ViewBag.Lessons = lessons;
             return View();
         }

@@ -7005,6 +7005,7 @@
     <Content Include="Areas\Admin\Scripts\Account\student.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\feedbackReplyHistory.js" />
     <Content Include="Areas\Admin\Scripts\Feedback\index.js" />
+    <Content Include="Areas\Admin\Scripts\Home\dashboard.js" />
     <Content Include="Areas\Admin\Scripts\Survey\index.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
@@ -13739,7 +13740,6 @@
     <Content Include="Areas\Teacher\Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Areas\Teacher\Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Areas\Teacher\Scripts\lesson\index.js" />
-
     <Content Include="Content\bootstrap-star-rating\css\star-rating.css" />
     <Content Include="Content\bootstrap-star-rating\css\star-rating.min.css" />
     <Content Include="Content\bootstrap-star-rating\examples\index.html" />
@@ -13774,7 +13774,6 @@
     <Content Include="Content\bootstrap-star-rating\themes\krajee-uni\theme.js" />
     <Content Include="Content\bootstrap-star-rating\themes\krajee-uni\theme.min.css" />
     <Content Include="Content\bootstrap-star-rating\themes\krajee-uni\theme.min.js" />
-
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -15515,7 +15514,6 @@
     <Content Include="Scripts\ckeditor\package.json" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
-
     <Content Include="Content\bootstrap-star-rating\.github\CONTRIBUTING.md" />
     <Content Include="Content\bootstrap-star-rating\.github\ISSUE_TEMPLATE.md" />
     <Content Include="Content\bootstrap-star-rating\.github\PULL_REQUEST_TEMPLATE.md" />
@@ -15526,7 +15524,6 @@
     <Content Include="Content\bootstrap-star-rating\package.json" />
     <Content Include="Content\bootstrap-star-rating\README.md" />
     <Content Include="Areas\Teacher\Views\Lesson\Edit.cshtml" />
-
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\Home\login.js" />
@@ -15550,10 +15547,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-
     <Content Include="Scripts\Lesson\lesson-detail.js" />
     <Content Include="Scripts\Lesson\rate.js" />
-
     <Content Include="Scripts\lightbox.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -15591,21 +15586,19 @@
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-
     <Content Include="Views\Lesson\GetComments.cshtml" />
-
     <Content Include="Views\Home\GetLessonIndex.cshtml" />
-
     <Content Include="Views\Home\GetFourTeachers.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Shared\SurveyChart.cshtml" />
-
+    <Content Include="Views\Lesson\LessonsForRightBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Teacher\Models\" />
     <Folder Include="Scripts\QuestionSurvey\" />
+    <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -29,9 +29,7 @@ namespace EnglishForKid.Controllers
         public ActionResult Index()
         {
             LessonDataStore lessonDataStore = new LessonDataStore();
-            //List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
-            //ViewBag.Lessons = lessons.Take(8);
-
+            
             return View();
         }
 
@@ -53,7 +51,7 @@ namespace EnglishForKid.Controllers
         [ChildActionOnly]
         public ActionResult GetLessonIndex()
         {
-            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
             ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
             return PartialView();
         }

@@ -13,7 +13,7 @@ namespace EnglishForKid.Service
     {
         public async Task<bool> AddItemAsync(QuestionSurvey item)
         {
-            string path = "/api/postQuestionSurvey";
+            string path = "/api/QuestionSurveys";
             HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);

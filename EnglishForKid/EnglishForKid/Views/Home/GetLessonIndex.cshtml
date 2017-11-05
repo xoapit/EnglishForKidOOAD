@@ -1,17 +1,16 @@
 ﻿@using EnglishForKid.Models.ViewModels
-@*@{ List<BaseLessonInfoViewModel> lessons = ViewBag.BaseLessonInfoViewModels1;}*@
 
 @{
     foreach (var lesson in ViewBag.BaseLessonInfoViewModels1)
     {
-        <article class="col-xs-12 col-sm-6 col-md-3">
-            <div class="panel panel-default" id="img2">
+        <article class="col-xs-12 col-sm-6 col-md-4">
+            <div class="panel panel-default" id="img2" style="height: 400px;">
                 <div class="panel-body">
                     <a href="Lesson/DetailOfLesson?id=@lesson.ID" title="Food Portfolio" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
                         <img src="~/Content/files/image/img/g2.jpg" alt="Food Portfolio" />
                         <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
                     </a>
-                    <h3>@lesson.Title</h3>
+                    <h3 style="z-index:10">@lesson.Title</h3>
                 </div>
 
             </div>

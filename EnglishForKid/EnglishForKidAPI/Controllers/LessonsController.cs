@@ -42,7 +42,7 @@ namespace EnglishForKidAPI.Controllers
 
         // GET: api/Lessons/5
         [HttpGet]
-        [Route("api/lessons/detail/{id}")]
+        [Route("api/lessons/{id}")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult GetLesson(Guid id)
         {
@@ -56,6 +56,7 @@ namespace EnglishForKidAPI.Controllers
         }
 
         [HttpGet]
+        [Route("api/lessons")]
         public List<BaseLessonInfoViewModel> GetLessonsByCategoryName(string categoryName, int start = 0, int take = 10)
 
         {

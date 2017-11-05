@@ -102,7 +102,7 @@
                                         }
                                     }
                                     <li>
-                                        @{if (Int32.Parse(start) == numberOfLessons / step * step)
+                                        @{if (Int32.Parse(start)+step >= numberOfLessons)
                                             {
                                                 <a>&raquo;</a>
                                             }

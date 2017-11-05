@@ -146,7 +146,7 @@ namespace EnglishForKidAPI.Controllers
 
         // POST: api/QuestionSurveys
         [ResponseType(typeof(QuestionSurvey))]
-        [Route("api/postQuestionSurvey")]
+        [Route("api/QuestionSurveys")]
         public IHttpActionResult PostQuestionSurvey(QuestionSurvey questionSurvey)
         {
             if (!ModelState.IsValid)
@@ -189,18 +189,19 @@ namespace EnglishForKidAPI.Controllers
         }
 
         // DELETE: api/QuestionSurveys/5
+        [Route("api/QuestionSurveys/{id}")]
         [ResponseType(typeof(QuestionSurvey))]
         public IHttpActionResult DeleteQuestionSurvey(Guid id)
         {
-            QuestionSurvey questionSurvey = db.QuestionSurveys.Find();
+            QuestionSurvey questionSurvey = db.QuestionSurveys.Find(id);
             if (questionSurvey == null)
             {
                 return NotFound();
             }
 
-            db.QuestionSurveys.Remove(questionSurvey);
             var answers = db.AnswerSurveys.Where(x => x.QuestionSurveyID == questionSurvey.ID);
             db.AnswerSurveys.RemoveRange(answers);
+            db.QuestionSurveys.Remove(questionSurvey);
 
             db.SaveChanges();
 
