@@ -16,18 +16,18 @@ namespace EnglishForKidAPI.Controllers
 {
     public class QuestionSurveysController : BaseApiController
     {
-
         // GET: api/QuestionSurveys
-        public List<QuestionSurvey> GetQuestionSurveys()
+        [Route("api/QuestionSurveys")]
+        public IEnumerable<QuestionSurvey> GetQuestionSurveys()
         {
-            return db.QuestionSurveys.ToList();
+            return db.QuestionSurveys;
         }
 
         [Route("api/QuestionSurveys/base")]
         public List<BaseQuestionSurveyViewModel> GetBaseQuestionSurveys()
         {
             List<BaseQuestionSurveyViewModel> baseQuestionSurveys = new List<BaseQuestionSurveyViewModel>();
-            foreach(var questionSurvey in db.QuestionSurveys)
+            foreach (var questionSurvey in db.QuestionSurveys)
             {
                 BaseQuestionSurveyViewModel baseQuestionSurvey = ModelFactory.GetQuestionSurveyViewModel(questionSurvey);
                 baseQuestionSurveys.Add(baseQuestionSurvey);
@@ -40,6 +40,20 @@ namespace EnglishForKidAPI.Controllers
         public IHttpActionResult GetQuestionSurvey(Guid id)
         {
             QuestionSurvey questionSurvey = db.QuestionSurveys.Find(id);
+
+            if (questionSurvey == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(questionSurvey);
+        }
+
+        [ResponseType(typeof(QuestionSurvey))]
+        [Route("api/getActiveQuestion")]
+        public IHttpActionResult GetActiveQuestion()
+        {
+            QuestionSurvey questionSurvey = db.QuestionSurveys.FirstOrDefault(p => p.Status == true);
 
             if (questionSurvey == null)
             {
@@ -65,6 +79,11 @@ namespace EnglishForKidAPI.Controllers
 
             db.Entry(questionSurvey).State = EntityState.Modified;
 
+            foreach (var answerSurvey in questionSurvey.AnswerSurveys)
+            {
+                db.Entry(answerSurvey).State = EntityState.Modified;
+            }
+
             try
             {
                 db.SaveChanges();
@@ -81,31 +100,34 @@ namespace EnglishForKidAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
         }
 
         // POST: api/QuestionSurveys
         [ResponseType(typeof(QuestionSurvey))]
-        public IHttpActionResult PostQuestionSurvey(QuestionSurvey questionSurvey)
+        [Route("api/activeQuestion")]
+        public IHttpActionResult PostActiveQuestion(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.QuestionSurveys.Add(questionSurvey);
-            db.AnswerSurveys.AddRange(questionSurvey.AnswerSurveys);
+            QuestionSurvey questionSurvey = db.QuestionSurveys.FirstOrDefault(p => p.ID == id);
+            if (questionSurvey == null)
+            {
+                return NotFound();
+            }
 
-            //foreach( var answerSurvey in questionSurvey.AnswerSurveys)
-            //{
-            //    db.AnswerSurveys.Add(answerSurvey);
-            //}
+            questionSurvey.Status = !questionSurvey.Status;
+
+            db.Entry(questionSurvey).State = EntityState.Modified;
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException ex)
             {
                 if (QuestionSurveyExists(questionSurvey.ID))
                 {
@@ -117,10 +139,57 @@ namespace EnglishForKidAPI.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = questionSurvey.ID }, questionSurvey);
+            return Ok();
+
+        }
+
+
+        // POST: api/QuestionSurveys
+        [ResponseType(typeof(QuestionSurvey))]
+        [Route("api/QuestionSurveys")]
+        public IHttpActionResult PostQuestionSurvey(QuestionSurvey questionSurvey)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            List<AnswerSurvey> answers = questionSurvey.AnswerSurveys.ToList();
+            questionSurvey.AnswerSurveys = null;
+
+            db.QuestionSurveys.Add(questionSurvey);
+
+            foreach (var answer in answers)
+            {
+                db.AnswerSurveys.Add(new AnswerSurvey
+                {
+                    ID = Guid.NewGuid(),
+                    Answer = answer.Answer,
+                    QuestionSurveyID = questionSurvey.ID
+                });
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                if (QuestionSurveyExists(questionSurvey.ID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok();
         }
 
         // DELETE: api/QuestionSurveys/5
+        [Route("api/QuestionSurveys/{id}")]
         [ResponseType(typeof(QuestionSurvey))]
         public IHttpActionResult DeleteQuestionSurvey(Guid id)
         {
@@ -130,9 +199,9 @@ namespace EnglishForKidAPI.Controllers
                 return NotFound();
             }
 
-            db.QuestionSurveys.Remove(questionSurvey);
             var answers = db.AnswerSurveys.Where(x => x.QuestionSurveyID == questionSurvey.ID);
             db.AnswerSurveys.RemoveRange(answers);
+            db.QuestionSurveys.Remove(questionSurvey);
 
             db.SaveChanges();
 

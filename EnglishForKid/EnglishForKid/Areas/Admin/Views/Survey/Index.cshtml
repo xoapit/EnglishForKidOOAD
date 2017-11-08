@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title">SURVEY QUESTION LIST</h3>
@@ -15,6 +16,7 @@
         </div>
     </div>
     <div class="box-body padding-large">
+        <div class="col-md-12"><h2 style="text-align:center;" class="text-success" id="textNotice"></h2></div>
         <button type="Submit" class="btn btn-primary  margin-bottom" data-toggle="modal" data-target="#myModalAddSurvey">Add new survey question</button>
 
         <table class="table table-bordered text-center table-responsive table-hover">
@@ -40,10 +42,10 @@
                             <td>@baseQuestion.CreateAt.ToString("dd/MMM/yyy hh:mm:ss")</td>
                             <td>@baseQuestion.GetStatus</td>
                             <td>
-                                <button type="button" class="btn btn-info" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
-                                <button type="Submit" class="btn btn-success" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                                <button type="Submit" class="btn btn-primary" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
-                                <button type="Submit" class="btn btn-danger" data-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
+                                <button type="button" class="detailQuestion btn btn-info" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
+                                <button type="Submit" class="updateQuestion btn btn-success" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
+                                <button type="Submit" class="activeQuestion btn btn-primary" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                                <button type="Submit" class="deleteQuestion btn btn-danger" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
                             </td>
 
                         </tr>
@@ -72,7 +74,7 @@
                             <label for="">Content</label>
                         </div>
                         <div class="form-group row">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="contentAdd"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Aswer option</label>
@@ -85,45 +87,39 @@
                         </div>
                         <div class="answerContent">
                             <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">A</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                <label class="col-md-2 col-xs-12 text-left">Answer 1</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd1" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">B</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                <label class="col-md-2 col-xs-12 text-left">Answer 2</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd2" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">C</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
+                                <label class="col-md-2 col-xs-12 text-left">Answer 3</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd3" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">D</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
+                                <label class="col-md-2 col-xs-12 text-left">Answer 4</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd4" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">E</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
+                                <label class="col-md-2 col-xs-12 text-left">Answer 5</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd5" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">F</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
+                                <label class="col-md-2 col-xs-12 text-left">Answer 6</label>
+                                <div class="col-md-10 col-xs-12">
+                                    <input type="text" class="form-control" id="answerAdd6" value="">
                                 </div>
                             </div>
                         </div>
@@ -132,8 +128,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary pull-right margin">
-                    <span><i class="fa fa-clock-o txt-danger"></i></span> Add
+                <button type="submit" id="addQuestion" class="btn btn-primary pull-right margin">
+                    <span><i class="fa fa-clock-o txt-danger" ></i></span> Add
                 </button>
                 <button type="button" class="btn btn-default margin" data-dismiss="modal"> Close </button>
             </div>
@@ -159,64 +155,13 @@
                             <label for="">Content</label>
                         </div>
                         <div class="form-group row">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="contentUpdate"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="">Aswer option</label>
-                            <select class="form-control" id="quantity1">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                        </div>
-                        <div class="answerContent">
-                            <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">A</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">B</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-1 col-xs-12 text-left">C</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">D</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">E</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div>
-                                    <label class="col-md-1 col-xs-12 text-left">F</label>
-                                    <div class="col-md-5 col-xs-12">
-                                        <input type="text" class="form-control" id="" value="">
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="answerContent">
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group row">
-                            <button type="submit" class="btn btn-primary pull-right">
+                            <button type="submit" id="updateQuestion" class="btn btn-primary pull-right">
                                 <span><i class="fa fa-clock-o txt-danger"></i></span>
                                 Update
                             </button>
@@ -244,56 +189,9 @@
             </div>
             <div class="modal-body">
                 <div class="box-body padding-large">
-                    <form>
+                    <form id="formDetailQuestion">
                         <div class="form-group row">
-                            <label for="">Content</label>
-                        </div>
-                        <div class="form-group row" id="detailQuestionContent">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Aswer option</label>
-                            <select class="form-control" id="quantity">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-1 col-xs-12 text-left">A</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
-                            </div>
-                            <label class="col-md-1 col-xs-12 text-left">B</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-1 col-xs-12 text-left">C</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
-                            </div>
-                            <div id="value4">
-                                <label class="col-md-1 col-xs-12 text-left">D</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div id="value5">
-                                <label class="col-md-1 col-xs-12 text-left">E</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
-                                </div>
-                            </div>
-                            <div id="value6">
-                                <label class="col-md-1 col-xs-12 text-left">F</label>
-                                <div class="col-md-5 col-xs-12">
-                                    <input type="text" class="form-control" id="" value="" readonly="true" style="background-color:white">
-                                </div>
-                            </div>
+                            <label id="contentQuestionSurvey" style="color:slateblue;">Content:</label>
                         </div>
                     </form>
                 </div>
@@ -302,81 +200,8 @@
                 <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
         </div>
-
     </div>
 </div>
-
-
-<div class="modal fade" id="myModalDetailSurvey" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content" style="margin:2%;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">DETAIL SURVEY QUESTION</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group padding-large">
-                        <label for="">Content</label>
-                        <div class="col-xs-12 col-md-12">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Aswer option</label>
-                        <select class="form-control" id="quantity">
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-1 col-xs-12 text-left">A</label>
-                        <div class="col-md-5 col-xs-12">
-                            <input type="text" class="form-control" id="" value="">
-                        </div>
-                        <label class="col-md-1 col-xs-12 text-left">B</label>
-                        <div class="col-md-5 col-xs-12">
-                            <input type="text" class="form-control" id="" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-1 col-xs-12 text-left">C</label>
-                        <div class="col-md-5 col-xs-12">
-                            <input type="text" class="form-control" id="" value="">
-                        </div>
-                        <div id="value4">
-                            <label class="col-md-1 col-xs-12 text-left">D</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div id="value5">
-                            <label class="col-md-1 col-xs-12 text-left">E</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="">
-                            </div>
-                        </div>
-                        <div id="value6">
-                            <label class="col-md-1 col-xs-12 text-left">F</label>
-                            <div class="col-md-5 col-xs-12">
-                                <input type="text" class="form-control" id="" value="" readonly>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 <div class="modal fade" id="myModalDeleteSurvey" role="dialog">
     <div class="modal-dialog">
@@ -400,7 +225,7 @@
                 <div class="form-group row">
                     <div class="col-md-9 col-xs-12"></div>
                     <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-success">Yes</button>
+                        <button type="button" class="btn btn-success" id="deleteQuestion">Yes</button>
                     </div>
                     <div class="col-md-1 col-xs-12">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
@@ -413,6 +238,7 @@
 
     </div>
 </div>
+
 <div class="modal fade" id="myModalActiveSurvey" role="dialog">
     <div class="modal-dialog">
 
@@ -435,12 +261,11 @@
                 <div class="form-group row">
                     <div class="col-md-9 col-xs-12"></div>
                     <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-success">Yes</button>
+                        <button type="button" class="btn btn-success" id="activeQuestion">Yes</button>
                     </div>
                     <div class="col-md-1 col-xs-12">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     </div>
-
                     <div class="col-md-1 col-xs-12"></div>
                 </div>
             </div>

@@ -23,6 +23,8 @@ using EnglishForKidAPI.Helper;
 using System.Web.Http.Description;
 using System.Data.Entity.Infrastructure;
 using System.Net;
+using EnglishForKidAPI.Constants;
+using EnglishForKidAPI.Models.ViewModel;
 
 namespace identity.Controllers
 {
@@ -85,7 +87,7 @@ namespace identity.Controllers
             foreach (var user in users)
             {
                 UserReturnModel userReturnModel = this.TheModelFactory.Create(user);
-                if (userReturnModel.Roles.Contains(roleName))
+                if (userReturnModel.Roles.Contains(roleName) || string.IsNullOrWhiteSpace(roleName))
                 {
                     userReturnModels.Add(userReturnModel);
                 }
@@ -131,7 +133,7 @@ namespace identity.Controllers
             }
             UserManager.PasswordHasher.HashPassword("123456");
             //var tokenjsonString = GetTokenForNewUser(model.UserName, model.Password);
-            
+
             // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
@@ -518,7 +520,42 @@ namespace identity.Controllers
             return Ok(user);
         }
 
-        // POST api/Account/Register
+        [HttpPost]
+        [Route("UpdateRole")]
+        public IHttpActionResult UpdateRole(RoleViewModel roleViewModel)
+        {
+            List<string> myRoles = new List<string>();
+            if (roleViewModel.IsStudent)
+            {
+                myRoles.Add(ApplicationConfig.StudentRole);
+            }
+            if (roleViewModel.IsTeacher)
+            {
+                myRoles.Add(ApplicationConfig.TeacherRole);
+            }
+            if (roleViewModel.IsAdmin)
+            {
+                myRoles.Add(ApplicationConfig.AdminRole);
+            }
+
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
+            List<string> roles = userManager.GetRoles(roleViewModel.UserID).ToList();
+
+            userManager.RemoveFromRoles(roleViewModel.UserID, roles.ToArray());
+
+            try
+            {
+                userManager.AddToRoles(roleViewModel.UserID, myRoles.ToArray());
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+            return Ok();
+        }
+
+        //POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(CreateUserBindingModel createUserModel)
@@ -541,7 +578,7 @@ namespace identity.Controllers
                 Id = Guid.NewGuid().ToString(),
                 Status = createUserModel.Status,
                 PhoneNumber = createUserModel.PhoneNumber,
-                UpdateAt= DateTime.Now,
+                UpdateAt = DateTime.Now,
             };
 
             IdentityResult addUserResult = await this.UserManager.CreateAsync(user, createUserModel.Password);

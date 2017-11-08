@@ -27,10 +27,16 @@ namespace EnglishForKid.Service
             {
                 MaxResponseContentBufferSize = 256000,
                 BaseAddress = new Uri(baseApiUrl),
-                Timeout = TimeSpan.FromMilliseconds(4000)
+                Timeout = TimeSpan.FromMilliseconds(10000)
             };
+
+            string token = HttpContext.Current.Request.Cookies["token"]?.Value;
+
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            if (token!=null){
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
         }
     }
 }

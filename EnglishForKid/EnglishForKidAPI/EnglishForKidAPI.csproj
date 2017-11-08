@@ -296,6 +296,7 @@
     <Compile Include="Models\ViewModels\BaseLessonInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\BaseQuestionSurveyViewModel.cs" />
     <Compile Include="Models\ViewModels\ChartStatisticViewModel.cs" />
+    <Compile Include="Models\ViewModels\RoleViewModel.cs" />
     <Compile Include="Models\ViewModels\StatisticViewModel.cs" />
     <Compile Include="Models\ViewModels\ViewCountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -416,7 +417,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50828</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50827/</IISUrl>
+          <IISUrl>http://localhost:50828/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,32 +1,30 @@
 ﻿@using EnglishForKid.Models;
+@model EnglishForKid.Models.Lesson
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    Lesson lesson = ViewBag.Lesson;
-}
+<script src="~/Areas/Teacher/Scripts/lesson/index.js"></script>
+@*<script src="~/Areas/Admin/Scripts/Feedback/feedbackReplyHistory.js"></script>*@
 
 <div class="box box-danger">
     <div class="box-header with-border">
         <h3 class="box-title">LIST OF LESSONS</h3>
         <div class="box-tools pull-right">
-            <a id="btnAddLesson" class="btn btn-primary">
-                <i class="fa fa-adjust"></i> Create
-            </a>
             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                 <i class="fa fa-minus"></i>
             </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
         </div>
     </div>
-
-    <script src="~/Areas/Teacher/Scripts/lesson/index.js"></script>
     <!-- /.box-header -->
     <div class="box-body padding-large">
-
-        <table id="myLessonTable" class="table table-bordered table-responsive table-hover text-center">
+        <div class="col-md-12">
+            <a href="/Teacher/Lesson/Create" class="add-lesson btn btn-primary pull-right margin-bottom">Add</a>
+        </div>
+        <table id="mylessontable" class="table table-bordered table-responsive table-hover text-center">
 
             <thead>
                 <tr align="center" style="">
@@ -41,19 +39,23 @@
                     <th hidden>Discussion</th>
                     <th hidden>ApplicationUserID</th>
                     <th>CrateAt</th>
+                    @*<th> Status </th>*@
                     <th>Action</th>
+
+
                 </tr>
             </thead>
 
 
             <tbody>
                 @{
-                    int i = 1;
-                    foreach (Lesson lessons in ViewBag.Lessons)
+                    List<Lesson> listLessons = ViewBag.Lessons;
+                    for (int i = 0; i < listLessons.Count; i++)
                     {
-
+                        Lesson lessons = listLessons.ElementAt(i);
+                        int index = i + 1;
                         <tr>
-                            <td>@i</td>
+                            <td>@index</td>
                             <td>@lessons.Title</td>
                             <td hidden>@lessons.LevelID</td>
                             <td hidden>@lessons.Image</td>
@@ -66,17 +68,31 @@
                             <td hidden>@lessons.Discussion</td>
                             <td hidden>@lessons.ApplicationUserID</td>
                             <td>@lessons.CreateAt.ToString("dd/MMM/yyyy")</td>
+                            @*<td>
+                                <button type="button" class="btn btn-danger block-Account" data-status="@lessons.Status" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalBlockLesson">
+                                    @{
+                                        if (lessons.Status)
+                                        {
+                                            <text>Block</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Unlock</text>
+                                        }
+                                    }
+                                </button>
+                            </td>*@
+
                             <td>
 
-                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <button id="btnUpdateLesson" type="button" class="update-lesson btn btn-success" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalUpdateLesson">
+                                <button  type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
+
+                                <a id="btnUpdateLesson2" href="/Teacher/Lesson/Edit/@lessons.ID" class="update-lesson btn btn-success">
                                     Update
-                                </button>
-                                <button type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
+                                </a>
+                                <button hidden type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</buttonhidden>
                             </td>
                         </tr>
-
-                        i++;
                     }
                 }
 
@@ -94,39 +110,38 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">DELETE LESSON</h4>
             </div>
-
             <div class="modal-body">
                 <div class="box-body padding-large">
                     <form>
 
                         <div hidden>
-                            <input type="text" class="form-control" name="deleteLessonId" id="deleteLessonId" value="" style="background-color:white" />
+                        <input type="text" class="form-control" name="deleteLessonId" id="deleteLessonId" value="" style="background-color:white" />
                         </div>
 
-                        <div class="form-group row text-center">
-                            <label>Are you sure that you want to delete this lesson?</label>
-                        </div>
+                <div class="form-group row text-center">
+                    <label>Are you sure that you want to delete this lesson?</label>
+                </div>
 
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="form-group row">
-                    <div class="col-md-9 col-xs-12" id="deleteMessageBox">
-                        <label class="text text-success" id="deleteMessage"></label>
-                    </div>
-                    <div class="col-md-1 col-xs-12">
-                        <button type="button" data-lesson-id="" id="btnDeleteLesson" class="btn btn-primary">Yes</button>
-                    </div>
-                    <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                    </div>
-                    <div class="col-md-1 col-xs-12"></div>
-                </div>
+                </form>
             </div>
         </div>
-
+        <div class="modal-footer">
+            <div class="form-group row">
+                <div class="col-md-9 col-xs-12" id="deleteMessageBox">
+                    <label class="text text-success" id="deleteMessage"></label>
+                </div>
+                <div class="col-md-1 col-xs-12">
+                    <button type="button" data-lesson-id="" id="btnDeleteLesson" class="btn btn-primary">Yes</button>
+                </div>
+                <div class="col-md-1 col-xs-12">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+                <div class="col-md-1 col-xs-12"></div>
+            </div>
+        </div>
     </div>
+
+</div>
 </div>
 
 <!--Detail Lesson Modal -->
@@ -139,8 +154,95 @@
                 <h4 class="modal-title">DETAIL LESSON</h4>
             </div>
             <div class="modal-body">
-                <div id="detailLesson">
+                <div class="box-body padding-large">
+                    <form>
 
+                        <div hidden>
+                            <input type="text" class="form-control" name="viewLessonId" id="viewLessonId" value="" style="background-color:white" />
+                        </div>
+
+                        <div class="form-group ">
+
+                            <label for="">Title</label>
+                            <div>
+                                <input type="text" readonly name="detailLessonTitle" id="detailLessonTitle" class="form-control" value="">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group ">
+
+                            <label for="" >Level</label>
+                            <div>
+                                <select class="form-control" name="detailLessonLevel" id="detailLessonlLevel">
+                                    <option>1</option>
+                                    <option> 2</option>
+                                    <option> 3</option>
+                                    <option> 4</option>
+                                    <option> 5</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group ">
+
+                            <label for="">Picture</label>
+                            <div>
+                                <input type="text" readonly class="form-control" name="detailLessonPicture" id="detailLessonPicture" value="">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Category</label>
+                            <div>
+                                <select class="form-control" name="detailLessonCategory" id="detailLessonCategory">
+                                    <option>Vocabulary</option>
+                                    <option>Reading</option>
+                                    <option>Listening</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Content</label>
+                            <div>
+                                <textarea class="form-control" readonly s="5" name="detailLessonContent" id="detailLessonContent"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Exercise</label>
+                            <div>
+                                <textarea class="form-control" readonly s="5" name="detailLessonExercise" id="detailLessonExcercise"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Answer</label>
+                            <div>
+                                <textarea class="form-control" readonly s="5" name="detailLessonAnswer" id="detailLessonAnswer"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Discussion</label>
+                            <div>
+                                <textarea class="form-control" readonly s="5" name="detailLessonDiscussion" id="detailLessonDiscussion"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="modal-footer">
@@ -150,6 +252,126 @@
     </div>
 </div>
 
+<!--  Add Lesson Modal -->
+<div class="modal fade" id="myModalAddLesson" role="dialog">
+    <div class="modal-dialog  modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content" style="margin:2%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ADD LESSON</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group">
+
+                            <label for="">Title</label>
+                            <div>
+                                <input type="text" class="form-control" name="addLessonTitle" id="addLessonTitle" value="">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group ">
+
+                            <label for="">Level</label>
+                            <div>
+                                <select class="form-control" name="addLessonLevel" id="addLessonLevel">
+                                    <option>1</option>
+                                    <option> 2</option>
+                                    <option> 3</option>
+                                    <option> 4</option>
+                                    <option> 5</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="">Picture</label>
+                            <div>
+                                <input type="text" class="form-control" name="addLessonPicture" id="addLessonPicture" value="">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Category</label>
+                            <div>
+                                <select class="form-control" iname="addLessonCategory" id="addLessonCategory">
+                                    <option>Vocabulary</option>
+                                    <option>Reading</option>
+                                    <option>Listening</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Content</label>
+                            <div>
+                                <textarea  class="ckeditor" name="addLessonContent" id="addLessonContent"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Exercise</label>
+                            <div>
+                                <textarea  class="ckeditor" name="addLessonExercise" id="addLessonExercise"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Answer</label>
+                            <div>
+                                <textarea  class="ckeditor" name="addLessonAnswer" id="addLessonAnswer"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Discussion</label>
+                            <div>
+                                <textarea  class="ckeditor" name="addLessonDiscussion" id="addLessonDiscussion"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-2">
+                                <label class="alert-info" id="sendEmailMessage"></label>
+                                <button type="submit" class="btn btn-primary btn-label-left" name="btnAddLesson" id="btnaddLesson">
+                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                    Add
+                                </button>
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2">
+                                
+                                    <button type="button" class="btn btn-danger btn-label-left" data-dismiss="modal">
+                                        <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                        Cancel
+                                    </button>
+</div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+</div>
 
 <!--  Update Lesson Modal -->
 <div class="modal fade" id="myModalUpdateLesson" role="dialog">
@@ -161,26 +383,114 @@
                 <h4 class="modal-title">UPDATE LESSON</h4>
             </div>
             <div class="modal-body">
-                <div id="updateLesson">
+                <div class="box-body padding-large">
+                    <form>
+                        <div class="form-group">
 
+                            <label for="">Title</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Picture</label>
+                            <div>
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Category</label>
+                            <div>
+                                <select class="form-control" id="">
+                                    <option>Vocabulary</option>
+                                    <option>Reading</option>
+                                    <option>Listening</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Content</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor1"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="">Exercise</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor2"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Answer</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor3"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+
+                            <label for="">Discussion</label>
+                            <div>
+                                <textarea name="editor" class="ckeditor" id="editor4"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-label-left">
+                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                    Add
+                                </button>
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-label-left">
+                                    <span><i class="fa fa-clock-o txt-danger"></i></span>
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                </div>*@
         </div>
     </div>
 </div>
 
+
+<script>
+    CKEditor.replace('editor2');
+    CKEditor.replace('editor3');
+    CKEditor.replace('editor4');
+</script>
 <!-- DataTable-->
+@*<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>*@
 <script src="~/Areas/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="~/Areas/Admin/bower_components/datatables.net/js/"></script>
 <script>
     $(document).ready(function () {
-        var lessonTable = $('#myLessonTable').DataTable();
-        document.getElementById('btnAddLesson').href = window.location.origin + "/Teacher/Lesson/Create";
-
+        $('#mylessontable').DataTable();
     });
 </script>
-
-
 
 

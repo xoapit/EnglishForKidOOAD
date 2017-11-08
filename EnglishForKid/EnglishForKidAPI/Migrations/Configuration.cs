@@ -19,6 +19,7 @@ namespace EnglishForKidAPI.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+
             //InitUsers(context);
             //InitCategories(context);
             //InitBusinessesAndFunctions(context);
@@ -53,8 +54,6 @@ namespace EnglishForKidAPI.Migrations
                 QuestionSurveyID = context.QuestionSurveys.First().ID,
                 Answer = "I have a some problem with my arm"
             });
-
-
         }
 
         private void InitCommets(ApplicationDbContext context)
@@ -273,7 +272,7 @@ namespace EnglishForKidAPI.Migrations
                 }
             }
         }
-
+        
         //private void InitBusinessesAndFunctions(ApplicationDbContext context)
         //{
         //    context.Functions.RemoveRange(context.Functions.ToList());
@@ -373,7 +372,7 @@ namespace EnglishForKidAPI.Migrations
             context.Categories.Add(new Category()
             {
                 ID = Guid.NewGuid(),
-                Name = ApplicationConfig.ReadingCategory
+                Name = ApplicationConfig.SpeakingCategory
             });
             context.Categories.Add(new Category()
             {

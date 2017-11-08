@@ -1,0 +1,21 @@
+﻿@{ 
+    Layout = null;
+}
+<div class="row padding">
+    @{
+        foreach (var lesson in ViewBag.BaseLessonInfoViewModels1)
+        {
+            <div class="row padding">
+                <div class="#">
+                    <div class="col-md-2 col-sm-3">
+                        <a class="cat-img" href="/Lesson/DetailOfLesson?id=@lesson.ID"><img src="~/Content/files/image/LessonImage/5.jpg" style="width:30px;height:30px" class="img-circle"></a>
+                    </div>
+                    <div class="col-md-10 col-sm-9">
+                        <h4><a href="/Lesson/DetailOfLesson?id=@lesson.ID">@lesson.Title</a></h4>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+

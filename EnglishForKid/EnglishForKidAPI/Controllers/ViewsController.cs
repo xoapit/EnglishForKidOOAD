@@ -19,34 +19,47 @@ namespace EnglishForKidAPI.Controllers
 
         [Route("api/Views/SetViewCount")]
         [HttpGet]
-        public IHttpActionResult SetViewCount() {
-            View view = db.Views.Where(x => x.Year == DateTime.Now.Year && x.Month==DateTime.Now.Month)?.First();
+        public IHttpActionResult SetViewCount()
+        {
+            DateTime today = DateTime.Now;
+            View view = db.Views.Where(x => x.Year == today.Year
+            && x.Month == today.Month
+            && x.Day == today.Day)?.FirstOrDefault();
+
             if (view != null)
             {
                 view.PageView++;
                 db.SaveChanges();
                 return Ok(GetViewCount());
             }
-            else {
+            else
+            {
                 db.Views.Add(new View
                 {
                     ID = Guid.NewGuid(),
                     PageView = 1,
-                    Month = DateTime.Now.Month,
-                    Year=DateTime.Now.Year
+                    Month = today.Month,
+                    Year = today.Year,
+                    Day = today.Day
 
-                    
                 });
                 db.SaveChanges();
                 return Ok(GetViewCount());
             }
         }
 
-        public ViewCountViewModel GetViewCount() {
-            View view = db.Views.SingleOrDefault(x => x.Month == DateTime.Now.Month && x.Year == DateTime.Now.Year);
+        public ViewCountViewModel GetViewCount()
+        {
+            DateTime today = DateTime.Now;
+            View view = db.Views.SingleOrDefault(x => x.Day == today.Day
+            && x.Month == today.Month
+            && x.Year == today.Year);
+
             ViewCountViewModel viewCountViewModel = new ViewCountViewModel();
-            viewCountViewModel.Month = view.PageView;
-            viewCountViewModel.Year = db.Views.Where(x => x.Year == DateTime.Now.Year).Sum(x => x.PageView);
+            viewCountViewModel.Month = db.Views.Where(x => x.Year == today.Year
+            && x.Month == today.Month).Sum(x => x.PageView);
+            viewCountViewModel.Year = db.Views.Where(x => x.Year == today.Year).Sum(x => x.PageView);
+            viewCountViewModel.Day = view.PageView;
             return viewCountViewModel;
         }
 

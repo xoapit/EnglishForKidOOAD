@@ -12,6 +12,7 @@ namespace EnglishForKid.Controllers
     public class LessonController : Controller
     {
         LessonDataStore lessonDataStore = new LessonDataStore();
+        RateDataStore rateDataStore = new RateDataStore();
         // GET: Lesson
         public ActionResult ListOfLesson()
         {
@@ -23,10 +24,42 @@ namespace EnglishForKid.Controllers
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
             ViewBag.Lesson = lesson;
             ViewBag.IsLogin = IsLogin(this.Request);
-            //Xau ra ben thanh ben phai
-            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
-            ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
+
+            float averageRating = rateDataStore.GetAverageRateByLessonIDAsync(lesson.ID).Result;
+            ViewBag.AverageRating = averageRating;
+
+            if (IsLogin(Request))
+            {
+                string userID = Request.Cookies["id"]?.Value;
+                Rate rate = rateDataStore.GetRateByLessonAndUserAsync(lesson.ID, userID).Result;
+                ViewBag.MyRate = rate;
+            }
+
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddRate(FormCollection form)
+        {
+            Guid lessonID = new Guid(form["LessonID"]);
+            string level = form["level"];
+
+            string userID = Request.Cookies["id"].Value;
+            Rate rate = rateDataStore.GetRateByLessonAndUserAsync(lessonID, userID).Result;
+            if (rate == null)
+            {
+                rate = new Rate()
+                {
+                    ID = Guid.NewGuid(),
+                    Level = 0,
+                    ApplicationUserID = userID,
+                    CreateAt = DateTime.Now,
+                    LessonID = lessonID
+                };
+            }
+            rate.Level = float.Parse(level);
+            bool result = rateDataStore.AddItemAsync(rate).Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetComments(string lessonId)
@@ -59,12 +92,20 @@ namespace EnglishForKid.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ListLessonByCategory(string categoryName)
+        public ActionResult ListLessonByCategory(string categoryName, int start = 0, int take = 10)
         {
-            List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName).Result;
+            List<BaseLessonInfoViewModel> baseLessonInfoViewModels = lessonDataStore.GetBaseLessonInfoViewModelsByCategoryNameAsync(categoryName, start, take).Result;
             ViewBag.BaseLessonInfoViewModels = baseLessonInfoViewModels;
-            //Xau ra ben thanh ben phai
-            List<BaseLessonInfoViewModel> lessons = lessonDataStore.GetItemsAsync().Result;
+
+            int numberOfLessons = lessonDataStore.GetNumberOfLessonsByCategoryNameAsync(categoryName).Result;
+            ViewBag.NumberOfLessons = numberOfLessons;
+
+            return View();
+        }
+
+        public ActionResult LessonsForRightBox()
+        {
+            List<Lesson> lessons = lessonDataStore.GetItemsAsync().Result;
             ViewBag.BaseLessonInfoViewModels1 = lessons.Take(3);
             return View();
         }
