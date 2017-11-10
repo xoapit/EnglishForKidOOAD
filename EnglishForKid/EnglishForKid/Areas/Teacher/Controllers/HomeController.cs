@@ -62,7 +62,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
                     Title = title,
                     CategoryID = new Guid(category),
                     LevelID = new Guid(level),
-                    Image = image,
+                    //Image = image,
                     Content = content,
                     Discussion = discussion,
                     Exercise = exercise,

@@ -21,6 +21,8 @@ namespace EnglishForKid.Models
         [Display(Name ="Url Image")]
         public string Image { get; set; }
 
+        public HttpPostedFileBase ImageFile { get; set; }
+
         [Required]
         [AllowHtml]
         [Display(Name ="Content")]
