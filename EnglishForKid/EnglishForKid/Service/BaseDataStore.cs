@@ -14,6 +14,7 @@ namespace EnglishForKid.Service
         protected string baseApiUrl = ApplicationConfig.BaseApiUrl;
         protected static HttpClient client;
         protected JsonSerializerSettings jsonSetting;
+        
 
         public BaseDataStore()
         {
@@ -37,6 +38,8 @@ namespace EnglishForKid.Service
             if (token!=null){
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
+
+            
         }
     }
 }
