@@ -50,37 +50,42 @@
 
             <tbody>
                 @{
-                    int i = 1;
-                    foreach (Lesson lessons in ViewBag.Lessons)
+                    //int i = 1;
+
+                    //foreach (Lesson lessons in ViewBag.Lessons)
+                    //{
+                    List<Lesson> lessons = ViewBag.Lessons;
+                    for (int i = 0; i < lessons.Count; i++)
                     {
+                        int index = i + 1;
 
                         <tr>
                             <td>@i</td>
-                            <td>@lessons.Title</td>
-                            <td hidden>@lessons.LevelID</td>
-                            <td hidden>@lessons.Image</td>
-                            <td hidden>@lessons.CategoryID</td>
+                            <td>@lessons.ElementAt(i).Title</td>
+                            <td hidden>@lessons.ElementAt(i).LevelID</td>
+                            <td hidden>@lessons.ElementAt(i).Image</td>
+                            <td hidden>@lessons.ElementAt(i).CategoryID</td>
 
-                            <td hidden>@lessons.Content</td>
+                            <td hidden>@lessons.ElementAt(i).Content</td>
 
-                            <td hidden>@lessons.Exercise</td>
-                            <td hidden>@lessons.Answer</td>
-                            <td hidden>@lessons.Discussion</td>
-                            <td hidden>@lessons.ApplicationUserID</td>
-                            <td hidden>@lessons.CreateAt.ToString("dd/MMM/yyyy")</td>
+                            <td hidden>@lessons.ElementAt(i).Exercise</td>
+                            <td hidden>@lessons.ElementAt(i).Answer</td>
+                            <td hidden>@lessons.ElementAt(i).Discussion</td>
+                            <td hidden>@lessons.ElementAt(i).ApplicationUserID</td>
+                            <td hidden>@lessons.ElementAt(i).CreateAt.ToString("dd/MMM/yyyy")</td>
                             <td>
 
-                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
-                                <a id="btnUpdateLesson2" href="/Teacher/Lesson/Edit/@lessons.ID" class="update-lesson btn btn-success">
+                                <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>
+                                <a href="/Teacher/Lesson/Edit/@lessons.ElementAt(i).ID" class="btn btn-success">
                                     Update
                                 </a>
 
-                                <button hidden type="Submit" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
+                                <button type="button" class="delete-lesson btn btn-danger" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDeleteLesson">Delete</button>
 
                             </td>
                         </tr>
 
-                        i++;
+                       // i++;
                     }
                 }
 
