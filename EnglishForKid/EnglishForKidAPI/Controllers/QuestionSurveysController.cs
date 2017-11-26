@@ -70,6 +70,7 @@ namespace EnglishForKidAPI.Controllers
         {
             ActualSurveyResult actualSurveyResult = new ActualSurveyResult();
             QuestionSurvey questionSurvey = db.QuestionSurveys.FirstOrDefault(p => p.Status == true);
+
             foreach(var item in questionSurvey.AnswerSurveys)
             {
                 int count= db.Results.Where(x => x.Answer == item.ID.ToString()).Count();
@@ -120,7 +121,7 @@ namespace EnglishForKidAPI.Controllers
 
         // POST: api/QuestionSurveys
         [ResponseType(typeof(QuestionSurvey))]
-        [Route("api/activeQuestion")]
+        [Route("api/activeQuestion/{id}")]
         public IHttpActionResult PostActiveQuestion(Guid id)
         {
             if (!ModelState.IsValid)
@@ -133,8 +134,13 @@ namespace EnglishForKidAPI.Controllers
             {
                 return NotFound();
             }
-
             questionSurvey.Status = !questionSurvey.Status;
+            foreach (QuestionSurvey question in db.QuestionSurveys) {
+                if (question.ID != id)
+                    question.Status = false;
+            }
+
+            
 
             db.Entry(questionSurvey).State = EntityState.Modified;
 

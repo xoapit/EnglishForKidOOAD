@@ -89,7 +89,22 @@ $(document).ready(function () {
     });
 
     $('#deleteQuestion').click(function () {
-        alert("delete QUinto");
+        var urlActive = "/Survey/DeleteQuestion";
+        var idQuestion = $('#deleteQuestion').val();
+
+        $.ajax({
+            type: 'post',
+            url: urlActive,
+            data: {
+                id: idQuestion
+            },
+            success: function (response) {
+                location.reload();
+            },
+            fail: function (response) {
+                alert('Changing status fail');
+            }
+        });
     });
 
     $('.updateQuestion').click(function () {

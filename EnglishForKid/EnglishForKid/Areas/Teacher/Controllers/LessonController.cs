@@ -142,7 +142,7 @@ namespace EnglishForKid.Areas.Teacher.Controllers
             var categoryValue = collection["CategoryID"];
             var levelValue = collection["LevelID"];
 
-            var image = collection["Image"];
+            var image = collection["Image"]; 
             //HttpPostedFileBase image;
             var content = Request.Unvalidated.Form.Get("Content");
             var discussion = collection["Discussion"];

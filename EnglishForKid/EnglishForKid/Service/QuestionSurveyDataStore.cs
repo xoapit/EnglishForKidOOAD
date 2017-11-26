@@ -79,7 +79,7 @@ namespace EnglishForKid.Service
 
         public async Task<bool> ActiveQuestion(Guid id)
         {
-            string path = "/api/activeQuestion";
+            string path = "/api/activeQuestion/"+id;
             HttpResponseMessage response = await client.PostAsJsonAsync(path, id).ConfigureAwait(false);
 
             return await Task.FromResult(response.IsSuccessStatusCode);
