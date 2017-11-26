@@ -55,16 +55,16 @@
                             <div class="col-md-10">
                                 @Html.TextBoxFor(model => model.ImageFile, new { type = "file" })
                                 @Html.ValidationMessageFor(m => m.ImageFile)
-                                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                                <img name="" width="200" height="150" id="" src=@Html.DisplayFor(model => model.Image)>
+                                @*@Html.DisplayFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
-
                             </div>
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Discussion, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Discussion, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.TextAreaFor(model => model.Discussion, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Discussion, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Exercise, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Exercise, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.TextAreaFor(model => model.Exercise, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Exercise, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.TextAreaFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -133,8 +133,8 @@
 </div>
 <script>
     CKEDITOR.replace('Content');
-    CKEDITOR.replace('Answer');
-    CKEDITOR.replace('Exercise');
     CKEDITOR.replace('Discussion');
+    CKEDITOR.replace('Exercise');
+    CKEDITOR.replace('Answer');
 </script>
 
