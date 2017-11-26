@@ -63,9 +63,19 @@ namespace EnglishForKidAPI.Controllers
             return Ok(questionSurvey);
         }
 
+        [HttpPost]
+        [ResponseType(typeof(ActualSurveyResult))]
+        [Route("api/QuestionSurvey/actualResult")]
         public IHttpActionResult GetResultOfSurvey()
         {
+            ActualSurveyResult actualSurveyResult = new ActualSurveyResult();
             QuestionSurvey questionSurvey = db.QuestionSurveys.FirstOrDefault(p => p.Status == true);
+            foreach(var item in questionSurvey.AnswerSurveys)
+            {
+                int count= db.Results.Where(x => x.Answer == item.ID.ToString()).Count();
+                actualSurveyResult.Results.Add(count);
+            }
+            return Ok(actualSurveyResult);
         }
 
         // PUT: api/QuestionSurveys/5

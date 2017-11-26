@@ -293,6 +293,7 @@
     <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\RoleName.cs" />
+    <Compile Include="Models\ViewModels\ActualSurveyResult.cs" />
     <Compile Include="Models\ViewModels\BaseLessonInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\BaseQuestionSurveyViewModel.cs" />
     <Compile Include="Models\ViewModels\ChartStatisticViewModel.cs" />

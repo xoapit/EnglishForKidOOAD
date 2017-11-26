@@ -6,6 +6,7 @@ using System.Web;
 using System.Threading.Tasks;
 using System.Net.Http;
 using EnglishForKid.Models.ViewModels;
+using EnglishForKid.Models.ViewModel;
 
 namespace EnglishForKid.Service
 {
@@ -58,7 +59,7 @@ namespace EnglishForKid.Service
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                baseQuestionSurveys = await response.Content.ReadAsAsync<List<BaseQuestionSurveyViewModel>>();
+                baseQuestionSurveys = await response.Content.ReadAsAsync<List<Models.ViewModels.BaseQuestionSurveyViewModel>>();
             }
             return baseQuestionSurveys;
         }
@@ -96,7 +97,16 @@ namespace EnglishForKid.Service
             return questionSurvey;
         }
 
-
-        //api/getActiveQuestion
+        public async Task<ActualSurveyResult> GetActualSurveyResult()
+        {
+            string path = "/api/QuestionSurvey/actualResult";
+            ActualSurveyResult actualResult = new ActualSurveyResult();
+            HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                actualResult = await response.Content.ReadAsAsync<ActualSurveyResult>();
+            }
+            return actualResult;
+        }
     }
 }
