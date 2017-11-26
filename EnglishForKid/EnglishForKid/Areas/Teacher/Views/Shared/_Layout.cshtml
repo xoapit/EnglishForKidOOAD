@@ -54,7 +54,7 @@
     string roles = Request.Cookies["roles"]?.Value;
     if (string.IsNullOrWhiteSpace(roles) || !roles.Contains("Teacher"))
     {
-        //Response.Redirect("/Home/Index");
+        Response.Redirect("/Home/Index");
     }
 }
 <body class="hold-transition skin-blue sidebar-mini">
@@ -62,7 +62,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="../Home/Index" class="logo">
+            <a href="/Teacher/Home/Index" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>EFK</b></span>
                 <!-- logo for regular state and mobile devices -->
@@ -304,10 +304,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="../../Account/Details" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/Account/Details" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="../../Account/Logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="/Account/Logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -349,7 +349,7 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="../Teacher/Lesson/Index" id="linkLesson">
+                        <a href="/Teacher/Lesson/Index" id="linkLesson">
                             <i class="fa fa-book"></i> <span>Lesson</span>
                             <span class="pull-right-container">
                                 <small class="label pull-right bg-red">hot</small>

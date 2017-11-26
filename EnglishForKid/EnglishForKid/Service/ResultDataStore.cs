@@ -12,15 +12,15 @@ namespace EnglishForKid.Service
     {
         public async Task<bool> AddItemAsync(Result item)
         {
-            String path = "/api/AnswerSurveys";
-            HttpResponseMessage response = await client.PostAsJsonAsync(path, item);
+            String path = "/api/Results";
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, item).ConfigureAwait(false);
             return await Task.FromResult(response.IsSuccessStatusCode);
 
         }
 
         public async Task<bool> DeleteItemAsync(Guid id)
         {
-            String path = "/api/AnswerSurveys" +id.ToString();
+            String path = "/api/Results" + id.ToString();
             HttpResponseMessage response = await client.DeleteAsync(path).ConfigureAwait(false);
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
@@ -28,7 +28,7 @@ namespace EnglishForKid.Service
         public async Task<Result> GetItemAsync(Guid id)
         {
             Result result = null;
-            String path = "/api/AnswerSurveys" + id.ToString();
+            String path = "/api/Results" + id.ToString();
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             
             if (response.IsSuccessStatusCode)
@@ -41,7 +41,7 @@ namespace EnglishForKid.Service
         public async Task<List<Result>> GetItemsAsync()
         {
             List<Result> ListResult = null;
-            String path = "/api/AnswerSurveys";
+            String path = "/api/Results";
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
 
             if (response.IsSuccessStatusCode)

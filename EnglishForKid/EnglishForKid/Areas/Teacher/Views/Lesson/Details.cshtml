@@ -35,7 +35,7 @@
 
             <label for="">Picture</label>
             <div>
-                <img name="detailLessonPicture" id="detailLessonPicture" src="@lesson.Image">
+                <img name="detailLessonPicture" width="200" height="150" id="detailLessonPicture" src="@lesson.Image">
             </div>
             <div class="col-sm-2">
             </div>
@@ -63,7 +63,7 @@
 
             <label for="">Exercise</label>
             <div>
-                <textarea class="form-control" s="5" name="detailLessonExercise" id="detailLessonExcercise" readonly value="@Html.Raw(lesson.Exercise)"></textarea>
+                <textarea class="form-control" s="5" name="detailLessonExercise" id="detailLessonExcercise" readonly value="">@Html.Raw(lesson.Exercise)</textarea>
             </div>
             <div class="col-sm-2">
             </div>
@@ -72,7 +72,8 @@
 
             <label for="">Answer</label>
             <div>
-                <textarea class="form-control" s="5" name="detailLessonAnswer" id="detailLessonAnswer" readonly value="@Html.Raw(lesson.Answer)"></textarea>
+                <textarea class="form-control" s="5" name="detailLessonAnswer"
+                          id="detailLessonAnswer" readonly value="">@Html.Raw(lesson.Answer)</textarea>
             </div>
             <div class="col-sm-2">
             </div>
@@ -81,7 +82,8 @@
 
             <label for="">Discussion</label>
             <div>
-                <textarea class="form-control" s="5" name="detailLessonDiscussion" id="detailLessonDiscussion" readonly value="@Html.Raw(lesson.Discussion)"></textarea>
+                <textarea class="form-control" s="5" name="detailLessonDiscussion" 
+                          id="detailLessonDiscussion" readonly value="">@Html.Raw(lesson.Discussion)</textarea>
             </div>
             <div class="col-sm-2">
             </div>

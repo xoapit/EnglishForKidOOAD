@@ -15526,7 +15526,9 @@
     <Content Include="Areas\Teacher\Views\Lesson\Edit.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\Home\contact.js" />
     <Content Include="Scripts\Home\login.js" />
+    <Content Include="Scripts\Home\survey.js" />
     <Content Include="Scripts\Home\view.js" />
     <Content Include="Scripts\html5lightbox.js" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />

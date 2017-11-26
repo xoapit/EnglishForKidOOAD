@@ -84,14 +84,14 @@ namespace EnglishForKid.Service
             return await Task.FromResult(response.IsSuccessStatusCode);
         }
 
-        public async Task<QuestionSurvey> GetActiveQuestion()
+        public async Task<string> GetActiveQuestion()
         {
             string path = "/api/getActiveQuestion";
-            QuestionSurvey questionSurvey = null;
+            string questionSurvey = null;
             HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
-                questionSurvey = await response.Content.ReadAsAsync<QuestionSurvey>();
+                questionSurvey = await response.Content.ReadAsStringAsync();
             }
             return questionSurvey;
         }

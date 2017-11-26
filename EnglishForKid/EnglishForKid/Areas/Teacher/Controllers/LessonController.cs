@@ -125,31 +125,32 @@ namespace EnglishForKid.Areas.Teacher.Controllers
         {
             InitCreate();
             Lesson lesson = lessonDataStore.GetItemAsync(id).Result;
-            return View("Edit",lesson);
+            return View("Edit", lesson);
         }
 
         // POST: Teacher/Lesson/Edit/5
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection, Lesson lesson1)
         {
             InitCreate();
             List<Level> levels = ViewBag.ListLevels;
             List<Category> categories = ViewBag.ListCategories;
-            
-            
-                var title = collection["Title"];
-                var categoryValue = collection["CategoryID"];
-                var levelValue = collection["LevelID"];
 
-                var image = collection["Image"];
-                //HttpPostedFileBase image;
-                var content = Request.Unvalidated.Form.Get("Content");
-                var discussion = collection["Discussion"];
-                var exercise = collection["Exercise"];
-                var answer = collection["Answer"];
 
-                Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
-                Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
+            var title = collection["Title"];
+            var categoryValue = collection["CategoryID"];
+            var levelValue = collection["LevelID"];
+
+            var image = collection["Image"];
+            //HttpPostedFileBase image;
+            var content = Request.Unvalidated.Form.Get("Content");
+            var discussion = collection["Discussion"];
+            var exercise = collection["Exercise"];
+            var answer = collection["Answer"];
+
+            Guid categoryID = categories.Where(x => x.Name.Equals(categoryValue)).First().ID;
+            Guid levelID = levels.Where(x => x.Value.Equals(Int32.Parse(levelValue))).First().ID;
 
 
 
@@ -157,56 +158,57 @@ namespace EnglishForKid.Areas.Teacher.Controllers
             {
                 using (var content1 = new MultipartFormDataContent())
                 {
-
-
-                    byte[] Bytes = new byte[lesson1.ImageFile.InputStream.Length + 1];
-                    lesson1.ImageFile.InputStream.Read(Bytes, 0, Bytes.Length);
-                    var fileContent = new ByteArrayContent(Bytes);
-                    fileContent.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment") { FileName = lesson1.ImageFile.FileName };
-                    content1.Add(fileContent);
-                    var requestUri = "http://localhost:50828/PostImage";
-                    var result1 = client.PostAsync(requestUri, content1).Result;
-                    if (result1.StatusCode == System.Net.HttpStatusCode.Created)
+                    if (lesson1.ImageFile != null)
                     {
-                        List<string> m = result1.Content.ReadAsAsync<List<string>>().Result;
-                        image = m[0];
-                        ViewBag.Success = m.FirstOrDefault();
+                        byte[] Bytes = new byte[lesson1.ImageFile.InputStream.Length + 1];
+                        lesson1.ImageFile.InputStream.Read(Bytes, 0, Bytes.Length);
+                        var fileContent = new ByteArrayContent(Bytes);
+                        fileContent.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment") { FileName = lesson1.ImageFile.FileName };
+                        content1.Add(fileContent);
+                        var requestUri = "http://localhost:50828/PostImage";
+                        var result1 = client.PostAsync(requestUri, content1).Result;
+                        if (result1.StatusCode == System.Net.HttpStatusCode.Created)
+                        {
+                            List<string> m = result1.Content.ReadAsAsync<List<string>>().Result;
+                            image = m[0];
+                            ViewBag.Success = m.FirstOrDefault();
 
-                    }
-                    else
-                    {
-                        ViewBag.Failed = "Failed !" + result1.Content.ToString();
+                        }
+                        else
+                        {
+                            ViewBag.Failed = "Failed !" + result1.Content.ToString();
+                        }
                     }
                 }
             }
 
-                Lesson lesson = new Lesson
-                {
-                    ID = id,
-                    CreateAt = DateTime.Now,
-                    Tag = "",
-                    ApplicationUserID = Request.Cookies["Id"].Value,
-                    Title = title,
-                    CategoryID = categoryID,
-                    LevelID = levelID,
-                    Image = image,
-                    Content = content,
-                    Discussion = discussion,
-                    Exercise = exercise,
-                    Answer = answer
-                };
+            Lesson lesson = new Lesson
+            {
+                ID = id,
+                CreateAt = DateTime.Now,
+                Tag = "",
+                ApplicationUserID = Request.Cookies["Id"].Value,
+                Title = title,
+                CategoryID = categoryID,
+                LevelID = levelID,
+                Image = image,
+                Content = content,
+                Discussion = discussion,
+                Exercise = exercise,
+                Answer = answer
+            };
 
-                var result = lessonDataStore.UpdateItemAsync(lesson).Result;
-                if (result)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    return View("Index");
-                }
+            var result = lessonDataStore.UpdateItemAsync(lesson).Result;
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(lesson);
+            }
 
-           
+
         }
 
         // POST: Teacher/Lesson/Delete/5

@@ -72,6 +72,31 @@ namespace identity.Controllers
             }
         }
 
+        [Route("postfile")]
+        public IHttpActionResult PostFile()
+        {
+            IHttpActionResult result = null;
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count > 0)
+            {
+                var files = new List<string>();
+                foreach (string file in httpRequest.Files)
+                {
+                    var postedFile = httpRequest.Files[file];
+                    var filePath = HttpContext.Current.Server.MapPath("~/Content/" + postedFile.FileName);
+                    postedFile.SaveAs(filePath);
+
+                    files.Add(filePath);
+                }
+                result = Ok();
+            }
+            else
+            {
+                result = BadRequest();
+            }
+            return result;
+        }
+
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
         public IHttpActionResult GetUsers()

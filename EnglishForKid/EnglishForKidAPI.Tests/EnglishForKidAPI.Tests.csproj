@@ -100,6 +100,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnglishForKidAPI\EnglishForKidAPI.csproj">
+      <Project>{778B7248-1268-4DFC-BD5D-D5D3D4FA5714}</Project>
+      <Name>EnglishForKidAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

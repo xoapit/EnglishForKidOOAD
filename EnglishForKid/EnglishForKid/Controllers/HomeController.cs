@@ -29,7 +29,7 @@ namespace EnglishForKid.Controllers
         public ActionResult Index()
         {
             LessonDataStore lessonDataStore = new LessonDataStore();
-            
+
             return View();
         }
 
@@ -91,11 +91,34 @@ namespace EnglishForKid.Controllers
             var result = viewCountDataStore.GetCountAsync().Result;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         public ActionResult GetLesson()
         {
             LessonDataStore lessonDataStore = new LessonDataStore();
             var result = lessonDataStore.GetItemsAsync().Result;
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetActiveSurvey()
+        {
+            QuestionSurveyDataStore questionSurveyDataStore = new QuestionSurveyDataStore();
+            string activeQuestion = questionSurveyDataStore.GetActiveQuestion().Result;
+            return Json(activeQuestion, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult PostResult(FormCollection form)
+        {
+            string questionSurveyID = form.Get("QuestionSurveyID");
+            string answerID = form.Get("AnswerID");
+            Result result = new Result()
+            {
+                ID = Guid.NewGuid(),
+                QuestionSurveyID = Guid.Parse(questionSurveyID),
+                Answer = answerID
+            };
+            ResultDataStore resultDataStore = new ResultDataStore();
+            bool res = resultDataStore.AddItemAsync(result).Result;
+            return Json(res, JsonRequestBehavior.AllowGet);
         }
     }
 }

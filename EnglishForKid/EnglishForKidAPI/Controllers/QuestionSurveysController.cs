@@ -63,6 +63,11 @@ namespace EnglishForKidAPI.Controllers
             return Ok(questionSurvey);
         }
 
+        public IHttpActionResult GetResultOfSurvey()
+        {
+            QuestionSurvey questionSurvey = db.QuestionSurveys.FirstOrDefault(p => p.Status == true);
+        }
+
         // PUT: api/QuestionSurveys/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutQuestionSurvey(Guid id, QuestionSurvey questionSurvey)

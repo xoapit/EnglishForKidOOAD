@@ -29,7 +29,7 @@ namespace EnglishForKid.Areas.Admin.Controllers
 
         public ActionResult GetActiveQuestion(Guid id)
         {
-            QuestionSurvey questionSurvey = questionSurveyDataStore.GetActiveQuestion()?.Result;
+            string questionSurvey = questionSurveyDataStore.GetActiveQuestion()?.Result;
             return Json(new { questionSurvey }, JsonRequestBehavior.AllowGet);
         }
 

@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EnglishForKidAPI;
 using EnglishForKidAPI.Controllers;
+using System.Collections.Generic;
+using EnglishForKidAPI.Models;
+using System.Linq;
 
 namespace EnglishForKidAPI.Tests.Controllers
 {
@@ -12,14 +15,14 @@ namespace EnglishForKidAPI.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            FeedbacksController controller = new FeedbacksController();
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            List<Feedback> feedbacks = controller.GetFeedbacks().ToList();
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual("Home Page", result.ViewBag.Title);
+            Assert.IsNotNull(feedbacks);
+            //Assert.AreEqual("Home Page", result.ViewBag.Title);
         }
     }
 }
