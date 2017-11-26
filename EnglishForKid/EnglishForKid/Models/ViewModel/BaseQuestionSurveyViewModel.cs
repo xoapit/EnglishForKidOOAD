@@ -15,5 +15,10 @@ namespace EnglishForKid.Models.ViewModels
         {
             get { return Status ? "Active" : "InActive"; }
         }
+        public bool GetAction
+        {
+            get { return Status ? true : false; }
+        }
+
     }
 }

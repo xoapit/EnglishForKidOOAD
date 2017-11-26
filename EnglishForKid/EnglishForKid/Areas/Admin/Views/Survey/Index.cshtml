@@ -44,7 +44,7 @@
                             <td>
                                 <button type="button" class="detailQuestion btn btn-info" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
                                 <button type="Submit" class="updateQuestion btn btn-success" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                                <button type="Submit" class="activeQuestion btn btn-primary" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                                <button type="Submit" class="activeQuestion btn btn-primary" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey" disable="@baseQuestion.GetAction">Active</button>
                                 <button type="Submit" class="deleteQuestion btn btn-danger" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
                             </td>
 
