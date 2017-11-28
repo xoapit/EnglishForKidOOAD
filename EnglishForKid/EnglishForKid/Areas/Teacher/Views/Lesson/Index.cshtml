@@ -25,7 +25,10 @@
     <!-- /.box-header -->
     <div class="box-body padding-large">
         <div class="col-md-12">
-            <a href="/Teacher/Lesson/Create" class="add-lesson btn btn-primary pull-right margin-bottom">Add</a>
+            <a href="/Teacher/Lesson/Create" class="add-lesson btn btn-primary pull-right margin-bottom">
+                <span class="fa fa-plus"></span>
+            Add New Lesson
+            </a>
         </div>
 
         <table id="myLessonTable" class="table table-bordered table-responsive table-hover text-center">
@@ -42,7 +45,7 @@
                     <th hidden>Answer</th>
                     <th hidden>Discussion</th>
                     <th hidden>ApplicationUserID</th>
-                    <th hidden>CrateAt</th>
+                    <th>CrateAt</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -50,17 +53,13 @@
 
             <tbody>
                 @{
-                    //int i = 1;
-
-                    //foreach (Lesson lessons in ViewBag.Lessons)
-                    //{
                     List<Lesson> lessons = ViewBag.Lessons;
                     for (int i = 0; i < lessons.Count; i++)
                     {
                         int index = i + 1;
 
                         <tr>
-                            <td>@i</td>
+                            <td>@index</td>
                             <td>@lessons.ElementAt(i).Title</td>
                             <td hidden>@lessons.ElementAt(i).LevelID</td>
                             <td hidden>@lessons.ElementAt(i).Image</td>
@@ -72,7 +71,7 @@
                             <td hidden>@lessons.ElementAt(i).Answer</td>
                             <td hidden>@lessons.ElementAt(i).Discussion</td>
                             <td hidden>@lessons.ElementAt(i).ApplicationUserID</td>
-                            <td hidden>@lessons.ElementAt(i).CreateAt.ToString("dd/MMM/yyyy")</td>
+                            <td>@lessons.ElementAt(i).CreateAt.ToString("dd/MMM/yyyy")</td>
                             <td>
 
                                 <button type="button" class="view-lesson btn btn-primary" data-lesson-id="@lessons.ElementAt(i).ID" data-toggle="modal" data-target="#myModalDetailLesson">Detail</button>

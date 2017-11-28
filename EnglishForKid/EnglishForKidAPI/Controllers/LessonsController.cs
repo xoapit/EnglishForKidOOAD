@@ -180,8 +180,8 @@ namespace EnglishForKidAPI.Controllers
             return Ok(lesson);
         }
 
-        [Authorize]
         // DELETE: api/Lessons/5
+        [Route("api/Lessons")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult DeleteLesson(Guid id)
         {

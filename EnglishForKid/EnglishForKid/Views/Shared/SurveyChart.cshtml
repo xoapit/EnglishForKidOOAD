@@ -9,6 +9,19 @@
 
 <script>
     $(document).ready(function () {
+        var url = "/Home/GetActualResult";
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: {
+            },
+            success: function (data) {
+                var result = JSON.parse(data);
+            },
+            fail: function (data) {
+                alert("Can not load. Error!!!");
+            }
+        });
         var config = {
             type: 'doughnut',
             data: {

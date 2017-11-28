@@ -120,5 +120,12 @@ namespace EnglishForKid.Controllers
             bool res = resultDataStore.AddItemAsync(result).Result;
             return Json(res, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetActualResult()
+        {
+            QuestionSurveyDataStore questionSurveyDataStore = new QuestionSurveyDataStore();
+            var result = questionSurveyDataStore.GetActualSurveyResult().Result;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }
