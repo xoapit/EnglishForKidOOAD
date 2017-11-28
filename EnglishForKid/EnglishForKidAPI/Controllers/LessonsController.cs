@@ -181,7 +181,8 @@ namespace EnglishForKidAPI.Controllers
         }
 
         // DELETE: api/Lessons/5
-        [Route("api/Lessons")]
+        [HttpDelete]
+        [Route("api/lessons/{id}")]
         [ResponseType(typeof(Lesson))]
         public IHttpActionResult DeleteLesson(Guid id)
         {

@@ -12,16 +12,13 @@
             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                 <i class="fa fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
         </div>
     </div>
     <div class="box-body padding-large">
         <div class="col-md-12"><h2 style="text-align:center;" class="text-success" id="textNotice"></h2></div>
-        <button type="Submit" class="btn btn-primary  margin-bottom" data-toggle="modal" data-target="#myModalAddSurvey">Add new survey question</button>
+        <button type="Submit" class="btn btn-primary  margin-bottom pull-right" data-toggle="modal" data-target="#myModalAddSurvey">Add new survey question</button>
 
         <table class="table table-bordered text-center table-responsive table-hover">
-
-
             <thead>
                 <tr align="center" style="">
                     <th>No.</th>
@@ -42,12 +39,20 @@
                             <td>@baseQuestion.CreateAt.ToString("dd/MMM/yyy hh:mm:ss")</td>
                             <td>@baseQuestion.GetStatus</td>
                             <td>
-                                <button type="button" class="detailQuestion btn btn-info" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>
+                                @*<button hidden type="button" class="detailQuestion btn btn-info" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDetailSurvey">Detail</button>*@
                                 <button type="Submit" class="updateQuestion btn btn-success" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalUpdateSurvey">Update</button>
-                                <button type="Submit" class="activeQuestion btn btn-primary" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey" disable="@baseQuestion.GetAction">Active</button>
+                                @{
+                                    if (baseQuestion.Status)
+                                    {
+                                        <button disabled type="Submit" class="activeQuestion btn btn-primary" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="Submit" class="activeQuestion btn btn-primary" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalActiveSurvey">Active</button>
+                                    }
+                                }
                                 <button type="Submit" class="deleteQuestion btn btn-danger" data-question-id="@baseQuestion.ID" data-toggle="modal" data-target="#myModalDeleteSurvey">Delete</button>
                             </td>
-
                         </tr>
                         i++;
                     }
@@ -225,10 +230,10 @@
                 <div class="form-group row">
                     <div class="col-md-9 col-xs-12"></div>
                     <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-success" id="deleteQuestion">Yes</button>
+                        <button type="button" class="btn btn-success" style="margin-right:10px" id="deleteQuestion">Yes</button>
                     </div>
                     <div class="col-md-1 col-xs-12">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-danger" style="margin-right:10px" data-dismiss="modal">No</button>
                     </div>
 
                     <div class="col-md-1 col-xs-12"></div>

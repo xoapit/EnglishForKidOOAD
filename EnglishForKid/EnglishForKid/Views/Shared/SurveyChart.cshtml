@@ -9,6 +9,7 @@
 
 <script>
     $(document).ready(function () {
+        var myData= [];
         var url = "/Home/GetActualResult";
         $.ajax({
             type: 'post',
@@ -16,22 +17,31 @@
             data: {
             },
             success: function (data) {
-                var result = JSON.parse(data);
+                var result = data;
+                arr = result.Results;
+                var dt = arr;
+                var total = 0;
+                $.each(arr, function () {
+                    total += this;
+                });
+                for (var i = 0; i < arr.length; i++) {
+                    dt[i] = dt[i] / total * 100;
+                    myData[i] = dt[i];
+                }
+                initChart(dt);
             },
             fail: function (data) {
-                alert("Can not load. Error!!!");
             }
         });
+        
+    });
+
+    function initChart(myData) {
         var config = {
             type: 'doughnut',
             data: {
                 datasets: [{
-                    data: [
-                        20,
-                        10,
-                        50,
-                        20
-                    ],
+                    data: myData,
                     backgroundColor: [
                         "#F7464A",
                         "#46BFBD",
@@ -52,5 +62,5 @@
         };
         var ctx = document.getElementById("myChart").getContext("2d");
         window.myDoughnut = new Chart(ctx, config);
-    });
+    }
 </script>

@@ -63,7 +63,7 @@ namespace EnglishForKidAPI.Controllers
             return Ok(questionSurvey);
         }
 
-        [HttpPost]
+        [HttpGet]
         [ResponseType(typeof(ActualSurveyResult))]
         [Route("api/QuestionSurvey/actualResult")]
         public IHttpActionResult GetResultOfSurvey()
@@ -210,6 +210,7 @@ namespace EnglishForKidAPI.Controllers
         }
 
         // DELETE: api/QuestionSurveys/5
+        [HttpDelete]
         [Route("api/QuestionSurveys/{id}")]
         [ResponseType(typeof(QuestionSurvey))]
         public IHttpActionResult DeleteQuestionSurvey(Guid id)
